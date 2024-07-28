@@ -1,0 +1,41 @@
+{
+  "height": 30,
+  "spacing": 4,
+  "modules-left": [
+    // "custom/quicklinks",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "tray",
+    "wireplumber",
+    "backlight",
+    "network",
+    "cpu",
+    "memory",
+    "battery",
+    "clock"
+  ],
+  "hyprland/window": {
+    "format": "{title}",
+    "seperate-outputs": true,
+    "rewrite": {
+      "(.*)[ \t\r\n]+": "$1"
+    }
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "empty": "",
+      "default": "",
+      "urgent": "",
+      "special": "󰠱"
+    },
+    "persistent-workspaces": {
+      "*": 5
+    }
+  }
+}
