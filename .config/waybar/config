@@ -13,6 +13,7 @@
     "wireplumber",
     "backlight",
     "network",
+    "bluetooth",
     "cpu",
     "memory",
     "battery",
@@ -36,6 +37,20 @@
     },
     "persistent-workspaces": {
       "*": 5
-    }
+    },
+    "on-scroll-up": "hyprctl dispatch workspace +1 > /dev/null",
+    "on-scroll-down": "hyprctl dispatch workspace -1 > /dev/null"
+  },
+  "wireplumber": {
+    "format": "{icon} <span rise=\"2pt\">{volume}</span>",
+    "format-muted": "<span size=\"xx-large\"></span>",
+    "format-icons": [
+      "<span size=\"xx-large\"></span>",
+      "<span size=\"xx-large\"></span>",
+      "<span size=\"xx-large\"></span>",
+    ],
+    "on-click": "qpwgraph",
+    "on-scroll-up": "~/.local/scripts/volume_up.sh",
+    "on-scroll-down": "~/.local/scripts/volume_down.sh"
   }
 }
