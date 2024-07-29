@@ -4,4 +4,7 @@ wallpaper="/home/liyua/.local/share/wallpapers/$(ls ~/.local/share/wallpapers | 
 
 wal -t -i "$wallpaper"
 swww img --transition-type none "$wallpaper"
-.local/scripts/update-mako.sh
+waybar
+mako
+.local/scripts/mako_setup.sh
+.local/scripts/waybar_setup.sh

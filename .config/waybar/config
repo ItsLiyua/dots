@@ -134,7 +134,7 @@
   "memory": {
     "interval": 1,
     "format": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{percentage}</span>",
-    "format-alt": "<span size=\"xx-large\"></span> <span rise=\"2.5pt\">{used}GiB/{total}GiB</span>",
+    "format-alt": "<span size=\"xx-large\"></span> <span rise=\"2.5pt\">{used:0.1f}G/{total:0.1f}G</span>",
     "on-click-right": "kitty btop"
   },
   "battery": {
