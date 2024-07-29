@@ -2,11 +2,16 @@
   "height": 30,
   "spacing": 4,
   "modules-left": [
-    // "custom/quicklinks",
-    "hyprland/window"
+    "custom/terminal",
+    "custom/fileexplorer",
+    "custom/browser",
+    // "custom/steam",
+    "custom/discord",
+    "hyprland/window",
   ],
   "modules-center": [
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "privacy"
   ],
   "modules-right": [
     "tray",
@@ -17,13 +22,41 @@
     "cpu",
     "memory",
     "battery",
-    "clock"
+    "clock",
+    "custom/power",
   ],
+  "custom/terminal": {
+    "format": "<span size=\"xx-large\"></span>", // 
+    "tooltip-format": "Terminal Emulator",
+    "on-click": "kitty"
+  },
+  "custom/fileexplorer": {
+    "format": "<span size=\"xx-large\">󰉖</span>",
+    "tooltip-format": "File Explorer",
+    "on-click": "dolphin"
+  },
+  "custom/browser": {
+    "format": "<span size=\"xx-large\">󰖟</span>",
+    "tooltip-format": "Web Browser",
+    "on-click": "librewolf"
+  },
+  "custom/steam": {
+    "format": "<span size=\"xx-large\"></span>", // 
+    "tooltip-format": "Steam",
+    "on-click": "steam-runtime"
+  },
+  "custom/discord": {
+    "format": "<span size=\"xx-large\"></span>",
+    "tooltip-format": "Discord",
+    "on-click": "vesktop"
+  },
   "hyprland/window": {
     "format": "{title}",
     "seperate-outputs": true,
     "rewrite": {
-      "(.*)[ \t\r\n]+": "$1"
+      "\\s*(.*)\\s+": "$1", // Remove trailing whitespace
+      "\\s*": "liyua@endurance", // Set title when no windows are present
+      ".* — LibreWolf": "LibreWolf",
     }
   },
   "hyprland/workspaces": {
@@ -41,11 +74,30 @@
     "on-scroll-up": "hyprctl dispatch workspace +1 > /dev/null",
     "on-scroll-down": "hyprctl dispatch workspace -1 > /dev/null"
   },
+  "privacy": {
+    "icon-size": 14,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      }
+    ]
+  },
+  "tray": {
+    "spacing": 6
+  },
   "wireplumber": {
     "format": "<span size=\"xx-large\">{icon}</span> <span rise=\"2pt\">{volume}</span>",
     "format-muted": "<span size=\"xx-large\"></span>",
     "format-icons": [ "", "", "" ],
-    "on-click": "qpwgraph",
+    "on-click": "pamixer -t",
+    "on-click-right": "qpwgraph",
     "on-scroll-up": "~/.local/scripts/volume_up.sh",
     "on-scroll-down": "~/.local/scripts/volume_down.sh"
   },
@@ -96,5 +148,12 @@
     "interval": 1,
     "format": "<span size=\"xx-large\"></span> <span rise=\"2pt\">{:%H:%M:%S}</span>",
     "format-alt": "<span size=\"xx-large\"></span> <span rise=\"2pt\">{:%F}</span>",
+  },
+  "custom/power": {
+    "format": "<span size=\"xx-large\"></span>",
+    "tooltip-format": "Power Options",
+    "on-click": "wlogout",
+    "on-double-click": "doas shutdown now",
+    "on-triple-click": "doas reboot now"
   }
 }

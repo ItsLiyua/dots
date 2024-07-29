@@ -1,7 +1,7 @@
 @import url('file:///home/liyua/.cache/wal/colors-waybar.css');
 
 * {
-	font-family: "FiraCode Nerd Font Mono";
+	font-family: "JetBrainsMono Nerd Font Mono";
 	font-size: 12px;
 	min-height: 0;
 }
@@ -66,6 +66,14 @@ tooltip {
 	padding-left: 15px;
 	padding-right: 15px;
 	border-radius: 15px;
+}
+
+#privacy {
+	color: @color1;
+	margin: 4px 0 4px 0;
+	background: @background;
+	border-radius: 15px;
+	padding: 0 9px 0 9px;
 }
 
 
