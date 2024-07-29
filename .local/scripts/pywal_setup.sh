@@ -2,5 +2,6 @@
 
 wallpaper="/home/liyua/.local/share/wallpapers/$(ls ~/.local/share/wallpapers | shuf -n 1)"
 
-wal -t -i "$wallpaper"&
+wal -t -i "$wallpaper"
 swww img --transition-type none "$wallpaper"
+.local/scripts/update-mako.sh

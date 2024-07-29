@@ -19,6 +19,7 @@ tooltip {
 	background: @background;
 	border-radius: 15px;
 	padding: 0 9px 0 9px;
+	transition-duration: .25s;
 }
 
 .modules-left {
@@ -33,6 +34,15 @@ tooltip {
 .modules-right {
 	color: @color1;
 	margin-right: 10px;
+}
+
+#custom-terminal:hover,
+#custom-fileexplorer:hover,
+#custom-browser:hover,
+#custom-discord:hover,
+#custom-steam:hover {
+	background-color: @color1;
+	color: @background;
 }
 
 #window label {

@@ -103,5 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias grub-customizer="xhost +SI:localuser:root; doas grub-customizer; xhost -SI:localuser:root"
+alias v="vim"
 
 pfetch
