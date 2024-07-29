@@ -1,0 +1,42 @@
+@import url('../../.cache/wal/wofi-pywal.css');
+
+* {
+	font-family: "JetBrainsMono Nerd Font Mono";
+	font-size: 16px;
+}
+
+#window {
+	background-color: @background;
+	border-style: solid;
+	border-width: 2px;
+	border-color: @color1;
+}
+
+#outer-box {
+	margin: 10px;
+}
+
+#entry {
+	background-color: @background;
+}
+
+#entry:selected {
+	background-color: @color1;
+}
+
+#text {
+	color: @color1;
+}
+
+#text:selected {
+	color: @background;
+	border: none;
+}
+
+#input, #input:selected {
+	background-color: @color2;
+	color: @background;
+	border-radius: 0;
+	border-width: 0;
+}
+

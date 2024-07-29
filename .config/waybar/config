@@ -111,7 +111,8 @@
   "network": {
     "interval": 1,
     "format": "{ifname}",
-    "format-wifi": "<span size=\"xx-large\">{icon}</span> <span rise=\"2.5pt\">{essid}</span>",
+    // "format-wifi": "<span size=\"xx-large\">{icon}</span> <span rise=\"2.5pt\">{essid}</span>",
+    "format-wifi": "<span size=\"xx-large\">{icon}</span>",
     "format-ethernet": "<span size=\"xx-large\"></span> <span rise=\"2.5pt\">{ifname}</span>",
     "format-disconnected": "<span size=\"xx-large\">󰖪</span>",
     "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
