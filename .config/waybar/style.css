@@ -20,7 +20,7 @@ tooltip {
 	border-radius: 15px;
 	padding: 0 9px 0 9px;
 	transition-duration: .25s;
-	min-width: 14px;
+	min-width: 15px;
 }
 
 .modules-left {
@@ -44,6 +44,10 @@ tooltip {
 #custom-steam:hover {
 	background-color: @color1;
 	color: @background;
+}
+
+#window {
+	min-width: 14px;
 }
 
 #window label {

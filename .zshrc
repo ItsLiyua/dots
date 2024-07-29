@@ -109,6 +109,7 @@ source ~/.cache/wal/colors-tty.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias grub-customizer="xhost +SI:localuser:root; doas grub-customizer; xhost -SI:localuser:root"
+alias clear="clear; pfetch"
 alias v="vim"
 
 pfetch

@@ -33,7 +33,7 @@
   "custom/fileexplorer": {
     "format": "<span size=\"xx-large\">󰉖</span>",
     "tooltip-format": "File Explorer",
-    "on-click": "dolphin"
+    "on-click": "nautilus"
   },
   "custom/browser": {
     "format": "<span size=\"xx-large\">󰖟</span>",
