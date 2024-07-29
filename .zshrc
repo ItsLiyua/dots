@@ -70,9 +70,14 @@ ZSH_THEME="fwalch"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux git)
+plugins=(aliases archlinux git)
 
 source $ZSH/oh-my-zsh.sh
+
+# Load pywal colors
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
+
 
 # User configuration
 

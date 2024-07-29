@@ -20,6 +20,7 @@ tooltip {
 	border-radius: 15px;
 	padding: 0 9px 0 9px;
 	transition-duration: .25s;
+	min-width: 14px;
 }
 
 .modules-left {
