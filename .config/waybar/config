@@ -93,7 +93,7 @@
     "spacing": 6
   },
   "wireplumber": {
-    "format": "<span size=\"xx-large\">{icon}</span> <span rise=\"2pt\">{volume}</span>",
+    "format": "<span size=\"xx-large\">{icon}</span> <span rise=\"3pt\">{volume}</span>",
     "format-muted": "<span size=\"xx-large\"></span>",
     "format-icons": [ "", "", "" ],
     "on-click": "pamixer -t",
@@ -103,7 +103,7 @@
   },
   "backlight": {
     "device": "amdgpu_bl0",
-    "format": "<span size=\"xx-large\">{icon}</span> <span rise=\"2pt\">{percent}</span>",
+    "format": "<span size=\"xx-large\">{icon}</span> <span rise=\"2.5pt\">{percent}</span>",
     "format-icons": [ "", "", "", "", "", "", "", "", "", "",  "", "", "" ],
     "on-scroll-up": "brightnessctl -q set +1%",
     "on-scroll-down": "brightnessctl -q set 1%-"
@@ -111,30 +111,30 @@
   "network": {
     "interval": 1,
     "format": "{ifname}",
-    "format-wifi": "<span size=\"xx-large\">{icon}</span> <span rise=\"2pt\">{essid}</span>",
-    "format-ethernet": "<span size=\"xx-large\"></span> <span rise=\"2pt\">{ifname}</span>",
+    "format-wifi": "<span size=\"xx-large\">{icon}</span> <span rise=\"2.5pt\">{essid}</span>",
+    "format-ethernet": "<span size=\"xx-large\"></span> <span rise=\"2.5pt\">{ifname}</span>",
     "format-disconnected": "<span size=\"xx-large\">󰖪</span>",
     "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
     "on-click": "kitty nmtui"
   },
   "bluetooth": {
     "format-on": "<span size=\"large\">󰂯</span>",
-    "format-off": "<span size=\"large\">󰂲</span>",
-    "format-disabled": "<span size=\"large\">󰂲</span>",
+    "format-off": "<span size=\"x-large\">󰂲</span>",
+    "format-disabled": "<span size=\"x-large\">󰂲</span>",
     "format-connected": "<span size=\"x-large\">󰂱</span> {device_alias}",
     "on-click-right": "kitty bluetuith",
     "on-click": "~/.local/scripts/bt_toggle.sh"
   },
   "cpu": {
     "interval": 1,
-    "format": "<span size=\"x-large\"></span> <span rise=\"0.5pt\">{usage}</span>",
-    "format-alt": "<span size=\"x-large\"></span> <span rise=\"0.5pt\">{avg_frequency}GHz</span>",
+    "format": "<span size=\"x-large\"></span> <span rise=\"2pt\">{usage}</span>",
+    "format-alt": "<span size=\"x-large\"></span> <span rise=\"2pt\">{avg_frequency}GHz</span>",
     "on-click-right": "kitty btop"
   },
   "memory": {
     "interval": 1,
-    "format": "<span size=\"xx-large\"></span> <span rise=\"2pt\">{percentage}</span>",
-    "format-alt": "<span size=\"xx-large\"></span> <span rise=\"2pt\">{used}GiB/{total}GiB</span>",
+    "format": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{percentage}</span>",
+    "format-alt": "<span size=\"xx-large\"></span> <span rise=\"2.5pt\">{used}GiB/{total}GiB</span>",
     "on-click-right": "kitty btop"
   },
   "battery": {
@@ -146,8 +146,8 @@
   },
   "clock": {
     "interval": 1,
-    "format": "<span size=\"xx-large\"></span> <span rise=\"2pt\">{:%H:%M:%S}</span>",
-    "format-alt": "<span size=\"xx-large\"></span> <span rise=\"2pt\">{:%F}</span>",
+    "format": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{:%H:%M:%S}</span>",
+    "format-alt": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{:%F}</span>",
   },
   "custom/power": {
     "format": "<span size=\"xx-large\"></span>",
