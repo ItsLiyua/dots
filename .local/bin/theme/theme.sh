@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Wallpaper
 wallpaper="/home/liyua/.local/share/wallpapers/$(ls ~/.local/share/wallpapers | shuf -n 1)"
 
 ~/.local/bin/theme/swww.sh "$wallpaper"&

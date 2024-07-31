@@ -2,4 +2,4 @@
 
 killall swww-daemon
 swww-daemon
-swww img --transition-type none $@
+swww img --transition none "$@"
