@@ -7,7 +7,7 @@
     "custom/browser",
     // "custom/steam",
     "custom/discord",
-    "hyprland/window",
+    "hyprland/window"
   ],
   "modules-center": [
     "hyprland/workspaces",
@@ -23,40 +23,40 @@
     "memory",
     "battery",
     "clock",
-    "custom/power",
+    "custom/power"
   ],
   "custom/terminal": {
     "format": "<span size=\"xx-large\"></span>", // 
     "tooltip-format": "Terminal Emulator",
-    "on-click": "kitty"
+    "on-click": "~/.local/bin/apps/terminal.sh"
   },
   "custom/fileexplorer": {
     "format": "<span size=\"xx-large\">󰉖</span>",
     "tooltip-format": "File Explorer",
-    "on-click": "nautilus"
+    "on-click": "~/.local/bin/apps/fileexplorer.sh"
   },
   "custom/browser": {
     "format": "<span size=\"xx-large\">󰖟</span>",
     "tooltip-format": "Web Browser",
-    "on-click": "librewolf"
+    "on-click": "~/.local/bin/apps/browser.sh"
   },
   "custom/steam": {
     "format": "<span size=\"xx-large\"></span>", // 
     "tooltip-format": "Steam",
-    "on-click": "steam-runtime"
+    "on-click": "~/.local/bin/apps/steam.sh"
   },
   "custom/discord": {
     "format": "<span size=\"xx-large\"></span>",
     "tooltip-format": "Discord",
-    "on-click": "vesktop"
+    "on-click": "~/.local/bin/apps/discord.sh"
   },
   "hyprland/window": {
     "format": "{title}",
     "seperate-outputs": true,
     "rewrite": {
       "\\s*(.*)\\s+": "$1", // Remove trailing whitespace
-      "\\s*": "liyua@endurance", // Set title when no windows are present
-      ".* — LibreWolf": "LibreWolf",
+      "\\s*": "${USER}@${HOST}", // Set title when no windows are present
+      ".* — LibreWolf": "LibreWolf"
     }
   },
   "hyprland/workspaces": {
@@ -98,15 +98,15 @@
     "format-icons": [ "", "", "" ],
     "on-click": "pamixer -t",
     "on-click-right": "qpwgraph",
-    "on-scroll-up": "~/.local/scripts/volume_up.sh",
-    "on-scroll-down": "~/.local/scripts/volume_down.sh"
+    "on-scroll-up": "~/.local/bin/volume/volume_up.sh",
+    "on-scroll-down": "~/.local/bin/volume/volume_down.sh"
   },
   "backlight": {
     "device": "amdgpu_bl0",
     "format": "<span size=\"xx-large\">{icon}</span> <span rise=\"2.5pt\">{percent}</span>",
     "format-icons": [ "", "", "", "", "", "", "", "", "", "",  "", "", "" ],
-    "on-scroll-up": "brightnessctl -q set +1%",
-    "on-scroll-down": "brightnessctl -q set 1%-"
+    "on-scroll-up": "~/.local/bin/brightness/brightness_up.sh",
+    "on-scroll-down": "~/.local/bin/brightness/brightness_down.sh"
   },
   "network": {
     "interval": 1,
@@ -115,45 +115,45 @@
     "format-ethernet": "<span size=\"xx-large\"></span>",
     "format-disconnected": "<span size=\"xx-large\">󰖪</span>",
     "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
-    "on-click": "kitty nmtui"
+    "on-click": "~/.local/bin/apps/terminal.sh nmtui"
   },
   "bluetooth": {
     "format-on": "<span size=\"large\">󰂯</span>",
     "format-off": "<span size=\"x-large\">󰂲</span>",
     "format-disabled": "<span size=\"x-large\">󰂲</span>",
     "format-connected": "<span size=\"x-large\">󰂱</span> {device_alias}",
-    "on-click-right": "kitty bluetuith",
-    "on-click": "~/.local/scripts/bt_toggle.sh"
+    "on-click-right": "~/.local/bin/bt/bt_gui.sh",
+    "on-click": "~/.local/bin/bt/bt_toggle.sh"
   },
   "cpu": {
     "interval": 1,
     "format": "<span size=\"x-large\"></span> <span rise=\"2pt\">{usage}</span>",
     "format-alt": "<span size=\"x-large\"></span> <span rise=\"2pt\">{avg_frequency}GHz</span>",
-    "on-click-right": "kitty btop"
+    "on-click-right": "~/.local/bin/apps/sysmon.sh"
   },
   "memory": {
     "interval": 1,
     "format": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{percentage}</span>",
     "format-alt": "<span size=\"xx-large\"></span> <span rise=\"2.5pt\">{used:0.1f}G/{total:0.1f}G</span>",
-    "on-click-right": "kitty btop"
+    "on-click-right": "~/.local/bin/apps/sysmon.sh"
   },
   "battery": {
     "interval": 1,
     "format": "<span size=\"large\">{icon}</span> {capacity}",
     "format-charging": "<span size=\"large\">󰂄</span> {capacity}",
     "format-icons": [ "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ],
-    "on-click": "kitty battop"
+    "on-click": "~/.local/bin/apps/batmon.sh"
   },
   "clock": {
     "interval": 1,
     "format": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{:%H:%M:%S}</span>",
-    "format-alt": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{:%F}</span>",
+    "format-alt": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{:%F}</span>"
   },
   "custom/power": {
     "format": "<span size=\"xx-large\"></span>",
     "tooltip-format": "Power Options",
-    "on-click": "wlogout",
-    "on-double-click": "doas shutdown now",
-    "on-triple-click": "doas reboot now"
+    "on-click": "~/.local/bin/power/menu.sh",
+    "on-double-click": "~/.local/bin/power/shutdown.sh",
+    "on-triple-click": "~/.local/bin/power/reboot.sh"
   }
 }
