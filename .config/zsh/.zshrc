@@ -1,3 +1,9 @@
+HISTFILE="$XDG_STATE_HOME"/zsh/history
+# Completion files: Use XDG dirs
+[ -d "$XDG_CACHE_HOME"/zsh ] || mkdir -p "$XDG_CACHE_HOME"/zsh
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
+# compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -72,6 +78,7 @@ ZSH_THEME="fwalch"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(aliases archlinux git)
 
+export ZSH_COMPDUMP=$XDG_CACHE_HOME/.zcompdump-$HOST
 source $ZSH/oh-my-zsh.sh
 
 # Load pywal colors
@@ -110,7 +117,8 @@ source ~/.cache/wal/colors-tty.sh
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias grub-customizer="xhost +SI:localuser:root; doas grub-customizer; xhost -SI:localuser:root"
 alias clear="clear; pfetch"
-alias v="vim"
+alias v="nvim"
 alias yaypurge="yay -Rns $(yaorph -q)"
+alias rm="trash-put" # Controversial I know
 
 pfetch
