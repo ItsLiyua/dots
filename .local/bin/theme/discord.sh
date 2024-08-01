@@ -1,4 +1,4 @@
 #!/bin/bash
 
-pywal-discord -p .config/vesktop/themes
+pywal-discord -dp ~/.config/vesktop/themes
 

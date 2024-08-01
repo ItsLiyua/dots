@@ -1,21 +1,16 @@
-HISTFILE="$XDG_STATE_HOME"/zsh/history
-
-# Completion files: Use XDG dirs
-[ -d "$XDG_CACHE_HOME"/zsh ] || mkdir -p "$XDG_CACHE_HOME"/zsh
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
-# compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
-
-# If you come from bash you might have to change your $PATH.
+# If you come from bash yoh might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+HISTFILE="$HOME/.cache/.zsh_history"
+
 # Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$ZDOTDIR/ohmyzsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="fwalch"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -79,13 +74,9 @@ ZSH_THEME="fwalch"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(aliases archlinux git)
 
-export ZSH_COMPDUMP=$XDG_CACHE_HOME/.zcompdump-$HOST
 source $ZSH/oh-my-zsh.sh
 
-# Load pywal colors
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
-
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.toml)"
 
 # User configuration
 
@@ -115,11 +106,6 @@ source ~/.cache/wal/colors-tty.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias grub-customizer="xhost +SI:localuser:root; doas grub-customizer; xhost -SI:localuser:root"
-alias clear="clear; pfetch"
-alias v="nvim"
-alias yaypurge="yay -Rns $(yaorph -q)"
-alias rm="trash-put" # Controversial I know
-
-pfetch
+alias v='nvim'
+alias rm='trash-put'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' 

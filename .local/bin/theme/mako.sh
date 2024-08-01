@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp ~/.cache/wal/mako.conf ~/.config/mako/config
+cp -p ~/.cache/wal/mako.conf ~/.config/mako/config
 
 if [ $(pidof mako) ]; then
 	makoctl reload

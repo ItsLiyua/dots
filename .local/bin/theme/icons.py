@@ -44,6 +44,9 @@ with open(os.path.expanduser('~/.cache/wal/colors.yml')) as f:
         if lowest == -1 or diff < lowest:
             lowest = diff
     print("Colorscheme: " + diffs[lowest])
-    subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "icon-theme", "Tela-" + diffs[lowest]])
-
+subprocess.run(["gsettings", "set", "org.gnome.desktop.interface", "icon-theme", "Tela-" + diffs[lowest]])
+with open(os.path.expanduser('~/.config/qt6ct/qt6ct.conf.template'), 'r') as src:
+    with open(os.path.expanduser('~/.config/qt6ct/qt6ct.conf'), 'w') as target:
+        for line in src.read():
+            target.write(line.replace('{icon_theme}', 'Tela-' + diffs[lowest]))
 
