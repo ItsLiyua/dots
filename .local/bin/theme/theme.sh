@@ -1,6 +1,11 @@
 #!/bin/bash
 
-wallpaper="/home/liyua/.local/share/wallpapers/$(ls ~/.local/share/wallpapers | shuf -n 1)"
+if [ -z "$1" ]; then
+	wallpaper="/home/liyua/.local/share/wallpapers/$(ls ~/.local/share/wallpapers | shuf -n 1)"
+else 
+	wallpaper="$1"
+fi
+
 
 ~/.local/bin/theme/swww.sh "$wallpaper"&
 
