@@ -1,2 +1,4 @@
 #!/bin/bash
-vesktop&
+
+vesktop --ozone-platform=wayland --enable-features=UseOzonePlatform "$@" &
+

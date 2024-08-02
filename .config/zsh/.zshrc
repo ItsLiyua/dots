@@ -110,5 +110,6 @@ alias v='nvim'
 alias rm='trash-put'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' 
 alias clear='clear; pfetch'
+alias grub-customizer='xhost +SI:localuser:root; doas grub-customizer; xhost -SI:localuser:root'
 
 pfetch
