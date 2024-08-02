@@ -111,17 +111,17 @@
   "network": {
     "interval": 1,
     "format": "{ifname}",
-    "format-wifi": "<span size=\"xx-large\">{icon}</span>",
-    "format-ethernet": "<span size=\"xx-large\"></span>",
+    "format-wifi": "<span size=\"xx-large\">{icon}</span> <span rise=\"3.5pt\">{ifname}</span>",
+    "format-ethernet": "<span size=\"xx-large\"></span> <span rise=\"3.5pt\">{ifname}</span>",
     "format-disconnected": "<span size=\"xx-large\">󰖪</span>",
     "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
-    "on-click": "~/.local/bin/apps/terminal.sh nmtui"
+    "on-click": "~/.local/bin/apps/netcfg.sh"
   },
   "bluetooth": {
     "format-on": "<span size=\"large\">󰂯</span>",
     "format-off": "<span size=\"x-large\">󰂲</span>",
     "format-disabled": "<span size=\"x-large\">󰂲</span>",
-    "format-connected": "<span size=\"x-large\">󰂱</span> {device_alias}",
+    "format-connected": "<span size=\"x-large\">󰂱</span> <span rise=\"1pt\">{device_alias}</span>",
     "on-click-right": "~/.local/bin/bt/bt_gui.sh",
     "on-click": "~/.local/bin/bt/bt_toggle.sh"
   },
