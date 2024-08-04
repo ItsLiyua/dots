@@ -13,9 +13,9 @@
     --avatar-size: 32px;
     --background-image: url('https://i.imgur.com/7SbtKvw.png');
     --home-image: url('https://i.imgur.com/233d55Y.gif');
-    --background-solid: {background};
-    --background-solid-dark: var(--background-solid);
-    --background-solid-darker: var(--background-solid-dark);
+    --background-solid: rgba(min({background.red} * 1.1, 255), min({background.green} * 1.1, 255), min({background.blue} * 1.1, 255), {alpha};
+    --background-solid-dark: rgba({background.red}, {background.green}, {background.blue}, {alpha};
+    --background-solid-darker: rgba({background.red} * 0.9, {background.green} * 0.9, {background.blue} * 0.9, {alpha};
     --accent: {color1};
     --accent-alt: {color2};
 }}
