@@ -4,7 +4,7 @@ mkdir -p ~/.config/mako
 cp ~/.cache/wal/mako.conf ~/.config/mako/config
 
 if [ $(pidof mako) ]; then
-	makoctl reload
+	makoctl reload &
 	echo "Mako already running."
 else
 	mako&

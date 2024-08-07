@@ -6,4 +6,4 @@ if [ ! $(pidof swww-daemon) ]; then
 else
 	echo "SWWW already running."
 fi
-swww img --transition-type none --transition-duration 0 "$@"
+swww img --transition-type none --transition-duration 0 "$@" &
