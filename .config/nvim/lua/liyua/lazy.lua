@@ -12,7 +12,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("liyua.plugins", {
+require("lazy").setup({ { import = "liyua.plugins" }, { import = "liyua.plugins.lsp" } }, {
   checker = {
     enabled = true,
     notify = false,
