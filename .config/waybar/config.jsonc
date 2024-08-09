@@ -96,7 +96,7 @@
   "wireplumber": {
     "format": "<span size=\"xx-large\">{icon}</span> <span rise=\"3pt\">{volume}</span>",
     "format-muted": "<span size=\"xx-large\"></span>",
-    "format-icons": [ "", "", "" ],
+    "format-icons": [ "", "", "" ],
     "tooltip": true,
     "tooltip-format": "Output: {node_name}",
     "on-click": "pamixer -t",
