@@ -68,7 +68,9 @@
       "special": "󰠱"
     },
     "persistent-workspaces": {
-      "*": 5
+      "DP-3": [ 1, 2, 3, 4, 5, 6 ],
+      "eDP-1": [ 1, 2, 3, 4, 5, 6 ],
+      "HDMI-A-1": [ 11, 12, 13, 14, 15, 16 ]
     },
     "tooltip": false,
     "on-scroll-up": "hyprctl dispatch workspace +1 > /dev/null",
