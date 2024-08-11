@@ -5,7 +5,10 @@ return {
   opts = {
     options = {
       mode = "buffers",
-      seperator_style = "slant",
+      separator_style = { "", "" },
+      indicator = {
+        style = "underline",
+      },
       offsets = {
         {
           filetype = "NvimTree",
@@ -15,5 +18,10 @@ return {
         }
       },
     },
+    highlights = {
+      separator_selected = {
+        sp = "#FF0000"
+      }
+    }
   },
 }
