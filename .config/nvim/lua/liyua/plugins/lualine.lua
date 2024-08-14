@@ -4,7 +4,7 @@ return {
   config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status")
-    
+
     lualine.setup({
       options = {
         theme = "pywal16-nvim",
