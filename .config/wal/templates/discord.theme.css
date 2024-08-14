@@ -1,28 +1,21 @@
 /**
-  * @name Dark+
-  * @author DevEvil#8745
-  * @version Dark+3
-  * @description Highly customized dark and purple theme for Discord
-  * @authorId 468132563714703390
-  * @authorLink https://devevil.com
-  * @source https://github.com/DevEvil99/DarkPlus-Discord-Theme
-  * @website https://devevil.com
-  * @invite jsQ9UP7kCA
+ * @name Dark Matter
+ * @author Tropical#8908, Hammock#3110
+ * @version 3.0.0
+ * @description A cold, dark & frosty theme.
+ * @source https://github.com/DiscordStyles/DarkMatter/
 */
 
-@import url('https://devevil99.github.io/devevil/BetterDiscordAddons/Theme/Dark+/Dark+.theme.css');
+@import url('https://DiscordStyles.github.io/DarkMatter/src/base.css');
 
+/* Variables */
 :root {{
-  --darkplus-bg: {background};
-  --darkplus-bg2: rgb({background.red} * 255 * 1.1, {background.green} * 255 * 1.1, {background.blue} * 255 * 1.1);
-  --darkplus-sec: {color1};
-  --darkplus-links: {color2};
-  --darkplus-home-icon: url(https://devevil.com/betterdiscord/dark%2b-logo.png);
- --watermark-filter-invert: 0%;
-  --watermark-filter-sepia: 50%;
-  --watermark-filter-saturate: 3000%;
-  --watermark-filter-hue-rotate: 210deg;
-  --watermark-filter-brightness: 70%;
-  --watermark-filter-contrast: 200%;
-  --darkplus-emoji-picker-color: 0deg;
+    --avatar-size: 32px;
+    --background-image: url('https://i.imgur.com/7SbtKvw.png');
+    --home-image: url('https://i.imgur.com/233d55Y.gif');
+    --background-solid: {background};
+    --background-solid-dark: rgb(calc({background.red} * 0.9), calc({background.green} * 0.9), calc({background.blue} * 0.9));
+    --background-solid-darker: rgb(calc({background.red} * 0.8), calc({background.green} * 0.8), calc({background.blue} * 0.8));
+    --accent: {color1.rgb};
+    --accent-alt: {color2.rgb};
 }}
