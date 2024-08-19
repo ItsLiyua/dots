@@ -15,7 +15,7 @@ return {
       formatters_by_ft = {
         python = { "isort", "black" },
       },
-      format_on_save = format_opts
+      -- format_on_save = format_opts
     })
 
     vim.keymap.set({ "n", "v" }, "<leader>mp", function()

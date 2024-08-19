@@ -20,5 +20,4 @@ wal -t -i "$wallpaper"
 ~/.local/bin/theme/hyprland.sh&
 ~/.local/bin/theme/pywalfox.sh&
 ~/.local/bin/theme/discord.sh&
-~/.local/bin/theme/zathura.sh&
 

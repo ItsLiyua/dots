@@ -1,6 +1,7 @@
 {
   "height": 30,
   "spacing": 4,
+  "reload_style_on_change": true,
   "modules-left": [
     "custom/terminal",
     "custom/fileexplorer",
@@ -14,6 +15,7 @@
   ],
   "modules-right": [
     "tray",
+    "custom/theme",
     "wireplumber",
     "backlight",
     "network",
@@ -94,6 +96,12 @@
   "tray": {
     "spacing": 6,
     "tooltip": false
+  },
+  "custom/theme":{
+    "format": "<span size=\"x-large\"></span>",
+    "tooltip": "Display theme settings",
+    "on-click": "~/.local/bin/theme/theme.sh&",
+    "on-click-right": "~/.local/bin/theme/theme_switcher.sh&"
   },
   "wireplumber": {
     "format": "<span size=\"xx-large\">{icon}</span> <span rise=\"3pt\">{volume}</span>",
