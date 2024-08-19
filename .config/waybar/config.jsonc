@@ -99,7 +99,7 @@
   },
   "custom/theme":{
     "format": "<span size=\"x-large\"></span>",
-    "tooltip": "Display theme settings",
+    "tooltip-format": "Display theme settings",
     "on-click": "~/.local/bin/theme/theme.sh&",
     "on-click-right": "~/.local/bin/theme/theme_switcher.sh&"
   },
@@ -167,8 +167,7 @@
   "clock": {
     "interval": 1,
     "format": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{:%H:%M:%S}</span>",
-    "tooltip": true,
-    "tooltop-format": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{:%F}</span>"
+    // "tooltop-format": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{:%F}</span>"
   },
   "custom/power": {
     "format": "<span size=\"xx-large\"></span>",
