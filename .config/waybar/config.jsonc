@@ -8,6 +8,7 @@
     "custom/browser",
     "custom/discord",
     "hyprland/window"
+    // "mpris"
   ],
   "modules-center": [
     "hyprland/workspaces",
@@ -60,13 +61,16 @@
     },
     "tooltip": false
   },
+  "mpris": {
+    "interval": 5
+  },
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
       "active": "",
       "empty": "",
-      "default": "",
-      "urgent": "",
+      "default": "",
+      "urgent": "󰠱",
       "special": "󰠱"
     },
     "persistent-workspaces": {
