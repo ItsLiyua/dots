@@ -8,6 +8,7 @@
     "custom/browser",
     "custom/discord",
     "hyprland/window"
+    // "mpris"
   ],
   "modules-center": [
     "hyprland/workspaces",
@@ -60,13 +61,16 @@
     },
     "tooltip": false
   },
+  "mpris": {
+    "interval": 5
+  },
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
       "active": "",
       "empty": "",
-      "default": "",
-      "urgent": "",
+      "default": "",
+      "urgent": "󰠱",
       "special": "󰠱"
     },
     "persistent-workspaces": {
@@ -99,7 +103,7 @@
   },
   "custom/theme":{
     "format": "<span size=\"x-large\"></span>",
-    "tooltip": "Display theme settings",
+    "tooltip-format": "Display theme settings",
     "on-click": "~/.local/bin/theme/theme.sh&",
     "on-click-right": "~/.local/bin/theme/theme_switcher.sh&"
   },
@@ -167,8 +171,7 @@
   "clock": {
     "interval": 1,
     "format": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{:%H:%M:%S}</span>",
-    "tooltip": true,
-    "tooltop-format": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{:%F}</span>"
+    // "tooltop-format": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{:%F}</span>"
   },
   "custom/power": {
     "format": "<span size=\"xx-large\"></span>",
