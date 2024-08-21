@@ -37,7 +37,7 @@ with open(os.path.expanduser('~/.cache/wal/colors.yml')) as f:
         diff_h = abs(icon_hsv[0] - accent_hsv[0])
         diff_s = abs(icon_hsv[1] - accent_hsv[1])
         diff_v = abs(icon_hsv[2] - accent_hsv[2])
-        diff = diff_h * 8 + diff_s + diff_v * 2
+        diff = diff_h * 10 + diff_s * 2 + diff_v
         diffs[diff] = icons[icon]
     lowest = -1
     for diff in diffs.keys():
