@@ -1,8 +1,42 @@
-const clock = Variable("", {poll: [1000, 'date +%H:%M:%S']})
+const clock = Variable("", { poll: [1000, 'date +%H:%M:%S'] })
 
 function QuickLaunch() {
-  return Widget.Label({
-    label: 'Quicklaunch'
+  let hover = Variable('0')
+  return Widget.EventBox({
+    child: Widget.Box({
+      children: [
+        Widget.Button({
+          child: Widget.Label({
+            label: 'Launcher'
+          })
+        }),
+        Widget.Button({
+          child: Widget.Label({
+            label: 'Widget 1'
+          }),
+          visible: hover.bind().as(h => h !== '0')
+        }),
+        Widget.Button({
+          child: Widget.Label({
+            label: 'Widget 2'
+          })
+        }),
+        Widget.Button({
+          child: Widget.Label({
+            label: 'Widget 3'
+          })
+        })
+      ]
+    }), onHover: () => {
+      if (hover.value == "0") {
+        hover.value = "1"
+      }
+    },
+    onHoverLost: () => {
+      if (hover.value == "1") {
+        hover.value = "0"
+      }
+    }
   })
 }
 
@@ -44,19 +78,19 @@ function Volume() {
 
 function Brightness() {
   return Widget.Label({
-    label:'Brightness'
+    label: 'Brightness'
   })
 }
 
 function Wifi() {
   return Widget.Label({
-    label:'Wifi'
+    label: 'Wifi'
   })
 }
 
 function Bluetooth() {
   return Widget.Label({
-    label:'Bluetooth'
+    label: 'Bluetooth'
   })
 }
 
@@ -68,7 +102,7 @@ function CPU() {
 
 function Memory() {
   return Widget.Label({
-    label:'Memory'
+    label: 'Memory'
   })
 }
 
