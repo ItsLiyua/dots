@@ -1,26 +1,57 @@
-const time = Variable('', {
-  poll: [1000, function() {
-    return Date().toString()
-  }],
-})
+const clock = Variable("", {poll: [1000, 'date +%H:%M:%S']})
 
-const Bar = (/** @type {number} */ monitor) => Widget.Window({
-  monitor,
-  name: `bar${monitor}`,
-  anchor: ['top', 'left', 'right'],
-  exclusivity: 'exclusive',
-  child: Widget.CenterBox({
-    start_widget: Widget.Label({
-      hpack: 'center',
-      label: 'Welcome to AGS!',
+function Clock() {
+  return Widget.Label({
+    label: clock.bind()
+  })
+}
+
+// layout of the bar
+function Left() {
+  return Widget.Box({
+    spacing: 8,
+    children: [
+    ],
+  })
+}
+
+function Center() {
+  return Widget.Box({
+    spacing: 8,
+    children: [
+    ],
+  })
+}
+
+function Right() {
+  return Widget.Box({
+    hpack: "end",
+    spacing: 8,
+    children: [
+    ],
+  })
+}
+
+function Bar(monitor = 0) {
+  return Widget.Window({
+    name: `bar-${monitor}`, // name has to be unique
+    class_name: "bar",
+    monitor,
+    anchor: ["top", "left", "right"],
+    exclusivity: "exclusive",
+    child: Widget.CenterBox({
+      start_widget: Left(),
+      center_widget: Center(),
+      end_widget: Right(),
     }),
-    end_widget: Widget.Label({
-      hpack: 'center',
-      label: time.bind(),
-    }),
-  }),
-})
+  })
+}
 
 App.config({
-  windows: [Bar(0)],
+  style: "./style.css",
+  windows: [
+    Bar(),
+  ],
 })
+
+export { }
