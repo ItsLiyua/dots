@@ -20,4 +20,5 @@ wal -t -i "$wallpaper" > /dev/null
 ~/.local/bin/theme/pywalfox.sh > /dev/null &
 ~/.local/bin/theme/discord.sh > /dev/null &
 ~/.local/bin/theme/icons.py > /dev/null &
+~/.local/bin/theme/btop.sh > /dev/null &
 

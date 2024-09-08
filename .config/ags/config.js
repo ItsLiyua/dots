@@ -1,42 +1,39 @@
+
 const clock = Variable("", { poll: [1000, 'date +%H:%M:%S'] })
 
 function QuickLaunch() {
-  let hover = Variable('0')
-  return Widget.EventBox({
-    child: Widget.Box({
-      children: [
-        Widget.Button({
-          child: Widget.Label({
-            label: 'Launcher'
-          })
+  let hover = Variable(false)
+  return Widget.Box({
+    spacing: 8,
+    homogeneous: false,
+    vertical: false,
+    children: [
+      Widget.Button({
+        child: Widget.Label('Button'),
+        onClicked: () => hover.setValue(!hover.getValue())
+      }),
+      Widget.Revealer({
+        revealChild: hover.bind(),
+        transitionDuration: 1000,
+        transition: 'slide_right',
+        child: Widget.Box({
+          children: [
+            Widget.Button({
+              child: Widget.Label("1"),
+              onClicked: () => print(1)
+            }),
+            Widget.Button({
+              child: Widget.Label("2"),
+              onClicked: () => print(2)
+            }),
+            Widget.Button({
+              child: Widget.Label("2"),
+              onClicked: () => print(2)
+            }),
+          ]
         }),
-        Widget.Button({
-          child: Widget.Label({
-            label: 'Widget 1'
-          }),
-          visible: hover.bind().as(h => h !== '0')
-        }),
-        Widget.Button({
-          child: Widget.Label({
-            label: 'Widget 2'
-          })
-        }),
-        Widget.Button({
-          child: Widget.Label({
-            label: 'Widget 3'
-          })
-        })
-      ]
-    }), onHover: () => {
-      if (hover.value == "0") {
-        hover.value = "1"
-      }
-    },
-    onHoverLost: () => {
-      if (hover.value == "1") {
-        hover.value = "0"
-      }
-    }
+      })
+    ]
   })
 }
 
