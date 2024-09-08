@@ -52,12 +52,13 @@
     "on-click": "~/.local/bin/apps/discord.sh"
   },
   "hyprland/window": {
-    "format": "{title}",
+    "format": "<span rise=\"\">{title}</span>",
     "seperate-outputs": true,
     "rewrite": {
       "\\s*(.*)\\s+": "$1", // Remove trailing whitespace
       "\\s*": "${USER}@${HOST}", // Set title when no windows are present
-      ".* — LibreWolf": "LibreWolf"
+      ".* — LibreWolf": "LibreWolf",
+      ".*• Discord.*": "Discord"
     },
     "tooltip": false
   },
