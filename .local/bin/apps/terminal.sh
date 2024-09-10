@@ -1,3 +1,3 @@
 #!/bin/bash
 # kitty $@ &
-foot $@ &
+foot -a term $@ &
