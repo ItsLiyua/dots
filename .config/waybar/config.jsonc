@@ -171,9 +171,9 @@
   },
   "clock": {
     "interval": 1,
-    "timezone": "",
     "format": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{:%H:%M:%S}</span>",
-    // "tooltop-format": "<span size=\"xx-large\"></span> <span rise=\"3pt\">{:%F}</span>"
+    "format-alt": "<span size=\"xx-large\">󰃭</span> <span rise=\"3pt\">{:%d-%m-%Y}</span>",
+    "tooltip": false
   },
   "custom/power": {
     "format": "<span size=\"xx-large\"></span>",
