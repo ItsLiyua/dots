@@ -102,6 +102,8 @@ eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.toml)"
 # - $ZSH_CUSTOM/aliases.zsh
 # - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
+
+eval "$(zoxide init zsh)"
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -112,5 +114,6 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias clear='clear; pfetch'
 alias grub-customizer='xhost +SI:localuser:root; doas grub-customizer; xhost -SI:localuser:root'
 alias xroot='~/.local/bin/utils/xroot.sh'
+alias cd="z"
 
 pfetch

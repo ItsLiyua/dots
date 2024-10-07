@@ -1,3 +1,3 @@
 #!/bin/bash
-# kitty $@ &
-foot -a term $@ &
+kitty --class=term $@ &
+# foot -a term $@ &
