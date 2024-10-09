@@ -63,9 +63,9 @@
 
 	/* mention/ping and message colors */
 	--mention-txt: var(--acc-0); /* color of mention text. */
-	--mention-bg: color-mix(in oklch, var(--acc-0), transparent 90%); /* background highlight of mention text. */
+	--mention-bg: color-mix(in oklch, var(--purple-1), transparent 90%); /* background highlight of mention text. */
 	--mention-overlay: color-mix(in oklch, var(--acc-0), transparent 90%); /* overlay color of messages that mention you. */
-	--mention-hover-overlay: color-mix(in oklch, var(--acc-0), transparent 95%); /* overlay color of messages that mention you when hovered. */
+	--mention-hover-overlay: color-mix(in oklch, var(--purple-1), transparent 95%); /* overlay color of messages that mention you when hovered. */
 	--reply-overlay: var(--active); /* overlay color of message you are replying to. */
 	--reply-hover-overlay: var(--hover); /* overlay color of message you are replying to when hovered. */
 
