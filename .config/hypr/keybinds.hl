@@ -1,9 +1,9 @@
 $mainMod = SUPER
 
-bind = $mainMod, T, exec, $terminal
-bind = $mainMod, E, exec, $fileManager
-bind = $mainMod, F, exec, $browser
-bind = $mainMod, A, exec, $menu
+bind = $mainMod, T, exec, ~/.local/bin/programs/terminal.sh
+bind = $mainMod, E, exec, ~/.local/bin/programs/fileManager.sh
+bind = $mainMod, F, exec, ~/.local/bin/programs/browser.sh
+bind = $mainMod, A, exec, ~/.local/bin/programs/launcher.sh
 bind = $mainMod, Q, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, V, togglefloating,
@@ -58,3 +58,5 @@ bindl = , XF86AudioNext, exec, playerctl next
 bindl = , XF86AudioPause, exec, playerctl play-pause
 bindl = , XF86AudioPlay, exec, playerctl play-pause
 bindl = , XF86AudioPrev, exec, playerctl previous
+
+bind = CTRL SHIFT, V, exec, ~/.local/bin/programs/clipboard_manager.sh

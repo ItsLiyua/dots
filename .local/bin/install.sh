@@ -9,11 +9,12 @@ makepkg -si
 
 doas yay -S \
   btop rocm-smi-lib \
-  ly cmake cpio cronie hyprland-git hyprpolkitagent-git xdg-desktop-portal-hyprland-git hyprsunset-git \
-  wallust imagemagick \
-  fzf npm ttf-jetbrains-mono-nerd zsh zoxide
+  ly cmake cpio hyprland-git hyprpolkitagent-git xdg-desktop-portal-hyprland-git \
+  cliphist wl-clipboard \
+  wallust imagemagick swww \
+  fzf npm ttf-jetbrains-mono-nerd zsh zoxide \
+  nautilus-share nautilus-image-converter nautilus
 
-systemctl enable --now cronie
 systemctl enable ly
 
 hyprpm update

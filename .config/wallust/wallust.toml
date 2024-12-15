@@ -5,3 +5,6 @@ check_contrast = true
 [templates]
 nvim.template = "nvim.vim"
 nvim.target = "~/.cache/wallust/colors_neopywal.vim"
+
+kitty.template = "kitty.conf"
+kitty.target = "~/.cache/wallust/kitty.conf"
