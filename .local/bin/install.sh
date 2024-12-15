@@ -9,8 +9,12 @@ makepkg -si
 
 doas yay -S \
   btop rocm-smi-lib \
-  cmake cpio hyprland-git hyprpolkitagent-git xdg-desktop-portal-hyprland-git \
+  ly cmake cpio cronie hyprland-git hyprpolkitagent-git xdg-desktop-portal-hyprland-git hyprsunset-git \
+  wallust imagemagick \
   fzf npm ttf-jetbrains-mono-nerd zsh zoxide
+
+systemctl enable --now cronie
+systemctl enable ly
 
 hyprpm update
 hyprpm add https://github.com/Duckonaut/split-monitor-workspaces -v

@@ -15,6 +15,28 @@ input {
   kb_layout = us
 }
 
+unbind = $mainMod, 1
+unbind = $mainMod, 2
+unbind = $mainMod, 3
+unbind = $mainMod, 4
+unbind = $mainMod, 5
+unbind = $mainMod, 6
+unbind = $mainMod, 7
+unbind = $mainMod, 8
+unbind = $mainMod, 9
+unbind = $mainMod, 0
+
+unbind = $mainMod SHIFT, 1
+unbind = $mainMod SHIFT, 2
+unbind = $mainMod SHIFT, 3
+unbind = $mainMod SHIFT, 4
+unbind = $mainMod SHIFT, 5
+unbind = $mainMod SHIFT, 6
+unbind = $mainMod SHIFT, 7
+unbind = $mainMod SHIFT, 8
+unbind = $mainMod SHIFT, 9
+unbind = $mainMod SHIFT, 0
+
 bind = $mainMod, 1, split-workspace, 1
 bind = $mainMod, 2, split-workspace, 2
 bind = $mainMod, 3, split-workspace, 3

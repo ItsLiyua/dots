@@ -1,0 +1,7 @@
+backend = "wal"
+palette = "dark16"
+check_contrast = true
+
+[templates]
+nvim.template = "nvim.vim"
+nvim.target = ~/.config/nvim/theme.vim
