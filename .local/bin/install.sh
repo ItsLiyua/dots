@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pacman -S zsh ttf-jetbrains-mono-nerd
+pacman -S fzf npm ttf-jetbrains-mono-nerd zsh zoxide
