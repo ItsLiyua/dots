@@ -1,3 +1,2 @@
 exec-once = hyprpm reload -nn
-exec-once = vesktop
-exec-once = steam-runtime
+exec-once = systemctl --user start hyprpolkitagent
