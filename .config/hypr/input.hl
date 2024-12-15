@@ -1,0 +1,16 @@
+input {
+  follow_mouse = 1
+  accel_profile = flat
+  left_handed = false
+
+  sensitivity = 0
+
+  touchpad {
+    natural_scroll = false
+  }
+}
+
+gestures {
+  workspace_swipe = false
+}
+

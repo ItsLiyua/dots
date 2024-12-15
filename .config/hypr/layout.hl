@@ -1,0 +1,15 @@
+general {
+  allow_tearing = false
+  resize_on_border = false
+  layout = dwindle
+}
+
+dwindle {
+  pseudotile = true
+  preserve_split = true
+}
+
+master {
+  new_status = master
+}
+
