@@ -4,4 +4,4 @@ check_contrast = true
 
 [templates]
 nvim.template = "nvim.vim"
-nvim.target = ~/.config/nvim/theme.vim
+nvim.target = "~/.cache/wallust/colors_neopywal.vim"
