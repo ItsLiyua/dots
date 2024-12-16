@@ -7,17 +7,17 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
-doas yay -S \
+yay -S \
   btop rocm-smi-lib \
   ly cmake cpio hyprland-git hyprpolkitagent-git xdg-desktop-portal-hyprland-git \
   cliphist wl-clipboard \
   wallust imagemagick swww \
-  fzf npm ttf-jetbrains-mono-nerd zsh zoxide \
+  kitty fzf npm ttf-jetbrains-mono-nerd zsh zoxide \
   nautilus-share nautilus-image-converter nautilus
 
 systemctl enable ly
 
-hyprpm update
-hyprpm add https://github.com/Duckonaut/split-monitor-workspaces -v
-hyprpm enable split-monitor-workspaces -v
-hyprpm reload
+# hyprpm update
+# hyprpm add https://github.com/Duckonaut/split-monitor-workspaces -v
+# hyprpm enable split-monitor-workspaces -v
+# hyprpm reload

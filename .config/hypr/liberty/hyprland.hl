@@ -1,0 +1,9 @@
+monitor=eDP-1,2560x1600@165,0x0,1.6
+
+input {
+  kb_layout = de
+}
+
+windowrulev2 = workspace 3 silent,class:vesktop
+windowrulev2 = workspace 4 silent,class:steam
+windowrulev2 = workspace 5 silent,class:steam_app_.*
