@@ -14,7 +14,8 @@ yay -S \
   wallust imagemagick swww \
   kitty fzf npm ttf-jetbrains-mono-nerd zsh zoxide \
   nautilus-share nautilus-image-converter nautilus \
-  bibata-cursor-git
+  bibata-cursor-git \
+  eww-git
 
 # systemctl enable ly
 
