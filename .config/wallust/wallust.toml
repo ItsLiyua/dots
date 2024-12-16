@@ -1,7 +1,7 @@
 backend = "wal"
 palette = "dark16"
 color_space = "lch"
-check_contrast = false
+check_contrast = true
 
 [templates]
 nvim.template = "nvim.vim"

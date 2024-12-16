@@ -13,7 +13,8 @@ yay -S \
   cliphist wl-clipboard \
   wallust imagemagick swww \
   kitty fzf npm ttf-jetbrains-mono-nerd zsh zoxide \
-  nautilus-share nautilus-image-converter nautilus
+  nautilus-share nautilus-image-converter nautilus \
+  bibata-cursor-git
 
 # systemctl enable ly
 

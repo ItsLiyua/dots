@@ -5,7 +5,7 @@ input {
 }
 
 xwayland {
-  force_zero_scaling = true
+  force_zero_scaling = false
 }
 
 env = GDK_SCALE,2
