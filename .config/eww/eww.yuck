@@ -1,11 +1,74 @@
+(defwidget launcher []
+  (box "Launcher")
+)
+
+(defwidget window []
+  (box "Window")
+)
+
+(defwidget music []
+  (box "Music")
+)
+
+(defwidget workspaces []
+  (box "Workspaces")
+)
+
+(defwidget tray []
+  (box "Systray")
+)
+
+(defwidget volume []
+  (box "Volume")
+)
+
+(defwidget brightness []
+  (box "brightness")
+)
+
+(defwidget network []
+  (box "Network")
+)
+
+(defwidget bluetooth []
+  (box "Bluetooth")
+)
+
+(defwidget clock []
+  (box "Clock")
+)
+
+(defwidget power []
+  (box "Power")
+)
+
 (defwidget left []
-  (box "Left")
+  (box
+    :halign "start"
+    (launcher)
+    (window)
+    (music)
+  )
 )
+
 (defwidget center []
-  (box "Center")
+  (box
+    :halign "center"
+    (workspaces)
+  )
 )
+
 (defwidget right []
-  (box "Right")
+  (box 
+    :halign "end"
+    (tray)
+    (volume)
+    (brightness)
+    (network)
+    (bluetooth)
+    (clock)
+    (power)
+  )
 )
 
 (defwindow bar
