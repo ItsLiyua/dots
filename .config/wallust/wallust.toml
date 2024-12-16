@@ -8,3 +8,6 @@ nvim.target = "~/.cache/wallust/colors_neopywal.vim"
 
 kitty.template = "kitty.conf"
 kitty.target = "~/.cache/wallust/kitty.conf"
+
+hypr.template = "hyprland.hl"
+hypr.target = "~/.cache/wallust/hyprland.hl"
