@@ -6,23 +6,31 @@
     :onhoverlost "eww update showLauncher=false"
     (box
       :space-evenly false
-      (box 
-        :class "revealer"
-        "Launcher"
+      :spacing 8
+      (box
+        :class "launcher"
+        "󰣇"
       )
       (revealer
         :transition "slideright"
         :reveal showLauncher
         :duration "500ms"
         (box
-          (box 
-            "Element 1"
+          :spacing 8
+          (button
+            :class "launcher-element"
+            :onclick "~/.local/bin/programs/terminal.sh"
+            ""
           )
-          (box 
-            "Element 2"
+          (button
+            :class "launcher-element"
+            :onclick "~/.local/bin/programs/fileManager.sh"
+            "󰉋"
           )
-          (box 
-            "Element 3"
+          (button
+            :class "launcher-element"
+            :onclick "~/.local/bin/programs/browser.sh"
+            "󰈹"
           )
         )
       )
@@ -31,7 +39,7 @@
 )
 
 (defwidget window []
-  (box :class "window" "Window")
+  (box :class "window" :spacing 8 "Window")
 )
 
 (defwidget music []
@@ -72,9 +80,10 @@
 
 (defwidget left []
   (box
+    :class "left"
     :halign "start"
     :space-evenly false
-    :spacing 0
+    :spacing 8
     (launcher)
     (window)
     (music)
@@ -83,16 +92,20 @@
 
 (defwidget center []
   (box
+    :class "center"
     :halign "center"
     :space-evenly false
+    :spacing 8
     (workspaces)
   )
 )
 
 (defwidget right []
-  (box 
+  (box
+    :class "right"
     :halign "end"
     :space-evenly false
+    :spacing 8
     (tray)
     (volume)
     (brightness)
@@ -108,7 +121,7 @@
   :geometry (geometry
     :x "0%"
     :y "0%"
-    :width "100%"
+    :width "99.5%"
     :height "30px"
     :anchor "top center"
   )
