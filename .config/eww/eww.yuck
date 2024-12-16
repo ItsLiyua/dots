@@ -1,9 +1,37 @@
+(defvar showLauncher false)
+
 (defwidget launcher []
-  (box "Launcher")
+  (eventbox
+    :onhover "eww update showLauncher=true"
+    :onhoverlost "eww update showLauncher=false"
+    (box
+      :space-evenly false
+      (box 
+        :class "revealer"
+        "Launcher"
+      )
+      (revealer
+        :transition "slideright"
+        :reveal showLauncher
+        :duration "500ms"
+        (box
+          (box 
+            "Element 1"
+          )
+          (box 
+            "Element 2"
+          )
+          (box 
+            "Element 3"
+          )
+        )
+      )
+    )
+  )
 )
 
 (defwidget window []
-  (box "Window")
+  (box :class "window" "Window")
 )
 
 (defwidget music []
@@ -45,6 +73,8 @@
 (defwidget left []
   (box
     :halign "start"
+    :space-evenly false
+    :spacing 0
     (launcher)
     (window)
     (music)
@@ -54,6 +84,7 @@
 (defwidget center []
   (box
     :halign "center"
+    :space-evenly false
     (workspaces)
   )
 )
@@ -61,6 +92,7 @@
 (defwidget right []
   (box 
     :halign "end"
+    :space-evenly false
     (tray)
     (volume)
     (brightness)
@@ -84,7 +116,6 @@
   :exclusive true
   (box
     :spacing 0
-    :halign "fill"
     :space-evenly true
       (left)
       (center)
