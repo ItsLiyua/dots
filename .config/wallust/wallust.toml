@@ -1,13 +1,14 @@
 backend = "wal"
 palette = "dark16"
-check_contrast = true
+color_space = "lch"
+check_contrast = false
 
 [templates]
 nvim.template = "nvim.vim"
 nvim.target = "~/.cache/wallust/colors_neopywal.vim"
 
 kitty.template = "kitty.conf"
-kitty.target = "~/.cache/wallust/kitty.conf"
+kitty.target = "~/.config/kitty/colors.conf"
 
 hypr.template = "hyprland.hl"
-hypr.target = "~/.cache/wallust/hyprland.hl"
+hypr.target = "~/.config/hypr/colors.hl"
