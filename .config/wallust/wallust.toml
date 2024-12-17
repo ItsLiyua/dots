@@ -15,3 +15,6 @@ hypr.target = "~/.config/hypr/colors.hl"
 
 btop.template = "btop.theme"
 btop.target = "~/.config/btop/themes/wallust.theme"
+
+css.template = "colors.css"
+css.target = "~/.cache/wallust/colors.css"
