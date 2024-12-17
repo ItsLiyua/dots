@@ -62,8 +62,8 @@ bind = $mainMod SHIFT, 0, split-movetoworkspacesilent, 10
 bind = $mainMod, Tab, focusmonitor, +1
 bind = $mainMod SHIFT, Tab, split-changemonitorsilent, next
 
-windowrulev2 = workspace 1 silent,class:(.*)Minecraft(.*)
-windowrulev2 = workspace 1 silent,class:steam_app_.*
+windowrulev2 = workspace 1,class:(.*)Minecraft(.*)
+windowrulev2 = workspace 1,class:steam_app_.*
 
 windowrulev2 = workspace 13 silent,class:vesktop
-windowrulev2 = workspace 14 silent,class:steam
+windowrulev2 = workspace 14 silent,class:^steam$

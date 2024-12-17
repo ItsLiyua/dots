@@ -1,5 +1,5 @@
-backend = "wal"
-palette = "dark16"
+backend = "resized"
+palette = "ansidark"
 color_space = "lch"
 check_contrast = true
 
@@ -12,3 +12,6 @@ kitty.target = "~/.config/kitty/colors.conf"
 
 hypr.template = "hyprland.hl"
 hypr.target = "~/.config/hypr/colors.hl"
+
+btop.template = "btop.theme"
+btop.target = "~/.config/btop/themes/wallust.theme"
