@@ -15,7 +15,8 @@ yay -S \
   kitty fzf npm ttf-jetbrains-mono-nerd zsh zoxide \
   nautilus-share nautilus-image-converter nautilus \
   bibata-cursor-git \
-  eww-git 
+  eww-git \
+  dunst
 
 # systemctl enable ly
 

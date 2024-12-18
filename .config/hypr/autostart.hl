@@ -1,4 +1,5 @@
 exec-once = hyprpm reload -nn
 exec-once = systemctl --user start hyprpolkitagent
 exec-once = wl-paste --watch cliphist store
+exec-once = dunst
 exec-once = ~/.local/bin/theme.sh
