@@ -54,8 +54,10 @@ export GPG_TTY=$(tty)
 
 alias v="nvim"
 alias c="clear"
+alias clear="clear; pfetch"
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias ls="ls --color"
 alias ll="ls -l"
 alias la="ll -a"
 
+pfetch

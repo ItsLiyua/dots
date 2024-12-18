@@ -1,0 +1,137 @@
+(defvar showLauncher false)
+
+(defwidget launcher []
+  (eventbox
+    :onhover "eww update showLauncher=true"
+    :onhoverlost "eww update showLauncher=false"
+    (box
+      :space-evenly false
+      :spacing 8
+      (box
+        :class "launcher"
+        "󰣇"
+      )
+      (revealer
+        :transition "slideright"
+        :reveal showLauncher
+        :duration "500ms"
+        (box
+          :spacing 8
+          (button
+            :class "launcher-element"
+            :onclick "~/.local/bin/programs/terminal.sh"
+            ""
+          )
+          (button
+            :class "launcher-element"
+            :onclick "~/.local/bin/programs/fileManager.sh"
+            "󰉋"
+          )
+          (button
+            :class "launcher-element"
+            :onclick "~/.local/bin/programs/browser.sh"
+            "󰈹"
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwidget window []
+  (box :class "window" :spacing 8 "Window")
+)
+
+(defwidget music []
+  (box "Music")
+)
+
+(defwidget workspaces []
+  (box "Workspaces")
+)
+
+(defwidget tray []
+  (box "Systray")
+)
+
+(defwidget volume []
+  (box "Volume")
+)
+
+(defwidget brightness []
+  (box "brightness")
+)
+
+(defwidget network []
+  (box "Network")
+)
+
+(defwidget bluetooth []
+  (box "Bluetooth")
+)
+
+(defwidget clock []
+  (box "Clock")
+)
+
+(defwidget power []
+  (box "Power")
+)
+
+(defwidget left []
+  (box
+    :class "left"
+    :halign "start"
+    :space-evenly false
+    :spacing 8
+    (launcher)
+    (window)
+    (music)
+  )
+)
+
+(defwidget center []
+  (box
+    :class "center"
+    :halign "center"
+    :space-evenly false
+    :spacing 8
+    (workspaces)
+  )
+)
+
+(defwidget right []
+  (box
+    :class "right"
+    :halign "end"
+    :space-evenly false
+    :spacing 8
+    (tray)
+    (volume)
+    (brightness)
+    (network)
+    (bluetooth)
+    (clock)
+    (power)
+  )
+)
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry
+    :x "0%"
+    :y "0%"
+    :width "99.5%"
+    :height "30px"
+    :anchor "top center"
+  )
+  :stacking "fg"
+  :exclusive true
+  (box
+    :spacing 0
+    :space-evenly true
+      (left)
+      (center)
+      (right)
+  )
+)
