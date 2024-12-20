@@ -7,30 +7,36 @@
     (box
       :space-evenly false
       :spacing 8
-      (box
-        :class "launcher"
-        "󰣇"
+      (label
+        :class "launcher-element"
+        :text "󰣇"
       )
       (revealer
         :transition "slideright"
         :reveal showLauncher
         :duration "500ms"
         (box
-          :spacing 8
+          :spacing 9
           (button
-            :class "launcher-element"
             :onclick "~/.local/bin/programs/terminal.sh"
-            ""
+            (label
+              :class "launcher-element"
+              :text ""
+            )
           )
           (button
-            :class "launcher-element"
             :onclick "~/.local/bin/programs/fileManager.sh"
-            "󰉋"
+            (label
+              :class "launcher-element"
+              :text "󰉋"
+            )
           )
           (button
-            :class "launcher-element"
             :onclick "~/.local/bin/programs/browser.sh"
-            "󰈹"
+            (label
+              :class "launcher-element"
+              :text "󰈹"
+            )
           )
         )
       )
@@ -68,6 +74,10 @@
 
 (defwidget bluetooth []
   (box "Bluetooth")
+)
+
+(defwidget battery []
+  (box "Battery")
 )
 
 (defwidget clock []
@@ -111,6 +121,7 @@
     (brightness)
     (network)
     (bluetooth)
+    (battery)
     (clock)
     (power)
   )
@@ -121,12 +132,13 @@
   :geometry (geometry
     :x "0%"
     :y "0%"
-    :width "99.5%"
+    :width "99%"
     :height "30px"
     :anchor "top center"
   )
   :stacking "fg"
   :exclusive true
+  :namespace "eww-bar"
   (box
     :spacing 0
     :space-evenly true
