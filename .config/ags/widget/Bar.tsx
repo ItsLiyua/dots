@@ -11,7 +11,7 @@ function Launcher(): JSX.Element {
     <label className="launcher" label="󰣇" />
     <revealer
       transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
-      revealChild={bind(launcherShow)}
+      revealChild={bind (launcherShow)}
       >
       </revealer>
   </eventbox>
