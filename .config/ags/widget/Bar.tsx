@@ -1,10 +1,16 @@
 import { bind } from "astal/binding"
 import { Astal, Gdk, Gtk } from "astal/gtk3"
+import { interval } from "astal/time"
 import Variable from "astal/variable"
 import Hyprland from "gi://AstalHyprland"
+import GLib from "gi://GLib"
 
 const hyprland = Hyprland.get_default()
 const launcherShow = Variable(false)
+const windowTitle = Variable("")
+
+interval(100, () => windowTitle.set(hyprland.get_focused_client().title))
+
 const workspacesForcedVisible = 6
 
 function Launcher(): JSX.Element {
@@ -20,30 +26,32 @@ function Launcher(): JSX.Element {
         transition_duration={500}
       >
         <box>
-          <button onClick="~/.local/bin/programs/terminal.sh">
+          <button onClick={GLib.get_home_dir() + "/.local/bin/programs/terminal.sh"}>
             <label className="launcher" label="" />
           </button>
-          <button onClick="~/.local/bin/programs/fileManager.sh">
+          <button onClick={GLib.get_home_dir() + "/.local/bin/programs/fileManager.sh"}>
             <label className="launcher" label="󰉋" />
           </button>
-          <button onClick="~/.local/bin/programs/browser.sh">
+          <button onClick={GLib.get_home_dir() + "/.local/bin/programs/browser.sh"}>
             <label className="launcher" label="󰈹" />
           </button>
         </box>
       </revealer>
-    </box>
-  </eventbox>
+    </box >
+  </eventbox >
 }
 
 function Window(): JSX.Element {
-  return <label label={hyprland.get_focused_client().title} />
+  return <label label={bind(windowTitle)} />
 }
 
 function Music(): JSX.Element { return <label label="Music" /> }
-function Workspaces(): JSX.Element {
-  let focused = hyprland.get_focused_workspace().id
+
+function Workspaces(monitor: Gdk.Monitor): JSX.Element {
   let workspaces = hyprland.get_workspaces()
-return <label label="Test" />
+  let active = hyprland.get_focused_workspace()
+  return <box>
+  </box>
 }
 
 function Tray(): JSX.Element { return <label label="Tray" /> }
