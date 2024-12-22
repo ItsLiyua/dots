@@ -1,5 +1,5 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3"
-import { Variable } from "astal"
+import { bind, Variable } from "astal"
 
 const launcherShow = Variable(false)
 
@@ -8,12 +8,26 @@ function Launcher(): JSX.Element {
     onHover={() => launcherShow.set(true)}
     onHoverLost={() => launcherShow.set(false)}
   >
-    <label className="launcher" label="󰣇" />
-    <revealer
-      transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
-      revealChild={bind (launcherShow)}
+    <box>
+      <label className="launcher" label="󰣇" />
+      <revealer
+        transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
+        revealChild={bind(launcherShow)}
+        transition_duration={500}
       >
+        <box>
+          <button onClick="~/.local/bin/programs/terminal.sh">
+            <label className="launcher" label="" />
+          </button>
+          <button onClick="~/.local/bin/programs/fileManager.sh">
+            <label className="launcher" label="󰉋" />
+          </button>
+          <button onClick="~/.local/bin/programs/browser.sh">
+            <label className="launcher" label="󰈹" />
+          </button>
+        </box>
       </revealer>
+    </box>
   </eventbox>
 }
 function Window(): JSX.Element { return <label label="Window" /> }

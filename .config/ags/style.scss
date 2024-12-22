@@ -11,3 +11,21 @@
 //         background: #{$theme_bg_color};
 //     }
 // }
+
+* {
+  all: unset;
+  font-family: "JetBrains Mono Nerd Font Mono";
+  font-size: 14px;
+}
+
+.launcher {
+  font-size: 21px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+.left {}
+
+.center {}
+
+.right {}
