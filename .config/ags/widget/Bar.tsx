@@ -1,7 +1,11 @@
-import { App, Astal, Gtk, Gdk } from "astal/gtk3"
-import { bind, Variable } from "astal"
+import { bind } from "astal/binding"
+import { Astal, Gdk, Gtk } from "astal/gtk3"
+import Variable from "astal/variable"
+import Hyprland from "gi://AstalHyprland"
 
+const hyprland = Hyprland.get_default()
 const launcherShow = Variable(false)
+const workspacesForcedVisible = 6
 
 function Launcher(): JSX.Element {
   return <eventbox
@@ -30,9 +34,18 @@ function Launcher(): JSX.Element {
     </box>
   </eventbox>
 }
-function Window(): JSX.Element { return <label label="Window" /> }
+
+function Window(): JSX.Element {
+  return <label label={hyprland.get_focused_client().title} />
+}
+
 function Music(): JSX.Element { return <label label="Music" /> }
-function Workspaces(): JSX.Element { return <label label="Workspaces" /> }
+function Workspaces(): JSX.Element {
+  let focused = hyprland.get_focused_workspace().id
+  let workspaces = hyprland.get_workspaces()
+return <label label="Test" />
+}
+
 function Tray(): JSX.Element { return <label label="Tray" /> }
 function Volume(): JSX.Element { return <label label="Volume" /> }
 function Brightness(): JSX.Element { return <label label="Brightness" /> }
@@ -46,7 +59,6 @@ function Left(): JSX.Element {
   return <box halign={Gtk.Align.START} hexpand>
     <Launcher />
     <Window />
-    <Music />
   </box>
 }
 function Center(): JSX.Element {
