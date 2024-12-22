@@ -6,9 +6,9 @@
     :onhoverlost "eww update showLauncher=false"
     (box
       :space-evenly false
-      :spacing 8
+      :spacing 0
       (label
-        :class "launcher-element"
+        :class "launcher"
         :text "󰣇"
       )
       (revealer
@@ -16,25 +16,25 @@
         :reveal showLauncher
         :duration "500ms"
         (box
-          :spacing 9
+          :spacing 0
           (button
             :onclick "~/.local/bin/programs/terminal.sh"
             (label
-              :class "launcher-element"
+              :class "launcher"
               :text ""
             )
           )
           (button
             :onclick "~/.local/bin/programs/fileManager.sh"
             (label
-              :class "launcher-element"
+              :class "launcher"
               :text "󰉋"
             )
           )
           (button
             :onclick "~/.local/bin/programs/browser.sh"
             (label
-              :class "launcher-element"
+              :class "launcher"
               :text "󰈹"
             )
           )
@@ -53,7 +53,7 @@
 )
 
 (defwidget workspaces []
-  (box "Workspaces")
+  (literal :content workspace)
 )
 
 (defwidget tray []
@@ -93,7 +93,7 @@
     :class "left"
     :halign "start"
     :space-evenly false
-    :spacing 8
+    :spacing 0
     (launcher)
     (window)
     (music)
@@ -105,7 +105,7 @@
     :class "center"
     :halign "center"
     :space-evenly false
-    :spacing 8
+    :spacing 0
     (workspaces)
   )
 )
@@ -115,7 +115,7 @@
     :class "right"
     :halign "end"
     :space-evenly false
-    :spacing 8
+    :spacing 0
     (tray)
     (volume)
     (brightness)

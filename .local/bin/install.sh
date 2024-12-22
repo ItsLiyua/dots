@@ -9,13 +9,13 @@
 #
 yay -S \
   btop rocm-smi-lib \
-  ly cmake cpio hyprland-git hyprpolkitagent-git xdg-desktop-portal-hyprland-git \
+  ly cmake cpio meson pkg-config hyprland-git hyprpolkitagent-git xdg-desktop-portal-hyprland-git \
   cliphist wl-clipboard \
   wallust imagemagick swww \
   kitty fzf npm ttf-jetbrains-mono-nerd zsh zoxide \
   nautilus-share nautilus-image-converter nautilus \
   bibata-cursor-git \
-  eww-git \
+  aylurs-gtk-shell \
   dunst
 
 # systemctl enable ly
