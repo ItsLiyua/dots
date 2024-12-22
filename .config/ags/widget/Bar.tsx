@@ -1,7 +1,21 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3"
 import { Variable } from "astal"
 
-function Launcher(): JSX.Element { return <label label="Launcher" /> }
+const launcherShow = Variable(false)
+
+function Launcher(): JSX.Element {
+  return <eventbox
+    onHover={() => launcherShow.set(true)}
+    onHoverLost={() => launcherShow.set(false)}
+  >
+    <label className="launcher" label="󰣇" />
+    <revealer
+      transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
+      revealChild={bind(launcherShow)}
+      >
+      </revealer>
+  </eventbox>
+}
 function Window(): JSX.Element { return <label label="Window" /> }
 function Music(): JSX.Element { return <label label="Music" /> }
 function Workspaces(): JSX.Element { return <label label="Workspaces" /> }
