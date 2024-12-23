@@ -1,8 +1,8 @@
 monitor=DP-3,3440x1440@144,0x0,1
 monitor=HDMI-A-1,1920x1080@60,-1920x0,1
 
-exec-once = hyprctl dispatch exec "[workspace 13 silent]" vesktop
-exec-once = hyprctl dispatch exec "[workspace 14 silent]" steam-runtime
+exec-once = vesktop
+exec-once = steam-runtime
 
 plugin {
   split-monitor-workspaces {
@@ -64,3 +64,6 @@ bind = $mainMod SHIFT, Tab, split-changemonitorsilent, next
 
 windowrulev2 = workspace 1,class:(.*)Minecraft(.*)
 windowrulev2 = workspace 1,class:steam_app_.*
+
+windowrulev2 = workspace 13 silent,class:vesktop
+windowrulev2 = workspace 14 silent,class:steam
