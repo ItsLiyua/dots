@@ -5,7 +5,7 @@ windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinn
 windowrulev2 = immediate, class:(.*)Minecraft(.*)
 windowrulev2 = immediate, class:steam_app_.*
 
-$opacity = 0.8
+$opacity = 0.9
 windowrulev2 = opacity $opacity, class:kitty
 windowrulev2 = opacity $opacity, class:vesktop
 windowrulev2 = opacity $opacity, class:^steam$

@@ -24,3 +24,5 @@ yay -S \
 # hyprpm add https://github.com/Duckonaut/split-monitor-workspaces -v
 # hyprpm enable split-monitor-workspaces -v
 # hyprpm reload
+
+ags types

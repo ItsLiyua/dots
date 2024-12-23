@@ -8,10 +8,14 @@ import GLib from "gi://GLib"
 const hyprland = Hyprland.get_default()
 const launcherShow = Variable(false)
 const windowTitle = Variable("")
+const workspacesPerMonitor = 10
 
-interval(100, () => windowTitle.set(hyprland.get_focused_client().title))
-
-const workspacesForcedVisible = 6
+interval(100, () => {
+  let client = hyprland.get_focused_client()
+  if (client == null) {
+    windowTitle.set("Arch Linux")
+  } else windowTitle.set(client.title)
+})
 
 function Launcher(): JSX.Element {
   return <eventbox
@@ -37,8 +41,8 @@ function Launcher(): JSX.Element {
           </button>
         </box>
       </revealer>
-    </box >
-  </eventbox >
+    </box>
+  </eventbox>
 }
 
 function Window(): JSX.Element {
@@ -47,11 +51,8 @@ function Window(): JSX.Element {
 
 function Music(): JSX.Element { return <label label="Music" /> }
 
-function Workspaces(monitor: Gdk.Monitor): JSX.Element {
-  let workspaces = hyprland.get_workspaces()
-  let active = hyprland.get_focused_workspace()
-  return <box>
-  </box>
+function Workspaces(): JSX.Element {
+  return <box />
 }
 
 function Tray(): JSX.Element { return <label label="Tray" /> }
@@ -67,6 +68,7 @@ function Left(): JSX.Element {
   return <box halign={Gtk.Align.START} hexpand>
     <Launcher />
     <Window />
+    <Music />
   </box>
 }
 function Center(): JSX.Element {
