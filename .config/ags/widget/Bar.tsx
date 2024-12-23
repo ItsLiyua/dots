@@ -8,7 +8,6 @@ import GLib from "gi://GLib"
 const hyprland = Hyprland.get_default()
 const launcherShow = Variable(false)
 const windowTitle = Variable("")
-const workspacesPerMonitor = 10
 
 interval(100, () => {
   let client = hyprland.get_focused_client()
@@ -52,7 +51,22 @@ function Window(): JSX.Element {
 function Music(): JSX.Element { return <label label="Music" /> }
 
 function Workspaces(): JSX.Element {
-  return <box />
+  function isVisible(n: number): boolean {
+    let ws = hyprland.get_workspace(n)
+    if (hyprland.get_focused_workspace().id === ws.id) return true
+    if (ws.get_monitor().get_id() != hyprland.get_focused_monitor().get_id()) return false
+    if (ws.id < 0) return false
+    if (ws.id % 10 >= 7 || ws.id % 10 == 0) return false
+
+    return true
+  }
+  return <box>
+    {hyprland.get_workspaces()
+      .filter(w => isVisible(w.id))
+      .sort((a, b) => a.id - b.id)
+      .map(w => <label label={"" + w.id + " "} />)
+    }
+  </box>
 }
 
 function Tray(): JSX.Element { return <label label="Tray" /> }
