@@ -3,6 +3,7 @@ monitor=HDMI-A-1,1920x1080@60,-1920x0,1
 
 exec-once = vesktop
 exec-once = steam-runtime
+exec-once = hyprctl dispatch exec "[workspace 11 silent] btop"
 
 plugin {
   split-monitor-workspaces {
