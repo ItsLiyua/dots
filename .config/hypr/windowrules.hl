@@ -11,4 +11,6 @@ windowrulev2 = opacity $opacity, class:vesktop
 windowrulev2 = opacity $opacity, class:^steam$
 
 layerrule = dimaround, wofi
-layerrule = blur, eww-bar
+layerrule = blur, ags-bar
+layerrule = blur, wofi
+
