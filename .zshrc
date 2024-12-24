@@ -40,11 +40,13 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
 
 bindkey -e
 
 export GPG_TTY=$(tty)
 
+alias cd="z"
 alias v="nvim"
 alias c="clear"
 alias clear="clear; pfetch"

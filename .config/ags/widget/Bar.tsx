@@ -4,6 +4,7 @@ import { interval } from "astal/time"
 import Variable from "astal/variable"
 import Hyprland from "gi://AstalHyprland"
 import GLib from "gi://GLib"
+import { Workspaces } from "./workspaces"
 
 const hyprland = Hyprland.get_default()
 const launcherShow = Variable(false)
@@ -50,25 +51,6 @@ function Window(): JSX.Element {
 
 function Music(): JSX.Element { return <label label="Music" /> }
 
-function Workspaces(): JSX.Element {
-  function isVisible(n: number): boolean {
-    let ws = hyprland.get_workspace(n)
-    if (hyprland.get_focused_workspace().id === ws.id) return true
-    if (ws.get_monitor().get_id() != hyprland.get_focused_monitor().get_id()) return false
-    if (ws.id < 0) return false
-    if (ws.id % 10 >= 7 || ws.id % 10 == 0) return false
-
-    return true
-  }
-  return <box>
-    {hyprland.get_workspaces()
-      .filter(w => isVisible(w.id))
-      .sort((a, b) => a.id - b.id)
-      .map(w => <label label={"" + w.id + " "} />)
-    }
-  </box>
-}
-
 function Tray(): JSX.Element { return <label label="Tray" /> }
 function Volume(): JSX.Element { return <label label="Volume" /> }
 function Brightness(): JSX.Element { return <label label="Brightness" /> }
@@ -85,9 +67,8 @@ function Left(): JSX.Element {
     <Music />
   </box>
 }
-function Center(): JSX.Element {
+function Center({monitor}:{monitor:Gdk.Monitor}): JSX.Element {
   return <box hexpand>
-    <Workspaces />
   </box>
 }
 function Right(): JSX.Element {
@@ -103,11 +84,11 @@ function Right(): JSX.Element {
   </box>
 }
 
-function Widgets(): JSX.Element {
+function Widgets({monitor}:{monitor:Gdk.Monitor}): JSX.Element {
   return <centerbox
     vertical={false}>
     <Left />
-    <Center />
+    <Center monitor={monitor}/>
     <Right />
   </centerbox>
 }
@@ -120,6 +101,6 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
     anchor={Astal.WindowAnchor.TOP
       | Astal.WindowAnchor.LEFT
       | Astal.WindowAnchor.RIGHT}>
-    <Widgets />
+    <Widgets monitor={gdkmonitor}/>
   </window>
 }
