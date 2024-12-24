@@ -4,6 +4,7 @@ import { bind } from "astal/binding"
 export const alwaysVisible = 6
 
 function getVisbleWorkspaces(array: Hyprland.Workspace[], mon: Hyprland.Monitor): Hyprland.Workspace[] {
+  const hyprland = Hyprland.get_default()
   const wss = new Set<Hyprland.Workspace>()
 
   array.forEach((ws) => {
@@ -15,8 +16,9 @@ function getVisbleWorkspaces(array: Hyprland.Workspace[], mon: Hyprland.Monitor)
   const out = new Array<Hyprland.Workspace>()
 
   wss.forEach(ws => {
-    if ((ws.get_id() - 1 <= alwaysVisible) ||
-      ws.get_clients().length >= 0) out.unshift(ws)
+    if ((ws.get_id() % 10 < alwaysVisible && ws.get_id() % 10 > 0) ||
+      ws.get_clients().length > 0 ||
+      hyprland.get_focused_workspace().get_id() == ws.get_id()) out.unshift(ws)
   })
 
   return out.sort((a, b) => a.get_id() - b.get_id())
