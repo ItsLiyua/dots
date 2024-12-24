@@ -114,6 +114,7 @@ function Widgets(): JSX.Element {
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   return <window
+    namespace="ags-bar"
     className="Bar"
     gdkmonitor={gdkmonitor}
     exclusivity={Astal.Exclusivity.EXCLUSIVE}
