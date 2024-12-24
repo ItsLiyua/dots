@@ -1,6 +1,8 @@
 #!/bin/bash
 
-swww-daemon
+if [ -z $(pidof swww-daemon) ]; then
+  swww-daemon&
+fi
 
 WALLPAPER_LOC="${HOME}/.local/share/wallpapers/"
 WALLPAPER="$(find $WALLPAPER_LOC -type f | shuf -n 1)"
