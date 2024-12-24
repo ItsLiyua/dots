@@ -45,12 +45,6 @@ function Window(): JSX.Element {
 
 function Music(): JSX.Element { return <label label="Music" /> }
 
-function SysTray(): JSX.Element {
-  return <box>
-    {bind(tray, "items")
-      .as(is => is.map(i => <label label={i.title} />))}
-  </box>
-}
 function Volume(): JSX.Element { return <label label="Volume" /> }
 function Brightness(): JSX.Element { return <label label="Brightness" /> }
 function Network(): JSX.Element { return <label label="Network" /> }
@@ -71,7 +65,6 @@ function Center({ index }: { index: number }): JSX.Element {
 }
 function Right(): JSX.Element {
   return <box halign={Gtk.Align.END} hexpand>
-    <SysTray />
     <Volume />
     <Brightness />
     <Network />
