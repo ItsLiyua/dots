@@ -29,17 +29,20 @@ export function Workspaces({ monitor }: { monitor: Hyprland.Monitor }): JSX.Elem
     {bind(hyprland, "workspaces")
       .as(wss => getVisbleWorkspaces(wss, monitor)
         .map(ws => {
-          const active = bind(hyprland, "focusedWorkspace")
+          const aws = bind(ws.get_monitor(), "activeWorkspace")
+          const className = aws.as(aws => aws.get_id() == ws.get_id() ? "focusedWorkspace" : "workspace")
+
           return <button
-            className={active.get().get_id() == ws.get_id() ? "focusedWorkspace" : "" + " workspace"}
-            onClicked={() => hyprland.dispatch("workspace", `${ws.get_id()}`)}
-          >
+            className={className} onClicked={() => {
+              if (hyprland.get_focused_workspace().get_id() == ws.get_id()) return // Fixes an error when trying to switch to the workspace you're currently in
+              hyprland.dispatch("workspace", `${ws.get_id()}`)
+            }}>
             <label
-              className={active.get().get_id() == ws.get_id() ? "focusedWorkspace" : "" + " workspace"}
-              label={bind(ws, "id").as(id => "" + id)}
-            />
+              className={className}
+              label={aws.as((aws) => aws.get_id() == ws.get_id() ? "" : "")} />
           </button>
-        }))
+        })
+      )
     }
   </box>
 }
