@@ -67,9 +67,8 @@ function Left(): JSX.Element {
     <Music />
   </box>
 }
-function Center({monitor}:{monitor:Gdk.Monitor}): JSX.Element {
-  return <box hexpand>
-  </box>
+function Center({ index }: { index: number }): JSX.Element {
+  return <Workspaces monitor={hyprland.get_monitor(index)} />
 }
 function Right(): JSX.Element {
   return <box halign={Gtk.Align.END} hexpand>
@@ -84,16 +83,16 @@ function Right(): JSX.Element {
   </box>
 }
 
-function Widgets({monitor}:{monitor:Gdk.Monitor}): JSX.Element {
+function Widgets({ index }: { index: number }): JSX.Element {
   return <centerbox
     vertical={false}>
     <Left />
-    <Center monitor={monitor}/>
+    <Center index={index} />
     <Right />
   </centerbox>
 }
 
-export default function Bar(gdkmonitor: Gdk.Monitor) {
+export default function Bar(gdkmonitor: Gdk.Monitor, index: number) {
   return <window
     className="Bar"
     gdkmonitor={gdkmonitor}
@@ -101,6 +100,6 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
     anchor={Astal.WindowAnchor.TOP
       | Astal.WindowAnchor.LEFT
       | Astal.WindowAnchor.RIGHT}>
-    <Widgets monitor={gdkmonitor}/>
+    <Widgets index={index} />
   </window>
 }
