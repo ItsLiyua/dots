@@ -3,19 +3,13 @@ import { Astal, Gdk, Gtk } from "astal/gtk3"
 import { interval } from "astal/time"
 import Variable from "astal/variable"
 import Hyprland from "gi://AstalHyprland"
+import Tray from "gi://AstalTray"
 import GLib from "gi://GLib"
 import { Workspaces } from "./workspaces"
 
 const hyprland = Hyprland.get_default()
+const tray = Tray.get_default()
 const launcherShow = Variable(false)
-const windowTitle = Variable("")
-
-interval(100, () => {
-  let client = hyprland.get_focused_client()
-  if (client == null) {
-    windowTitle.set("Arch Linux")
-  } else windowTitle.set(client.title)
-})
 
 function Launcher(): JSX.Element {
   return <eventbox
@@ -46,12 +40,17 @@ function Launcher(): JSX.Element {
 }
 
 function Window(): JSX.Element {
-  return <label label={bind(windowTitle)} />
+  return <label label={bind(hyprland, "focusedClient").as(fc => fc != null ? fc.title : GLib.getenv("USER") + "@" + GLib.get_host_name())} />
 }
 
 function Music(): JSX.Element { return <label label="Music" /> }
 
-function Tray(): JSX.Element { return <label label="Tray" /> }
+function SysTray(): JSX.Element {
+  return <box>
+    {bind(tray, "items")
+      .as(is => is.map(i => <label label={i.title} />))}
+  </box>
+}
 function Volume(): JSX.Element { return <label label="Volume" /> }
 function Brightness(): JSX.Element { return <label label="Brightness" /> }
 function Network(): JSX.Element { return <label label="Network" /> }
@@ -72,7 +71,7 @@ function Center({ index }: { index: number }): JSX.Element {
 }
 function Right(): JSX.Element {
   return <box halign={Gtk.Align.END} hexpand>
-    <Tray />
+    <SysTray />
     <Volume />
     <Brightness />
     <Network />
