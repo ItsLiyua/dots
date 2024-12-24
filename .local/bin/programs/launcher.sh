@@ -1,2 +1,2 @@
 #!/bin/bash
-wofi --show drun
+wofi --show drun -p "Search..."

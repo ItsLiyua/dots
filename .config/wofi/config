@@ -1,3 +1,10 @@
 stylesheet=style.css
 mode=drun
 
+width=33%
+height=33%
+
+hide_scroll=true
+matching=fuzzy
+insensitive=true
+

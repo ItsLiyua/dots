@@ -4,14 +4,18 @@ import { interval } from "astal/time"
 import Variable from "astal/variable"
 import Hyprland from "gi://AstalHyprland"
 import GLib from "gi://GLib"
+import { Workspaces } from "./workspaces"
 
 const hyprland = Hyprland.get_default()
 const launcherShow = Variable(false)
 const windowTitle = Variable("")
 
-interval(100, () => windowTitle.set(hyprland.get_focused_client().title))
-
-const workspacesForcedVisible = 6
+interval(100, () => {
+  let client = hyprland.get_focused_client()
+  if (client == null) {
+    windowTitle.set("Arch Linux")
+  } else windowTitle.set(client.title)
+})
 
 function Launcher(): JSX.Element {
   return <eventbox
@@ -37,8 +41,8 @@ function Launcher(): JSX.Element {
           </button>
         </box>
       </revealer>
-    </box >
-  </eventbox >
+    </box>
+  </eventbox>
 }
 
 function Window(): JSX.Element {
@@ -46,13 +50,6 @@ function Window(): JSX.Element {
 }
 
 function Music(): JSX.Element { return <label label="Music" /> }
-
-function Workspaces(monitor: Gdk.Monitor): JSX.Element {
-  let workspaces = hyprland.get_workspaces()
-  let active = hyprland.get_focused_workspace()
-  return <box>
-  </box>
-}
 
 function Tray(): JSX.Element { return <label label="Tray" /> }
 function Volume(): JSX.Element { return <label label="Volume" /> }
@@ -67,12 +64,11 @@ function Left(): JSX.Element {
   return <box halign={Gtk.Align.START} hexpand>
     <Launcher />
     <Window />
+    <Music />
   </box>
 }
-function Center(): JSX.Element {
-  return <box hexpand>
-    <Workspaces />
-  </box>
+function Center({ index }: { index: number }): JSX.Element {
+  return <Workspaces monitor={hyprland.get_monitor(index)} />
 }
 function Right(): JSX.Element {
   return <box halign={Gtk.Align.END} hexpand>
@@ -87,23 +83,24 @@ function Right(): JSX.Element {
   </box>
 }
 
-function Widgets(): JSX.Element {
+function Widgets({ index }: { index: number }): JSX.Element {
   return <centerbox
     vertical={false}>
     <Left />
-    <Center />
+    <Center index={index} />
     <Right />
   </centerbox>
 }
 
-export default function Bar(gdkmonitor: Gdk.Monitor) {
+export default function Bar(gdkmonitor: Gdk.Monitor, index: number) {
   return <window
+    namespace="ags-bar"
     className="Bar"
     gdkmonitor={gdkmonitor}
     exclusivity={Astal.Exclusivity.EXCLUSIVE}
     anchor={Astal.WindowAnchor.TOP
       | Astal.WindowAnchor.LEFT
       | Astal.WindowAnchor.RIGHT}>
-    <Widgets />
+    <Widgets index={index} />
   </window>
 }

@@ -16,8 +16,8 @@ hypr.target = "~/.config/hypr/colors.hl"
 btop.template = "btop.theme"
 btop.target = "~/.config/btop/themes/wallust.theme"
 
-css.template = "colors.css"
-css.target = "~/.cache/wallust/colors.css"
-
 dunst.template = "dunst.conf"
 dunst.target = "~/.config/dunst/dunstrc.d/colors.conf"
+
+wofi.template = "wofi.css"
+wofi.target = "~/.config/wofi/style.css"

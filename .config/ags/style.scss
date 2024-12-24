@@ -24,8 +24,11 @@
   padding-left: 4px;
 }
 
-.left {}
+.workspace,
+.focusedWorkspace {
+  padding-left: 2px;
+  padding-right: 2px;
+  font-size: 24px;
+}
 
-.center {}
-
-.right {}
+// .workspace:hover {}
