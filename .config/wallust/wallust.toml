@@ -21,3 +21,6 @@ dunst.target = "~/.config/dunst/dunstrc.d/colors.conf"
 
 wofi.template = "wofi.css"
 wofi.target = "~/.config/wofi/style.css"
+
+discord.template = "discord.theme.css"
+discord.target="~/.config/vesktop/themes/wallust.theme.css"
