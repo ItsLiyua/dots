@@ -48,6 +48,7 @@ function Widgets({ index }: { index: number }): JSX.Element {
 export default function Bar(gdkmonitor: Gdk.Monitor, index: number) {
   return <window
     namespace="ags-bar"
+    acceptFocus={true}
     className="Bar"
     gdkmonitor={gdkmonitor}
     exclusivity={Astal.Exclusivity.EXCLUSIVE}

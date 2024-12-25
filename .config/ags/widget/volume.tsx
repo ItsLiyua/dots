@@ -28,7 +28,8 @@ export function Volume(): JSX.Element {
       <label className="icon" label={bind(derived).as(a => getIcon(a[0], a[1]))} />
       {bind(derived).as(a => a[2] ? <label label={"" + Math.round(a[0] * 100)} /> : "")}
       <revealer transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT} revealChild={bind(hovered)}>
-        <slider onDragged={s => wp.volume = s.value} className="test" />
+        <slider widthRequest={100} value={volume} onDragged={s => wp.volume = s.value // TODO: for some reason the slider does not react to sliding
+        } className="slider" />
       </revealer>
     </box>
   </eventbox>
