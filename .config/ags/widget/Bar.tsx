@@ -1,14 +1,10 @@
 import { Astal, Gdk, Gtk } from "astal/gtk3"
-import Hyprland from "gi://AstalHyprland"
 import { Workspaces } from "./workspaces"
 import { Launcher } from "./launcher"
 import { Window } from "./focusedWindow"
+import { Volume } from "./volume"
+import { Music } from "./music"
 
-const hyprland = Hyprland.get_default()
-
-function Music(): JSX.Element { return <label label="Music" /> }
-
-function Volume(): JSX.Element { return <label label="Volume" /> }
 function Brightness(): JSX.Element { return <label label="Brightness" /> }
 function Network(): JSX.Element { return <label label="Network" /> }
 function Bluetooth(): JSX.Element { return <label label="Bluetooth" /> }
@@ -23,9 +19,11 @@ function Left(): JSX.Element {
     <Music />
   </box>
 }
+
 function Center({ index }: { index: number }): JSX.Element {
   return <Workspaces index={index} />
 }
+
 function Right(): JSX.Element {
   return <box halign={Gtk.Align.END} hexpand>
     <Volume />
