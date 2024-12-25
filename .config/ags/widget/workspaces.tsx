@@ -16,7 +16,7 @@ function getVisbleWorkspaces(array: Hyprland.Workspace[], mon: Hyprland.Monitor)
   const out = new Array<Hyprland.Workspace>()
 
   wss.forEach(ws => {
-    if ((ws.get_id() % 10 < alwaysVisible && ws.get_id() % 10 > 0) ||
+    if ((ws.get_id() % 10 <= alwaysVisible && ws.get_id() % 10 > 0) ||
       ws.get_clients().length > 0 ||
       hyprland.get_focused_workspace().get_id() == ws.get_id()) out.unshift(ws)
   })
@@ -28,7 +28,8 @@ export function Workspaces({ monitor }: { monitor: Hyprland.Monitor }): JSX.Elem
   const hyprland = Hyprland.get_default()
 
   return <box>
-    {bind(hyprland, "workspaces")
+    {bind(hyprland, "focusedWorkspace") // Bound to focusedWorkspace because the workspaces constant only updates during initialization
+      .as(_ => hyprland.workspaces)
       .as(wss => getVisbleWorkspaces(wss, monitor)
         .map(ws => {
           const aws = bind(ws.get_monitor(), "activeWorkspace")
@@ -41,7 +42,7 @@ export function Workspaces({ monitor }: { monitor: Hyprland.Monitor }): JSX.Elem
             }}>
             <label
               className={className}
-              label={aws.as((aws) => aws.get_id() == ws.get_id() ? "" : "")} />
+              label={aws.get().id == ws.id ? "" : ws.clients.length == 0 ? "" : ""} />
           </button>
         })
       )
