@@ -1,16 +1,10 @@
-import { bind } from "astal/binding"
 import { Astal, Gdk, Gtk } from "astal/gtk3"
 import Hyprland from "gi://AstalHyprland"
-import Tray from "gi://AstalTray"
-import GLib from "gi://GLib"
 import { Workspaces } from "./workspaces"
 import { Launcher } from "./launcher"
+import { Window } from "./focusedWindow"
 
 const hyprland = Hyprland.get_default()
-
-function Window(): JSX.Element {
-  return <label label={bind(hyprland, "focusedClient").as(fc => fc != null ? fc.title : GLib.getenv("USER") + "@" + GLib.get_host_name())} />
-}
 
 function Music(): JSX.Element { return <label label="Music" /> }
 
@@ -30,7 +24,7 @@ function Left(): JSX.Element {
   </box>
 }
 function Center({ index }: { index: number }): JSX.Element {
-  return <Workspaces monitor={hyprland.get_monitor(index)} />
+  return <Workspaces index={index} />
 }
 function Right(): JSX.Element {
   return <box halign={Gtk.Align.END} hexpand>

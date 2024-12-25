@@ -24,13 +24,13 @@ function getVisbleWorkspaces(array: Hyprland.Workspace[], mon: Hyprland.Monitor)
   return out.sort((a, b) => a.get_id() - b.get_id())
 }
 
-export function Workspaces({ monitor }: { monitor: Hyprland.Monitor }): JSX.Element {
+export function Workspaces({ index }: { index: number }): JSX.Element {
   const hyprland = Hyprland.get_default()
 
   return <box>
     {bind(hyprland, "focusedWorkspace") // Bound to focusedWorkspace because the workspaces constant only updates during initialization
       .as(_ => hyprland.workspaces)
-      .as(wss => getVisbleWorkspaces(wss, monitor)
+      .as(wss => getVisbleWorkspaces(wss, hyprland.get_monitor(index))
         .map(ws => {
           const aws = bind(ws.get_monitor(), "activeWorkspace")
           const className = aws.as(aws => aws.get_id() == ws.get_id() ? "focusedWorkspace" : "workspace")
