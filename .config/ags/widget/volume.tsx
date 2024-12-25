@@ -1,4 +1,5 @@
 import { Variable, bind } from "astal"
+import { Gtk } from "astal/gtk3"
 import Wp from "gi://AstalWp"
 
 const wp = Wp.get_default()!.audio.defaultSpeaker
@@ -24,9 +25,10 @@ function getIcon(percentage: number, muted: boolean): string {
 export function Volume(): JSX.Element {
   return <eventbox onHover={() => hovered.set(true)} onHoverLost={() => hovered.set(false)}>
     <box>
-      <label label={bind(derived).as(a => getIcon(a[0], a[1]) + (a[2] ? Math.round(a[0] * 100) : ""))} />
-      <revealer>
-        <slider />
+      <label className="icon" label={bind(derived).as(a => getIcon(a[0], a[1]))} />
+      {bind(derived).as(a => a[2] ? <label label={"" + Math.round(a[0] * 100)} /> : "")}
+      <revealer transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT} revealChild={bind(hovered)}>
+        <slider onDragged={s => wp.volume = s.value} className="test" />
       </revealer>
     </box>
   </eventbox>

@@ -16,12 +16,12 @@
   all: unset;
   font-family: "JetBrains Mono Nerd Font Mono";
   font-size: 14px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
-.launcher {
+.icon {
   font-size: 21px;
-  padding-right: 4px;
-  padding-left: 4px;
 }
 
 .workspace,
@@ -31,4 +31,7 @@
   font-size: 24px;
 }
 
-// .workspace:hover {}
+.test {
+  background-color: red;
+  color: red;
+}

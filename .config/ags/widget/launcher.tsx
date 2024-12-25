@@ -10,7 +10,7 @@ export function Launcher(): JSX.Element {
     onHoverLost={() => launcherShow.set(false)}
   >
     <box>
-      <label className="launcher" label="󰣇" />
+      <label className="icon" label="󰣇" />
       <revealer
         transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
         revealChild={bind(launcherShow)}
@@ -18,13 +18,13 @@ export function Launcher(): JSX.Element {
       >
         <box>
           <button onClick={GLib.get_home_dir() + "/.local/bin/programs/terminal.sh"}>
-            <label className="launcher" label="" />
+            <label className="icon" label="" />
           </button>
           <button onClick={GLib.get_home_dir() + "/.local/bin/programs/fileManager.sh"}>
-            <label className="launcher" label="󰉋" />
+            <label className="icon" label="󰉋" />
           </button>
           <button onClick={GLib.get_home_dir() + "/.local/bin/programs/browser.sh"}>
-            <label className="launcher" label="󰈹" />
+            <label className="icon" label="󰈹" />
           </button>
         </box>
       </revealer>
