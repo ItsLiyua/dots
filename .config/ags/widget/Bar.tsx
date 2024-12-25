@@ -1,43 +1,12 @@
 import { bind } from "astal/binding"
 import { Astal, Gdk, Gtk } from "astal/gtk3"
-import { interval } from "astal/time"
-import Variable from "astal/variable"
 import Hyprland from "gi://AstalHyprland"
 import Tray from "gi://AstalTray"
 import GLib from "gi://GLib"
 import { Workspaces } from "./workspaces"
+import { Launcher } from "./launcher"
 
 const hyprland = Hyprland.get_default()
-const tray = Tray.get_default()
-const launcherShow = Variable(false)
-
-function Launcher(): JSX.Element {
-  return <eventbox
-    onHover={() => launcherShow.set(true)}
-    onHoverLost={() => launcherShow.set(false)}
-  >
-    <box>
-      <label className="launcher" label="󰣇" />
-      <revealer
-        transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
-        revealChild={bind(launcherShow)}
-        transition_duration={500}
-      >
-        <box>
-          <button onClick={GLib.get_home_dir() + "/.local/bin/programs/terminal.sh"}>
-            <label className="launcher" label="" />
-          </button>
-          <button onClick={GLib.get_home_dir() + "/.local/bin/programs/fileManager.sh"}>
-            <label className="launcher" label="󰉋" />
-          </button>
-          <button onClick={GLib.get_home_dir() + "/.local/bin/programs/browser.sh"}>
-            <label className="launcher" label="󰈹" />
-          </button>
-        </box>
-      </revealer>
-    </box>
-  </eventbox>
-}
 
 function Window(): JSX.Element {
   return <label label={bind(hyprland, "focusedClient").as(fc => fc != null ? fc.title : GLib.getenv("USER") + "@" + GLib.get_host_name())} />
