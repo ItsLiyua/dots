@@ -9,7 +9,7 @@
 #
 yay -S \
   btop rocm-smi-lib \
-  ly cmake cpio meson pkg-config hyprland-git hyprpolkitagent-git xdg-desktop-portal-hyprland-git hyprlock-git \
+  ly cmake cpio meson pkg-config hyprland-git hyprpolkitagent-git xdg-desktop-portal-hyprland-git hyprlock-git hypridle-git \
   cliphist wl-clipboard \
   wallust imagemagick swww \
   kitty fzf npm ttf-jetbrains-mono-nerd zsh zoxide oh-my-posh \
