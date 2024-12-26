@@ -2,11 +2,11 @@ import { Variable, bind } from "astal"
 import { Gtk } from "astal/gtk3"
 import Wp from "gi://AstalWp"
 
-const wp = Wp.get_default()!.audio.defaultSpeaker
+const speaker = Wp.get_default()!.audio.defaultSpeaker
 
 const hovered = Variable(false)
-const volume = bind(wp, "volume")
-const mute = bind(wp, "mute")
+const volume = bind(speaker, "volume")
+const mute = bind(speaker, "mute")
 const derived = Variable.derive([volume, mute, hovered])
 
 function getIcon(percentage: number, muted: boolean): string {
@@ -28,7 +28,12 @@ export function Volume(): JSX.Element {
       <label className="icon" label={bind(derived).as(a => getIcon(a[0], a[1]))} />
       {bind(derived).as(a => a[2] ? <label label={"" + Math.round(a[0] * 100)} /> : "")}
       <revealer transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT} revealChild={bind(hovered)}>
-        <slider widthRequest={100} value={volume} onDragged={s => wp.volume = s.value // TODO: for some reason the slider does not react to sliding
+        <slider widthRequest={100} value={volume} onDragged={
+          s => {
+            speaker.volume = s.value
+            speaker.mute = s.value == 0
+            print(s.value)
+          }
         } className="slider" />
       </revealer>
     </box>
