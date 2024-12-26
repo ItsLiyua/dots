@@ -5,63 +5,9 @@ exec-once = vesktop
 exec-once = steam-runtime
 exec-once = hyprctl dispatch exec "[workspace 11 silent] btop"
 
-plugin {
-  split-monitor-workspaces {
-    count = 10
-	  keep_focused = true
-  }
-}
-
 input {
   kb_layout = us
 }
-
-unbind = $mainMod, 1
-unbind = $mainMod, 2
-unbind = $mainMod, 3
-unbind = $mainMod, 4
-unbind = $mainMod, 5
-unbind = $mainMod, 6
-unbind = $mainMod, 7
-unbind = $mainMod, 8
-unbind = $mainMod, 9
-unbind = $mainMod, 0
-
-unbind = $mainMod SHIFT, 1
-unbind = $mainMod SHIFT, 2
-unbind = $mainMod SHIFT, 3
-unbind = $mainMod SHIFT, 4
-unbind = $mainMod SHIFT, 5
-unbind = $mainMod SHIFT, 6
-unbind = $mainMod SHIFT, 7
-unbind = $mainMod SHIFT, 8
-unbind = $mainMod SHIFT, 9
-unbind = $mainMod SHIFT, 0
-
-bind = $mainMod, 1, split-workspace, 1
-bind = $mainMod, 2, split-workspace, 2
-bind = $mainMod, 3, split-workspace, 3
-bind = $mainMod, 4, split-workspace, 4
-bind = $mainMod, 5, split-workspace, 5
-bind = $mainMod, 6, split-workspace, 6
-bind = $mainMod, 7, split-workspace, 7
-bind = $mainMod, 8, split-workspace, 8
-bind = $mainMod, 9, split-workspace, 9
-bind = $mainMod, 0, split-workspace, 10
-
-bind = $mainMod SHIFT, 1, split-movetoworkspacesilent, 1
-bind = $mainMod SHIFT, 2, split-movetoworkspacesilent, 2
-bind = $mainMod SHIFT, 3, split-movetoworkspacesilent, 3
-bind = $mainMod SHIFT, 4, split-movetoworkspacesilent, 4
-bind = $mainMod SHIFT, 5, split-movetoworkspacesilent, 5
-bind = $mainMod SHIFT, 6, split-movetoworkspacesilent, 6
-bind = $mainMod SHIFT, 7, split-movetoworkspacesilent, 7
-bind = $mainMod SHIFT, 8, split-movetoworkspacesilent, 8
-bind = $mainMod SHIFT, 9, split-movetoworkspacesilent, 9
-bind = $mainMod SHIFT, 0, split-movetoworkspacesilent, 10
-
-bind = $mainMod, Tab, focusmonitor, +1
-bind = $mainMod SHIFT, Tab, split-changemonitorsilent, next
 
 windowrulev2 = workspace 1,class:(.*)Minecraft(.*)
 windowrulev2 = workspace 1,class:steam_app_.*
