@@ -1,27 +1,12 @@
-// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
-// $theme_fg_color: "@theme_fg_color";
-// $theme_bg_color: "@theme_bg_color";
-//
-// window.Bar {
-//     background: transparent;
-//     color: #{$theme_bg_color};
-//     font-weight: bold;
-//
-//     >centerbox {
-//         background: #{$theme_bg_color};
-//     }
-// }
-
 * {
   all: unset;
   font-family: "JetBrains Mono Nerd Font Mono";
   font-size: 14px;
+  padding-left: 4px;
 }
 
-.launcher {
+.icon {
   font-size: 21px;
-  padding-right: 4px;
-  padding-left: 4px;
 }
 
 .workspace,
@@ -31,4 +16,24 @@
   font-size: 24px;
 }
 
-// .workspace:hover {}
+.test {
+  background-color: red;
+  color: red;
+}
+
+.slider trough {
+  all: unset;
+  background: black;
+  min-height: 8px;
+  border-radius: 16px;
+}
+.slider trough slider {
+  all: unset;
+}
+
+.slider trough highlight {
+  all: unset;
+  min-width: 8px;
+  border-radius: 16px;
+  background: white;
+}

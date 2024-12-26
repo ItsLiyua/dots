@@ -1,57 +1,16 @@
-import { bind } from "astal/binding"
 import { Astal, Gdk, Gtk } from "astal/gtk3"
-import { interval } from "astal/time"
-import Variable from "astal/variable"
-import Hyprland from "gi://AstalHyprland"
-import Tray from "gi://AstalTray"
-import GLib from "gi://GLib"
 import { Workspaces } from "./workspaces"
+import { Launcher } from "./launcher"
+import { Window } from "./focusedWindow"
+import { Volume } from "./volume"
+import { Music } from "./music"
+import { PowerMenu } from "./power"
 
-const hyprland = Hyprland.get_default()
-const tray = Tray.get_default()
-const launcherShow = Variable(false)
-
-function Launcher(): JSX.Element {
-  return <eventbox
-    onHover={() => launcherShow.set(true)}
-    onHoverLost={() => launcherShow.set(false)}
-  >
-    <box>
-      <label className="launcher" label="󰣇" />
-      <revealer
-        transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
-        revealChild={bind(launcherShow)}
-        transition_duration={500}
-      >
-        <box>
-          <button onClick={GLib.get_home_dir() + "/.local/bin/programs/terminal.sh"}>
-            <label className="launcher" label="" />
-          </button>
-          <button onClick={GLib.get_home_dir() + "/.local/bin/programs/fileManager.sh"}>
-            <label className="launcher" label="󰉋" />
-          </button>
-          <button onClick={GLib.get_home_dir() + "/.local/bin/programs/browser.sh"}>
-            <label className="launcher" label="󰈹" />
-          </button>
-        </box>
-      </revealer>
-    </box>
-  </eventbox>
-}
-
-function Window(): JSX.Element {
-  return <label label={bind(hyprland, "focusedClient").as(fc => fc != null ? fc.title : GLib.getenv("USER") + "@" + GLib.get_host_name())} />
-}
-
-function Music(): JSX.Element { return <label label="Music" /> }
-
-function Volume(): JSX.Element { return <label label="Volume" /> }
 function Brightness(): JSX.Element { return <label label="Brightness" /> }
 function Network(): JSX.Element { return <label label="Network" /> }
 function Bluetooth(): JSX.Element { return <label label="Bluetooth" /> }
 function Battery(): JSX.Element { return <label label="Battery" /> }
 function Clock(): JSX.Element { return <label label="Clock" /> }
-function Power(): JSX.Element { return <label label="Power" /> }
 
 function Left(): JSX.Element {
   return <box halign={Gtk.Align.START} hexpand>
@@ -60,9 +19,11 @@ function Left(): JSX.Element {
     <Music />
   </box>
 }
+
 function Center({ index }: { index: number }): JSX.Element {
-  return <Workspaces monitor={hyprland.get_monitor(index)} />
+  return <Workspaces index={index} />
 }
+
 function Right(): JSX.Element {
   return <box halign={Gtk.Align.END} hexpand>
     <Volume />
@@ -71,7 +32,7 @@ function Right(): JSX.Element {
     <Bluetooth />
     <Battery />
     <Clock />
-    <Power />
+    <PowerMenu />
   </box>
 }
 
@@ -87,6 +48,7 @@ function Widgets({ index }: { index: number }): JSX.Element {
 export default function Bar(gdkmonitor: Gdk.Monitor, index: number) {
   return <window
     namespace="ags-bar"
+    acceptFocus={true}
     className="Bar"
     gdkmonitor={gdkmonitor}
     exclusivity={Astal.Exclusivity.EXCLUSIVE}
