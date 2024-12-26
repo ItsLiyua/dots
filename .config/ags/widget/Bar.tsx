@@ -4,13 +4,13 @@ import { Launcher } from "./launcher"
 import { Window } from "./focusedWindow"
 import { Volume } from "./volume"
 import { Music } from "./music"
+import { PowerMenu } from "./power"
 
 function Brightness(): JSX.Element { return <label label="Brightness" /> }
 function Network(): JSX.Element { return <label label="Network" /> }
 function Bluetooth(): JSX.Element { return <label label="Bluetooth" /> }
 function Battery(): JSX.Element { return <label label="Battery" /> }
 function Clock(): JSX.Element { return <label label="Clock" /> }
-function Power(): JSX.Element { return <label label="Power" /> }
 
 function Left(): JSX.Element {
   return <box halign={Gtk.Align.START} hexpand>
@@ -32,7 +32,7 @@ function Right(): JSX.Element {
     <Bluetooth />
     <Battery />
     <Clock />
-    <Power />
+    <PowerMenu />
   </box>
 }
 

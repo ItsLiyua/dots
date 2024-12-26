@@ -25,20 +25,20 @@ function getVisbleWorkspaces(array: Hyprland.Workspace[], mon: Hyprland.Monitor)
 }
 
 export function Workspaces({ index }: { index: number }): JSX.Element {
-  const hyprland = Hyprland.get_default()
+  const hypr = Hyprland.get_default()
 
   return <box>
-    {bind(hyprland, "focusedWorkspace") // Bound to focusedWorkspace because the workspaces constant only updates during initialization
-      .as(_ => hyprland.workspaces)
-      .as(wss => getVisbleWorkspaces(wss, hyprland.get_monitor(index))
+    {bind(hypr, "focusedWorkspace") // Bound to focusedWorkspace because the workspaces constant only updates during initialization
+      .as(_ => hypr.workspaces)
+      .as(wss => getVisbleWorkspaces(wss, hypr.get_monitor(index))
         .map(ws => {
           const aws = bind(ws.get_monitor(), "activeWorkspace")
           const className = aws.as(aws => aws.get_id() == ws.get_id() ? "focusedWorkspace" : "workspace")
 
           return <button
             className={className} onClicked={() => {
-              if (hyprland.get_focused_workspace().get_id() == ws.get_id()) return // Fixes an error when trying to switch to the workspace you're currently in
-              hyprland.dispatch("workspace", `${ws.get_id()}`)
+              if (hypr.get_focused_workspace().get_id() == ws.get_id()) return // Fixes an error when trying to switch to the workspace you're currently in
+              hypr.dispatch("workspace", `${ws.get_id()}`)
             }}>
             <label
               className={className}
