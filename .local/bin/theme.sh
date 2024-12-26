@@ -2,6 +2,7 @@
 
 if [ -z $(pidof swww-daemon) ]; then
   swww-daemon&
+  sleep 1
 fi
 
 WALLPAPER_LOC="${HOME}/.local/share/wallpapers/"
