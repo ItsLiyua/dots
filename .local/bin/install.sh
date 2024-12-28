@@ -8,15 +8,17 @@
 # makepkg -si
 #
 yay -S \
-  btop rocm-smi-lib \
   ly cmake cpio meson pkg-config hyprland-git hyprpolkitagent-git xdg-desktop-portal-hyprland-git hyprlock-git hypridle-git \
   cliphist wl-clipboard \
-  wallust imagemagick swww \
+  btop rocm-smi-lib \
+  dunst \
+  aylurs-gtk-shell \
   kitty fzf npm ttf-jetbrains-mono-nerd zsh zoxide oh-my-posh \
   nautilus-share nautilus-image-converter nautilus \
-  bibata-cursor-git \
+  zen-browser-bin \
   aylurs-gtk-shell \
-  dunst
+  wallust imagemagick swww \
+  bibata-cursor-git \
 
 # systemctl enable ly
 

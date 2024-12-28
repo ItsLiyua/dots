@@ -1,2 +1,2 @@
 #!/bin/bash
-librewolf "$@"
+zen-browser "$@"

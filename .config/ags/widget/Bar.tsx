@@ -6,11 +6,11 @@ import { Volume } from "./volume"
 import { Music } from "./music"
 import { PowerMenu } from "./power"
 import { Clock } from "./clock"
+import { Bat } from "./battery"
 
 function Brightness(): JSX.Element { return <label label="Brightness" /> }
 function Network(): JSX.Element { return <label label="Network" /> }
 function Bluetooth(): JSX.Element { return <label label="Bluetooth" /> }
-function Battery(): JSX.Element { return <label label="Battery" /> }
 
 function Left(): JSX.Element {
   return <box halign={Gtk.Align.START} hexpand>
@@ -30,7 +30,7 @@ function Right(): JSX.Element {
     <Brightness />
     <Network />
     <Bluetooth />
-    <Battery />
+    <Bat />
     <Clock />
     <PowerMenu />
   </box>

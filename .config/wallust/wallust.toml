@@ -7,6 +7,9 @@ check_contrast = true
 nvim.template = "nvim.vim"
 nvim.target = "~/.cache/wallust/colors_neopywal.vim"
 
+json.template = "colors.json"
+json.target = "~/.cache/wal/colors.json"
+
 kitty.template = "kitty.conf"
 kitty.target = "~/.config/kitty/colors.conf"
 
