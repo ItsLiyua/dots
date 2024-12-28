@@ -8,9 +8,7 @@ import { PowerMenu } from "./power"
 import { Clock } from "./clock"
 import { Bat } from "./battery"
 import { Bt } from "./bluetooth"
-
-function Brightness(): JSX.Element { return <label label="Brightness" /> }
-function Network(): JSX.Element { return <label label="Network" /> }
+import { Nw } from "./network"
 
 function Left(): JSX.Element {
   return <box halign={Gtk.Align.START} hexpand>
@@ -27,8 +25,7 @@ function Center({ index }: { index: number }): JSX.Element {
 function Right(): JSX.Element {
   return <box halign={Gtk.Align.END} hexpand>
     <Volume />
-    <Brightness />
-    <Network />
+    <Nw />
     <Bt />
     <Bat />
     <Clock />
