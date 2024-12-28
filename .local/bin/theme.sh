@@ -23,4 +23,4 @@ swww img --resize crop --transition-type=wipe --transition-angle=30 --transition
 
 wallust run "$WALLPAPER"
 
-pywalfox dark
+pywalfox update
