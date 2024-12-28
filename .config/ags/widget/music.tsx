@@ -19,13 +19,13 @@ export function Music(): JSX.Element {
         </box>
         <box>
           <button onClick={() => p.previous()}>
-            <label className="icon" label="󰒮" />
+            <label className="icon" label="" />
           </button>
           <button onClick={() => p.play_pause()}>
-            <label className="icon" label={paused.as(p => !p ? "󰏤" : "󰐊")} />
+            <label className="icon" label={paused.as(p => p ? "" : "")} />
           </button>
           <button onClick={() => p.previous()}>
-            <label className="icon" label="󰒭" />
+            <label className="icon" label="" />
           </button>
         </box>
       </box>
