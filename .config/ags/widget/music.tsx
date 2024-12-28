@@ -17,7 +17,7 @@ export function Music(): JSX.Element {
       const p = ps[0]
       const title = bind(p, "title")
       const artist = bind(p, "artist")
-      const paused = bind(p, "playback_status")
+      const paused = bind(p, "playbackStatus")
 
       return <box>
         <box vertical={true}>
@@ -28,10 +28,13 @@ export function Music(): JSX.Element {
           <button onClick={() => p.previous()}>
             <label className="icon" label="" />
           </button>
-          <button onClick={() => p.play_pause()}>
+          <button onClick={() => {
+            if (p.playbackStatus == Mpris.PlaybackStatus.PAUSED && p.canPlay) p.play()
+            else if (p.playbackStatus == Mpris.PlaybackStatus.PLAYING && p.canPause) p.pause()
+          }}>
             <label className="icon" label={paused.as(p => p ? "" : "")} />
           </button>
-          <button onClick={() => p.previous()}>
+          <button onClick={() => { if (p.can_go_previous) p.previous() }}>
             <label className="icon" label="" />
           </button>
         </box>
