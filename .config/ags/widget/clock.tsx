@@ -1,6 +1,7 @@
 import { bind, Variable } from "astal";
 
-const time = Variable("polling").poll(1000, "date +%H:%M:%S")
+const showSeconds = false
+const time = Variable("polling").poll(1000, "date +%H:%M" + (showSeconds ? ":%S" : ""))
 
 export function Clock(): JSX.Element {
   return <label className="clock" label={bind(time)} />

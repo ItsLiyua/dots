@@ -36,12 +36,12 @@ export function Workspaces({ index }: { index: number }): JSX.Element {
           const className = aws.as(aws => aws.get_id() == ws.get_id() ? "focusedWorkspace" : "workspace")
 
           return <button
-            className={className} onClicked={() => {
+            onClicked={() => {
               if (hypr.get_focused_workspace().get_id() == ws.get_id()) return // Fixes an error when trying to switch to the workspace you're currently in
               hypr.dispatch("workspace", `${ws.get_id()}`)
             }}>
             <label
-              className={className}
+              className="icon"
               label={aws.get().id == ws.id ? "" : ws.clients.length == 0 ? "" : ""} />
           </button>
         })
