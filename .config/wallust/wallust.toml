@@ -27,3 +27,6 @@ wofi.target = "~/.config/wofi/style.css"
 
 discord.template = "discord.theme.css"
 discord.target="~/.config/vesktop/themes/wallust.theme.css"
+
+youtube.template = "youtube.css"
+youtube.target = "~/.cache/wal/youtube.user.css"

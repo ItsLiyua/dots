@@ -4,6 +4,7 @@ monitor=HDMI-A-1,1920x1080@60,-1920x0,1
 exec-once = vesktop
 exec-once = steam-runtime
 exec-once = hyprctl dispatch exec "[workspace 11 silent] btop"
+exec-once = sleep 3; hyprctl dispatch focusmonitor DP-3
 
 input {
   kb_layout = us
