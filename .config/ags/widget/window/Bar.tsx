@@ -1,8 +1,10 @@
 import { Astal, Gdk, Gtk } from "astal/gtk3"
 import { Workspaces } from "../widgets/workspaces"
+import { WindowTitle } from "../widgets/windowtitle"
 
 function Left(): JSX.Element {
   return <box halign={Gtk.Align.START} hexpand>
+    <WindowTitle />
   </box>
 }
 
