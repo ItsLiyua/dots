@@ -18,13 +18,13 @@ function WorkspaceButton(ws: number): JSX.Element {
 }
 
 export function Workspaces({ monID }: { monID: number }): JSX.Element {
-  print(monID)
   const monitor = hypr.get_monitor(monID)
   return <box>
     {bind(Variable.derive([bind(monitor, "activeWorkspace"), bind(hypr, "workspaces")]))
       .as(v => {
         return v[1]
           .filter(ws => ws.monitor.id == monitor.id)
+          .filter(ws => (ws.id % 10 > 0 && ws.id % 10 <= persistent) || ws.clients.length > 0 || ws.id <= v[0].id)
           .sort((a, b) => a.id - b.id)
           .map(ws => WorkspaceButton(ws.id))
       })}
