@@ -1,5 +1,6 @@
 import { Variable, bind } from "astal";
 import Battery from "gi://AstalBattery";
+import { Nothing } from "./utils/nothing";
 
 const battery = Battery.get_default()
 const hovered = Variable(false)
@@ -18,7 +19,7 @@ export function Bat(): JSX.Element {
   return <eventbox onHover={() => hovered.set(true)} onHoverLost={() => hovered.set(false)}>
     <box>
       <label label={bind(Variable.derive([bind(battery, "online"), bind(battery, "percentage")])).as(_ => icon())} />
-      {bind(hovered).as(h => h ? <levelbar widthRequest={100} value={battery.percentage} /> : "")}
+      {bind(hovered).as(h => h ? <levelbar widthRequest={100} value={battery.percentage} /> : Nothing())}
     </box>
   </eventbox>
 }

@@ -13,7 +13,7 @@ yay -S \
   btop rocm-smi-lib \
   dunst \
   aylurs-gtk-shell \
-  kitty fzf npm ttf-jetbrains-mono-nerd zsh zoxide oh-my-posh \
+  kitty fzf npm ripgrep ttf-jetbrains-mono-nerd zsh zoxide oh-my-posh \
   nautilus-share nautilus-image-converter nautilus \
   mpv-mpris playerctl \
   zen-browser-bin \
