@@ -15,6 +15,7 @@ yay -S \
   aylurs-gtk-shell \
   kitty fzf npm ttf-jetbrains-mono-nerd zsh zoxide oh-my-posh \
   nautilus-share nautilus-image-converter nautilus \
+  mpv-mpris playerctl \
   zen-browser-bin \
   aylurs-gtk-shell \
   wallust imagemagick swww \
