@@ -1,6 +1,7 @@
 import { Astal, Gdk, Gtk } from "astal/gtk3"
 import { Workspaces } from "../widgets/workspaces"
 import { WindowTitle } from "../widgets/windowtitle"
+import { SystemInfo } from "../widgets/SystemInfo"
 
 function Left(): JSX.Element {
   return <box halign={Gtk.Align.START} hexpand>
@@ -16,6 +17,7 @@ function Center({ index }: { index: number }): JSX.Element {
 
 function Right(): JSX.Element {
   return <box halign={Gtk.Align.END} hexpand>
+    <SystemInfo />
   </box>
 }
 
