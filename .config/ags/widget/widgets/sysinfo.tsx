@@ -1,10 +1,10 @@
 import { Variable, bind } from "astal";
-import { Astal, Gdk } from "astal/gtk3";
+import { App, Astal, Gdk } from "astal/gtk3";
 import Wp from "gi://AstalWp"
 import Network from "gi://AstalNetwork"
 import Bluetooth from "gi://AstalBluetooth"
 import Battery from "gi://AstalBattery"
-import { openSystemMenuWindow, SystemMenuWindow } from "../window/SystemMenuWindow";
+import { SysMenuWindow } from "../window/SystemMenuWindow";
 
 const wp = Wp.get_default()!
 const nw = Network.get_default()
@@ -90,7 +90,7 @@ export function SystemInfo({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }): JSX.Ele
   return <eventbox onClick={(_, e) => {
     if (e.button == Astal.MouseButton.PRIMARY) {
       // TODO: Open Spcialized Menu
-      openSystemMenuWindow(gdkmonitor)
+      return SysMenuWindow(gdkmonitor)
     }
   }}>
     <box className="sysinfo">
