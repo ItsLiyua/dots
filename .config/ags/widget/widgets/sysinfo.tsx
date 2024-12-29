@@ -4,7 +4,7 @@ import Wp from "gi://AstalWp"
 import Network from "gi://AstalNetwork"
 import Bluetooth from "gi://AstalBluetooth"
 import Battery from "gi://AstalBattery"
-import { SysMenuWindow } from "../window/SystemMenuWindow";
+import { SysMenuWindow, toggleSysWindow } from "../window/SystemMenuWindow";
 
 const wp = Wp.get_default()!
 const nw = Network.get_default()
@@ -89,8 +89,7 @@ function BatteryWidget(): JSX.Element {
 export function SystemInfo({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }): JSX.Element {
   return <eventbox onClick={(_, e) => {
     if (e.button == Astal.MouseButton.PRIMARY) {
-      // TODO: Open Spcialized Menu
-      return SysMenuWindow(gdkmonitor)
+      toggleSysWindow(gdkmonitor)
     }
   }}>
     <box className="sysinfo">
