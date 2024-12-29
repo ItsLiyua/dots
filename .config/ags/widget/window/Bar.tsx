@@ -15,18 +15,18 @@ function Center({ index }: { index: number }): JSX.Element {
   </box>
 }
 
-function Right(): JSX.Element {
+function Right({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }): JSX.Element {
   return <box halign={Gtk.Align.END} hexpand>
-    <SystemInfo />
+    <SystemInfo gdkmonitor={gdkmonitor} />
   </box>
 }
 
-function Widgets({ index }: { index: number }): JSX.Element {
+function Widgets({ index, monitor }: { index: number, monitor: Gdk.Monitor }): JSX.Element {
   return <centerbox
     vertical={false}>
     <Left />
     <Center index={index} />
-    <Right />
+    <Right gdkmonitor={monitor} />
   </centerbox>
 }
 
@@ -40,6 +40,6 @@ export default function Bar(gdkmonitor: Gdk.Monitor, index: number) {
     anchor={Astal.WindowAnchor.TOP
       | Astal.WindowAnchor.LEFT
       | Astal.WindowAnchor.RIGHT}>
-    <Widgets index={index} />
+    <Widgets index={index} monitor={gdkmonitor} />
   </window>
 }
