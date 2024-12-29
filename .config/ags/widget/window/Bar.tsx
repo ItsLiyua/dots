@@ -1,7 +1,7 @@
 import { Astal, Gdk, Gtk } from "astal/gtk3"
 import { Workspaces } from "../widgets/workspaces"
 import { WindowTitle } from "../widgets/windowtitle"
-import { SystemInfo } from "../widgets/SystemInfo"
+import { SystemInfo } from "../widgets/sysinfo"
 
 function Left(): JSX.Element {
   return <box halign={Gtk.Align.START} hexpand>
