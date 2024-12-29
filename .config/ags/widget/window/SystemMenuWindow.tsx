@@ -9,7 +9,7 @@ export function toggleSysWindow(gdkmonitor: Gdk.Monitor) {
   else SysMenuWindow(gdkmonitor)
 }
 
-function MenuButton({ icon, onToggle, onMenuOpen, initState = false }: { icon: Subscribable<string>, onToggle: (boolean) => boolean, onMenuOpen: () => void, initState: boolean }): JSX.Element {
+function MenuButton({ icon, onToggle, onMenuOpen, initState = false }: { icon: Subscribable<string>, onToggle: (state: boolean) => boolean, onMenuOpen: () => void, initState: boolean }): JSX.Element {
   const state = Variable(initState)
   return <box className={bind(state).as(s => s ? "active" : "")}>
     <button onClick={() => state.set(onToggle(state.get()))}>
@@ -21,7 +21,7 @@ function MenuButton({ icon, onToggle, onMenuOpen, initState = false }: { icon: S
   </box>
 }
 
-function Switch({ icon, onToggle, initState }: { icon: Subscribable<string>, onToggle: (boolean) => boolean, initState: boolean }): JSX.Element {
+function Switch({ icon, onToggle, initState }: { icon: Subscribable<string>, onToggle: (state: boolean) => boolean, initState: boolean }): JSX.Element {
   const state = Variable(initState)
   return <button className={bind(state).as(s => s ? "active" : "")} onClick={() => state.set(onToggle(state.get()))}>
     <label label={bind(icon)} />
