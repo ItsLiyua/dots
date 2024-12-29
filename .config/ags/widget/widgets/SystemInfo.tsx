@@ -1,11 +1,18 @@
 import { Variable, bind } from "astal";
 import { Astal } from "astal/gtk3";
 import Wp from "gi://AstalWp"
+import Network from "gi://AstalNetwork"
+
 const wp = Wp.get_default()!
+const nw = Network.get_default()
 
 const volumeStep = 0.03
 const speakerIcons = ["", "", ""]
 const speakerMute = ""
+
+const wifiIcons = ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+const disconnectedIcon = "󰤭"
+const wiredIcon = "󰌗"
 
 function getIcon(icons: string[], percentage: number): string {
   const step = 1.0 / icons.length
@@ -30,8 +37,26 @@ function Volume(): JSX.Element {
   </eventbox>
 }
 
+function NetworkWidget(): JSX.Element {
+  return <button onClick={() => { }}>
+    <label className="icon" label={
+      bind(Variable.derive([bind(nw, "primary"), bind(nw, "wifi"), bind(nw, "wired")])).as(v => {
+        switch (v[0]) {
+          case Network.Primary.UNKNOWN:
+            return disconnectedIcon
+          case Network.Primary.WIRED:
+            return wiredIcon
+          case Network.Primary.WIFI:
+            return getIcon(wifiIcons, v[1].strength)
+        }
+      })
+    } />
+  </button>
+}
+
 export function SystemInfo(): JSX.Element {
-  return <box>
+  return <box className="sysinfo">
     <Volume />
+    <NetworkWidget />
   </box>
 }
