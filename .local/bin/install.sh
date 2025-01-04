@@ -8,7 +8,7 @@
 # makepkg -si
 #
 yay -S \
-  ly cmake cpio meson pkg-config hyprland-git hyprpolkitagent-git xdg-desktop-portal-hyprland-git hyprlock-git hypridle-git \
+  ly cmake cpio meson glaze pkg-config hyprland-git hyprpolkitagent-git xdg-desktop-portal-hyprland-git hyprlock-git hypridle-git \
   cliphist wl-clipboard \
   btop rocm-smi-lib \
   dunst \
