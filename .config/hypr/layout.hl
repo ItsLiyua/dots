@@ -1,5 +1,4 @@
 general {
-  allow_tearing = false
   resize_on_border = false
   layout = dwindle
 }
