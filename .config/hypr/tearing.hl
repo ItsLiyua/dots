@@ -1,0 +1,3 @@
+general {
+  allow_tearing = true
+}
