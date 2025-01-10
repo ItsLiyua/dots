@@ -10,6 +10,8 @@ windowrulev2 = opacity $opacity, class:kitty
 windowrulev2 = opacity $opacity, class:vesktop
 windowrulev2 = opacity $opacity, class:^steam$
 
+windowrulev2 = stayfocused, class:^jetbrains-idea-[cu]e$, title:^win\d+$
+
 layerrule = dimaround, wofi
 layerrule = blur, ags-bar
 layerrule = blur, wofi
