@@ -47,6 +47,7 @@ bindkey -e
 export GPG_TTY=$(tty)
 
 alias cd="z"
+alias b="btop"
 alias v="nvim"
 alias c="clear"
 alias clear="clear; pfetch"
