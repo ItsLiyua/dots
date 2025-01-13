@@ -8,7 +8,8 @@ windowrulev2 = immediate, class:steam_app_.*
 $opacity = 0.8
 windowrulev2 = opacity $opacity, class:kitty
 windowrulev2 = opacity $opacity, class:vesktop
-windowrulev2 = opacity $opacity, class:^steam$
+windowrulev2 = opacity $opacity, class:steam
+windowrulev2 = opacity $opacity, class:org.pwmt.zathura
 
 windowrulev2 = stayfocused, class:^jetbrains-idea-[cu]e$, title:^win\d+$
 
