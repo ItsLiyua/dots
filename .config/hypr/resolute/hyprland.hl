@@ -7,8 +7,10 @@ exec-once = hyprctl dispatch exec "[workspace 11 silent] btop"
 exec-once = sleep 3; hyprctl dispatch focusmonitor DP-3
 
 input {
-  kb_layout = us
+  kb_layout = us,de
 }
+
+bind = , F4, pass, class:com.obsproject.Studio
 
 windowrulev2 = workspace 1,class:(.*)Minecraft(.*)
 windowrulev2 = workspace 1,class:steam_app_.*

@@ -13,7 +13,7 @@ function getIcon(ws: Hyprland.Workspace, aws: Hyprland.Workspace): string {
 
 function WorkspaceButton(ws: number): JSX.Element {
   return <button onClick={() => { if (hypr.focusedWorkspace.id != ws) hypr.dispatch("workspace", "" + ws) }}>
-    <label className="icon" label={bind(hypr, "focusedWorkspace").as(aws => getIcon(hypr.get_workspace(ws), aws))} />
+    <label className="icon" label={bind(Variable.derive([bind(hypr, "focusedWorkspace"),bind(hypr, "clients")])).as(aws => getIcon(hypr.get_workspace(ws), aws[0]))} />
   </button>
 }
 
