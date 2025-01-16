@@ -10,6 +10,10 @@ function getIcon(ws: Hyprland.Workspace, aws: Hyprland.Workspace): string {
   else return ""
 }
 
+function switchWorkspace(target: number, active: number) {
+  if (target != active) hypr.dispatch("workspace", "" + target)
+}
+
 export function Workspaces({ monID }: { monID: number }): JSX.Element {
   const monitor = hypr.get_monitor(monID)
   return <box>
@@ -19,7 +23,7 @@ export function Workspaces({ monID }: { monID: number }): JSX.Element {
         .filter(ws => ws.id > 0 && ((ws.id % 10 <= persistent && ws.id % 10 != 0) || ws.clients.length > 0 || ws.id <= d[2].id))
         .sort((a, b) => a.id - b.id)
         .map(ws =>
-          <button onClick={() => { if (ws.id != d[2].id) hypr.dispatch("workspace", "" + ws.id) }}>
+          <button onClick={() => switchWorkspace(ws.id, d[2].id)}>
             <label className="icon" label={getIcon(ws, d[2])} />
           </button>
         )
