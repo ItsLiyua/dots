@@ -16,4 +16,5 @@ windowrulev2 = stayfocused, class:^jetbrains-idea-[cu]e$, title:^win\d+$
 layerrule = dimaround, wofi
 layerrule = blur, ags-bar
 layerrule = blur, wofi
+layerrule = noanim, selection
 
