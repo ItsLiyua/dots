@@ -20,7 +20,7 @@ export function Workspaces({ monID }: { monID: number }): JSX.Element {
     {bind(Variable.derive([bind(hypr, "clients"), bind(hypr, "workspaces"), bind(hypr, "focused_workspace")]))
       .as(d => d[1]
         .filter(ws => ws.monitor.id == monitor.id)
-        .filter(ws => ws.id > 0 && ((ws.id % 10 <= persistent && ws.id % 10 != 0) || ws.clients.length > 0 || ws.id <= d[2].id))
+        .filter(ws => ws.id > 0 && ((ws.id % 10 <= persistent && ws.id % 10 != 0) || ws.clients.length > 0 || (ws.id <= d[2].id && ws.monitor.id == d[2].monitor.id)))
         .sort((a, b) => a.id - b.id)
         .map(ws =>
           <button onClick={() => switchWorkspace(ws.id, d[2].id)}>
