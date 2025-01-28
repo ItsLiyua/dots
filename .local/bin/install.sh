@@ -19,7 +19,7 @@ yay -S \
   zen-browser-bin \
   aylurs-gtk-shell \
   wallust imagemagick swww \
-  bibata-cursor-git \
+  bibata-cursor-git
 
 # systemctl enable ly
 
