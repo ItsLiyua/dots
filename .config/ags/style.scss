@@ -1,47 +1,20 @@
-* {
-  all: unset;
-  font-family: "JetBrains Mono Nerd Font Mono";
-  font-size: 14px;
-  padding-left: 2px;
-  padding-right: 2px;
-}
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+$fg-color: #{"@theme_fg_color"};
+$bg-color: #{"@theme_bg_color"};
 
-.icon {
-  font-size: 24px;
-}
+window.Bar {
+    background: transparent;
+    color: $fg-color;
+    font-weight: bold;
 
-// .slider trough {
-//   all: unset;
-//   background: black;
-//   min-height: 8px;
-//   border-radius: 16px;
-// }
-// .slider trough slider {
-//   all: unset;
-// }
-//
-// .slider trough highlight {
-//   all: unset;
-//   min-width: 8px;
-//   border-radius: 16px;
-//   background: white;
-// 
+    >centerbox {
+        background: $bg-color;
+        border-radius: 10px;
+        margin: 8px;
+    }
 
-.active {
-  background-color: #3333bb;
-}
-
-.sysmenu {
-  margin: 4px;
-  padding: 4px;
-}
-
-.sysmenuelement {
-  border: 1px solid white;
-  border-radius: 8px;
-  padding: 8px;
-}
-
-.sysmenubox {
-  background-color: #111111
+    button {
+        border-radius: 8px;
+        margin: 2px;
+    }
 }
