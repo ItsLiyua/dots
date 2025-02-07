@@ -14,6 +14,7 @@ bind = , F4, pass, class:com.obsproject.Studio
 
 windowrulev2 = workspace 1,class:(.*)Minecraft(.*)
 windowrulev2 = workspace 1,class:steam_app_.*
+windowrulev2 = workspace 1,class:hl2_linux
 
 windowrulev2 = workspace 13 silent,class:vesktop
 windowrulev2 = workspace 14 silent,class:steam
