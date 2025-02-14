@@ -23,7 +23,7 @@ export default function WorkspaceButton({ ws }: { ws: Hyprland.Workspace }) {
             bind(hypr, "focusedMonitor"),
             bind(ws, "clients"),
           ]),
-        ).as(() => getIcon(ws))}
+        ).as(() => getIcon(ws) + ws.id)}
       />
     </button>
   );
