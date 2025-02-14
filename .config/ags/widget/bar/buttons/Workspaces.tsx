@@ -12,7 +12,7 @@ export default function Workspaces({ monitor }: { monitor: number }) {
         wss
           .filter((ws) => ws.monitor.id == monitor)
           .sort((a, b) => a.id - b.id)
-          .map((ws) => <WorkspaceButton ws={ws.id} />),
+          .map((ws) => <WorkspaceButton ws={ws} />),
       )}
     </box>
   );
