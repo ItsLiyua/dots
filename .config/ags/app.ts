@@ -5,6 +5,8 @@ import Bar from "./widget/bar/Bar";
 App.start({
   css: style,
   main() {
-    App.get_monitors().map(Bar);
+    for (let i = 0; i < App.get_monitors().length; i++) {
+      Bar(i);
+    }
   },
 });
