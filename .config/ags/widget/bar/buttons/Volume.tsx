@@ -41,6 +41,7 @@ function getIcon() {
 }
 
 export default function Volume() {
+  const spk = wp.defaultSpeaker;
   return (
     <eventbox
       onClick={toggleMute}
@@ -49,7 +50,23 @@ export default function Volume() {
         else if (e.delta_y > 0) decreaseVolume();
       }}
     >
-      <label label={getIcon()} />
+      <label
+        label={bind(derive([bind(spk, "mute"), bind(spk, "volume")]))
+          .as((a) => {
+            if (a[0] || a[1] == 0) return MUTE_ICON;
+
+            const percentage = 1.0 / ICONS.length;
+            let icon = "null";
+            for (let i = 1; i <= ICONS.length; i++) {
+              if (i * percentage >= a[1]) {
+                icon = ICONS[i - 1];
+                break;
+              }
+            }
+            return icon;
+          })
+          .as((s) => s)}
+      />
     </eventbox>
   );
 }
