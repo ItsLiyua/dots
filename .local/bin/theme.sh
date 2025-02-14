@@ -1,19 +1,19 @@
 #!/bin/bash
 
 if [ -z $(pidof swww-daemon) ]; then
-  swww-daemon&
-  sleep 1
+	swww-daemon&
+	sleep 1
 fi
 
 PWF_LOCK_FILE="/tmp/theme/pywalfox"
 if [ ! -f "$PWF_LOCK_FILE" ]; then
-  pywalfox start&
-  mkdir -p "$(dirname "$PWF_LOCK_FILE")"
-  touch "$PWF_LOCK_FILE"
-  sleep 0.5
-  echo "PWF started"
+	pywalfox start&
+	mkdir -p "$(dirname "$PWF_LOCK_FILE")"
+	touch "$PWF_LOCK_FILE"
+	sleep 0.5
+	echo "PWF started"
 else
-  echo "PWF already present"
+	echo "PWF already present"
 fi
 
 WALLPAPER_LOC="${HOME}/.local/share/wallpapers/"

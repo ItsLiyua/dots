@@ -1,37 +1,27 @@
-import { App, Astal, Gdk, Gtk } from "astal/gtk3";
+import { App, Astal, Gtk, Gdk } from "astal/gtk3";
+import { Variable } from "astal";
+import Clock from "./buttons/Clock";
 
-const widget = {};
+const time = Variable("").poll(1000, "date");
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
+  const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
+
   return (
     <window
-      className="bar"
+      className="Bar"
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
-      anchor={
-        Astal.WindowAnchor.TOP |
-        Astal.WindowAnchor.LEFT |
-        Astal.WindowAnchor.RIGHT
-      }
+      anchor={TOP | LEFT | RIGHT}
       application={App}
     >
-      <centerbox
-        startWidget={
-          <box hexpand={true} halign={Gtk.Align.START}>
-            <label label="Hello World 1" />
-          </box>
-        }
-        centerWidget={
-          <box hexpand={true} halign={Gtk.Align.CENTER}>
-            <label label="Hello World 2" />
-          </box>
-        }
-        endWidget={
-          <box hexpand={true} halign={Gtk.Align.END}>
-            <label label="Hello World 3" />
-          </box>
-        }
-      />
+      <centerbox>
+        <button onClicked="echo hello" halign={Gtk.Align.CENTER}>
+          Welcome to AGS!
+        </button>
+        <box />
+        <Clock />
+      </centerbox>
     </window>
   );
 }
