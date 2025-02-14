@@ -2,6 +2,7 @@ import { App, Astal, Gtk } from "astal/gtk3";
 import Clock from "./buttons/Clock";
 import Workspaces from "./buttons/Workspaces";
 import Title from "./buttons/Title";
+import Volume from "./buttons/Volume";
 
 export default function Bar(monitor: number) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
@@ -27,6 +28,7 @@ export default function Bar(monitor: number) {
         }
         endWidget={
           <box halign={Gtk.Align.END}>
+            <Volume />
             <Clock />
           </box>
         }

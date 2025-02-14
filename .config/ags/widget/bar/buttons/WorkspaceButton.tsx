@@ -4,7 +4,7 @@ import Hyprland from "gi://AstalHyprland?version=0.1";
 const hypr = Hyprland.get_default();
 
 function switchWorkspace(ws: Hyprland.Workspace) {
-  if (hypr.focusedWorkspace.id != ws.id) hypr.dispatch("workspace", "" + ws);
+  if (hypr.focusedWorkspace.id != ws.id) hypr.dispatch("workspace", "" + ws.id);
 }
 
 function getIcon(ws: Hyprland.Workspace): string {
