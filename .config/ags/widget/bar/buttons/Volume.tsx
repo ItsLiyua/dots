@@ -4,6 +4,7 @@ import Wp from "gi://AstalWp";
 const wp = Wp.get_default()!!.audio;
 const MUTE_ICON = "";
 const ICONS = ["", "", ""];
+const STEP = 0.01;
 
 function toggleMute() {
   wp.defaultSpeaker.mute = !wp.defaultSpeaker.mute;
@@ -11,15 +12,14 @@ function toggleMute() {
 
 function increaseVolume() {
   const spk = wp.defaultSpeaker;
-  if (spk.mute) toggleMute();
-  if (spk.volume < 1) spk.volume += Math.min(0.03, 1 - spk.volume);
+  spk.mute = false;
+  spk.volume = Math.min(spk.volume + STEP, 1);
 }
 
 function decreaseVolume() {
   const spk = wp.defaultSpeaker;
-  if (spk.mute) toggleMute();
-  if (spk.volume > 0) spk.volume -= Math.min(0.03, spk.volume);
-  if (spk.volume == 0) toggleMute();
+  spk.volume = Math.max(spk.volume - STEP, 0);
+  if (spk.volume == 0) spk.mute = true;
 }
 
 function getIcon() {
