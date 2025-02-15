@@ -4,6 +4,7 @@ import Workspaces from "./buttons/Workspaces";
 import Title from "./buttons/Title";
 import Volume from "./buttons/Volume";
 import { QUICK_SETTINGS_NAME } from "../quicksettings/QuickSettings";
+import QuickSettingsToggle from "./buttons/QuickSettingsToggle";
 
 export const BAR_NAME = "Bar";
 
@@ -22,10 +23,8 @@ export default function Bar(monitor: number) {
       <centerbox
         startWidget={
           <box halign={Gtk.Align.START}>
+            <QuickSettingsToggle monitor={monitor} />
             <Title />
-            <button onClick={() => App.toggle_window(QUICK_SETTINGS_NAME)}>
-              <label label="test" />
-            </button>
           </box>
         }
         centerWidget={

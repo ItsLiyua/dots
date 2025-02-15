@@ -7,10 +7,10 @@ export default function QuickSettings(monitor: number) {
 
   return (
     <window
-      name={QUICK_SETTINGS_NAME}
+      name={QUICK_SETTINGS_NAME + monitor}
       className="QuickSettings"
       monitor={monitor}
-      exclusivity={Astal.Exclusivity.IGNORE}
+      exclusivity={Astal.Exclusivity.NORMAL}
       anchor={TOP | LEFT}
       application={App}
       layer={Astal.Layer.TOP}
