@@ -10,7 +10,7 @@ export default function Title() {
       label={bind(
         derive([bind(hypr, "focusedClient"), bind(hypr, "focusedMonitor")]),
       ).as((a) =>
-        a[0] != null && a[0].monitor.id == a[1].id ? a[0].title : DEFAULT_TITLE,
+        a[0] != null && a[0].monitor.id == a[1].id ? a[0].class : DEFAULT_TITLE,
       )}
     />
   );
