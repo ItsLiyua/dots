@@ -3,7 +3,6 @@ import Clock from "./buttons/Clock";
 import Workspaces from "./buttons/Workspaces";
 import Title from "./buttons/Title";
 import Volume from "./buttons/Volume";
-import { QUICK_SETTINGS_NAME } from "../quicksettings/QuickSettings";
 import QuickSettingsToggle from "./buttons/QuickSettingsToggle";
 
 export const BAR_NAME = "Bar";

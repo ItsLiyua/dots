@@ -1,4 +1,5 @@
 import { App, Astal } from "astal/gtk3";
+import Wifi from "./buttons/Wifi";
 
 export const QUICK_SETTINGS_NAME = "QuickSettings";
 
@@ -16,7 +17,7 @@ export default function QuickSettings(monitor: number) {
       layer={Astal.Layer.TOP}
       visible={false}
     >
-      <label label="Hello World" />
+      <Wifi />
     </window>
   );
 }
