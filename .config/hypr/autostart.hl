@@ -2,6 +2,7 @@ exec-once = hyprpm reload -nn
 exec-once = hypridle
 exec-once = systemctl --user start hyprpolkitagent
 exec-once = wl-paste --watch cliphist store
+exec-once = ags run
 
 exec-once = playerctld daemon
 exec-once = pywalfox start
