@@ -15,27 +15,37 @@ export default function QuickSettings(monitor: number) {
       anchor={TOP | LEFT}
       application={App}
       layer={Astal.Layer.TOP}
-      visible={false}
+      //visible={false}
     >
-      <box orientation={Gtk.Orientation.VERTICAL}>
-        <box orientation={Gtk.Orientation.HORIZONTAL}>
-          <box orientation={Gtk.Orientation.HORIZONTAL}>
-            <button>
+      <box className="qs_elements" orientation={Gtk.Orientation.VERTICAL}>
+        <box
+          className="qs_element"
+          halign={Gtk.Align.CENTER}
+          orientation={Gtk.Orientation.HORIZONTAL}
+        >
+          <box className="qs_element" orientation={Gtk.Orientation.HORIZONTAL}>
+            <button className="qs_big_button_l activated">
               <label label="toggle 1" />
             </button>
-            <button>
+            <button className="qs_big_button_r">
               <label label="opts 1" />
             </button>
           </box>
-          <box orientation={Gtk.Orientation.HORIZONTAL}>
-            <button>
+          <box className="qs_element" orientation={Gtk.Orientation.HORIZONTAL}>
+            <button className="qs_big_button_l">
               <label label="toggle 2" />
             </button>
-            <button>
+            <button className="qs_big_button_r">
               <label label="opts 2" />
             </button>
           </box>
         </box>
+      </box>
+    </window>
+  );
+}
+/*
+ 
         <box orientation={Gtk.Orientation.VERTICAL}>
           <box orientation={Gtk.Orientation.HORIZONTAL}>
             <label label="icon1" />
@@ -62,7 +72,4 @@ export default function QuickSettings(monitor: number) {
           <label label="baticon" />
           <label label="batpercentage" />
         </box>
-      </box>
-    </window>
-  );
-}
+ */
