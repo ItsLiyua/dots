@@ -15,7 +15,7 @@ export default function QuickSettings(monitor: number) {
       anchor={TOP | LEFT}
       application={App}
       layer={Astal.Layer.TOP}
-      //visible={false}
+      visible={false}
     >
       <box className="qs_elements" orientation={Gtk.Orientation.VERTICAL}>
         <box
