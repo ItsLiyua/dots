@@ -17,26 +17,28 @@ export default function QuickSettings(monitor: number) {
       layer={Astal.Layer.TOP}
       visible={false}
     >
-      <box className="qs_elements" orientation={Gtk.Orientation.VERTICAL}>
+      <box orientation={Gtk.Orientation.VERTICAL}>
         <box
           className="qs_element"
           halign={Gtk.Align.CENTER}
           orientation={Gtk.Orientation.HORIZONTAL}
         >
-          <box className="qs_element" orientation={Gtk.Orientation.HORIZONTAL}>
-            <button className="qs_big_button_l activated">
-              <label label="toggle 1" />
-            </button>
-            <button className="qs_big_button_r">
-              <label label="opts 1" />
-            </button>
+          <box
+            className="switch-settings"
+            orientation={Gtk.Orientation.HORIZONTAL}
+          >
+            <button className="switch-settings-toggle" label="toggle" />
+            <button className="switch-settings-more" label="more" />
           </box>
-          <box className="qs_element" orientation={Gtk.Orientation.HORIZONTAL}>
-            <button className="qs_big_button_l">
-              <label label="toggle 2" />
+          <box
+            className="switch-settings"
+            orientation={Gtk.Orientation.HORIZONTAL}
+          >
+            <button className="toggle">
+              <label className="toggle" label="toggle 2" />
             </button>
-            <button className="qs_big_button_r">
-              <label label="opts 2" />
+            <button className="more">
+              <label className="more" label="opts 2" />
             </button>
           </box>
         </box>
