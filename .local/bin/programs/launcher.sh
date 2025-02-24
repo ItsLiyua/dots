@@ -1,2 +1,4 @@
 #!/bin/bash
-wofi --show drun -p "Search..."
+if [ -z $(pidof wofi) ]; then
+	wofi --show drun -p "Search..."
+fi
