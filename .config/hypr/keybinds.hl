@@ -64,5 +64,6 @@ bindl = , XF86AudioPlay, exec, playerctl play-pause
 bindl = , XF86AudioPrev, exec, playerctl previous
 
 bind = CTRL ALT, V, exec, ~/.local/bin/programs/clipboard_manager.sh
-bind = $mainMod, P, exec, grim -g "$(slurp)" -t png -o ~/Pictures/screenshots/screenshot_$(date +%Y_%m_%d_%H_%M%_S).png | wl-copy 
-bind = , Print, exec, grim -g "$(slurp)" -t png -o ~/Pictures/screenshots/screenshot_$(date +%Y_%m_%d_%H_%M%_S).png | wl-copy 
+bind = $mainMod, P, exec, ~/.local/bin/programs/screenshot.sh
+bind = , Print, exec, ~/.local/bin/programs/screenshot.sh
+
