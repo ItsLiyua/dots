@@ -12,8 +12,8 @@ setopt hist_ignore_dups
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 if [ ! -d "$ZINIT_HOME" ]; then
-  mkdir -p "$(dirname $ZINIT_HOME)"
-  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+	mkdir -p "$(dirname $ZINIT_HOME)"
+	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
 source "${ZINIT_HOME}/zinit.zsh"
@@ -50,11 +50,11 @@ alias cd="z"
 alias b="btop"
 alias v="nvim"
 alias c="clear"
-alias clear="clear; pfetch"
+alias clear="clear; fastfetch"
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias ls="ls --color"
 alias l="ls"
 alias ll="ls -l"
 alias la="ll -a"
 
-pfetch
+fastfetch
