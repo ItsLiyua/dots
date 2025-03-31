@@ -1,6 +1,5 @@
-backend = "resized"
-palette = "ansidark"
-# palette = "dark16"
+backend = "full"
+palette = "ansidark16"
 color_space = "lch"
 check_contrast = true
 
