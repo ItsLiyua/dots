@@ -45,6 +45,7 @@ eval "$(zoxide init zsh)"
 bindkey -e
 
 export GPG_TTY=$(tty)
+export PINENTRY_USER_DATA="USE_CURSES=1"
 
 alias cd="z"
 alias b="btop"
