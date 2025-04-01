@@ -1,17 +1,17 @@
-windowrulev2 = suppressevent maximize, class:.*
+windowrule = suppressevent maximize, class:.*
 
-windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
 
-windowrulev2 = immediate, class:(.*)Minecraft(.*)
-windowrulev2 = immediate, class:steam_app_.*
+windowrule = immediate, class:(.*)Minecraft(.*)
+windowrule = immediate, class:steam_app_.*
 
 $opacity = 0.8
-windowrulev2 = opacity $opacity, class:kitty
-windowrulev2 = opacity $opacity, class:vesktop
-windowrulev2 = opacity $opacity, class:steam
-windowrulev2 = opacity $opacity, class:org.pwmt.zathura
+windowrule = opacity $opacity, class:kitty
+windowrule = opacity $opacity, class:vesktop
+windowrule = opacity $opacity, class:steam
+windowrule = opacity $opacity, class:org.pwmt.zathura
 
-windowrulev2 = stayfocused, class:^jetbrains-idea-[cu]e$, title:^win\d+$
+windowrule = stayfocused, class:^jetbrains-idea-[cu]e$, title:^win\d+$
 
 layerrule = dimaround, wofi
 layerrule = blur, ags-bar

@@ -16,6 +16,10 @@ input {
 
 bind = , F4, pass, class:com.obsproject.Studio
 
+dwindle {
+  split_width_multiplier = 0.5
+}
+
 windowrulev2 = workspace 1,class:(.*)Minecraft(.*)
 windowrulev2 = workspace 1,class:steam_app_.*
 windowrulev2 = workspace 1,class:hl2_linux

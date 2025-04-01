@@ -6,5 +6,5 @@ exec-once = ags run
 
 exec-once = playerctld daemon
 exec-once = pywalfox start
-exec-once = ~/.local/bin/theme.sh
+exec-once = ~/.local/bin/theme.sh ~/.local/share/wallpapers/Kurzgesagt-Galaxy_2.png
 exec-once = dunst
