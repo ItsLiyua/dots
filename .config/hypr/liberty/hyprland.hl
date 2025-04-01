@@ -10,6 +10,6 @@ xwayland {
 
 env = GDK_SCALE,2
 
-windowrulev2 = workspace 3 silent,class:vesktop
-windowrulev2 = workspace 4 silent,class:steam
-windowrulev2 = workspace 5 silent,class:steam_app_.*
+windowrule = workspace 3 silent,class:vesktop
+windowrule = workspace 4 silent,class:steam
+windowrule = workspace 5 silent,class:steam_app_.*
