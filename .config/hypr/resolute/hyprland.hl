@@ -20,7 +20,7 @@ dwindle {
   split_width_multiplier = 1.5
 }
 
-windowrule = workspace 1,class:(.*)Minecraft(.*)
+windowrule = workspace 1,class:^Minecraft.*$
 windowrule = workspace 1,class:steam_app_.*
 windowrule = workspace 1,class:hl2_linux
 

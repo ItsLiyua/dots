@@ -13,6 +13,8 @@ windowrule = opacity $opacity, class:org.pwmt.zathura
 
 windowrule = stayfocused, class:^jetbrains-idea-[cu]e$, title:^win\d+$
 
+windowrule = tile,class:^Minecraft.*$
+
 layerrule = dimaround, wofi
 layerrule = blur, ags-bar
 layerrule = blur, wofi
