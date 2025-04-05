@@ -5,7 +5,6 @@ const hovering = Variable(false);
 const bat = AstalBattery.get_default();
 
 function isMainBat() {
-  console.log(bat.deviceType.toString());
   return bat.deviceType == AstalBattery.Type.BATTERY && bat.powerSupply;
 }
 

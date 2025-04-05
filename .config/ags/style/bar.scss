@@ -2,48 +2,9 @@ $text: #cccccc;
 $bg-1: #111111;
 $bg-2: #333333;
 
-window.Bar {
-  background: transparent;
-  color: $text;
-  font-weight: bold;
-
-  > centerbox {
-    background: transparent;
-    border-radius: 10px;
-    margin: 8px;
-  }
-
-  button {
-    border-radius: 8px;
-    margin: 2px;
-  }
-}
-
-window.QuickSettings {
+button {
+  border-radius: 0;
   background: $bg-1;
   color: $text;
-  .switch-settings {
-    @extend window, .QuickSettings;
-    border: none;
-    box-shadow: none;
-    text-shadow: none;
-    background: $bg-2;
-    &-toggle {
-      @extend .switch-settings;
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      .activated {
-      }
-    }
-    &-more {
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      .activated {
-      }
-    }
-  }
+  text-shadow: 0 0;
 }

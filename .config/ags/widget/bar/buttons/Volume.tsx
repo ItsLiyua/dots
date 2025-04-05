@@ -1,7 +1,8 @@
 import { bind, derive } from "astal";
 import Wp from "gi://AstalWp";
 
-const wp = Wp.get_default()!!.audio.defaultSpeaker;
+const wp = Wp.get_default()!!;
+const default_audio = bind(wp.audio, "default_speaker");
 const MUTE_ICON = "";
 const ICONS = ["", "", ""];
 const STEP = 0.01;
@@ -20,34 +21,20 @@ function icon(vol: number, mute: boolean) {
   return "undefined";
 }
 
-function increaseVolume() {
-  wp.mute = false;
-  wp.volume = Math.min(wp.volume + STEP, 1);
-}
-
-function decreaseVolume() {
-  wp.volume = Math.max(wp.volume - STEP, 0);
-  wp.mute = wp.volume == 0;
-}
-
-function toggleMute() {
-  wp.mute = !wp.mute;
-}
-
 export default function Volume() {
   return (
     <eventbox
-      onClick={toggleMute}
+      onClick={() => (default_audio.get().mute = !default_audio.get().mute)}
       onScroll={(_, e) => {
-        if (e.delta_y > 0) decreaseVolume();
-        else if (e.delta_y < 0) increaseVolume();
+        if (e.delta_y > 0) console.log("test2");
+        else if (e.delta_y < 0) console.log("test3");
       }}
     >
       <label
         css="margin-right: 8px;"
-        label={bind(derive([bind(wp, "volume"), bind(wp, "mute")])).as(
-          ([vol, mute]) => icon(vol, mute),
-        )}
+        label={default_audio
+          .as((a) => bind(a, "volume").as((n) => "" + n))
+          .get()}
       />
     </eventbox>
   );
