@@ -10,6 +10,8 @@ export default function HoverIcon({
   onScrollUp = () => {},
   onScrollDown = () => {},
   onClick = (_) => {},
+  onHover = () => true,
+  onHoverLost = () => true,
 }: {
   className: string;
   initState: boolean;
@@ -18,12 +20,18 @@ export default function HoverIcon({
   onScrollUp: () => void;
   onScrollDown: () => void;
   onClick: (e: Astal.ClickEvent) => void;
+  onHover: () => boolean;
+  onHoverLost: () => boolean;
 }) {
   const state = Variable(initState);
   return (
     <eventbox
-      onHover={() => state.set(true)}
-      onHoverLost={() => state.set(false)}
+      onHover={() => {
+        if (onHover()) state.set(true);
+      }}
+      onHoverLost={() => {
+        if (onHoverLost()) state.set(false);
+      }}
       onScroll={(_, event) => {
         if (event.delta_y > 0) onScrollDown();
         else if (event.delta_y < 0) onScrollUp();

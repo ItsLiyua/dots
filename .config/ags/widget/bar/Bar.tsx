@@ -5,6 +5,7 @@ import Title from "./buttons/Title";
 import Volume from "./buttons/Volume";
 import QuickSettingsToggle from "./buttons/QuickSettingsToggle";
 import Battery from "./buttons/Battery";
+import Brightness from "./buttons/Brightness";
 
 export const BAR_NAME = "Bar";
 
@@ -35,6 +36,7 @@ export default function Bar(monitor: number) {
         endWidget={
           <box halign={Gtk.Align.END}>
             <Volume />
+            <Brightness />
             <Battery />
             <Clock />
           </box>
