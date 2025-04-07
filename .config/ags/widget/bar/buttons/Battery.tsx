@@ -1,7 +1,6 @@
-import { bind, derive, Variable } from "astal";
+import { bind } from "astal";
 import AstalBattery from "gi://AstalBattery?version=0.1";
 import HoverIcon from "../HoverIcon";
-import { Astal } from "astal/gtk3";
 
 const bat = AstalBattery.get_default();
 const ICONS = ["", "", "", "", ""];
@@ -28,15 +27,9 @@ export default function Battery() {
         initState={false}
         iconProvider={icon}
         valueProvider={bind(bat, "percentage").as((n) => Math.round(n * 100))}
-        onScrollUp={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-        onScrollDown={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-        onClick={function (e: Astal.ClickEvent): void {
-          throw new Error("Function not implemented.");
-        }}
+        onScrollUp={() => {}}
+        onScrollDown={() => {}}
+        onClick={(_) => {}}
       />
     );
   } else return <></>;
