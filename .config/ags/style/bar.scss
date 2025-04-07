@@ -8,23 +8,35 @@ $bg-2: #333333;
   font-size: 14px;
 }
 
-.bar-element {
-  background: $bg-1;
+.bar-colors {
   color: $text;
+  text-shadow: none;
+  box-shadow: none;
+  border: none;
+}
+
+.bar-element {
+  @extend .bar-colors;
+  background: $bg-1;
   margin-left: 3px;
   margin-right: 3px;
   padding-left: 6px;
   padding-right: 6px;
-
-  border: none;
   border-radius: 20px;
 }
 
 .hover-icon-label {
+  @extend .bar-colors;
   padding-left: 2px;
   padding-right: 8px;
 }
 
 .hover-icon-revealer-label {
+  @extend .bar-colors;
   margin-left: 2px;
+}
+
+button {
+  @extend .bar-colors;
+  background: $bg-1;
 }
