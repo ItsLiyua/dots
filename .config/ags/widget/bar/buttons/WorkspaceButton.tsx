@@ -17,6 +17,7 @@ export default function WorkspaceButton({ ws }: { ws: Hyprland.Workspace }) {
   return (
     <button onClick={() => switchWorkspace(ws)}>
       <label
+        className="icon"
         label={bind(
           derive([
             bind(hypr, "focusedWorkspace"),

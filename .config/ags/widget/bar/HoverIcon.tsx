@@ -41,6 +41,7 @@ export default function HoverIcon({
       <box className={"bar-element " + className}>
         <label
           label={valueProvider.as(iconProvider)}
+          // css="background:#ff0000;"
           className={"hover-icon-label " + className}
         />
         <revealer

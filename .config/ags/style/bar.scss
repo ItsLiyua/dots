@@ -4,8 +4,14 @@ $bg-1: #111111;
 $bg-2: #333333;
 
 * {
-  font-family: "JetBrainsMono Nerd Font";
+  font-family: "JetBrainsMono Nerd Font Mono";
   font-size: 14px;
+}
+
+.icon {
+  font-size: 22px;
+  margin-top: -2px;
+  margin-bottom: -2px;
 }
 
 .bar-colors {
@@ -22,13 +28,16 @@ $bg-2: #333333;
   margin-right: 3px;
   padding-left: 6px;
   padding-right: 6px;
-  border-radius: 20px;
+  margin-top: -2px;
+  margin-bottom: -2px;
+  border-radius: 30px;
 }
 
 .hover-icon-label {
   @extend .bar-colors;
+  @extend .icon;
   padding-left: 2px;
-  padding-right: 8px;
+  padding-right: 2px;
 }
 
 .hover-icon-revealer-label {
@@ -38,5 +47,8 @@ $bg-2: #333333;
 
 button {
   @extend .bar-colors;
+  @extend .bar-element;
+  padding-left: 8px;
+  padding-right: 8px;
   background: $bg-1;
 }
