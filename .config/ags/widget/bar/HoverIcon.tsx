@@ -1,14 +1,17 @@
 import { bind, Binding, Variable } from "astal";
 import { Astal } from "astal/gtk3";
+import Gtk from "gi://Gtk?version=3.0";
 
 export default function HoverIcon({
+  className = "",
   iconProvider,
   valueProvider,
   initState = false,
   onScrollUp = () => {},
   onScrollDown = () => {},
-  onClick = (e) => {},
+  onClick = (_) => {},
 }: {
+  className: string;
   initState: boolean;
   iconProvider: (value: number) => string;
   valueProvider: Binding<number>;
@@ -27,10 +30,20 @@ export default function HoverIcon({
       }}
       onClick={(_, event) => onClick(event)}
     >
-      <box>
-        <label label={valueProvider.as(iconProvider)} />
-        <revealer reveal_child={bind(state)}>
-          <label label={valueProvider.as((n) => "" + n)} />
+      <box className={"bar-element " + className}>
+        <label
+          label={valueProvider.as(iconProvider)}
+          className={"hover-icon-label " + className}
+        />
+        <revealer
+          reveal_child={bind(state)}
+          className={"hover-icon-revealer " + className}
+          transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
+        >
+          <label
+            className={"hover-icon-revealer-label " + className}
+            label={valueProvider.as((n) => n + "%")}
+          />
         </revealer>
       </box>
     </eventbox>

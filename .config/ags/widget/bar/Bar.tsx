@@ -34,8 +34,8 @@ export default function Bar(monitor: number) {
         }
         endWidget={
           <box halign={Gtk.Align.END}>
-            <Battery />
             <Volume />
+            <Battery />
             <Clock />
           </box>
         }

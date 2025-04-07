@@ -8,8 +8,12 @@ const MUTE_ICON = "";
 const ICONS = ["", "", ""];
 const STEP = 0.05;
 
-let vol: Binding<number> = bind(default_audio.get(), "volume");
-default_audio.subscribe((s) => (vol = bind(s, "volume")));
+let vol: Binding<number> = bind(default_audio.get(), "volume").as((v) =>
+  Math.round(v * 100),
+);
+default_audio.subscribe(
+  (s) => (vol = bind(s, "volume").as((v) => Math.round(v * 100))),
+);
 
 let mute: Binding<boolean> = bind(default_audio.get(), "mute");
 default_audio.subscribe((s) => (mute = bind(s, "mute")));
@@ -44,6 +48,7 @@ export default function Volume() {
       }}
       onClick={(_) => (default_audio.get().mute = !default_audio.get().mute)}
       initState={false}
+      className={""}
     />
   );
 }

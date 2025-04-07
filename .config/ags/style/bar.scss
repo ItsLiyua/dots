@@ -1,10 +1,30 @@
-$text: #cccccc;
+$text: #ffffff;
 $bg-1: #111111;
+// $bg-1: #666666;
 $bg-2: #333333;
 
-button {
-  border-radius: 0;
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+}
+
+.bar-element {
   background: $bg-1;
   color: $text;
-  text-shadow: 0 0;
+  margin-left: 3px;
+  margin-right: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+
+  border: none;
+  border-radius: 20px;
+}
+
+.hover-icon-label {
+  padding-left: 2px;
+  padding-right: 8px;
+}
+
+.hover-icon-revealer-label {
+  margin-left: 2px;
 }
