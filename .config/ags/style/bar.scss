@@ -1,10 +1,11 @@
 $text: #ffffff;
-$accent: #ff0000;
-// $bg-1: #111111;
-$bg-1: #666666;
-$bg-2: #333333;
+$accent-1: #880088;
+$accent-2: #ff8800;
+$accent-3: #ff00ff;
+$background: #111111;
 
 * {
+  all: unset;
   font-family: "JetBrainsMono Nerd Font Mono";
   font-size: 14px;
   padding: 0 1px 0 1px;
@@ -22,13 +23,13 @@ $bg-2: #333333;
 }
 
 .accent {
-  color: $bg-1;
-  background: $accent;
+  color: $background;
+  background: $accent-1;
 }
 
 .bar-element {
   @extend .colors;
-  background: $bg-1;
+  background: $background;
   margin-left: 3px;
   margin-top: 3px;
   margin-right: 3px;
@@ -45,25 +46,27 @@ $bg-2: #333333;
   @extend .colors;
 }
 
-button {
-  @extend .colors;
-  @extend .bar-element;
-  background: $bg-1;
-}
-
 .bar-workspace {
-  margin: 8px 0 8px 0;
-  padding: 0;
-  background: red;
-  border-radius: 20px;
-  transition: 0.5s ease-out;
-}
-.bar-workspace-active {
-  min-width: 30px;
-}
-.bar-workspace-nonempty {
-  background: green;
-}
-.bar-workspace-empty {
-  background: blue;
+  background: $background;
+  min-width: 10px;
+  min-height: 10px;
+  margin: 10px 4px;
+  border: none;
+  border-radius: 1000px;
+  box-shadow: none;
+  transition-duration: 0.5s;
+  &:hover {
+    background: $accent-1;
+    min-width: 30px;
+  }
+  &.active {
+    background: $accent-1;
+    min-width: 20px;
+  }
+  &.occupied {
+    background: $accent-2;
+  }
+  &.empty {
+    background: $accent-3;
+  }
 }

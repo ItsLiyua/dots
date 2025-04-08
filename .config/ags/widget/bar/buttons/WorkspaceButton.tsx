@@ -15,17 +15,20 @@ function getClassName(ws: Hyprland.Workspace): string {
 
 export default function WorkspaceButton({ ws }: { ws: Hyprland.Workspace }) {
   return (
-    <button onClick={() => switchWorkspace(ws)}>
-      <box
-        vexpand={false}
-        className={bind(
-          derive([
-            bind(hypr, "focusedWorkspace"),
-            bind(hypr, "focusedMonitor"),
-            bind(ws, "clients"),
-          ]),
-        ).as(() => "bar-workspace " + getClassName(ws))}
-      />
-    </button>
+    <button
+      onClick={() => switchWorkspace(ws)}
+      className={bind(
+        derive([
+          bind(hypr, "focusedWorkspace"),
+          bind(hypr, "focusedMonitor"),
+          bind(ws, "clients"),
+        ]),
+      ).as(() => "bar-workspace ")}
+      setup={(self) => {
+        if (hypr.focusedWorkspace.id == ws.id) self.toggleClassName("active");
+        else if (ws.clients.length > 0) self.toggleClassName("occupied");
+        else self.toggleClassName("empty");
+      }}
+    />
   );
 }
