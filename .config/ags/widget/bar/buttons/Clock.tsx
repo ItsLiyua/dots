@@ -1,4 +1,5 @@
 import { bind, derive, Variable } from "astal";
+import Gtk from "gi://Gtk?version=3.0";
 
 const TIME_FORMAT = "+%H:%M:%S";
 const DATE_FORMAT = "+%b %dth %Y";

@@ -1,17 +1,16 @@
 $text: #ffffff;
-$bg-1: #111111;
-// $bg-1: #666666;
+// $bg-1: #111111;
+$bg-1: #666666;
 $bg-2: #333333;
 
 * {
   font-family: "JetBrainsMono Nerd Font Mono";
   font-size: 14px;
+  padding: 0 1px 0 1px;
 }
 
 .icon {
   font-size: 22px;
-  margin-top: -2px;
-  margin-bottom: -2px;
 }
 
 .bar-colors {
@@ -25,30 +24,23 @@ $bg-2: #333333;
   @extend .bar-colors;
   background: $bg-1;
   margin-left: 3px;
+  margin-top: 3px;
   margin-right: 3px;
-  padding-left: 6px;
-  padding-right: 6px;
-  margin-top: -2px;
-  margin-bottom: -2px;
-  border-radius: 30px;
+  border-radius: 50px;
 }
 
 .hover-icon-label {
   @extend .bar-colors;
   @extend .icon;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding-top: 1px;
 }
 
 .hover-icon-revealer-label {
   @extend .bar-colors;
-  margin-left: 2px;
 }
 
 button {
   @extend .bar-colors;
   @extend .bar-element;
-  padding-left: 8px;
-  padding-right: 8px;
   background: $bg-1;
 }

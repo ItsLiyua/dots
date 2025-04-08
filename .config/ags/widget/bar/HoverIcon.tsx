@@ -38,10 +38,9 @@ export default function HoverIcon({
       }}
       onClick={(_, event) => onClick(event)}
     >
-      <box className={"bar-element " + className}>
+      <box className={className}>
         <label
           label={valueProvider.as(iconProvider)}
-          // css="background:#ff0000;"
           className={"hover-icon-label " + className}
         />
         <revealer
