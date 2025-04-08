@@ -51,11 +51,9 @@ alias cd="z"
 alias b="btop"
 alias v="nvim"
 alias c="clear"
-alias clear="clear; fastfetch"
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias ls="ls --color"
 alias l="ls"
 alias ll="ls -l"
 alias la="ll -a"
 
-fastfetch
