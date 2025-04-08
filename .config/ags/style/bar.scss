@@ -1,4 +1,5 @@
 $text: #ffffff;
+$accent: #ff0000;
 // $bg-1: #111111;
 $bg-1: #666666;
 $bg-2: #333333;
@@ -13,15 +14,20 @@ $bg-2: #333333;
   font-size: 22px;
 }
 
-.bar-colors {
+.colors {
   color: $text;
   text-shadow: none;
   box-shadow: none;
   border: none;
 }
 
+.accent {
+  color: $bg-1;
+  background: $accent;
+}
+
 .bar-element {
-  @extend .bar-colors;
+  @extend .colors;
   background: $bg-1;
   margin-left: 3px;
   margin-top: 3px;
@@ -30,17 +36,34 @@ $bg-2: #333333;
 }
 
 .hover-icon-label {
-  @extend .bar-colors;
+  @extend .colors;
   @extend .icon;
   padding-top: 1px;
 }
 
 .hover-icon-revealer-label {
-  @extend .bar-colors;
+  @extend .colors;
 }
 
 button {
-  @extend .bar-colors;
+  @extend .colors;
   @extend .bar-element;
   background: $bg-1;
+}
+
+.bar-workspace {
+  margin: 8px 0 8px 0;
+  padding: 0;
+  background: red;
+  border-radius: 20px;
+  transition: 0.5s ease-out;
+}
+.bar-workspace-active {
+  min-width: 30px;
+}
+.bar-workspace-nonempty {
+  background: green;
+}
+.bar-workspace-empty {
+  background: blue;
 }

@@ -7,24 +7,24 @@ function switchWorkspace(ws: Hyprland.Workspace) {
   if (hypr.focusedWorkspace.id != ws.id) hypr.dispatch("workspace", "" + ws.id);
 }
 
-function getIcon(ws: Hyprland.Workspace): string {
-  if (ws.id == hypr.focusedWorkspace.id) return "";
-  else if (ws.clients.length > 0) return "";
-  else return "";
+function getClassName(ws: Hyprland.Workspace): string {
+  if (ws.id == hypr.focusedWorkspace.id) return "bar-workspace-active";
+  else if (ws.clients.length > 0) return "bar-workspace-nonempty";
+  else return "bar-workspace-empty";
 }
 
 export default function WorkspaceButton({ ws }: { ws: Hyprland.Workspace }) {
   return (
     <button onClick={() => switchWorkspace(ws)}>
-      <label
-        className="icon"
-        label={bind(
+      <box
+        vexpand={false}
+        className={bind(
           derive([
             bind(hypr, "focusedWorkspace"),
             bind(hypr, "focusedMonitor"),
             bind(ws, "clients"),
           ]),
-        ).as(() => getIcon(ws))}
+        ).as(() => "bar-workspace " + getClassName(ws))}
       />
     </button>
   );
