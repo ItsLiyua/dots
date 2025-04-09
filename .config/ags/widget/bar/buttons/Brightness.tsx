@@ -43,7 +43,7 @@ function icon(vol: number) {
 export default function Brightness() {
   return (
     <HoverIcon
-      className="accent-box-2"
+      cssClasses={["accent-box-2"]}
       initState={false}
       iconProvider={icon}
       valueProvider={bind(BRIGHTNESS)}
@@ -53,7 +53,7 @@ export default function Brightness() {
       onScrollDown={() => {
         execAsync(["bash", "-c", "~/.local/bin/utils/brightness.sh down 1%"]);
       }}
-      onClick={(_) => {}}
+      onClicked={(_) => {}}
       onHover={() => {
         changeTiming(10);
         return true;

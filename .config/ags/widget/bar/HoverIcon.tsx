@@ -1,63 +1,63 @@
 import { bind, Binding, Variable } from "astal";
-import { Astal } from "astal/gtk3";
-import Gtk from "gi://Gtk?version=3.0";
+import { Astal, Gtk } from "astal/gtk4";
 
 export default function HoverIcon({
-  className = "",
+  cssClasses = [],
   iconProvider,
   valueProvider,
   initState = false,
   onScrollUp = () => {},
   onScrollDown = () => {},
-  onClick = (_) => {},
+  onClicked = (_) => {},
   onHover = () => true,
   onHoverLost = () => true,
 }: {
-  className: string;
+  cssClasses: string[];
   initState: boolean;
   iconProvider: (value: number) => string;
   valueProvider: Binding<number>;
   onScrollUp: () => void;
   onScrollDown: () => void;
-  onClick: (e: Astal.ClickEvent) => void;
+  onClicked: (e: Astal.ClickEvent) => void;
   onHover: () => boolean;
   onHoverLost: () => boolean;
 }) {
   const state = Variable(initState);
   return (
-    <eventbox
+    <button
+      cssClasses={cssClasses}
       valign={Gtk.Align.CENTER}
-      onHover={() => {
+      onHoverEnter={() => {
         if (onHover()) state.set(true);
       }}
-      onHoverLost={() => {
+      onHoverLeave={() => {
         if (onHoverLost()) state.set(false);
       }}
-      onScroll={(_, event) => {
-        if (event.delta_y > 0) onScrollDown();
-        else if (event.delta_y < 0) onScrollUp();
+      onScroll={(self, dx, dy): void => {
+        if (dy > 0) onScrollDown();
+        else if (dy < 0) onScrollUp();
       }}
-      onClick={(_, event) => onClick(event)}
+      onClicked={(event) => onClicked(event)}
     >
-      <box className={className} valign={Gtk.Align.CENTER}>
+      <box>
         <label
           valign={Gtk.Align.CENTER}
           label={valueProvider.as(iconProvider)}
-          className={"hover-icon-label " + className}
+          cssClasses={["hover-icon-label ", ...cssClasses]}
         />
         <revealer
           valign={Gtk.Align.CENTER}
           reveal_child={bind(state)}
-          /* className={"hover-icon-revealer " + className} */
+          cssClasses={["hover-icon-revealer ", ...cssClasses]}
           transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
         >
           <label
             valign={Gtk.Align.CENTER}
-            /* className={"hover-icon-revealer-label " + className} */
+            cssClasses={["hover-icon-revealer-label ", ...cssClasses]}
             label={valueProvider.as((n) => n + "%")}
           />
         </revealer>
       </box>
-    </eventbox>
+    </button>
   );
 }

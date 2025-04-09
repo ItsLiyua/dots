@@ -1,4 +1,4 @@
-import { App, Astal, Gtk } from "astal/gtk3";
+import { App, Astal, Gtk } from "astal/gtk4";
 import Clock from "./buttons/Clock";
 import Workspaces from "./buttons/Workspaces";
 import Title from "./buttons/Title";
@@ -15,7 +15,7 @@ export default function Bar(monitor: number) {
   return (
     <window
       name={BAR_NAME + monitor}
-      className="Bar"
+      cssClasses={["bar"]}
       monitor={monitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={TOP | LEFT | RIGHT}
@@ -26,7 +26,7 @@ export default function Bar(monitor: number) {
           <box
             halign={Gtk.Align.START}
             valign={Gtk.Align.START}
-            className="bar-element"
+            cssClasses={["bar-element"]}
           >
             <QuickSettingsToggle monitor={monitor} />
             <Title />
@@ -36,7 +36,7 @@ export default function Bar(monitor: number) {
           <box
             halign={Gtk.Align.CENTER}
             valign={Gtk.Align.START}
-            className="bar-element"
+            cssClasses={["bar-element"]}
           >
             <Workspaces monitor={monitor} />
           </box>
@@ -45,7 +45,7 @@ export default function Bar(monitor: number) {
           <box
             halign={Gtk.Align.END}
             valign={Gtk.Align.START}
-            className="bar-element"
+            cssClasses={["bar-element"]}
           >
             <Volume />
             <Brightness />

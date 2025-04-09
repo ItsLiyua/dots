@@ -27,7 +27,7 @@ function filterFunc(ws: Hyprland.Workspace): boolean {
 
 export default function Workspaces({ monitor }: { monitor: number }) {
   return (
-    <box>
+    <box cssClasses={["workspaces"]}>
       {bind(
         derive([bind(hypr, "workspaces"), bind(hypr, "focusedWorkspace")]),
       ).as((a) =>

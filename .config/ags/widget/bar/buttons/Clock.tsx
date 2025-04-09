@@ -12,7 +12,7 @@ function toggleDate() {
 
 export default function Clock() {
   return (
-    <button className="accent-box-4" onClick={toggleDate}>
+    <button cssClasses={["accent-box-4"]} onClicked={toggleDate}>
       <label
         label={bind(derive([displayDate, time, date])).as((a) =>
           a[0] ? a[2] : a[1],

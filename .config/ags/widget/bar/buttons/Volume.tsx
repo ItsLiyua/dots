@@ -46,9 +46,11 @@ export default function Volume() {
         );
         default_audio.get().mute = default_audio.get().volume == 0;
       }}
-      onClick={(_) => (default_audio.get().mute = !default_audio.get().mute)}
+      onClicked={(_) => (default_audio.get().mute = !default_audio.get().mute)}
       initState={false}
-      className={"extra-padding accent-box-1"}
+      cssClasses={["extra-padding", "accent-box-1"]}
+      onHover={() => true}
+      onHoverLost={() => true}
     />
   );
 }
