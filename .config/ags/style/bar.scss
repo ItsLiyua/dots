@@ -2,7 +2,8 @@ $text: #ffffff;
 $accent-1: #880088;
 $accent-2: #ff8800;
 $accent-3: #ff00ff;
-$background: #111111;
+// $background: #111111;
+$background: #aaaaaa;
 
 * {
   all: unset;
@@ -30,43 +31,9 @@ $background: #111111;
 .bar-element {
   @extend .colors;
   background: $background;
-  margin-left: 3px;
-  margin-top: 3px;
-  margin-right: 3px;
+  margin: 5px;
   border-radius: 50px;
 }
 
-.hover-icon-label {
-  @extend .colors;
-  @extend .icon;
-  padding-top: 1px;
-}
-
-.hover-icon-revealer-label {
-  @extend .colors;
-}
-
-.bar-workspace {
-  background: $background;
-  min-width: 10px;
-  min-height: 10px;
-  margin: 10px 4px;
-  border: none;
-  border-radius: 1000px;
-  box-shadow: none;
-  transition-duration: 0.5s;
-  &:hover {
-    background: $accent-1;
-    min-width: 30px;
-  }
-  &.active {
-    background: $accent-1;
-    min-width: 20px;
-  }
-  &.occupied {
-    background: $accent-2;
-  }
-  &.empty {
-    background: $accent-3;
-  }
-}
+@import "./bar/workspaces.scss";
+@import "./bar/hover-element.scss";

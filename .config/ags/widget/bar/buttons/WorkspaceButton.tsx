@@ -1,4 +1,5 @@
 import { bind, derive } from "astal";
+import { Gtk } from "astal/gtk3";
 import Hyprland from "gi://AstalHyprland?version=0.1";
 
 const hypr = Hyprland.get_default();
@@ -17,6 +18,7 @@ export default function WorkspaceButton({ ws }: { ws: Hyprland.Workspace }) {
   return (
     <button
       onClick={() => switchWorkspace(ws)}
+      valign={Gtk.Align.CENTER}
       className={bind(
         derive([
           bind(hypr, "focusedWorkspace"),

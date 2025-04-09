@@ -23,18 +23,30 @@ export default function Bar(monitor: number) {
     >
       <centerbox
         startWidget={
-          <box halign={Gtk.Align.START} className="bar-element">
+          <box
+            halign={Gtk.Align.START}
+            valign={Gtk.Align.START}
+            className="bar-element"
+          >
             <QuickSettingsToggle monitor={monitor} />
             <Title />
           </box>
         }
         centerWidget={
-          <box halign={Gtk.Align.CENTER} className="bar-element">
+          <box
+            halign={Gtk.Align.CENTER}
+            valign={Gtk.Align.START}
+            className="bar-element"
+          >
             <Workspaces monitor={monitor} />
           </box>
         }
         endWidget={
-          <box halign={Gtk.Align.END} className="bar-element">
+          <box
+            halign={Gtk.Align.END}
+            valign={Gtk.Align.START}
+            className="bar-element"
+          >
             <Volume />
             <Brightness />
             <Battery />

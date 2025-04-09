@@ -1,0 +1,24 @@
+.bar-workspace {
+  background: $background;
+  min-width: 0.75rem;
+  min-height: 0.75rem;
+  margin: 0.5rem 0.25rem;
+  border-radius: 1000px;
+  border: none;
+  box-shadow: none;
+  transition-duration: 0.5s;
+  &:hover {
+    background: $accent-1;
+    min-width: calc(3 * 0.75rem);
+  }
+  &.active {
+    background: $accent-1;
+    min-width: calc(2 * 0.75rem);
+  }
+  &.occupied {
+    background: $accent-2;
+  }
+  &.empty {
+    background: $accent-3;
+  }
+}
