@@ -48,7 +48,7 @@ export default function Volume() {
       }}
       onClick={(_) => (default_audio.get().mute = !default_audio.get().mute)}
       initState={false}
-      className={"extra-padding"}
+      className={"extra-padding accent-box-1"}
     />
   );
 }

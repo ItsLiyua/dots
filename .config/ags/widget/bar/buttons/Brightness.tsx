@@ -43,7 +43,7 @@ function icon(vol: number) {
 export default function Brightness() {
   return (
     <HoverIcon
-      className=""
+      className="accent-box-2"
       initState={false}
       iconProvider={icon}
       valueProvider={bind(BRIGHTNESS)}

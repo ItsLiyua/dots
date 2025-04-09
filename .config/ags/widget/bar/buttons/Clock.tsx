@@ -1,5 +1,4 @@
 import { bind, derive, Variable } from "astal";
-import Gtk from "gi://Gtk?version=3.0";
 
 const TIME_FORMAT = "+%H:%M:%S";
 const DATE_FORMAT = "+%b %dth %Y";
@@ -13,7 +12,7 @@ function toggleDate() {
 
 export default function Clock() {
   return (
-    <button onClick={toggleDate} valign={Gtk.Align.CENTER}>
+    <button className="accent-box-4" onClick={toggleDate}>
       <label
         label={bind(derive([displayDate, time, date])).as((a) =>
           a[0] ? a[2] : a[1],
