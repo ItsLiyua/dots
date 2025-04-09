@@ -13,7 +13,7 @@ function toggleDate() {
 
 export default function Clock() {
   return (
-    <button onClick={toggleDate}>
+    <button onClick={toggleDate} valign={Gtk.Align.CENTER}>
       <label
         label={bind(derive([displayDate, time, date])).as((a) =>
           a[0] ? a[2] : a[1],

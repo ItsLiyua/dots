@@ -7,7 +7,7 @@ const hypr = Hyprland.get_default();
 export default function Title() {
   return (
     <label
-      className="bar-element"
+      className="accent-box-2"
       label={bind(
         derive([bind(hypr, "focusedClient"), bind(hypr, "focusedMonitor")]),
       ).as((a) =>

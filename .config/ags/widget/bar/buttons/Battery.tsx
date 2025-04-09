@@ -23,7 +23,7 @@ export default function Battery() {
   if (isMainBat()) {
     return (
       <HoverIcon
-        className=""
+        className="extra-padding"
         initState={false}
         iconProvider={icon}
         valueProvider={bind(bat, "percentage").as((n) => Math.round(n * 100))}

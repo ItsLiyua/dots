@@ -26,6 +26,7 @@ export default function HoverIcon({
   const state = Variable(initState);
   return (
     <eventbox
+      valign={Gtk.Align.CENTER}
       onHover={() => {
         if (onHover()) state.set(true);
       }}
@@ -38,18 +39,21 @@ export default function HoverIcon({
       }}
       onClick={(_, event) => onClick(event)}
     >
-      <box className={className}>
+      <box className={className} valign={Gtk.Align.CENTER}>
         <label
+          valign={Gtk.Align.CENTER}
           label={valueProvider.as(iconProvider)}
           className={"hover-icon-label " + className}
         />
         <revealer
+          valign={Gtk.Align.CENTER}
           reveal_child={bind(state)}
-          className={"hover-icon-revealer " + className}
+          /* className={"hover-icon-revealer " + className} */
           transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
         >
           <label
-            className={"hover-icon-revealer-label " + className}
+            valign={Gtk.Align.CENTER}
+            /* className={"hover-icon-revealer-label " + className} */
             label={valueProvider.as((n) => n + "%")}
           />
         </revealer>

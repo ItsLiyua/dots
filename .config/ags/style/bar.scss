@@ -4,16 +4,21 @@ $accent-2: #ff8800;
 $accent-3: #ff00ff;
 // $background: #111111;
 $background: #aaaaaa;
+$maxHeight: 20px;
 
 * {
   all: unset;
-  font-family: "JetBrainsMono Nerd Font Mono";
-  font-size: 14px;
-  padding: 0 1px 0 1px;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: calc(0.6 * $maxHeight);
+  padding: 0 calc($maxHeight / 20);
 }
 
 .icon {
-  font-size: 22px;
+  font-size: 1.1rem;
+  padding-right: 0.25rem;
+  &.extra-padding {
+    padding-right: 0.5rem;
+  }
 }
 
 .colors {
@@ -23,17 +28,38 @@ $background: #aaaaaa;
   border: none;
 }
 
-.accent {
+.accent-box {
+  padding: 0 calc(0.2 * $maxHeight);
+  margin: calc(0.2 * $maxHeight);
+  border-radius: 10000px;
+}
+
+.accent-box-1 {
+  @extend .accent-box;
   color: $background;
   background: $accent-1;
 }
 
+.accent-box-2 {
+  @extend .accent-box;
+  color: $background;
+  background: $accent-2;
+}
+
+.accent-box-3 {
+  @extend .accent-box;
+  color: $background;
+  background: $accent-3;
+}
+
 .bar-element {
   @extend .colors;
+  min-height: $maxHeight;
   background: $background;
-  margin: 5px;
   border-radius: 50px;
+  margin: calc($maxHeight / 6);
+  padding: 0 calc($maxHeight / 3) 0 calc($maxHeight / 3);
 }
 
 @import "./bar/workspaces.scss";
-@import "./bar/hover-element.scss";
+@import "./bar/hover-icon.scss";
