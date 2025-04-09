@@ -14,7 +14,7 @@ export default function Bar(monitor: number) {
 
   return (
     <window
-      name={BAR_NAME}
+      name={BAR_NAME + monitor}
       className="Bar"
       monitor={monitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
