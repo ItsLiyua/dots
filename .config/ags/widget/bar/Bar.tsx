@@ -14,8 +14,10 @@ export default function Bar(monitor: number) {
 
   return (
     <window
-      name={BAR_NAME + monitor}
+      visible={true}
+      layer={Astal.Layer.TOP}
       cssClasses={["bar"]}
+      name={BAR_NAME + monitor}
       monitor={monitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={TOP | LEFT | RIGHT}

@@ -8,7 +8,7 @@ export default function HoverIcon({
   initState = false,
   onScrollUp = () => {},
   onScrollDown = () => {},
-  onClicked = (_) => {},
+  onClicked = () => {},
   onHover = () => true,
   onHoverLost = () => true,
 }: {
@@ -18,7 +18,7 @@ export default function HoverIcon({
   valueProvider: Binding<number>;
   onScrollUp: () => void;
   onScrollDown: () => void;
-  onClicked: (e: Astal.ClickEvent) => void;
+  onClicked: () => void;
   onHover: () => boolean;
   onHoverLost: () => boolean;
 }) {
@@ -37,7 +37,7 @@ export default function HoverIcon({
         if (dy > 0) onScrollDown();
         else if (dy < 0) onScrollUp();
       }}
-      onClicked={(event) => onClicked(event)}
+      onClicked={() => onClicked()}
     >
       <box>
         <label
