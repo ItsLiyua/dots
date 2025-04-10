@@ -1,19 +1,30 @@
+.test {
+  background: green;
+}
 .hub {
+  all: unset;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 20px;
+  & window {
+    background: transparent;
+  }
   .element {
     background: #888888;
-    margin: 4px;
+    // > box {
+    //   margin: 4px;
+    // }
     &.user {
       padding: 4px;
       padding-bottom: 8px;
       image {
         min-width: 200px;
         min-height: 200px;
-        margin-bottom: 8px;
+        // margin-bottom: 8px;
       }
       .name {
         font-size: 1rem;
         font-weight: bold;
-        margin-bottom: 8px;
+        // margin-bottom: 8px;
       }
       .host {
         font-size: 0.75rem;

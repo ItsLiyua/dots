@@ -14,6 +14,7 @@ const VERTICAL = Gtk.Orientation.VERTICAL;
 const START = Gtk.Align.START;
 const CENTER = Gtk.Align.CENTER;
 const END = Gtk.Align.END;
+const FILL = Gtk.Align.FILL;
 
 export const visible = Variable(false);
 export default function Hub(monitor: number) {
@@ -33,8 +34,9 @@ export default function Hub(monitor: number) {
       onKeyPressed={(self, keyval, keycode) => {
         if (self.is_visible()) App.toggle_window(self.name);
       }}
+      cssClasses={["hub"]}
     >
-      <box cssClasses={["hub"]} halign={CENTER} valign={CENTER}>
+      <box halign={CENTER} valign={CENTER}>
         <box
           orientation={VERTICAL}
           halign={END}
@@ -47,20 +49,51 @@ export default function Hub(monitor: number) {
         </box>
         <box orientation={VERTICAL} halign={CENTER} valign={Gtk.Align.FILL}>
           <Clock />
-          <box orientation={HORIZONTAL}>
-            <box orientation={VERTICAL}>
+          <box orientation={HORIZONTAL} valign={FILL} vexpand>
+            <box orientation={VERTICAL} halign={FILL} hexpand>
               <MiscButtons />
               <Network />
               <Bluetooth />
-              <label label="Media" />
+              <label cssClasses={["element"]} label="Media" />
             </box>
-            <label cssClasses={["element"]} label="Brightness" />
-            <label cssClasses={["element"]} label="Volume" />
+            <label
+              cssClasses={["element"]}
+              max_width_chars={1}
+              wrap
+              halign={END}
+              label="Brightness"
+            />
+            <label
+              cssClasses={["element"]}
+              max_width_chars={1}
+              wrap
+              halign={END}
+              label="Volume"
+            />
           </box>
         </box>
-        <box orientation={VERTICAL} halign={START} valign={Gtk.Align.FILL}>
-          <label cssClasses={["element"]} label="notifications" />
-          <label cssClasses={["element"]} label="Power" />
+        <box
+          cssClasses={["test"]}
+          orientation={VERTICAL}
+          halign={START}
+          valign={Gtk.Align.FILL}
+          vexpand
+        >
+          <label
+            cssClasses={["element"]}
+            valign={FILL}
+            vexpand
+            halign={FILL}
+            hexpand
+            label="notifications"
+          />
+          <label
+            cssClasses={["element"]}
+            valign={END}
+            halign={FILL}
+            hexpand
+            label="Power"
+          />
         </box>
       </box>
     </window>
