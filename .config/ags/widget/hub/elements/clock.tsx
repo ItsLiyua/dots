@@ -12,6 +12,10 @@ export default function Clock() {
     <box
       cssClasses={["element", "clock"]}
       orientation={Gtk.Orientation.VERTICAL}
+      valign={Gtk.Align.START}
+      halign={Gtk.Align.CENTER}
+      hexpand
+      vexpand
     >
       <label cssClasses={["time"]} label={bind(time)} />
       <label cssClasses={["date"]} label={bind(date)} />

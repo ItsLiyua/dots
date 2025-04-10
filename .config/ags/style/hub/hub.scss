@@ -1,5 +1,4 @@
 .hub {
-  margin: 200px; // TODO: Fix this to be relative
   .element {
     background: #888888;
     margin: 4px;
@@ -29,11 +28,27 @@
     &.clock {
       .time {
         font-weight: bold;
-        font-size: 1.5rem;
+        font-size: 3rem;
       }
       .date {
         font-weight: normal;
-        font-size: 1rem;
+        font-size: 1.5rem;
+      }
+    }
+    &.network {
+      label {
+      }
+      .name {
+      }
+      .state {
+      }
+    }
+    &.bluetooth {
+      label {
+      }
+      .name {
+      }
+      .state {
       }
     }
   }

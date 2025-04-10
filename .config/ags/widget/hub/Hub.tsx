@@ -4,9 +4,16 @@ import Gtk from "gi://Gtk?version=4.0";
 import User from "./elements/user";
 import MiscButtons from "./elements/misc";
 import Clock from "./elements/clock";
+import Network from "./elements/network";
+import Bluetooth from "./elements/bluetooth";
+import CommonDirectories from "./elements/commondirs";
 
 const HORIZONTAL = Gtk.Orientation.HORIZONTAL;
 const VERTICAL = Gtk.Orientation.VERTICAL;
+
+const START = Gtk.Align.START;
+const CENTER = Gtk.Align.CENTER;
+const END = Gtk.Align.END;
 
 export const visible = Variable(false);
 export default function Hub(monitor: number) {
@@ -27,35 +34,35 @@ export default function Hub(monitor: number) {
         if (self.is_visible()) App.toggle_window(self.name);
       }}
     >
-      <centerbox
-        cssClasses={["hub"]}
-        startWidget={
-          <box orientation={VERTICAL} hexpand>
-            <User />
-            <MiscButtons />
-          </box>
-        }
-        centerWidget={
-          <box orientation={VERTICAL} halign={Gtk.Align.CENTER} hexpand>
-            <Clock />
-            <box orientation={HORIZONTAL}>
-              <box orientation={VERTICAL}>
-                <label label="Network" />
-                <label label="Bt" />
-                <label label="Media" />
-              </box>
-              <label label="Brightness" />
-              <label label="Volume" />
+      <box cssClasses={["hub"]} halign={CENTER} valign={CENTER}>
+        <box
+          orientation={VERTICAL}
+          halign={END}
+          valign={Gtk.Align.FILL}
+          hexpand
+          vexpand
+        >
+          <User />
+          <CommonDirectories />
+        </box>
+        <box orientation={VERTICAL} halign={CENTER} valign={Gtk.Align.FILL}>
+          <Clock />
+          <box orientation={HORIZONTAL}>
+            <box orientation={VERTICAL}>
+              <MiscButtons />
+              <Network />
+              <Bluetooth />
+              <label label="Media" />
             </box>
+            <label cssClasses={["element"]} label="Brightness" />
+            <label cssClasses={["element"]} label="Volume" />
           </box>
-        }
-        endWidget={
-          <box orientation={VERTICAL} halign={Gtk.Align.END} hexpand>
-            <label label="notifications" />
-            <label label="Power" />
-          </box>
-        }
-      />
+        </box>
+        <box orientation={VERTICAL} halign={START} valign={Gtk.Align.FILL}>
+          <label cssClasses={["element"]} label="notifications" />
+          <label cssClasses={["element"]} label="Power" />
+        </box>
+      </box>
     </window>
   );
 }
