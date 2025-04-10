@@ -16,7 +16,7 @@ windowrule = stayfocused, class:^jetbrains-idea-[cu]e$, title:^win\d+$
 windowrule = tile,class:^Minecraft.*$
 
 layerrule = dimaround, wofi
-layerrule = blur, ags-bar
+layerrule = blur, astal-hub
 layerrule = blur, wofi
 layerrule = noanim, selection
 
