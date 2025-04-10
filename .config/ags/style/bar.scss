@@ -24,7 +24,7 @@ $maxHeight: 20px;
 }
 
 .colors {
-  color: colors.$foreground;
+  color: colors.$background;
   text-shadow: none;
   box-shadow: none;
   border: none;
@@ -38,25 +38,21 @@ $maxHeight: 20px;
 
 .accent-box-1 {
   @extend .accent-box;
-  color: colors.$background;
   background: colors.$color2;
 }
 
 .accent-box-2 {
   @extend .accent-box;
-  color: colors.$background;
   background: colors.$color3;
 }
 
 .accent-box-3 {
   @extend .accent-box;
-  color: colors.$background;
   background: colors.$color4;
 }
 
 .accent-box-4 {
   @extend .accent-box;
-  color: colors.$background;
   background: colors.$color5;
 }
 
