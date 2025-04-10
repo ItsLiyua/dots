@@ -2,6 +2,9 @@ import { Variable } from "astal";
 import { App, Astal, Gdk } from "astal/gtk4";
 import Gtk from "gi://Gtk?version=4.0";
 
+const CENTER = Gtk.Align.CENTER;
+const FILL = Gtk.Align.FILL;
+
 export const visible = Variable(false);
 export default function Hub(monitor: number) {
   const { TOP, LEFT, BOTTOM, RIGHT } = Astal.WindowAnchor;
@@ -22,12 +25,12 @@ export default function Hub(monitor: number) {
         if (self.is_visible()) App.toggle_window(self.name);
       }}
     >
-      <box
-        cssClasses={["hub"]}
-        valign={Gtk.Align.CENTER}
-        halign={Gtk.Align.CENTER}
-      >
-        <label label="Hello World" />
+      <box cssClasses={["hub"]} valign={CENTER} halign={CENTER}>
+        <box>
+          <box cssClasses={["element"]} halign={FILL} valign={FILL}>
+            <label label="test" />
+          </box>
+        </box>
       </box>
     </window>
   );
