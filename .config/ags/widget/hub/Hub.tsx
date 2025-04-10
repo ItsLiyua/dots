@@ -36,64 +36,46 @@ export default function Hub(monitor: number) {
       }}
       cssClasses={["hub"]}
     >
-      <box halign={CENTER} valign={CENTER}>
-        <box
-          orientation={VERTICAL}
-          halign={END}
-          valign={Gtk.Align.FILL}
-          hexpand
-          vexpand
-        >
+      <box valign={CENTER} halign={CENTER}>
+        <box orientation={VERTICAL}>
           <User />
           <CommonDirectories />
         </box>
-        <box orientation={VERTICAL} halign={CENTER} valign={Gtk.Align.FILL}>
+        <box orientation={VERTICAL}>
           <Clock />
-          <box orientation={HORIZONTAL} valign={FILL} vexpand>
-            <box orientation={VERTICAL} halign={FILL} hexpand>
+          <box orientation={HORIZONTAL}>
+            <box orientation={VERTICAL}>
               <MiscButtons />
               <Network />
               <Bluetooth />
-              <label cssClasses={["element"]} label="Media" />
+              <label
+                cssClasses={["element"]}
+                valign={FILL}
+                vexpand
+                label="Media"
+              />
             </box>
             <label
               cssClasses={["element"]}
+              label="Brightness"
               max_width_chars={1}
               wrap
-              halign={END}
-              label="Brightness"
+              valign={FILL}
+              vexpand
             />
             <label
               cssClasses={["element"]}
+              label="Volume"
               max_width_chars={1}
               wrap
-              halign={END}
-              label="Volume"
+              valign={FILL}
+              vexpand
             />
           </box>
         </box>
-        <box
-          cssClasses={["test"]}
-          orientation={VERTICAL}
-          halign={START}
-          valign={Gtk.Align.FILL}
-          vexpand
-        >
-          <label
-            cssClasses={["element"]}
-            valign={FILL}
-            vexpand
-            halign={FILL}
-            hexpand
-            label="notifications"
-          />
-          <label
-            cssClasses={["element"]}
-            valign={END}
-            halign={FILL}
-            hexpand
-            label="Power"
-          />
+        <box orientation={VERTICAL}>
+          <label cssClasses={["element"]} vexpand label="notifications" />
+          <label cssClasses={["element"]} valign={END} label="Power" />
         </box>
       </box>
     </window>

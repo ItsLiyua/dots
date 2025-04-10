@@ -10,9 +10,9 @@
   }
   .element {
     background: #888888;
-    // > box {
-    //   margin: 4px;
-    // }
+    margin: 10px;
+    border-radius: 10px;
+
     &.user {
       padding: 4px;
       padding-bottom: 8px;
@@ -32,9 +32,6 @@
       }
     }
     &.misc {
-      label {
-        background: red;
-      }
     }
     &.clock {
       .time {

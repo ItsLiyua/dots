@@ -5,7 +5,6 @@ export default function MiscButtons() {
     <box
       cssClasses={["element", "misc"]}
       orientation={Gtk.Orientation.VERTICAL}
-      vexpand
     >
       <label label="misc" />
     </box>
