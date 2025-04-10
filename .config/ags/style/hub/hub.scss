@@ -2,5 +2,39 @@
   margin: 200px; // TODO: Fix this to be relative
   .element {
     background: #888888;
+    margin: 4px;
+    &.user {
+      padding: 4px;
+      padding-bottom: 8px;
+      image {
+        min-width: 200px;
+        min-height: 200px;
+        margin-bottom: 8px;
+      }
+      .name {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .host {
+        font-size: 0.75rem;
+        font-weight: normal;
+      }
+    }
+    &.misc {
+      label {
+        background: red;
+      }
+    }
+    &.clock {
+      .time {
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      .date {
+        font-weight: normal;
+        font-size: 1rem;
+      }
+    }
   }
 }
