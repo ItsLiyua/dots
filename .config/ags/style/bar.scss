@@ -1,4 +1,5 @@
-@import "./colors.scss";
+@use "sass:meta";
+@use "colors.scss";
 $maxHeight: 20px;
 
 * {
@@ -15,12 +16,15 @@ $maxHeight: 20px;
   margin-top: 0;
   margin-bottom: 0;
   &.extra-padding {
+    padding-right: 0.5rem;
+  }
+  &.extra-extra-padding {
     padding-right: 0.75rem;
   }
 }
 
 .colors {
-  color: $foreground;
+  color: colors.$foreground;
   text-shadow: none;
   box-shadow: none;
   border: none;
@@ -34,36 +38,54 @@ $maxHeight: 20px;
 
 .accent-box-1 {
   @extend .accent-box;
-  color: $background;
-  background: $color2;
+  color: colors.$background;
+  background: colors.$color2;
 }
 
 .accent-box-2 {
   @extend .accent-box;
-  color: $background;
-  background: $color3;
+  color: colors.$background;
+  background: colors.$color3;
 }
 
 .accent-box-3 {
   @extend .accent-box;
-  color: $background;
-  background: $color4;
+  color: colors.$background;
+  background: colors.$color4;
 }
 
 .accent-box-4 {
   @extend .accent-box;
-  color: $background;
-  background: $color5;
+  color: colors.$background;
+  background: colors.$color5;
 }
 
 .bar-element {
   @extend .colors;
   min-height: $maxHeight;
-  background: $background;
+  background: colors.$background;
   border-radius: 50px;
   margin: calc($maxHeight / 6);
   padding: 0 calc($maxHeight / 3) 0 calc($maxHeight / 3);
 }
 
-@import "./bar/workspaces.scss";
-@import "./bar/hover-icon.scss";
+.hover-icon {
+  label {
+    @extend .colors;
+    @extend .icon;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  revealer {
+    margin: 0;
+    padding: 0;
+    label {
+      @extend .colors;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+@include meta.load-css("bar/workspaces.scss");

@@ -43,7 +43,7 @@ function icon(vol: number) {
 export default function Brightness() {
   return (
     <HoverIcon
-      cssClasses={["accent-box-2"]}
+      cssClasses={["accent-box-2", "extra-padding"]}
       initState={false}
       iconProvider={icon}
       valueProvider={bind(BRIGHTNESS)}

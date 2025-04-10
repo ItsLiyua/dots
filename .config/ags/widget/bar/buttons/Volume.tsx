@@ -48,7 +48,7 @@ export default function Volume() {
       }}
       onClicked={(_) => (default_audio.get().mute = !default_audio.get().mute)}
       initState={false}
-      cssClasses={["extra-padding", "accent-box-1"]}
+      cssClasses={["extra-extra-padding", "accent-box-1"]}
       onHover={() => true}
       onHoverLost={() => true}
     />

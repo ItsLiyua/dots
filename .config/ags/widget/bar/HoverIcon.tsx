@@ -12,7 +12,7 @@ export default function HoverIcon({
   onHover = () => true,
   onHoverLost = () => true,
 }: {
-  cssClasses: string[];
+  cssClasses: string[] | Binding<string[]>;
   initState: boolean;
   iconProvider: (value: number) => string;
   valueProvider: Binding<number>;
@@ -39,21 +39,19 @@ export default function HoverIcon({
       }}
       onClicked={() => onClicked()}
     >
-      <box>
+      <box cssClasses={["hover-icon"]}>
         <label
           valign={Gtk.Align.CENTER}
           label={valueProvider.as(iconProvider)}
-          cssClasses={["hover-icon-label ", ...cssClasses]}
+          cssClasses={cssClasses}
         />
         <revealer
           valign={Gtk.Align.CENTER}
           reveal_child={bind(state)}
-          cssClasses={["hover-icon-revealer ", ...cssClasses]}
           transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
         >
           <label
             valign={Gtk.Align.CENTER}
-            cssClasses={["hover-icon-revealer-label ", ...cssClasses]}
             label={valueProvider.as((n) => n + "%")}
           />
         </revealer>

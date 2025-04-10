@@ -1,4 +1,4 @@
-import { bind } from "astal";
+import { bind, derive } from "astal";
 import AstalBattery from "gi://AstalBattery?version=0.1";
 import HoverIcon from "../HoverIcon";
 
@@ -23,13 +23,17 @@ export default function Battery() {
   if (isMainBat()) {
     return (
       <HoverIcon
-        cssClasses={["extra-padding", "accent-box-3"]}
+        cssClasses={bind(bat, "charging").as((c) =>
+          !c ? ["extra-extra-padding", "accent-box-3"] : ["accent-box-3"],
+        )}
         initState={false}
         iconProvider={icon}
-        valueProvider={bind(bat, "percentage").as((n) => Math.round(n * 100))}
+        valueProvider={bind(
+          derive([bind(bat, "percentage"), bind(bat, "charging")]),
+        ).as((n) => Math.round(n[0] * 100))}
         onScrollUp={() => {}}
         onScrollDown={() => {}}
-        onClick={(_) => {}}
+        onClicked={() => {}}
       />
     );
   } else return <></>;

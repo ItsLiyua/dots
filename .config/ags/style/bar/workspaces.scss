@@ -1,7 +1,7 @@
-@import "../colors.scss";
+@use "../colors.scss";
 .workspaces {
   button {
-    background: $background;
+    background: colors.$background;
     min-width: 1rem;
     min-height: 1rem;
     padding: 0;
@@ -12,29 +12,29 @@
     transition-duration: 0.25s;
 
     &:hover {
-      background: $color2;
+      background: colors.$color2;
       min-width: 3rem;
     }
   }
   .active {
-    background: $color2;
+    background: colors.$color2;
     min-width: 2rem;
     &:hover {
-      background: $color2;
+      background: colors.$color2;
       min-width: 3rem;
     }
   }
   .occupied {
-    background: $color3;
+    background: colors.$color3;
     &:hover {
-      background: $color2;
+      background: colors.$color2;
       min-width: 3rem;
     }
   }
   .empty {
-    background: $color4;
+    background: colors.$color4;
     &:hover {
-      background: $color2;
+      background: colors.$color2;
       min-width: 3rem;
     }
   }
