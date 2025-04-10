@@ -5,11 +5,12 @@ export default function CommonDirectories() {
     <box
       cssClasses={["element", "commondirs"]}
       orientation={Gtk.Orientation.VERTICAL}
+      vexpand
     >
-      <label label="Dir 1" />
-      <label label="Dir 2" />
-      <label label="Dir 3" />
-      <label label="Dir 4" />
+      <label label="Dir 1" vexpand />
+      <label label="Dir 2" vexpand />
+      <label label="Dir 3" vexpand />
+      <label label="Dir 4" vexpand />
     </box>
   );
 }

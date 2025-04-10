@@ -1,3 +1,4 @@
+@use "../colors.scss";
 .test {
   background: green;
 }
@@ -9,8 +10,8 @@
     background: transparent;
   }
   .element {
-    background: #888888;
-    margin: 10px;
+    background: #111111;
+    margin: 5px;
     border-radius: 10px;
 
     &.user {
@@ -57,6 +58,18 @@
       .name {
       }
       .state {
+      }
+    }
+    &.power {
+      padding: 5px;
+      button {
+        margin: 5px;
+        .padding {
+          padding-right: 0.25rem;
+        }
+        .extra-padding {
+          padding-right: 0.5rem;
+        }
       }
     }
   }

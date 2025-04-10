@@ -7,6 +7,7 @@ import Clock from "./elements/clock";
 import Network from "./elements/network";
 import Bluetooth from "./elements/bluetooth";
 import CommonDirectories from "./elements/commondirs";
+import Power from "./elements/power";
 
 const HORIZONTAL = Gtk.Orientation.HORIZONTAL;
 const VERTICAL = Gtk.Orientation.VERTICAL;
@@ -36,24 +37,19 @@ export default function Hub(monitor: number) {
       }}
       cssClasses={["hub"]}
     >
-      <box valign={CENTER} halign={CENTER}>
+      <box valign={CENTER} halign={CENTER} cssClasses={["test"]}>
         <box orientation={VERTICAL}>
           <User />
-          <CommonDirectories />
+          <label cssClasses={["element"]} valign={FILL} vexpand label="Media" />
         </box>
+        <CommonDirectories />
         <box orientation={VERTICAL}>
           <Clock />
           <box orientation={HORIZONTAL}>
             <box orientation={VERTICAL}>
-              <MiscButtons />
               <Network />
               <Bluetooth />
-              <label
-                cssClasses={["element"]}
-                valign={FILL}
-                vexpand
-                label="Media"
-              />
+              <MiscButtons />
             </box>
             <label
               cssClasses={["element"]}
@@ -75,7 +71,7 @@ export default function Hub(monitor: number) {
         </box>
         <box orientation={VERTICAL}>
           <label cssClasses={["element"]} vexpand label="notifications" />
-          <label cssClasses={["element"]} valign={END} label="Power" />
+          <Power />
         </box>
       </box>
     </window>
