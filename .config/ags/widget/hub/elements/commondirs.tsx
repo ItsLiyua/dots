@@ -1,5 +1,6 @@
 import { execAsync } from "astal";
 import { App, Gtk } from "astal/gtk4";
+import Hub, { hideAll, hubVisible } from "../Hub";
 
 function DirButton({
   label,
@@ -14,9 +15,7 @@ function DirButton({
     <button
       cssClasses={[cssClass]}
       onClicked={() => {
-        App.get_windows()
-          .filter((w) => w.name.startsWith("hub") && w.visible)
-          .forEach((w) => (w.visible = false));
+        hideAll();
         execAsync(["kitty", "-d", location]);
       }}
       vexpand

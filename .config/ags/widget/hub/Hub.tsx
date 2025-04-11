@@ -1,5 +1,5 @@
-import { Variable } from "astal";
-import { App, Astal, Gdk, Gtk } from "astal/gtk4";
+import { bind, Variable } from "astal";
+import { App, Astal, Gtk } from "astal/gtk4";
 import User from "./elements/user";
 import MiscButtons from "./elements/misc";
 import Clock from "./elements/clock";
@@ -15,7 +15,11 @@ const START = Gtk.Align.START;
 const CENTER = Gtk.Align.CENTER;
 const END = Gtk.Align.END;
 
-export const visible = Variable(false);
+export function hideAll() {
+  App.get_windows()
+    .filter((w) => w.name.startsWith("hub") && w.visible)
+    .forEach((w) => App.toggle_window(w.name));
+}
 export default function Hub(monitor: number) {
   const { TOP, LEFT, BOTTOM, RIGHT } = Astal.WindowAnchor;
 
@@ -30,12 +34,12 @@ export default function Hub(monitor: number) {
       application={App}
       namespace="astal-hub"
       keymode={Astal.Keymode.EXCLUSIVE}
-      onKeyPressed={(self, keyval, keycode) => {
+      onKeyPressed={(self, _, keycode) => {
         if (self.is_visible() && keycode == 66) App.toggle_window(self.name);
       }}
       cssClasses={["hub"]}
     >
-      <box valign={CENTER} halign={CENTER} cssClasses={["test"]}>
+      <box valign={CENTER} halign={CENTER}>
         <box orientation={VERTICAL}>
           <User />
           <label cssClasses={["element"]} vexpand label="Media" />

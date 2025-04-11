@@ -1,4 +1,6 @@
 import { Gtk } from "astal/gtk4";
+import { hideAll } from "../Hub";
+import { execAsync } from "astal";
 
 export default function MiscButtons() {
   return (
@@ -7,7 +9,22 @@ export default function MiscButtons() {
       orientation={Gtk.Orientation.VERTICAL}
       vexpand
     >
-      <label label="misc" />
+      <button
+        onClicked={() => {
+          hideAll();
+          execAsync(["bash", "-c", "~/.local/bin/programs/screenshot.sh"]);
+        }}
+      >
+        <label label="󰹑" />
+      </button>
+      <button
+        onClicked={() => {
+          hideAll();
+          execAsync(["bash", "-c", "notify-send", "color-picker"]);
+        }}
+      >
+        <label label="" />
+      </button>
     </box>
   );
 }

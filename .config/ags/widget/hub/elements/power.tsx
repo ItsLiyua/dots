@@ -1,5 +1,6 @@
-import { exec } from "astal";
-import { App, Gtk } from "astal/gtk4";
+import { execAsync } from "astal";
+import { Gtk } from "astal/gtk4";
+import { hideAll } from "../Hub";
 
 function CommandButton({
   command,
@@ -13,10 +14,8 @@ function CommandButton({
   return (
     <button
       onClicked={() => {
-        App.get_windows()
-          .filter((w) => w.name.startsWith("hub") && w.visible)
-          .forEach((w) => App.toggle_window(w.name));
-        exec(command);
+        hideAll();
+        execAsync(command);
       }}
       halign={Gtk.Align.CENTER}
     >
