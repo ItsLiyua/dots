@@ -12,6 +12,7 @@ export default function HubSlider({
   icon: string | Binding<string>;
   update: (value: number) => void;
 }) {
+  console.log(initValue);
   return (
     <box
       cssClasses={["hub-element", ...cssClasses]}
@@ -24,6 +25,7 @@ export default function HubSlider({
         onChangeValue={(self) => update(self.value)}
         vexpand
         inverted
+        roundDigits={2}
       />
     </box>
   );

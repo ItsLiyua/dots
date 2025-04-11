@@ -14,7 +14,7 @@ default_audio.subscribe((s) => (vol = bind(s, "volume")));
 let mute: Binding<boolean> = bind(default_audio.get(), "mute");
 default_audio.subscribe((s) => (mute = bind(s, "mute")));
 
-function icon(vol: number) {
+export function icon(vol: number) {
   if (vol <= 0) return MUTE_ICON;
   for (let i = 0; i < ICONS.length; i++) {
     const icon = ICONS[i];
