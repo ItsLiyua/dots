@@ -9,6 +9,18 @@
   & window {
     background: transparent;
   }
+
+  button {
+    background: #111111;
+    color: red;
+    border-radius: 0;
+    border: 1px solid red;
+    transition-duration: 0.25s;
+    &:hover {
+      background: red;
+      color: #111111;
+    }
+  }
   .element {
     background: #111111;
     margin: 5px;
@@ -69,6 +81,32 @@
         }
         .extra-padding {
           padding-right: 0.5rem;
+        }
+      }
+    }
+    &.commondirs {
+      button {
+        border: none;
+        background: transparent;
+        .accent- {
+          &1 {
+            color: red;
+          }
+          &2 {
+            color: green;
+          }
+          &3 {
+            color: blue;
+          }
+          &4 {
+            color: aqua;
+          }
+          &5 {
+            color: pink;
+          }
+          &6 {
+            color: purple;
+          }
         }
       }
     }

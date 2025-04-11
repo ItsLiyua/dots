@@ -1,6 +1,5 @@
 import { Variable } from "astal";
-import { App, Astal } from "astal/gtk4";
-import Gtk from "gi://Gtk?version=4.0";
+import { App, Astal, Gdk, Gtk } from "astal/gtk4";
 import User from "./elements/user";
 import MiscButtons from "./elements/misc";
 import Clock from "./elements/clock";
@@ -15,7 +14,6 @@ const VERTICAL = Gtk.Orientation.VERTICAL;
 const START = Gtk.Align.START;
 const CENTER = Gtk.Align.CENTER;
 const END = Gtk.Align.END;
-const FILL = Gtk.Align.FILL;
 
 export const visible = Variable(false);
 export default function Hub(monitor: number) {
@@ -33,14 +31,14 @@ export default function Hub(monitor: number) {
       namespace="astal-hub"
       keymode={Astal.Keymode.EXCLUSIVE}
       onKeyPressed={(self, keyval, keycode) => {
-        if (self.is_visible()) App.toggle_window(self.name);
+        if (self.is_visible() && keycode == 66) App.toggle_window(self.name);
       }}
       cssClasses={["hub"]}
     >
       <box valign={CENTER} halign={CENTER} cssClasses={["test"]}>
         <box orientation={VERTICAL}>
           <User />
-          <label cssClasses={["element"]} valign={FILL} vexpand label="Media" />
+          <label cssClasses={["element"]} vexpand label="Media" />
         </box>
         <CommonDirectories />
         <box orientation={VERTICAL}>
@@ -56,7 +54,6 @@ export default function Hub(monitor: number) {
               label="Brightness"
               max_width_chars={1}
               wrap
-              valign={FILL}
               vexpand
             />
             <label
@@ -64,7 +61,6 @@ export default function Hub(monitor: number) {
               label="Volume"
               max_width_chars={1}
               wrap
-              valign={FILL}
               vexpand
             />
           </box>
