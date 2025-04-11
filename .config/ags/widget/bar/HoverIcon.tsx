@@ -52,7 +52,7 @@ export default function HoverIcon({
         >
           <label
             valign={Gtk.Align.CENTER}
-            label={valueProvider.as((n) => n + "%")}
+            label={valueProvider.as((n) => Math.round(n * 100) + "%")}
           />
         </revealer>
       </box>

@@ -7,6 +7,7 @@ import Network from "./elements/network";
 import Bluetooth from "./elements/bluetooth";
 import CommonDirectories from "./elements/commondirs";
 import Power from "./elements/power";
+import Brightness from "./elements/brightness";
 
 const HORIZONTAL = Gtk.Orientation.HORIZONTAL;
 const VERTICAL = Gtk.Orientation.VERTICAL;
@@ -53,13 +54,7 @@ export default function Hub(monitor: number) {
               <Bluetooth />
               <MiscButtons />
             </box>
-            <label
-              cssClasses={["element"]}
-              label="Brightness"
-              max_width_chars={1}
-              wrap
-              vexpand
-            />
+            <Brightness />
             <label
               cssClasses={["element"]}
               label="Volume"

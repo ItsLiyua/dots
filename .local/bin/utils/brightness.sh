@@ -12,5 +12,13 @@ elif [ "$1" = "down" ]; then
 	else
 		brightnessctl "5%-"
 	fi
+elif [ "$1" = "get" ]; then
+	brightnessctl g
+elif [ "$1" = "max" ]; then
+	brightnessctl m
+elif [ "$1" = "percentage" ]; then
+	jq -n "$(brightnessctl g) / $(brightnessctl m)"
+else
+	brightnessctl s "$1"
 fi
 

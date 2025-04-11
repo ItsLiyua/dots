@@ -6,14 +6,10 @@ const wp = Wp.get_default()!!;
 const default_audio = bind(wp.audio, "default_speaker");
 const MUTE_ICON = "";
 const ICONS = ["", "", ""];
-const STEP = 0.05;
+const STEP = 0.03;
 
-let vol: Binding<number> = bind(default_audio.get(), "volume").as((v) =>
-  Math.round(v * 100),
-);
-default_audio.subscribe(
-  (s) => (vol = bind(s, "volume").as((v) => Math.round(v * 100))),
-);
+let vol: Binding<number> = bind(default_audio.get(), "volume");
+default_audio.subscribe((s) => (vol = bind(s, "volume")));
 
 let mute: Binding<boolean> = bind(default_audio.get(), "mute");
 default_audio.subscribe((s) => (mute = bind(s, "mute")));
@@ -22,7 +18,7 @@ function icon(vol: number) {
   if (vol <= 0) return MUTE_ICON;
   for (let i = 0; i < ICONS.length; i++) {
     const icon = ICONS[i];
-    if (vol <= (i + 1) * (100 / ICONS.length)) return icon;
+    if (vol <= (i + 1) / ICONS.length) return icon;
   }
   return ICONS[ICONS.length - 1];
 }

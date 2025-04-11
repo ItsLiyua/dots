@@ -14,7 +14,7 @@ function icon(vol: number) {
   if (bat.charging) return ICON_CHARGING;
   for (let i = 0; i < ICONS.length; i++) {
     const icon = ICONS[i];
-    if (vol <= (i + 1) * (100 / ICONS.length)) return icon;
+    if (vol <= (i + 1) / ICONS.length) return icon;
   }
   return ICONS[ICONS.length - 1];
 }
@@ -30,7 +30,7 @@ export default function Battery() {
         iconProvider={icon}
         valueProvider={bind(
           derive([bind(bat, "percentage"), bind(bat, "charging")]),
-        ).as((n) => Math.round(n[0] * 100))}
+        ).as((n) => n[0])}
         onScrollUp={() => {}}
         onScrollDown={() => {}}
         onClicked={() => {}}

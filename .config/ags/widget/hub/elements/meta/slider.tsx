@@ -1,12 +1,14 @@
 import { Binding } from "astal";
-import Gtk from "gi://Gtk?version=3.0";
+import { Gtk } from "astal/gtk4";
 
-export default function Slider({
+export default function HubSlider({
   cssClasses = [],
+  initValue = 0,
   icon = "",
-  update = (value) => {},
+  update = () => {},
 }: {
   cssClasses: string[];
+  initValue: number;
   icon: string | Binding<string>;
   update: (value: number) => void;
 }) {
@@ -17,8 +19,11 @@ export default function Slider({
     >
       <label label={icon} />
       <slider
+        value={initValue}
         orientation={Gtk.Orientation.VERTICAL}
         onChangeValue={(self) => update(self.value)}
+        vexpand
+        inverted
       />
     </box>
   );

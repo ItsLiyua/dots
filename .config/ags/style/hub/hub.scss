@@ -10,17 +10,6 @@
     background: transparent;
   }
 
-  button {
-    background: #111111;
-    color: red;
-    border-radius: 0;
-    border: 1px solid red;
-    transition-duration: 0.25s;
-    &:hover {
-      background: red;
-      color: #111111;
-    }
-  }
   .element {
     background: #111111;
     margin: 5px;
@@ -76,6 +65,15 @@
       padding: 5px;
       button {
         margin: 5px;
+        background: #111111;
+        color: red;
+        border-radius: 0;
+        border: 1px solid red;
+        transition-duration: 0.25s;
+        &:hover {
+          background: red;
+          color: #111111;
+        }
         .padding {
           padding-right: 0.25rem;
         }

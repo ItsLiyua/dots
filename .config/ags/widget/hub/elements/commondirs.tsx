@@ -1,6 +1,6 @@
 import { execAsync } from "astal";
-import { App, Gtk } from "astal/gtk4";
-import Hub, { hideAll, hubVisible } from "../Hub";
+import { Gtk } from "astal/gtk4";
+import { hideAll } from "../Hub";
 
 function DirButton({
   label,

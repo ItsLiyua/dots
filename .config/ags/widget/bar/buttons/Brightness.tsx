@@ -1,10 +1,8 @@
-import { bind, exec, execAsync, Variable } from "astal";
+import { bind, execAsync, Variable } from "astal";
 import HoverIcon from "../HoverIcon";
 
-const COMMAND = ["brightnessctl", "g"];
-const FORMAT = (n: string, _: number) => formatNumber(parseInt(n));
-const MAX_BRIGHTNESS = parseInt(exec(["brightnessctl", "m"]));
-const BRIGHTNESS = Variable(0).poll(1000, COMMAND, FORMAT);
+const COMMAND = ["bash", "-c", "~/.local/bin/utils/brightness.sh percentage"];
+const BRIGHTNESS = Variable(0).poll(1000, COMMAND, parseFloat);
 
 const ICONS = [
   "",
@@ -23,19 +21,15 @@ const ICONS = [
   "",
 ];
 
-function formatNumber(n: number): number {
-  return Math.round((n / MAX_BRIGHTNESS) * 100);
-}
-
 function changeTiming(timing: number) {
   if (BRIGHTNESS.isPolling()) BRIGHTNESS.stopPoll();
-  BRIGHTNESS.poll(timing, COMMAND, FORMAT);
+  BRIGHTNESS.poll(timing, COMMAND, parseFloat);
 }
 
-function icon(vol: number) {
+export function icon(brightness: number) {
   for (let i = 0; i < ICONS.length; i++) {
     const icon = ICONS[i];
-    if (vol <= (i + 1) * (100 / ICONS.length)) return icon;
+    if (brightness <= (i + 1) / ICONS.length) return icon;
   }
   return ICONS[ICONS.length - 1];
 }
