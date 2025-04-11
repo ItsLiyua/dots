@@ -1,13 +1,15 @@
 @use "../colors.scss";
-.test {
-  background: green;
-}
 .hub {
   all: unset;
   font-family: "JetBrainsMono Nerd Font";
-  font-size: 20px;
+  font-size: 25px;
   & window {
     background: transparent;
+  }
+
+  & > box {
+    min-width: calc(40 * 25px);
+    min-height: 600px;
   }
 
   .element {
@@ -21,12 +23,10 @@
       image {
         min-width: 200px;
         min-height: 200px;
-        // margin-bottom: 8px;
       }
       .name {
         font-size: 1rem;
         font-weight: bold;
-        // margin-bottom: 8px;
       }
       .host {
         font-size: 0.75rem;

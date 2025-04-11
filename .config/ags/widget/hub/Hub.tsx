@@ -13,10 +13,6 @@ import Volume from "./elements/volume";
 const HORIZONTAL = Gtk.Orientation.HORIZONTAL;
 const VERTICAL = Gtk.Orientation.VERTICAL;
 
-const START = Gtk.Align.START;
-const CENTER = Gtk.Align.CENTER;
-const END = Gtk.Align.END;
-
 export function hideAll() {
   App.get_windows()
     .filter((w) => w.name.startsWith("hub") && w.visible)
@@ -41,22 +37,26 @@ export default function Hub(monitor: number) {
       }}
       cssClasses={["hub"]}
     >
-      <box valign={CENTER} halign={CENTER}>
+      <box valign={Gtk.Align.CENTER} halign={Gtk.Align.CENTER}>
         <box orientation={VERTICAL}>
           <User />
           <label cssClasses={["element"]} vexpand label="Media" />
         </box>
-        <CommonDirectories />
         <box orientation={VERTICAL}>
           <Clock />
+          <CommonDirectories />
+        </box>
+        <box orientation={VERTICAL}>
+          <label cssClasses={["element"]} label="Battery" />
           <box orientation={HORIZONTAL}>
             <box orientation={VERTICAL}>
+              <label cssClasses={["element"]} vexpand label="Weather" />
               <Network />
               <Bluetooth />
-              <MiscButtons />
             </box>
             <Brightness />
             <Volume />
+            <MiscButtons />
           </box>
         </box>
         <box orientation={VERTICAL}>

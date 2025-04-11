@@ -8,6 +8,7 @@ export default function MiscButtons() {
       cssClasses={["element", "misc"]}
       orientation={Gtk.Orientation.VERTICAL}
       vexpand
+      hexpand
     >
       <button
         onClicked={() => {

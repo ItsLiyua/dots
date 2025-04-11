@@ -12,7 +12,6 @@ export default function HubSlider({
   icon: string | Binding<string>;
   update: (value: number) => void;
 }) {
-  console.log(initValue);
   return (
     <box
       cssClasses={["hub-element", ...cssClasses]}
