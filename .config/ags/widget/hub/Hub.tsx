@@ -9,6 +9,7 @@ import CommonDirectories from "./elements/commondirs";
 import Power from "./elements/power";
 import Brightness from "./elements/brightness";
 import Volume from "./elements/volume";
+import HubBattery from "./elements/battery";
 
 const HORIZONTAL = Gtk.Orientation.HORIZONTAL;
 const VERTICAL = Gtk.Orientation.VERTICAL;
@@ -47,7 +48,7 @@ export default function Hub(monitor: number) {
           <CommonDirectories />
         </box>
         <box orientation={VERTICAL}>
-          <label cssClasses={["element"]} label="Battery" />
+          <HubBattery />
           <box orientation={HORIZONTAL}>
             <box orientation={VERTICAL}>
               <label cssClasses={["element"]} vexpand label="Weather" />

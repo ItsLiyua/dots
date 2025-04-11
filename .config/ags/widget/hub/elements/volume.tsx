@@ -1,18 +1,19 @@
-import { bind } from "astal";
+import Wp from "gi://AstalWp";
 import HubSlider from "./meta/slider";
+import { bind, Binding } from "astal";
 import { icon } from "../../bar/buttons/Volume";
-import Wp from "gi://AstalWp?version=0.1";
 
-const spkr = bind(Wp.get_default()!!.audio, "default_speaker");
-let vol = bind(spkr.get(), "volume");
-spkr.subscribe((newSpeaker) => (vol = bind(newSpeaker, "volume")));
+const wp = Wp.get_default()!!;
+const spkr: Binding<Wp.Endpoint> = bind(wp.audio, "default_speaker");
+let volume = bind(spkr.get(), "volume");
+spkr.subscribe((e) => (volume = bind(e, "volume")));
 
 export default function Volume() {
   return (
     <HubSlider
       cssClasses={["element", "volume"]}
-      initValue={vol.get()}
-      icon={vol.as(icon)}
+      initValue={volume.get()}
+      icon={volume.as(icon)}
       update={(v) => {
         spkr.get().volume = v;
         spkr.get().mute = v == 0;

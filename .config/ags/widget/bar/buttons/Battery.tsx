@@ -10,7 +10,7 @@ function isMainBat() {
   return bat.deviceType == AstalBattery.Type.BATTERY && bat.powerSupply;
 }
 
-function icon(vol: number) {
+export function icon(vol: number) {
   if (bat.charging) return ICON_CHARGING;
   for (let i = 0; i < ICONS.length; i++) {
     const icon = ICONS[i];

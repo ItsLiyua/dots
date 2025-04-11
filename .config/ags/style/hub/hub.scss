@@ -36,6 +36,7 @@
     &.misc {
     }
     &.clock {
+      padding: 20px;
       .time {
         font-weight: bold;
         font-size: 3rem;
@@ -106,6 +107,21 @@
             color: purple;
           }
         }
+      }
+    }
+    &.battery {
+      padding: 0 20px;
+      .icon {
+        margin: 10px;
+        font-size: 8rem;
+        padding-right: 4rem;
+      }
+      .charge {
+        font-size: 4rem;
+      }
+      .state {
+        font-size: 1rem;
+        margin-top: -1rem;
       }
     }
   }
