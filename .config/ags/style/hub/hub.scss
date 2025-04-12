@@ -6,7 +6,7 @@ $height: calc(0.6 * $width);
 .hub {
   all: unset;
   font-family: "JetBrainsMono Nerd Font";
-  font-size: calc($width / 40);
+  font-size: calc($width / 60);
   & window {
     background: transparent;
   }
@@ -119,21 +119,17 @@ $height: calc(0.6 * $width);
       }
     }
     &.battery {
-      margin: 0;
-      padding: 0;
       .icon {
-        background: red;
         font-size: 6em;
         padding-right: 0.5em;
       }
       .charge {
-        // font-size: 4em;
-        background: green;
+        font-size: 3em;
+        margin-top: calc(-1em / 3);
       }
       .state {
-        background: blue;
-        // font-size: 1em;
-        // margin-top: -1em;
+        font-size: 1em;
+        margin-top: -1em;
       }
     }
     &.volume {

@@ -46,14 +46,12 @@ export default function Hub(monitor: number) {
         <box orientation={VERTICAL}>
           <Clock />
           <CommonDirectories />
+          <MiscButtons />
         </box>
         <box orientation={VERTICAL}>
+          <HubBattery />
           <box orientation={HORIZONTAL}>
-            <HubBattery />
-            <label cssClasses={["element"]} label="Weather" />
-          </box>
-          <box orientation={HORIZONTAL}>
-            <box orientation={VERTICAL}>
+            <box orientation={VERTICAL} hexpand>
               <Network />
               <Bluetooth />
               <label
@@ -64,11 +62,17 @@ export default function Hub(monitor: number) {
             </box>
             <Brightness />
             <Volume />
-            <MiscButtons />
           </box>
         </box>
+
         <box orientation={VERTICAL}>
-          <label cssClasses={["element"]} vexpand label="notifications" />
+          <label cssClasses={["element"]} label="Weather" />
+          <label cssClasses={["element"]} vexpand label="sysinfo" />
+          <label cssClasses={["element"]} label="hardware usage" />
+        </box>
+        <box orientation={VERTICAL}>
+          <label cssClasses={["element"]} label="notifs" vexpand />
+          <label cssClasses={["element"]} label="theme colors" />
           <Power />
         </box>
       </box>
