@@ -14,7 +14,7 @@ export default function HubSlider({
 }) {
   return (
     <box
-      cssClasses={["hub-element", ...cssClasses]}
+      cssClasses={["slider", ...cssClasses]}
       orientation={Gtk.Orientation.VERTICAL}
     >
       <label label={icon} />

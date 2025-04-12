@@ -9,7 +9,10 @@ export default function User() {
     >
       <image file="/home/liyua/.config/ags/placeholder.png" />
       <label cssClasses={["name"]} label={GLib.get_user_name()} />
-      <label cssClasses={["host"]} label={GLib.get_host_name()} />
+      <label
+        cssClasses={["host"]}
+        label={GLib.get_user_name() + "@" + GLib.get_host_name()}
+      />
     </box>
   );
 }

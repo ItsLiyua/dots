@@ -1,49 +1,77 @@
 @use "../colors.scss";
+
+$width: 1000px;
+$height: calc(0.6 * $width);
+
 .hub {
   all: unset;
   font-family: "JetBrainsMono Nerd Font";
-  font-size: 25px;
+  font-size: calc($width / 40);
   & window {
     background: transparent;
   }
 
   & > box {
-    min-width: calc(40 * 25px);
-    min-height: 600px;
+    min-width: $width;
+    min-height: $height;
+  }
+
+  button {
+    margin: 5px;
+    border-radius: 0;
+    border-width: calc($width / 1000);
+    border-style: solid;
+    transition-duration: 0.25s;
+    .padding {
+      padding-right: 0.25em;
+    }
+    .extra-padding {
+      padding-right: 0.5em;
+    }
   }
 
   .element {
     background: #111111;
-    margin: 5px;
-    border-radius: 10px;
+    margin: calc($width / 200);
+    padding: calc($width / 100);
+    border-radius: calc($width / 100);
+    & > box {
+      padding: calc($width / 100);
+    }
 
     &.user {
-      padding: 4px;
-      padding-bottom: 8px;
       image {
-        min-width: 200px;
-        min-height: 200px;
+        min-width: calc($width / 5);
+        min-height: calc($width / 5);
+        margin-bottom: calc($width / 100);
       }
       .name {
-        font-size: 1rem;
+        font-size: 1em;
         font-weight: bold;
+        margin-bottom: calc($width / 100);
       }
       .host {
-        font-size: 0.75rem;
+        font-size: 0.75em;
         font-weight: normal;
+        margin-bottom: calc($width / 100);
       }
     }
     &.misc {
+      button {
+        label {
+          padding-right: 0.35em;
+        }
+      }
     }
     &.clock {
-      padding: 20px;
+      padding: calc($width / 50);
       .time {
         font-weight: bold;
-        font-size: 3rem;
+        font-size: 1.75em;
       }
       .date {
         font-weight: normal;
-        font-size: 1.5rem;
+        font-size: 1.3em;
       }
     }
     &.network {
@@ -63,25 +91,6 @@
       }
     }
     &.power {
-      padding: 5px;
-      button {
-        margin: 5px;
-        background: #111111;
-        color: red;
-        border-radius: 0;
-        border: 1px solid red;
-        transition-duration: 0.25s;
-        &:hover {
-          background: red;
-          color: #111111;
-        }
-        .padding {
-          padding-right: 0.25rem;
-        }
-        .extra-padding {
-          padding-right: 0.5rem;
-        }
-      }
     }
     &.commondirs {
       button {
@@ -110,18 +119,26 @@
       }
     }
     &.battery {
-      padding: 0 20px;
+      margin: 0;
+      padding: 0;
       .icon {
-        margin: 10px;
-        font-size: 8rem;
-        padding-right: 4rem;
+        background: red;
+        font-size: 6em;
+        padding-right: 0.5em;
       }
       .charge {
-        font-size: 4rem;
+        // font-size: 4em;
+        background: green;
       }
       .state {
-        font-size: 1rem;
-        margin-top: -1rem;
+        background: blue;
+        // font-size: 1em;
+        // margin-top: -1em;
+      }
+    }
+    &.volume {
+      label {
+        padding-right: 0.5em;
       }
     }
   }

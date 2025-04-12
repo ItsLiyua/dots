@@ -16,7 +16,7 @@ export default function HubBattery() {
       </box>
     );
   return (
-    <box cssClasses={["element", "battery"]} hexpand>
+    <box cssClasses={["element", "battery"]} valign={Gtk.Align.START} hexpand>
       <box valign={Gtk.Align.CENTER} halign={Gtk.Align.CENTER}>
         <label
           cssClasses={["icon"]}
