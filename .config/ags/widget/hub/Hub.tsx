@@ -10,6 +10,7 @@ import Power from "./elements/power";
 import Brightness from "./elements/brightness";
 import Volume from "./elements/volume";
 import HubBattery from "./elements/battery";
+import Links from "./elements/links";
 
 const HORIZONTAL = Gtk.Orientation.HORIZONTAL;
 const VERTICAL = Gtk.Orientation.VERTICAL;
@@ -54,11 +55,7 @@ export default function Hub(monitor: number) {
             <box orientation={VERTICAL} hexpand>
               <Network />
               <Bluetooth />
-              <label
-                cssClasses={["element"]}
-                vexpand
-                label="Browser Shortcuts"
-              />
+              <Links />
             </box>
             <Brightness />
             <Volume />

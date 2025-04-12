@@ -28,6 +28,26 @@ $height: calc(0.6 * $width);
     .extra-padding {
       padding-right: 0.5em;
     }
+    .accent- {
+      &1 {
+        color: red;
+      }
+      &2 {
+        color: green;
+      }
+      &3 {
+        color: blue;
+      }
+      &4 {
+        color: aqua;
+      }
+      &5 {
+        color: pink;
+      }
+      &6 {
+        color: purple;
+      }
+    }
   }
 
   .element {
@@ -96,45 +116,35 @@ $height: calc(0.6 * $width);
       button {
         border: none;
         background: transparent;
-        .accent- {
-          &1 {
-            color: red;
-          }
-          &2 {
-            color: green;
-          }
-          &3 {
-            color: blue;
-          }
-          &4 {
-            color: aqua;
-          }
-          &5 {
-            color: pink;
-          }
-          &6 {
-            color: purple;
-          }
-        }
       }
     }
     &.battery {
+      padding: 0;
       .icon {
-        font-size: 6em;
+        font-size: 5em;
         padding-right: 0.5em;
+        margin-right: 0.25em;
       }
       .charge {
-        font-size: 3em;
+        font-size: 1.875em;
         margin-top: calc(-1em / 3);
       }
       .state {
-        font-size: 1em;
+        font-size: 0.625em;
+        font-weight: lighter;
         margin-top: -1em;
       }
     }
     &.volume {
       label {
         padding-right: 0.5em;
+      }
+    }
+    &.links {
+      font-size: 2em;
+      button {
+        border: none;
+        background: #111111;
       }
     }
   }
