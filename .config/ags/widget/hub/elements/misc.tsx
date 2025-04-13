@@ -2,6 +2,12 @@ import { Gtk } from "astal/gtk4";
 import { hideAll } from "../Hub";
 import { execAsync } from "astal";
 
+function runCmd(cmd: string) {
+  return () => {
+    hideAll();
+    execAsync(["bash", "-c", cmd]);
+  };
+}
 export default function MiscButtons() {
   return (
     <box
@@ -10,22 +16,36 @@ export default function MiscButtons() {
       vexpand
       hexpand
     >
-      <button
-        onClicked={() => {
-          hideAll();
-          execAsync(["bash", "-c", "~/.local/bin/programs/screenshot.sh"]);
-        }}
+      <box
+        orientation={Gtk.Orientation.HORIZONTAL}
+        halign={Gtk.Align.CENTER}
+        vexpand
       >
-        <label label="󰹑" />
-      </button>
-      <button
-        onClicked={() => {
-          hideAll();
-          execAsync(["bash", "-c", "notify-send", "color-picker"]);
-        }}
+        <button onClicked={runCmd("~/.local/bin/programs/screenshot.sh")}>
+          <label label="󰹑" />
+        </button>
+        <button onClicked={runCmd("~/.local/bin/programs/screenshot.sh")}>
+          <label label="󰹑" />
+        </button>
+        <button onClicked={runCmd("~/.local/bin/programs/screenshot.sh")}>
+          <label label="󰹑" />
+        </button>
+      </box>
+      <box
+        orientation={Gtk.Orientation.HORIZONTAL}
+        halign={Gtk.Align.CENTER}
+        vexpand
       >
-        <label label="" />
-      </button>
+        <button onClicked={runCmd("~/.local/bin/programs/screenshot.sh")}>
+          <label label="󰹑" />
+        </button>
+        <button onClicked={runCmd("~/.local/bin/programs/screenshot.sh")}>
+          <label label="󰹑" />
+        </button>
+        <button onClicked={runCmd("~/.local/bin/programs/screenshot.sh")}>
+          <label label="󰹑" />
+        </button>
+      </box>
     </box>
   );
 }

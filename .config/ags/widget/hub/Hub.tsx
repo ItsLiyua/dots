@@ -1,4 +1,3 @@
-import { bind, Variable } from "astal";
 import { App, Astal, Gtk } from "astal/gtk4";
 import User from "./elements/user";
 import MiscButtons from "./elements/misc";
@@ -11,6 +10,8 @@ import Brightness from "./elements/brightness";
 import Volume from "./elements/volume";
 import HubBattery from "./elements/battery";
 import Links from "./elements/links";
+import Theme from "./elements/theme";
+import SystemInfo from "./elements/systeminfo";
 
 const HORIZONTAL = Gtk.Orientation.HORIZONTAL;
 const VERTICAL = Gtk.Orientation.VERTICAL;
@@ -45,13 +46,15 @@ export default function Hub(monitor: number) {
           <label cssClasses={["element"]} vexpand label="Media" />
         </box>
         <box orientation={VERTICAL}>
-          <Clock />
-          <CommonDirectories />
-          <MiscButtons />
-        </box>
-        <box orientation={VERTICAL}>
-          <HubBattery />
           <box orientation={HORIZONTAL}>
+            <Clock />
+            <HubBattery />
+          </box>
+          <box orientation={HORIZONTAL}>
+            <box orientation={VERTICAL}>
+              <CommonDirectories />
+              <MiscButtons />
+            </box>
             <box orientation={VERTICAL} hexpand>
               <Network />
               <Bluetooth />
@@ -61,15 +64,14 @@ export default function Hub(monitor: number) {
             <Volume />
           </box>
         </box>
-
         <box orientation={VERTICAL}>
           <label cssClasses={["element"]} label="Weather" />
-          <label cssClasses={["element"]} vexpand label="sysinfo" />
-          <label cssClasses={["element"]} label="hardware usage" />
+          <SystemInfo />
+          <label cssClasses={["element"]} vexpand label="hardware usage" />
         </box>
         <box orientation={VERTICAL}>
           <label cssClasses={["element"]} label="notifs" vexpand />
-          <label cssClasses={["element"]} label="theme colors" />
+          <Theme />
           <Power />
         </box>
       </box>

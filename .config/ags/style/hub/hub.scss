@@ -58,12 +58,12 @@ $height: calc(0.6 * $width);
     & > box {
       padding: calc($width / 100);
     }
-
     &.user {
       image {
         min-width: calc($width / 5);
         min-height: calc($width / 5);
         margin-bottom: calc($width / 100);
+        border-radius: 50%;
       }
       .name {
         font-size: 1em;
@@ -145,6 +145,32 @@ $height: calc(0.6 * $width);
       button {
         border: none;
         background: #111111;
+      }
+    }
+    &.sysinfo {
+      .infoline {
+        padding: 0;
+        .icon {
+          padding-right: 1em;
+        }
+      }
+      .osname {
+        color: red;
+      }
+      .pkgs {
+        color: green;
+      }
+      .compositor {
+        color: blue;
+      }
+      .shell {
+        color: aqua;
+      }
+      .uptime {
+        color: pink;
+      }
+      .age {
+        color: purple;
       }
     }
   }
