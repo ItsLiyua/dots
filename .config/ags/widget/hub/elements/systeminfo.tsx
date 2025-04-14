@@ -15,6 +15,7 @@ function InfoLine({
       cssClasses={["infoline", ...cssClasses]}
       orientation={Gtk.Orientation.HORIZONTAL}
       halign={Gtk.Align.START}
+      vexpand
     >
       <label cssClasses={["icon"]} label={icon} />
       <label cssClasses={["spec"]} label={spec()} />
@@ -26,6 +27,7 @@ export default function SystemInfo() {
     <box
       cssClasses={["element", "sysinfo"]}
       orientation={Gtk.Orientation.VERTICAL}
+      vexpand
     >
       <InfoLine
         icon="󰣇"

@@ -54,17 +54,6 @@ const usage = exec(["bash", "-c", "df -h"])
     return { name: sp[5], usage: parseInt(sp[4].replace("%", "")) / 100 };
   });
 
-const gpuUsage = Variable(0).poll(
-  1000,
-  ["bash", "-c", "rocm-smi -u"],
-  (s) => parseInt(s.split("\n")[2].split(":")[2].trim()) / 100,
-);
-const gpuMem = Variable(0).poll(
-  1000,
-  ["bash", "-c", "rocm-smi --showmemuse"],
-  (s) => parseInt(s.split("\n")[2].split(":")[2].trim()) / 100,
-);
-
 function Stat({
   icon,
   name,
@@ -77,12 +66,21 @@ function Stat({
   cssClasses: string[];
 }) {
   return (
-    <box orientation={Gtk.Orientation.VERTICAL} cssClasses={cssClasses}>
+    <box orientation={Gtk.Orientation.VERTICAL} cssClasses={cssClasses} vexpand>
       <box cssClasses={["desc"]} orientation={Gtk.Orientation.HORIZONTAL}>
         <label cssClasses={["icon"]} label={icon} />
         <label cssClasses={["name"]} label={name} />
       </box>
-      <levelbar minValue={0} value={valueProvider} maxValue={1} />
+      <levelbar
+        /* cssClasses={valueProvider.as((v) => { */
+        /*   if (v < 0.75) return ["ok"]; */
+        /*   else if (v < 0.95) return ["warn"]; */
+        /*   else return ["critical"]; */
+        /* })} */
+        minValue={0}
+        value={valueProvider}
+        maxValue={1}
+      />
     </box>
   );
 }
@@ -109,6 +107,31 @@ export default function HardwareUsage() {
         valueProvider={bind(memUsage)}
         cssClasses={["mem"]}
       />
+      {usage.map((u) => (
+        <Stat
+          icon={""}
+          name={u.name}
+          valueProvider={bind(Variable(u.usage))}
+          cssClasses={["disk"]}
+        />
+      ))}
+    </box>
+  );
+}
+
+/* GPU Stuff
+ 
+const gpuUsage = Variable(0).poll(
+  1000,
+  ["bash", "-c", "rocm-smi -u"],
+  (s) => parseInt(s.split("\n")[2].split(":")[2].trim()) / 100,
+);
+const gpuMem = Variable(0).poll(
+  1000,
+  ["bash", "-c", "rocm-smi --showmemuse"],
+  (s) => parseInt(s.split("\n")[2].split(":")[2].trim()) / 100,
+);
+
       <Stat
         icon={""}
         name={exec(["bash", "-c", "rocm-smi -i"])
@@ -124,14 +147,4 @@ export default function HardwareUsage() {
         valueProvider={bind(gpuMem)}
         cssClasses={["gpumem"]}
       />
-      {usage.map((u) => (
-        <Stat
-          icon={""}
-          name={u.name}
-          valueProvider={bind(Variable(u.usage))}
-          cssClasses={["disk"]}
-        />
-      ))}
-    </box>
-  );
-}
+*/

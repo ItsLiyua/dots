@@ -14,6 +14,8 @@ import Theme from "./elements/theme";
 import SystemInfo from "./elements/systeminfo";
 import Media from "./elements/media";
 import HardwareUsage from "./elements/hardwareusage";
+import Weather from "./elements/weather";
+import Notifications from "./elements/notifications";
 
 const HORIZONTAL = Gtk.Orientation.HORIZONTAL;
 const VERTICAL = Gtk.Orientation.VERTICAL;
@@ -67,12 +69,12 @@ export default function Hub(monitor: number) {
           </box>
         </box>
         <box orientation={VERTICAL}>
-          <label cssClasses={["element"]} label="Weather" />
+          {/* <Weather /> */}
           <SystemInfo />
           <HardwareUsage />
         </box>
         <box orientation={VERTICAL}>
-          <label cssClasses={["element"]} label="notifs" vexpand />
+          <Notifications />
           <Theme />
           <Power />
         </box>

@@ -197,5 +197,20 @@ $height: calc(0.6 * $width);
         padding-right: 1em;
       }
     }
+    &.weather {
+      .icon {
+        background: red;
+      }
+      .temp {
+        background: green;
+      }
+      box {
+        padding: 0;
+        background: blue;
+      }
+      .state {
+        background: aqua;
+      }
+    }
   }
 }
