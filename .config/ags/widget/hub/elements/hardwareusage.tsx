@@ -37,8 +37,6 @@ const mounted = exec(["bash", "-c", "lsblk -r"])
   .filter((s) => s != "NAME")
   .sort();
 
-console.log(mounted);
-
 // TODO: Update when reopening
 const usage = exec(["bash", "-c", "df -h"])
   .split("\n")
@@ -55,7 +53,17 @@ const usage = exec(["bash", "-c", "df -h"])
     const sp = s.split(" ").filter((s) => s != "");
     return { name: sp[5], usage: parseInt(sp[4].replace("%", "")) / 100 };
   });
-console.log(usage);
+
+const gpuUsage = Variable(0).poll(
+  1000,
+  ["bash", "-c", "rocm-smi -u"],
+  (s) => parseInt(s.split("\n")[2].split(":")[2].trim()) / 100,
+);
+const gpuMem = Variable(0).poll(
+  1000,
+  ["bash", "-c", "rocm-smi --showmemuse"],
+  (s) => parseInt(s.split("\n")[2].split(":")[2].trim()) / 100,
+);
 
 function Stat({
   icon,
@@ -100,6 +108,21 @@ export default function HardwareUsage() {
         name={Math.ceil(totalMem / 1024) + "GB"}
         valueProvider={bind(memUsage)}
         cssClasses={["mem"]}
+      />
+      <Stat
+        icon={""}
+        name={exec(["bash", "-c", "rocm-smi -i"])
+          .split("\n")[2]
+          .split(":")[2]
+          .trim()}
+        valueProvider={bind(gpuUsage)}
+        cssClasses={["gpu"]}
+      />
+      <Stat
+        icon={""}
+        name={"GPU Memory"}
+        valueProvider={bind(gpuMem)}
+        cssClasses={["gpumem"]}
       />
       {usage.map((u) => (
         <Stat
