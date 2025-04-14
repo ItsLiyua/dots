@@ -181,6 +181,9 @@ $height: calc(0.6 * $width);
         font-size: 0.75em;
       }
       .seekbar {
+      }
+      .position {
+        all: unset;
         label {
           font-size: 0.7em;
         }

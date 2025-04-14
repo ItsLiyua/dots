@@ -58,7 +58,13 @@ export default function Media() {
           orientation={Gtk.Orientation.VERTICAL}
           vexpand
         >
-          <image file={bind(p, "cover_art")} vexpand hexpand />
+          {bind(p, "cover_art").as((art) => {
+            if (art == null || art == "") {
+              return <></>;
+            } else {
+              return <image file={art} vexpand hexpand />;
+            }
+          })}
           <label
             cssClasses={["title"]}
             label={bind(p, "title").as((s) => s.substring(0, 25))}
@@ -72,6 +78,7 @@ export default function Media() {
             label={bind(p, "artist").as((s) => s.substring(0, 25))}
           />
           <slider
+            cssClasses={["seekbar"]}
             min={0}
             max={bind(p, "length")}
             value={bind(p, "position").as((pos) => {
@@ -92,10 +99,13 @@ export default function Media() {
               p.position = self.value;
               sliderGrabbed = false;
             }}
+            hexpand
           />
-          <button onClicked={() => displayTimeLeft.set(!displayTimeLeft.get())}>
+          <button
+            cssClasses={["position"]}
+            onClicked={() => displayTimeLeft.set(!displayTimeLeft.get())}
+          >
             <label
-              cssClasses={["time"]}
               label={bind(
                 derive([
                   bind(sliderValue),
@@ -113,6 +123,7 @@ export default function Media() {
             />
           </button>
           <box
+            cssClasses={["controls"]}
             orientation={Gtk.Orientation.HORIZONTAL}
             halign={Gtk.Align.CENTER}
           >
