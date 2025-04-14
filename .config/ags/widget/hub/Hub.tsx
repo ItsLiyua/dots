@@ -12,6 +12,7 @@ import HubBattery from "./elements/battery";
 import Links from "./elements/links";
 import Theme from "./elements/theme";
 import SystemInfo from "./elements/systeminfo";
+import Media from "./elements/media";
 
 const HORIZONTAL = Gtk.Orientation.HORIZONTAL;
 const VERTICAL = Gtk.Orientation.VERTICAL;
@@ -43,7 +44,7 @@ export default function Hub(monitor: number) {
       <box valign={Gtk.Align.CENTER} halign={Gtk.Align.CENTER}>
         <box orientation={VERTICAL}>
           <User />
-          <label cssClasses={["element"]} vexpand label="Media" />
+          <Media />
         </box>
         <box orientation={VERTICAL}>
           <box orientation={HORIZONTAL}>

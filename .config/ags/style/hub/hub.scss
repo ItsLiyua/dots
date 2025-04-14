@@ -173,5 +173,20 @@ $height: calc(0.6 * $width);
         color: purple;
       }
     }
+    &.media {
+      .title {
+        font-size: 1em;
+      }
+      .artist {
+        font-size: 0.75em;
+      }
+      .seekbar {
+        label {
+          font-size: 0.7em;
+        }
+      }
+      .controls {
+      }
+    }
   }
 }
