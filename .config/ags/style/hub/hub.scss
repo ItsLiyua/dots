@@ -150,6 +150,7 @@ $height: calc(0.6 * $width);
     &.sysinfo {
       .infoline {
         padding: 0;
+        margin-bottom: 0.5em;
         .icon {
           padding-right: 1em;
         }
@@ -189,6 +190,11 @@ $height: calc(0.6 * $width);
         }
       }
       .controls {
+      }
+    }
+    &.hardware {
+      .icon {
+        padding-right: 1em;
       }
     }
   }
