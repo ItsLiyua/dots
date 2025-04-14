@@ -145,7 +145,11 @@ export default function Media() {
       );
     } else
       return (
-        <label cssClasses={["element", "media"]} label="No player" vexpand />
+        <label
+          cssClasses={["element", "media"]}
+          label="No media playing"
+          vexpand
+        />
       );
   });
 }

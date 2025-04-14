@@ -30,6 +30,33 @@ const memUsage = Variable(0).poll(
     ) / totalMem,
 );
 
+const mounted = exec(["bash", "-c", "lsblk -r"])
+  .split("\n")
+  .filter((s) => s.split(" ")[6] != "")
+  .map((s) => s.split(" ")[0])
+  .filter((s) => s != "NAME")
+  .sort();
+
+console.log(mounted);
+
+// TODO: Update when reopening
+const usage = exec(["bash", "-c", "df -h"])
+  .split("\n")
+  .filter((s) => !s.startsWith("Filesystem"))
+  .filter((s) => {
+    const name = s.split(" ").filter((a) => a != "")[0];
+    for (const mount of mounted) {
+      const sub = name.substring(name.length - mount.length, name.length);
+      if (sub == mount) return true;
+    }
+    return false;
+  })
+  .map((s) => {
+    const sp = s.split(" ").filter((s) => s != "");
+    return { name: sp[5], usage: parseInt(sp[4].replace("%", "")) / 100 };
+  });
+console.log(usage);
+
 function Stat({
   icon,
   name,
@@ -74,6 +101,14 @@ export default function HardwareUsage() {
         valueProvider={bind(memUsage)}
         cssClasses={["mem"]}
       />
+      {usage.map((u) => (
+        <Stat
+          icon={""}
+          name={u.name}
+          valueProvider={bind(Variable(u.usage))}
+          cssClasses={["disk"]}
+        />
+      ))}
     </box>
   );
 }
