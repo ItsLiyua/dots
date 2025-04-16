@@ -196,6 +196,9 @@ $height: calc(0.6 * $width);
       .icon {
         padding-right: 1em;
       }
+      levelbar {
+        margin-top: calc($height / 400);
+      }
     }
     &.weather {
       .icon {

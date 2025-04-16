@@ -14,7 +14,6 @@ import Theme from "./elements/theme";
 import SystemInfo from "./elements/systeminfo";
 import Media from "./elements/media";
 import HardwareUsage from "./elements/hardwareusage";
-import Weather from "./elements/weather";
 import Notifications from "./elements/notifications";
 
 const HORIZONTAL = Gtk.Orientation.HORIZONTAL;

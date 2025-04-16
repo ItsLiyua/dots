@@ -1,0 +1,20 @@
+.notif-window {
+  .notifications {
+    .spacer-top {
+      min-height: 35px;
+    }
+    .notification {
+      margin: 5px 5px 0 0;
+      background: #333333;
+      .source {
+        font-weight: bold;
+      }
+      .title {
+        font-weight: normal;
+      }
+      .close {
+        margin: 5px;
+      }
+    }
+  }
+}
