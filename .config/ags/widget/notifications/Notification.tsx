@@ -1,16 +1,17 @@
 import { Gtk } from "astal/gtk4";
-import { hideNotification } from "./NotifDaemon";
+import { getNotification, hideNotification } from "./NotifDaemon";
 
 export function Popup({ notifId }: { notifId: number }) {
+  const notif = getNotification(notifId);
   return (
     <box cssClasses={["notification"]}>
-      <label label="icon" />
-      <box cssClasses={["info"]} orientation={Gtk.Orientation.VERTICAL}>
+      <image file={notif.image} />
+      <box cssClasses={["info"]} orientation={Gtk.Orientation.VERTICAL} hexpand>
         <box orientation={Gtk.Orientation.HORIZONTAL}>
-          <label cssClasses={["source"]} label="source" />
-          <label cssClasses={["title"]} label="title" />
+          <label cssClasses={["source"]} label={notif.appName} />
+          <label cssClasses={["title"]} label={notif.summary} />
         </box>
-        <label cssClasses={["content"]} label="content" />
+        <label cssClasses={["content"]} label={notif.body} />
       </box>
       <button
         cssClasses={["close"]}

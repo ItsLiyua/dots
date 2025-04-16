@@ -6,8 +6,13 @@
     .notification {
       margin: 5px 5px 0 0;
       background: #333333;
+      image {
+        min-width: 30px;
+        min-height: 30px;
+      }
       .source {
         font-weight: bold;
+        margin-right: 10px;
       }
       .title {
         font-weight: normal;
@@ -15,7 +20,7 @@
       .close {
         margin: 5px;
         label {
-          padding-right: 0.5em;
+          padding-right: 0.25em;
         }
       }
     }

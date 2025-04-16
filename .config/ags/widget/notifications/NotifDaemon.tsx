@@ -36,13 +36,8 @@ export function resolveNotification(id: number) {
 export function notificationPopups(visibleOnly: boolean) {
   return bind(updatePopup).as((_) => {
     const a = visibleOnly ? visible : unresolved;
-    if (a.length == 0) {
-      console.log("empty");
-      return <label label="" />;
-    } else {
-      console.log("not empty");
-      return a.map((id) => <Popup notifId={id} />);
-    }
+    if (a.length == 0) return <label label="" />;
+    else return a.map((id) => <Popup notifId={id} />);
   });
 }
 
@@ -54,4 +49,8 @@ export function hidePopupWindow() {
 }
 export function showPopupWindow() {
   windowVisible.set(true);
+}
+
+export function getNotification(id: number) {
+  return notifd.get_notification(id);
 }
