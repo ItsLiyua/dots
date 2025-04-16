@@ -7,7 +7,10 @@ const notifd = Notifd.get_default();
 const unresolved = new Array<number>();
 const visible = new Array<number>();
 const updatePopup = Variable(false);
+const windowVisible = Variable(false);
 export function update() {
+  if (visible.length > 0) showPopupWindow();
+  else hidePopupWindow();
   updatePopup.set(!updatePopup.get());
 }
 
@@ -20,7 +23,7 @@ notifd.connect("notified", onNotified);
 
 export function hideNotification(id: number) {
   const index = visible.findIndex((v) => v == id);
-  if (index > -1) visible.splice(index);
+  if (index > -1) visible.splice(index, 1);
   update();
 }
 
@@ -33,7 +36,22 @@ export function resolveNotification(id: number) {
 export function notificationPopups(visibleOnly: boolean) {
   return bind(updatePopup).as((_) => {
     const a = visibleOnly ? visible : unresolved;
-    if (a.length == 0) return <></>;
-    else return a.map((id) => <Popup notifId={id} />);
+    if (a.length == 0) {
+      console.log("empty");
+      return <label label="" />;
+    } else {
+      console.log("not empty");
+      return a.map((id) => <Popup notifId={id} />);
+    }
   });
+}
+
+export function windowVisibilityProvider() {
+  return bind(windowVisible);
+}
+export function hidePopupWindow() {
+  windowVisible.set(false);
+}
+export function showPopupWindow() {
+  windowVisible.set(true);
 }

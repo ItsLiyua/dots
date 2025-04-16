@@ -1,12 +1,10 @@
 import { App, Astal, Gtk } from "astal/gtk4";
-import { Popup } from "./Notification";
-import { bind } from "astal";
-import { notificationPopups, updatePopup, visible } from "./NotifDaemon";
+import { notificationPopups, windowVisibilityProvider } from "./NotifDaemon";
 
 export default function NotificationWindow(monitor: number) {
   return (
     <window
-      visible={true}
+      visible={windowVisibilityProvider()}
       layer={Astal.Layer.OVERLAY}
       name={"notif" + monitor}
       monitor={monitor}

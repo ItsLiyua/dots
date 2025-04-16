@@ -14,9 +14,7 @@ export function Popup({ notifId }: { notifId: number }) {
       </box>
       <button
         cssClasses={["close"]}
-        onClicked={() => {
-          hideNotification(notifId);
-        }}
+        onClicked={() => hideNotification(notifId)}
         valign={Gtk.Align.START}
         halign={Gtk.Align.END}
       >
