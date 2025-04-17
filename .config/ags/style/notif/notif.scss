@@ -1,26 +1,61 @@
+$background: #333333;
+$accent-1: #ff0000;
+$accent-2: #ff0088;
+
 .notif-window {
+  font-family: "JetBrainsMono Nerd Font";
+  button {
+    min-width: 15px;
+    min-height: 15px;
+    padding: 0;
+    background: $background;
+    border-radius: 0;
+    border: 1px solid $accent-1;
+    transition-duration: 0.25s;
+    label {
+      color: $accent-1;
+      font-size: 12px;
+    }
+    &:hover {
+      background: $accent-1;
+      label {
+        color: $background;
+      }
+    }
+  }
+
   .notifications {
     .spacer-top {
       min-height: 35px;
     }
     .notification {
       margin: 5px 5px 0 0;
-      background: #333333;
+      background: $background;
+      border: 1px solid $accent-1;
+      padding: 5px;
       image {
-        min-width: 30px;
-        min-height: 30px;
+        -gtk-icon-size: 64px;
+        margin-right: 10px;
       }
       .source {
         font-weight: bold;
-        margin-right: 10px;
       }
       .title {
         font-weight: normal;
       }
-      .close {
-        margin: 5px;
+      .action {
+        + .action {
+          margin-left: 3px;
+        }
         label {
-          padding-right: 0.25em;
+          margin: 3px;
+        }
+      }
+      .close {
+        margin-top: -2px;
+        margin-right: -2px;
+        label {
+          padding-left: 0.05em;
         }
       }
     }
