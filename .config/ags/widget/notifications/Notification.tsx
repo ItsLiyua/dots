@@ -76,12 +76,6 @@ export function Popup({ notifId }: { notifId: number }) {
         >
           <label label="󰖭" halign={Gtk.Align.CENTER} />
         </button>
-        <label
-          cssClasses={["time"]}
-          label={bind(notif, "time").as(
-            (n) => new Date(n).toTimeString().split(" ")[0],
-          )}
-        />
       </box>
     </box>
   );

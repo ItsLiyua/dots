@@ -3,7 +3,7 @@ import Wp from "gi://AstalWp";
 import HoverIcon from "../HoverIcon";
 
 const wp = Wp.get_default()!!;
-export const default_audio = bind(wp.audio, "default_speaker");
+const default_audio = bind(wp.audio, "default_speaker");
 const MUTE_ICON = "";
 const ICONS = ["", "", ""];
 const STEP = 0.03;

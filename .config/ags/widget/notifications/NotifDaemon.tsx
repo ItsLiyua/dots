@@ -14,10 +14,11 @@ const windowVisible = Variable(false);
 interval(expirationPrecision, () => {
   visible
     .filter((a) => {
-      a.timeout -= expirationPrecision;
+      if (a.timeout != -1)
+        a.timeout -= Math.min(expirationPrecision, a.timeout);
       return true;
     })
-    .filter((a) => a.timeout <= 0)
+    .filter((a) => a.timeout == 0)
     .forEach((_, index) => visible.splice(index, 1));
   update();
 });
@@ -29,7 +30,10 @@ export function update() {
 
 function onNotified(_: Notifd.Notifd, id: number) {
   const notif = getNotification(id);
-  addNotification(id, notif.expireTimeout);
+  addNotification(
+    id,
+    notif.urgency != Notifd.Urgency.CRITICAL ? notif.expireTimeout : -1,
+  );
   update();
 }
 notifd.connect("notified", onNotified);
@@ -78,7 +82,7 @@ function addNotification(id: number, timeout: number) {
   if (index > -1) unresolved.splice(index, 1);
   visible.push({
     id: id,
-    timeout: timeout > 0 ? timeout : defaultExpirationDelay,
+    timeout: timeout != 0 ? timeout : defaultExpirationDelay,
   });
   unresolved.push(id);
 }
