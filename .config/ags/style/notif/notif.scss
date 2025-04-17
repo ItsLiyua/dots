@@ -1,25 +1,25 @@
-$background: #333333;
-$accent-1: #00ff88;
-$accent-2: #ff0088;
+@use "sass:color";
+@use "../colors.scss" as c;
 
 .notif-window {
   font-family: "JetBrainsMono Nerd Font";
+  color: c.$foreground;
   button {
     min-width: 15px;
     min-height: 15px;
     padding: 0;
-    background: $background;
+    background: c.$background;
     border-radius: 0;
-    border: 1px solid $accent-1;
+    border: 1px solid c.$color2;
     transition-duration: 0.25s;
     label {
-      color: $accent-1;
+      color: c.$color2;
       font-size: 12px;
     }
     &:hover {
-      background: $accent-1;
+      background: c.$color2;
       label {
-        color: $background;
+        color: c.$background;
       }
     }
   }
@@ -30,11 +30,11 @@ $accent-2: #ff0088;
     }
     .notification {
       margin: 5px 5px 0 0;
-      background: $background;
-      border: 1px solid $accent-1;
+      background: c.$background;
+      border: 1px solid c.$color2;
       padding: 5px;
       &.critical {
-        border-color: #ff0000;
+        border-color: c.$color3;
       }
       image {
         -gtk-icon-size: 64px;
@@ -58,17 +58,20 @@ $accent-2: #ff0088;
         margin-top: -2px;
         margin-right: -2px;
         margin-left: 5px;
-        border-color: $accent-2;
+        border-color: c.$color3;
         label {
-          color: $accent-2;
+          color: c.$color3;
           padding-left: 0.05em;
         }
         &:hover {
-          background: $accent-2;
+          background: c.$color3;
           label {
-            color: $background;
+            color: c.$background;
           }
         }
+      }
+      .time {
+        color: color.adjust(c.$background, $lightness: 10%);
       }
     }
   }

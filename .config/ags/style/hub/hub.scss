@@ -1,4 +1,4 @@
-@use "../colors.scss";
+@use "../colors.scss" as c;
 
 $width: 1000px;
 $height: calc(0.6 * $width);
@@ -19,39 +19,55 @@ $height: calc(0.6 * $width);
   button {
     margin: 5px;
     border-radius: 0;
-    border-width: calc($width / 1000);
-    border-style: solid;
+    border: calc($width / 1000) solid c.$color1;
     transition-duration: 0.25s;
-    .padding {
-      padding-right: 0.25em;
+    background: c.$background;
+    label {
+      color: c.$color1;
+      &.padding {
+        padding-right: 0.25em;
+      }
+      &.extra-padding {
+        padding-right: 0.5em;
+      }
     }
-    .extra-padding {
-      padding-right: 0.5em;
+    &:hover {
+      background: c.$color1;
+      label {
+        color: c.$background;
+      }
     }
-    .accent- {
-      &1 {
-        color: red;
-      }
-      &2 {
-        color: green;
-      }
-      &3 {
-        color: blue;
-      }
-      &4 {
-        color: aqua;
-      }
-      &5 {
-        color: pink;
-      }
-      &6 {
-        color: purple;
-      }
+  }
+  .accent- {
+    &1 {
+      color: c.$color1;
+    }
+    &2 {
+      color: c.$color2;
+    }
+    &3 {
+      color: c.$color3;
+    }
+    &4 {
+      color: c.$color4;
+    }
+    &5 {
+      color: c.$color5;
+    }
+    &6 {
+      color: c.$color6;
+    }
+    &7 {
+      color: c.$color7;
+    }
+    &8 {
+      color: c.$color8;
     }
   }
 
   .element {
-    background: #111111;
+    background: c.$background;
+    color: c.$foreground;
     margin: calc($width / 200);
     padding: calc($width / 100);
     border-radius: calc($width / 100);
@@ -111,6 +127,26 @@ $height: calc(0.6 * $width);
       }
     }
     &.power {
+      .logout,
+      .lock,
+      .reboot {
+        border-color: c.$color2;
+        label {
+          color: c.$color2;
+        }
+        &:hover {
+          background: c.$color2;
+        }
+      }
+      .shutdown {
+        border-color: c.$color3;
+        label {
+          color: c.$color3;
+        }
+        &:hover {
+          background: c.$color3;
+        }
+      }
     }
     &.commondirs {
       button {
@@ -156,22 +192,22 @@ $height: calc(0.6 * $width);
         }
       }
       .osname {
-        color: red;
+        color: c.$color1;
       }
       .pkgs {
-        color: green;
+        color: c.$color2;
       }
       .compositor {
-        color: blue;
+        color: c.$color3;
       }
       .shell {
-        color: aqua;
+        color: c.$color4;
       }
       .uptime {
-        color: pink;
+        color: c.$color5;
       }
       .age {
-        color: purple;
+        color: c.$color6;
       }
     }
     &.media {
@@ -198,6 +234,52 @@ $height: calc(0.6 * $width);
       }
       levelbar {
         margin-top: calc($height / 400);
+        trough {
+          background: c.$background;
+          block.empty {
+            color: transparent;
+          }
+        }
+      }
+      .cpu {
+        label {
+          color: c.$color1;
+        }
+        .filled {
+          background: c.$color1;
+        }
+      }
+      .memory {
+        label {
+          color: c.$color2;
+        }
+        .filled {
+          background: c.$color2;
+        }
+      }
+      .disk0 {
+        label {
+          color: c.$color3;
+        }
+        .filled {
+          background: c.$color3;
+        }
+      }
+      .disk1 {
+        label {
+          color: c.$color4;
+        }
+        .filled {
+          background: c.$color4;
+        }
+      }
+      .disk2 {
+        label {
+          color: c.$color5;
+        }
+        .filled {
+          background: c.$color5;
+        }
       }
     }
     &.weather {

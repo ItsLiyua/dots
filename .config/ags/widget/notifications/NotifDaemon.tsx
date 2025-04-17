@@ -12,17 +12,13 @@ const updatePopup = Variable(false);
 const windowVisible = Variable(false);
 
 interval(expirationPrecision, () => {
-  visible.forEach((a) => {
-    a.timeout -= expirationPrecision;
-  });
   visible
+    .filter((a) => {
+      a.timeout -= expirationPrecision;
+      return true;
+    })
     .filter((a) => a.timeout <= 0)
-    .forEach((a) => {
-      visible.splice(
-        visible.findIndex((b) => a.id == b.id),
-        1,
-      );
-    });
+    .forEach((_, index) => visible.splice(index, 1));
   update();
 });
 export function update() {

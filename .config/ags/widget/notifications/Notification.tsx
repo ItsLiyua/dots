@@ -41,6 +41,7 @@ export function Popup({ notifId }: { notifId: number }) {
                 <label
                   cssClasses={["content"]}
                   label={notif.body}
+                  halign={Gtk.Align.START}
                   maxWidthChars={30}
                   wrap
                   wrapMode={Pango.WrapMode.WORD_CHAR}
@@ -66,14 +67,22 @@ export function Popup({ notifId }: { notifId: number }) {
           </box>
         </box>
       </box>
-      <button
-        cssClasses={["close"]}
-        onClicked={() => hideNotification(notifId)}
-        valign={Gtk.Align.START}
-        halign={Gtk.Align.END}
-      >
-        <label label="󰖭" halign={Gtk.Align.CENTER} />
-      </button>
+      <box orientation={Gtk.Orientation.VERTICAL}>
+        <button
+          cssClasses={["close"]}
+          onClicked={() => hideNotification(notifId)}
+          valign={Gtk.Align.START}
+          halign={Gtk.Align.END}
+        >
+          <label label="󰖭" halign={Gtk.Align.CENTER} />
+        </button>
+        <label
+          cssClasses={["time"]}
+          label={bind(notif, "time").as(
+            (n) => new Date(n).toTimeString().split(" ")[0],
+          )}
+        />
+      </box>
     </box>
   );
 }

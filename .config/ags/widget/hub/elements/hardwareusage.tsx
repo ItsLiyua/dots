@@ -107,12 +107,12 @@ export default function HardwareUsage() {
         valueProvider={bind(memUsage)}
         cssClasses={["mem"]}
       />
-      {usage.map((u) => (
+      {usage.map((u, i) => (
         <Stat
           icon={""}
           name={u.name}
           valueProvider={bind(Variable(u.usage))}
-          cssClasses={["disk"]}
+          cssClasses={["disk" + i]}
         />
       ))}
     </box>
