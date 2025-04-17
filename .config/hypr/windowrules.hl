@@ -19,4 +19,5 @@ layerrule = dimaround, wofi
 layerrule = blur, astal-hub
 layerrule = blur, wofi
 layerrule = noanim, selection
+layerrule = noanim, hyprpicker
 

@@ -180,7 +180,7 @@ $height: calc(0.6 * $width);
       font-size: 2em;
       button {
         border: none;
-        background: #111111;
+        background: transparent;
       }
     }
     &.sysinfo {
@@ -249,7 +249,7 @@ $height: calc(0.6 * $width);
           background: c.$color1;
         }
       }
-      .memory {
+      .mem {
         label {
           color: c.$color2;
         }

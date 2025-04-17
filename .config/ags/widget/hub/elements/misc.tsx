@@ -24,11 +24,11 @@ export default function MiscButtons() {
         <button onClicked={runCmd("~/.local/bin/programs/screenshot.sh")}>
           <label label="󰹑" />
         </button>
-        <button onClicked={runCmd("~/.local/bin/programs/screenshot.sh")}>
-          <label label="󰹑" />
+        <button onClicked={runCmd("~/.local/bin/programs/colorpicker.sh")}>
+          <label label="" />
         </button>
-        <button onClicked={runCmd("~/.local/bin/programs/screenshot.sh")}>
-          <label label="󰹑" />
+        <button onClicked={runCmd("~/.local/bin/utils/idleinhibit.sh")}>
+          <label label="󰤄" halign={Gtk.Align.CENTER} />
         </button>
       </box>
       <box
