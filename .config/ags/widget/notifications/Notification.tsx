@@ -2,16 +2,30 @@ import { Gtk } from "astal/gtk4";
 import { getNotification, hideNotification } from "./NotifDaemon";
 import { bind } from "astal";
 import Pango from "gi://Pango?version=1.0";
-import AstalNotifd from "gi://AstalNotifd?version=0.1";
+import Notifd from "gi://AstalNotifd?version=0.1";
 
 export function Popup({ notifId }: { notifId: number }) {
   const notif = getNotification(notifId);
   if (notif == null) return <></>;
 
   return (
-    <box cssClasses={["notification"]}>
+    <box
+      cssClasses={bind(notif, "urgency").as((u) => {
+        switch (u) {
+          case Notifd.Urgency.LOW:
+            return ["notification", "low"];
+          case Notifd.Urgency.NORMAL:
+            return ["notification", "normal"];
+          case Notifd.Urgency.CRITICAL:
+            return ["notification", "critical"];
+        }
+      })}
+    >
       <box cssClasses={["content"]}>
-        <image iconName={notif.app_icon} valign={Gtk.Align.FILL} />
+        {bind(notif, "appIcon").as((i) => {
+          if (i == null || i.trim() == "") return <></>;
+          return <image iconName={notif.app_icon} valign={Gtk.Align.FILL} />;
+        })}
         <box
           cssClasses={["info"]}
           orientation={Gtk.Orientation.VERTICAL}

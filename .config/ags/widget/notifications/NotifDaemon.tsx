@@ -1,28 +1,45 @@
-import { bind, Variable } from "astal";
+import { bind, interval, Variable } from "astal";
 import Notifd from "gi://AstalNotifd?version=0.1";
 import { Popup } from "./Notification";
 
+const expirationPrecision = 500;
+const defaultExpirationDelay = 5000;
 const notifd = Notifd.get_default();
 
 const unresolved = new Array<number>();
-const visible = new Array<number>();
+const visible = new Array<{ id: number; timeout: number }>();
 const updatePopup = Variable(false);
 const windowVisible = Variable(false);
+
+interval(expirationPrecision, () => {
+  visible.forEach((a) => {
+    a.timeout -= expirationPrecision;
+  });
+  visible
+    .filter((a) => a.timeout <= 0)
+    .forEach((a) => {
+      visible.splice(
+        visible.findIndex((b) => a.id == b.id),
+        1,
+      );
+    });
+  update();
+});
 export function update() {
   if (visible.length > 0) showPopupWindow();
   else hidePopupWindow();
   updatePopup.set(!updatePopup.get());
 }
 
-function onNotified(source: Notifd.Notifd, id: number, replaced: boolean) {
-  unresolved.push(id);
-  visible.push(id);
+function onNotified(_: Notifd.Notifd, id: number) {
+  const notif = getNotification(id);
+  addNotification(id, notif.expireTimeout);
   update();
 }
 notifd.connect("notified", onNotified);
 
 export function hideNotification(id: number) {
-  const index = visible.findIndex((v) => v == id);
+  const index = visible.findIndex((v) => v.id == id);
   if (index > -1) visible.splice(index, 1);
   update();
 }
@@ -36,8 +53,11 @@ export function resolveNotification(id: number) {
 export function notificationPopups(visibleOnly: boolean) {
   return bind(updatePopup).as((_) => {
     const a = visibleOnly ? visible : unresolved;
-    if (a.length == 0) return <label label="" />;
-    else return a.map((id) => <Popup notifId={id} />);
+    if (a.length == 0) return <></>;
+    else
+      return a.map((id) => (
+        <Popup notifId={typeof id == "number" ? id : id.id} />
+      ));
   });
 }
 
@@ -53,4 +73,16 @@ export function showPopupWindow() {
 
 export function getNotification(id: number) {
   return notifd.get_notification(id);
+}
+
+function addNotification(id: number, timeout: number) {
+  let index = visible.findIndex((a) => a.id == id);
+  if (index > -1) visible.splice(index, 1);
+  index = unresolved.indexOf(id);
+  if (index > -1) unresolved.splice(index, 1);
+  visible.push({
+    id: id,
+    timeout: timeout > 0 ? timeout : defaultExpirationDelay,
+  });
+  unresolved.push(id);
 }

@@ -1,5 +1,5 @@
 $background: #333333;
-$accent-1: #ff0000;
+$accent-1: #00ff88;
 $accent-2: #ff0088;
 
 .notif-window {
@@ -33,6 +33,9 @@ $accent-2: #ff0088;
       background: $background;
       border: 1px solid $accent-1;
       padding: 5px;
+      &.critical {
+        border-color: #ff0000;
+      }
       image {
         -gtk-icon-size: 64px;
         margin-right: 10px;
@@ -54,8 +57,17 @@ $accent-2: #ff0088;
       .close {
         margin-top: -2px;
         margin-right: -2px;
+        margin-left: 5px;
+        border-color: $accent-2;
         label {
+          color: $accent-2;
           padding-left: 0.05em;
+        }
+        &:hover {
+          background: $accent-2;
+          label {
+            color: $background;
+          }
         }
       }
     }
