@@ -7,13 +7,14 @@ windowrule = immediate, class:steam_app_.*
 
 $opacity = 0.8
 windowrule = opacity $opacity, class:kitty
+windowrule = opacity $opacity, class:foot
 windowrule = opacity $opacity, class:vesktop
 windowrule = opacity $opacity, class:steam
 windowrule = opacity $opacity, class:org.pwmt.zathura
 
 windowrule = stayfocused, class:^jetbrains-idea-[cu]e$, title:^win\d+$
 
-windowrule = tile,class:^Minecraft.*$
+windowrule = tile,class:Minecraft.*
 
 layerrule = dimaround, wofi
 layerrule = blur, astal-hub

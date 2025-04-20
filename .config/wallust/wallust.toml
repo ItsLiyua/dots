@@ -28,5 +28,8 @@ discord.target="~/.config/vesktop/themes/wallust.theme.css"
 zathura.template = "zathura"
 zathura.target = "~/.config/zathura/colors"
 
-scss.template = "colors.scss"
-scss.target = "~/.config/ags/style/colors.scss"
+ags.template = "colors.scss"
+ags.target = "~/.config/ags/style/colors.scss"
+
+foot.template = "foot.ini"
+foot.target = "~/.config/foot/colors.ini"
