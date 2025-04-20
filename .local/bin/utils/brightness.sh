@@ -18,6 +18,9 @@ elif [ "$1" = "max" ]; then
 	brightnessctl m
 elif [ "$1" = "percentage" ]; then
 	jq -n "$(brightnessctl g) / $(brightnessctl m)"
+elif [ "$1" = "check" ]; then
+	brightnessctl -c backlight > /dev/null
+	echo $?
 else
 	brightnessctl s "$1"
 fi
