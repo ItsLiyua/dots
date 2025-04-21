@@ -14,8 +14,7 @@ const windowVisible = Variable(false);
 interval(expirationPrecision, () => {
   visible
     .filter((a) => {
-      if (a.timeout != -1)
-        a.timeout -= Math.min(expirationPrecision, a.timeout);
+      a.timeout -= Math.min(expirationPrecision, a.timeout);
       return true;
     })
     .filter((a) => a.timeout == 0)
@@ -30,6 +29,7 @@ export function update() {
 
 function onNotified(_: Notifd.Notifd, id: number) {
   const notif = getNotification(id);
+  console.log(notif.id, notif.expireTimeout);
   addNotification(
     id,
     notif.urgency != Notifd.Urgency.CRITICAL ? notif.expireTimeout : -1,
@@ -82,7 +82,7 @@ function addNotification(id: number, timeout: number) {
   if (index > -1) unresolved.splice(index, 1);
   visible.push({
     id: id,
-    timeout: timeout != 0 ? timeout : defaultExpirationDelay,
+    timeout: Math.max(defaultExpirationDelay, timeout),
   });
   unresolved.push(id);
 }

@@ -5,14 +5,13 @@ export default function NotificationWindow(monitor: number) {
   return (
     <window
       visible={windowVisibilityProvider()}
-      layer={Astal.Layer.OVERLAY}
+      layer={Astal.Layer.TOP}
       name={"notif" + monitor}
       monitor={monitor}
       exclusivity={Astal.Exclusivity.IGNORE}
       anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.RIGHT}
       application={App}
       namespace="astal-notification"
-      keymode={Astal.Keymode.ON_DEMAND}
       cssClasses={["notif-window"]}
     >
       <box
