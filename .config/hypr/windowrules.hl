@@ -8,7 +8,6 @@ windowrule = immediate, class:steam_app_.*
 $opacity = 0.8
 windowrule = opacity $opacity, class:kitty
 windowrule = opacity $opacity, class:foot
-windowrule = opacity $opacity, class:vesktop
 windowrule = opacity $opacity, class:steam
 windowrule = opacity $opacity, class:org.pwmt.zathura
 

@@ -2,8 +2,7 @@ monitor = DP-3,3440x1440@144,0x0,1
 monitor = HDMI-A-1,1920x1080@60,-1920x0,1
 
 exec-once = vesktop
-# exec-once = steam-runtime
-exec-once = hyprctl dispatch exec "[workspace 11 silent] kitty btop"
+exec-once = hyprctl dispatch exec "[workspace 11 silent] ~/.local/bin/programs/terminal.sh btop"
 exec-once = sleep 3; hyprctl dispatch focusmonitor DP-3
 exec-once = openrgb --startminimized --server
 exec-once = goxlr-daemon; goxlr-utility profiles device load liyua
@@ -11,7 +10,7 @@ exec-once = qpwgraph -m ~/Documents/GoXLR.qpwgraph
 exec-shutdown = killall goxlr-daemon
 
 input {
-  kb_layout = us,de
+  kb_layout = eu
 }
 
 bind = , F4, pass, class:com.obsproject.Studio
