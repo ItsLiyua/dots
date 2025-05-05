@@ -7,14 +7,14 @@ const defaultExpirationDelay = 5000;
 const notifd = Notifd.get_default();
 
 const unresolved = new Array<number>();
-const visible = new Array<{ id: number; timeout: number }>();
+const visible = new Array<{ id: number; timeout: number; hovered: boolean }>();
 const updatePopup = Variable(false);
 const windowVisible = Variable(false);
 
 interval(expirationPrecision, () => {
   visible
     .filter((a) => {
-      a.timeout -= Math.min(expirationPrecision, a.timeout);
+      if (!a.hovered) a.timeout -= Math.min(expirationPrecision, a.timeout);
       return true;
     })
     .filter((a) => a.timeout == 0)
@@ -70,6 +70,12 @@ export function hidePopupWindow() {
 export function showPopupWindow() {
   windowVisible.set(true);
 }
+export function notifHoverEnable(id: number) {
+  visible.filter((n) => n.id == id)[0].hovered = true;
+}
+export function notifHoverDisable(id: number) {
+  visible.filter((n) => n.id == id)[0].hovered = false;
+}
 
 export function getNotification(id: number) {
   return notifd.get_notification(id);
@@ -83,6 +89,7 @@ function addNotification(id: number, timeout: number) {
   visible.push({
     id: id,
     timeout: Math.max(defaultExpirationDelay, timeout),
+    hovered: false,
   });
   unresolved.push(id);
 }

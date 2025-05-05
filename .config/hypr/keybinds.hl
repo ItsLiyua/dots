@@ -65,5 +65,6 @@ bindl = , XF86AudioPrev, exec, playerctl previous
 
 bind = CTRL ALT, V, exec, ~/.local/bin/programs/clipboard_manager.sh
 bind = $mainMod, P, exec, ~/.local/bin/programs/screenshot.sh
+bind = $mainMod SHIFT, P, exec, ~/.local/bin/programs/screenshot.sh -s
 bind = , Print, exec, ~/.local/bin/programs/screenshot.sh
 

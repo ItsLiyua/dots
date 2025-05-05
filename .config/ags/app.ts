@@ -11,6 +11,7 @@ App.start({
       Bar(i);
       Hub(i);
       NotificationWindow(i);
+      // Wallpaper(i);
     }
   },
 });

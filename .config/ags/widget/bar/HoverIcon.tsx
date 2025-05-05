@@ -1,5 +1,5 @@
 import { bind, Binding, Variable } from "astal";
-import { Astal, Gtk } from "astal/gtk4";
+import { Gtk } from "astal/gtk4";
 
 export default function HoverIcon({
   cssClasses = [],

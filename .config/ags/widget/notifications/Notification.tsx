@@ -1,5 +1,10 @@
 import { Gtk } from "astal/gtk4";
-import { getNotification, hideNotification } from "./NotifDaemon";
+import {
+  getNotification,
+  hideNotification,
+  notifHoverDisable,
+  notifHoverEnable,
+} from "./NotifDaemon";
 import { bind } from "astal";
 import Pango from "gi://Pango?version=1.0";
 import Notifd from "gi://AstalNotifd?version=0.1";
@@ -20,6 +25,8 @@ export function Popup({ notifId }: { notifId: number }) {
             return ["notification", "critical"];
         }
       })}
+      onHoverEnter={() => notifHoverEnable(notifId)}
+      onHoverLeave={() => notifHoverDisable(notifId)}
     >
       <box cssClasses={["content"]}>
         {bind(notif, "appIcon").as((i) => {
