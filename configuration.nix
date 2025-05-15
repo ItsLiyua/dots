@@ -6,6 +6,7 @@
       ./modules/disko.nix
       ./modules/doas.nix
       ./modules/nh.nix
+      ./modules/git.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -49,17 +50,12 @@
   users.users.liyua = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" "input" "power" ];
-    packages = with pkgs; [
-      tree
-    ];
   };
 
   environment.systemPackages = with pkgs; [
-    home-manager
     neovim
     wget
     btop
-    git
   ];
 
 

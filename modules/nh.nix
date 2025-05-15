@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
 	environment.sessionVariables = {
-		FLAKE = "/etc/nixos";
+		FLAKE = "~/nix";
 	};
 
 	environment.systemPackages = [ pkgs.nh ];
