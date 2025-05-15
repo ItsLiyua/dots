@@ -1,5 +1,4 @@
 { config, pkgs, inputs, ... }:
-
 {
   home.username = "liyua";
   home.homeDirectory = "/home/liyua";
@@ -7,6 +6,8 @@
   home.packages = with pkgs; [
     foot
     wofi
+    brightnessctl
+    playerctl
     inputs.zen-browser.packages."${system}".default
   ];
   home.file = {
@@ -21,4 +22,11 @@
   };
 
   programs.home-manager.enable = true;
+
+  imports = [
+    ./hyprland.nix
+    ./git.nix
+    # ./utils.nix
+    ./apps.nix
+  ];
 }

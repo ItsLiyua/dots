@@ -12,22 +12,14 @@
     };
   };
 
-  outputs = inputs @ { nixpkgs, home-manager, hyprland, ... }:
+  outputs = { nixpkgs, home-manager, hyprland, ... } @ inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
     in {
       homeConfigurations."liyua" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {
-          inherit inputs;
-        };
-
-        modules = [
-	  ./home.nix
-	  ./hyprland.nix
-	  ./git.nix
-	];
+        pkgs = nixpkgs.legacyPackages.${system};
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ ./home.nix ];
       };
     };
 }
