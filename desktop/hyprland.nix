@@ -104,7 +104,7 @@
 
 				"$mod, T, exec, foot"
 				"$mod, F, exec, zen"
-				"$mod, A, exec, wofi"
+				"$mod, A, exec, wofi --show drun"
 
 				"$mod, V, togglefloating"
 				# "$mod, B, togglefullscreen"

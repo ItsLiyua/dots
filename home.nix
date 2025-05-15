@@ -8,7 +8,6 @@
     wofi
     brightnessctl
     playerctl
-    inputs.zen-browser.packages."${system}".default
   ];
   home.file = {
     ".ssh/authorized_keys" = {
