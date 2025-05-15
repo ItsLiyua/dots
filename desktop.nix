@@ -1,6 +1,6 @@
 { pkgs, lib, ... }: {
 	imports = [
-		./windows/hyprland.nix
+		./desktop/hyprland.nix
 	];
 }
 
