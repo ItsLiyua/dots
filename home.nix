@@ -24,9 +24,8 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./hyprland.nix
-    ./git.nix
-    # ./utils.nix
+    ./desktop.nix
+    ./utils.nix
     ./apps.nix
   ];
 }

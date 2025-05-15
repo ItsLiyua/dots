@@ -1,5 +1,6 @@
 { pkgs, lib, ... }: {
 	imports = [
-		./apps/discord.nix
+		./windows/hyprland.nix
 	];
 }
+

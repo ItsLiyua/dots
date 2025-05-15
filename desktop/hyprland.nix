@@ -1,13 +1,12 @@
-{
+{ config, ... }: {
+	# programs.hyprland.enable = true;
 	wayland.windowManager.hyprland = {
 		enable = true;
-
 		settings = {
 			"$mod" = "SUPER";
 			monitor = [
-				",preferred,auto,auto"
+				"eDP-1,2560x1600@60,0x0,1.6"
 			];
-
 			env = [
 				"XCURSOR_SIZE,24"
 				"HYPRCURSOR_SIZE,24"
@@ -48,6 +47,7 @@
 					vibrancy = 0.1696;
 				};
 			};
+			xwayland.force_zero_scaling = true;
 			animations = {
 				enabled = true;
 				bezier = [

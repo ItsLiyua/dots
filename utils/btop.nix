@@ -1,6 +1,9 @@
-{
-	programs.btop.settings = {
-		color_theme = "Default";
-		theme_background = false;
+{ programs, ... }: {
+	programs.btop = {
+		enable = true;
+		settings = {
+			color_theme = "HotPurpleTrafficLight";
+			theme_background = false;
+		};
 	};
 }

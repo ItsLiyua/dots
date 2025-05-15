@@ -5,9 +5,8 @@
 		userEmail = "liyua@duck.com";
 		lfs.enable = true;
 		extraConfig = {
-			push = {
-				autoSetupRemote = true;
-			};
+			init.defaultBranch = "master";
+			push.autoSetupRemote = true;
 		};
 	};
 }
