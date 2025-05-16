@@ -1,7 +1,7 @@
-{ config, ... }: {
-  config.users.groups.power.gid = 1000;
-  config.security.sudo.enable = false;
-  config.security.doas = {
+{ config, lib, pkgs, ... }: {
+  users.groups.power.gid = 1000;
+  security.sudo.enable = false;
+  security.doas = {
     enable = true;
     extraRules = [
       {
@@ -23,4 +23,5 @@
       }
     ];
   };
+  environment.systemPackages = [ (pkgs.writeShellScriptBin "sudo" ''exec doas "$@"'') ];
 }
