@@ -102,6 +102,11 @@
 					install_url = "https://addons.mozilla.org/firefox/downloads/file/4432106/clearurls-1.27.3.xpi";
 					installation_mode = "force_installed";
 				};
+				# IDC about cookies
+				"idcac-pub@guus.ninja" = {
+					install_url = "https://addons.mozilla.org/firefox/downloads/file/4216095/istilldontcareaboutcookies-1.1.4.xpi";
+					installation_mode = "force_installed";
+				};
 			};
 		};
 	};

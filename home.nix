@@ -12,8 +12,8 @@
 
   imports = [
     inputs.nur.modules.homeManager.default
-    ./desktop.nix
-    ./utils.nix
-    ./apps.nix
+    ./desktop/desktop.nix
+    ./utils/utils.nix
+    ./apps/apps.nix
   ];
 }
