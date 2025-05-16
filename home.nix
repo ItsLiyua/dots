@@ -9,17 +9,6 @@
     brightnessctl
     playerctl
   ];
-  home.file = {
-    ".ssh/authorized_keys" = {
-      text = ''
-      ssh-key-here
-      '';
-    };
-  };
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
   programs.home-manager.enable = true;
 
   imports = [
