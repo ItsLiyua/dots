@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }: {
 	users.users.liyua = {
 		isNormalUser = true;
+		useDefaultShell = true;
 		extraGroups = [
 			"wheel"
 			"networkmanager"
