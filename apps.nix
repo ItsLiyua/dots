@@ -1,6 +1,6 @@
 { pkgs, lib, inputs, ... } : {
 	imports = [
-		./apps/zen.nix
+		./apps/firefox.nix
 		./apps/discord.nix
 	];
 }

@@ -103,7 +103,7 @@
 				"$mod, M, exit"
 
 				"$mod, T, exec, foot"
-				"$mod, F, exec, zen"
+				"$mod, F, exec, firefox"
 				"$mod, A, exec, wofi --show drun"
 
 				"$mod, V, togglefloating"

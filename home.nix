@@ -23,6 +23,7 @@
   programs.home-manager.enable = true;
 
   imports = [
+    inputs.nur.modules.homeManager.default
     ./desktop.nix
     ./utils.nix
     ./apps.nix

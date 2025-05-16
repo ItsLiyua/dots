@@ -13,15 +13,19 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... } @ inputs:
+  outputs = { nixpkgs, home-manager, zen-browser, ... } @ inputs:
     let
       system = "x86_64-linux";
     in {
       homeConfigurations."liyua" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { inherit inputs; inherit zen-browser; };
         modules = [ ./home.nix ];
       };
     };
