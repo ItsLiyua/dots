@@ -31,11 +31,6 @@
 
   services.libinput.enable = true;
 
-  users.users.liyua = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" "input" "power" ];
-  };
-
   environment.systemPackages = with pkgs; [
     wget
     btop

@@ -1,5 +1,6 @@
 {config, lib, pkgs, ... }: {
 	imports = [
+		./modules/users.nix
 		./modules/doas.nix
 		./modules/nh.nix
 		./modules/git.nix
