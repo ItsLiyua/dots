@@ -13,11 +13,10 @@
   in {
     nixosConfigurations.liberty = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = {
-        inherit inputs;
-      };
+      specialArgs = { inherit inputs; };
       modules = [ 
-        ./configuration.nix 
+	./shared.nix
+        ./liberty/configuration.nix 
         disko.nixosModules.disko
       ];
     };

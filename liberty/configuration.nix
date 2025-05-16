@@ -4,10 +4,6 @@
     [
       ./hardware-configuration.nix
       ./modules/disko.nix
-      ./modules/doas.nix
-      ./modules/nh.nix
-      ./modules/git.nix
-      ./modules/ssh.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -41,7 +37,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    neovim
     wget
     btop
   ];
