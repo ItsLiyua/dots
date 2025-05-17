@@ -16,6 +16,11 @@
 			f = "fastfetch";
 			v = "nvim";
 			cd = "z";
+			ga = "git add -A";
+			gc = "git commit";
+			gca = "git commit -a";
+			gcam = "git commit -am";
+			gp = "git push"
 		};
 	};
 	programs.zoxide = {
