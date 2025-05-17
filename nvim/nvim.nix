@@ -3,5 +3,6 @@
     inputs.nixvim.homeManagerModules.nixvim
     ./options.nix
     ./colorscheme.nix
+    ./plugins/plugins.nix
   ];
 }
