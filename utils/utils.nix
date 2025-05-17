@@ -4,6 +4,7 @@
 		./btop.nix
 		./git.nix
 		./ssh.nix
+		./fastfetch.nix
 	];
 }
 

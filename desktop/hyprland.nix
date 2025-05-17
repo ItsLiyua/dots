@@ -114,6 +114,11 @@
 				"$mod, K, movefocus, u"
 				"$mod, L, movefocus, r"
 
+				"$mod SHIFT, H, movewindow, l"
+				"$mod SHIFT, J, movewindow, d"
+				"$mod SHIFT, K, movewindow, u"
+				"$mod SHIFT, L, movewindow, r"
+
 				"$mod, 1, workspace, 1"
 				"$mod, 2, workspace, 2"
 				"$mod, 3, workspace, 3"
