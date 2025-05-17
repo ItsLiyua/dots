@@ -1,5 +1,7 @@
-{config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
 	imports = [
+		./modules/grub.nix
+		./modules/ly.nix
 		./modules/users.nix
 		./modules/doas.nix
 		./modules/zsh.nix
