@@ -20,7 +20,7 @@
 			gc = "git commit";
 			gca = "git commit -a";
 			gcam = "git commit -am";
-			gp = "git push"
+			gp = "git push";
 		};
 	};
 	programs.zoxide = {
