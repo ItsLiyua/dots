@@ -2,7 +2,7 @@
 {
   home.username = "liyua";
   home.homeDirectory = "/home/liyua";
-  home.stateVersion = "24.11"; # Please read the comment before changing.
+  home.stateVersion = "24.11"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES
   home.packages = with pkgs; [
     wofi
     brightnessctl
@@ -14,5 +14,6 @@
     ./desktop/desktop.nix
     ./utils/utils.nix
     ./apps/apps.nix
+    ./nvim/nvim.nix
   ];
 }
