@@ -32,7 +32,6 @@
     btop
   ];
 
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -40,7 +39,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs.hyprland.enable = true;
 
   # List services that you want to enable:
 
