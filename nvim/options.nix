@@ -2,6 +2,10 @@
 	programs.nixvim = {
 		enable = true;
 		globals.mapleader = " ";
+    clipboard = {
+      register = "unnamedplus";
+      providers.wl-copy.enable = true;
+    };
 		opts = {
 			autoindent = true;
 			tabstop = 2;
@@ -22,8 +26,6 @@
 			signcolumn = "yes";
 
 			backspace = "indent,eol,start";
-
-			clipboard = "unnamedplus";
 
 			splitright = true;
 			splitbelow = true;

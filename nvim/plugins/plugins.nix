@@ -6,5 +6,6 @@
     ./lualine.nix
     ./bufferline.nix
     ./autoclose.nix
+    ./typescripttools.nix
   ];
 }
