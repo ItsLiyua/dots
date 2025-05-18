@@ -1,5 +1,4 @@
-{ config, ... }: {
-	# programs.hyprland.enable = true;
+{ config, lib, pkgs, ... }: {
 	wayland.windowManager.hyprland = {
 		enable = true;
 		settings = {
@@ -165,4 +164,9 @@
 			];
 		};
 	};
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.hyprland.preferred = [ "hyprland" "gtk" ];
+  };
 }
