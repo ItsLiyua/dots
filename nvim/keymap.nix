@@ -38,6 +38,11 @@
         };
         mode = [ "n" ];
       }
-    ];
+    ] ++ map (key: {
+      action = "<Nop>";
+      key = "<${key}>";
+      options.silent = true;
+      mode = [ "n" "i" "v" ];
+    }) [ "Up" "Down" "Left" "Right"]; # Disable Arrow Keys
   };
 }
