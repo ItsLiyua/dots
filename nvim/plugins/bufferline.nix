@@ -17,25 +17,12 @@
       };
       lazyLoad.settings.events = [ "BufNewFile" "BufOpen" ];
     };
-    keymaps = (lib.map (n: 
+    keymaps = lib.map (n: 
       {
         action = "<cmd>BufferLineGoToBuffer ${toString n}<CR>";
         key = "<leader>${toString (n - (10 * (n / 10)))}"; # The modulo PR has yet to be merged :/
         options.silent = true;
         mode = [ "n" ];
-      }) [ 1 2 3 4 5 6 7 8 9 10 ]) ++ [
-      {
-        action = "<cmd>BufferLineCycleNext<CR>";
-        key = "<Tab>";
-        options.silent = true;
-        mode = [ "n" ];
-      }
-      {
-        action = "<cmd>BufferLineCyclePrev<CR>";
-        key = "<S-Tab>";
-        options.silent = true;
-        mode = [ "n" ];
-      }
-    ];
+      }) [ 1 2 3 4 5 6 7 8 9 10 ];
   };
 }

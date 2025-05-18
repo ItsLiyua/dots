@@ -1,7 +1,6 @@
 {
 	programs.nixvim = {
 		enable = true;
-		globals.mapleader = " ";
     clipboard = {
       register = "unnamedplus";
       providers.wl-copy.enable = true;
