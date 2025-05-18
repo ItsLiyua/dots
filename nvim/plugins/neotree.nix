@@ -6,9 +6,17 @@
       eventHandlers.file_opened = ''function(file_path) require("neo-tree").close_all() end'';
       popupBorderStyle = "rounded";
     };
+    plugins.bufferline.settings.options.offsets = [
+      {
+        filetype = "neo-tree";
+        text = "File Explorer";
+        text_align = "center";
+        separator = true;
+      }
+    ];
     keymaps = [
       {
-        action = "<cmd>Neotree toggle<CR>";
+        action = "<cmd>Neotree focus<CR>";
         key = "<C-n>";
         options.silent = true;
       }
