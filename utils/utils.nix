@@ -5,6 +5,7 @@
 		./git.nix
 		./ssh.nix
 		./fastfetch.nix
+    ./clipboard.nix
 	];
 }
 
