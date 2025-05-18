@@ -7,7 +7,7 @@
 			scrollback.lines = 10000;
 			mouse.hide-when-typing = true;
 			colors.background = "000000";
-      scrollback.indicatorPosition = "none";
+      scrollback.indicator-position = "none";
     };
 	};
 }

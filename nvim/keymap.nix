@@ -4,7 +4,7 @@
     keymaps = [
       {
         action = "<cmd>w|bd<CR>";
-        key = "<C-w>";
+        key = "<leader>e";
         mode = [ "n" ];
         options = {
           silent = true;
