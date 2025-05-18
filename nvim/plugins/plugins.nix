@@ -1,11 +1,13 @@
 {
   imports = [
     ./lzn.nix
+    ./nix.nix
+    ./treesitter.nix
     ./devicons.nix
     ./neotree.nix
     ./lualine.nix
     ./bufferline.nix
-    ./autoclose.nix
+    ./autopairs.nix
     ./autosession.nix
     ./typescripttools.nix
   ];
