@@ -1,3 +1,10 @@
 {
-  programs.nixvim.plugins.web-devicons.enable = true;
+  programs.nixvim.plugins.web-devicons = {
+    enable = true;
+    settings = {
+      color_icons = true;
+      strict = true;
+      variant = "dark";
+    };
+  };
 }
