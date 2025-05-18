@@ -21,7 +21,10 @@
       {
         action = "<cmd>BufferLineGoToBuffer ${toString n}<CR>";
         key = "<leader>${toString (n - (10 * (n / 10)))}"; # The modulo PR has yet to be merged :/
-        options.silent = true;
+        options = {
+          silent = true;
+          desc = "Open Buffer " + toString n;
+        };
         mode = [ "n" ];
       }) [ 1 2 3 4 5 6 7 8 9 10 ];
   };

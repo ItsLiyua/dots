@@ -19,7 +19,10 @@
       {
         action = "<cmd>Neotree focus<CR>";
         key = "<C-n>";
-        options.silent = true;
+        options = {
+          silent = true;
+          desc = "Open NeoTree";
+        };
       }
     ];
   };
