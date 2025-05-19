@@ -25,6 +25,7 @@
 				resize_on_border = false;
 				allow_tearing = false;
 				layout = "dwindle";
+        "col.active_border" = lib.mkForce "rgba(${config.lib.stylix.colors.base0C}ee) rgba(${config.lib.stylix.colors.base0D}ee) 45deg";
 			};
 			decoration = {
 				rounding = 10;
