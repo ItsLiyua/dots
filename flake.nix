@@ -12,6 +12,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ags = {
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +34,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, stylix, nixvim, nix-wallpaper, nixcord, ... } @ inputs:
+  outputs = { nixpkgs, home-manager, stylix, nixvim, nix-wallpaper, nixcord, nur, ... } @ inputs:
     let
       system = "x86_64-linux";
     in {
@@ -43,8 +47,10 @@
           inherit stylix;
           inherit nix-wallpaper; 
           inherit nixcord;
+          inherit nur;
         };
         modules = [ 
+          nur.modules.homeManager.default
           stylix.homeModules.stylix
           nixvim.homeManagerModules.nixvim
           nixcord.homeModules.nixcord
