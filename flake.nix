@@ -6,12 +6,8 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
-  outputs = inputs @ { nixpkgs, disko, stylix, ... }: 
+  outputs = inputs @ { nixpkgs, disko, ... }: 
   let 
     system = "x86_64-linux";
   in {
@@ -20,7 +16,6 @@
       specialArgs = { inherit inputs; };
       modules = [ 
         disko.nixosModules.disko
-        stylix.nixosModules.stylix
         ./shared.nix
         ./liberty/configuration.nix 
       ];
