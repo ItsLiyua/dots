@@ -1,4 +1,5 @@
 { config, lib, pkgs, inputs, ... }: {
+  # programs.firefox.profiles.default.extensions.force = false;
   stylix.targets.firefox.profileNames = [ "default" ];
 	programs.firefox = {
 		enable = true;
@@ -68,7 +69,7 @@
 			DisplayMenuBar = "default-off";
 			SearchBar = "unified";
 			ExtensionSettings = {
-				# "*".installation_mode = "blocked";
+				"*".installation_mode = "blocked";
 				"uBlock0@raymondhill.net" = {
 					install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
 					installation_mode = "force_installed";
@@ -108,6 +109,11 @@
 					install_url = "https://addons.mozilla.org/firefox/downloads/file/4216095/istilldontcareaboutcookies-1.1.4.xpi";
 					installation_mode = "force_installed";
 				};
+        # Firefox Color
+        "FirefoxColor@mozilla.com" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/3643624/firefox_color-2.1.7.xpi";
+          installation_mode = "force_installed";
+        };
 			};
 		};
 	};
