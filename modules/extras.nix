@@ -4,4 +4,5 @@
 		btop
 		unzip
 	];
+  programs.dconf.enable = true;
 }
