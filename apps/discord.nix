@@ -135,34 +135,34 @@ body {
 
     /* base colors */
     --red-1: ${base08};
-    --red-2: oklch(from var(--red-1) max(calc(l - 0.05), 1) c h);
-    --red-3: oklch(from var(--red-1) max(calc(l - 0.1), 1) c h);
-    --red-4: oklch(from var(--red-1) max(calc(l - 0.15), 1) c h);
-    --red-5: oklch(from var(--red-1) max(calc(l - 0.2), 1) c h);
+    --red-2: ${base08};
+    --red-3: ${base08};
+    --red-4: ${base08};
+    --red-5: ${base08};
 
     --green-1: ${base0B};
-    --green-2: oklch(from var(--green-1) max(calc(l - 0.05), 1) c h);
-    --green-3: oklch(from var(--green-1) max(calc(l - 0.1), 1) c h);
-    --green-4: oklch(from var(--green-1) max(calc(l - 0.15), 1) c h);
-    --green-5: oklch(from var(--green-1) max(calc(l - 0.2), 1) c h);
+    --green-2: ${base0B};
+    --green-3: ${base0B};
+    --green-4: ${base0B};
+    --green-5: ${base0B};
 
     --blue-1: ${base0D};
-    --blue-2: oklch(from var(--blue-1) max(calc(l - 0.05), 1) c h);
-    --blue-3: oklch(from var(--blue-1) max(calc(l - 0.1), 1) c h);
-    --blue-4: oklch(from var(--blue-1) max(calc(l - 0.15), 1) c h);
-    --blue-5: oklch(from var(--blue-1) max(calc(l - 0.2), 1) c h);
+    --blue-2: ${base0D};
+    --blue-3: ${base0D};
+    --blue-4: ${base0D};
+    --blue-5: ${base0D};
 
     --yellow-1: ${base0A};
-    --yellow-2: oklch(from var(--yellow-1) max(calc(l - 0.05), 1) c h);
-    --yellow-3: oklch(from var(--yellow-1) max(calc(l - 0.1), 1) c h);
-    --yellow-4: oklch(from var(--yellow-1) max(calc(l - 0.15), 1) c h);
-    --yellow-5: oklch(from var(--yellow-1) max(calc(l - 0.2), 1) c h);
+    --yellow-2: ${base0A};
+    --yellow-3: ${base0A};
+    --yellow-4: ${base0A};
+    --yellow-5: ${base0A};
 
     --purple-1: ${base0E};
-    --purple-2: oklch(from var(--purple-1) max(calc(l - 0.05), 1) c h);
-    --purple-3: oklch(from var(--purple-1) max(calc(l - 0.1), 1) c h);
-    --purple-4: oklch(from var(--purple-1) max(calc(l - 0.15), 1) c h);
-    --purple-5: oklch(from var(--purple-1) max(calc(l - 0.2), 1) c h);
+    --purple-2: ${base0E};
+    --purple-3: ${base0E};
+    --purple-4: ${base0E};
+    --purple-5: ${base0E};
 }
   '';
 }
