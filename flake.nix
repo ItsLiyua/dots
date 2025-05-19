@@ -17,16 +17,28 @@
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-wallpaper = {
+      url = "github:lunik1/nix-wallpaper";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... } @ inputs:
+  outputs = { nixpkgs, home-manager, stylix, nixvim, nix-wallpaper, ... } @ inputs:
     let
       system = "x86_64-linux";
     in {
       homeConfigurations."liyua" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = { inherit inputs; };
-        modules = [ ./home.nix ];
+        extraSpecialArgs = { inherit inputs; inherit system; inherit stylix; inherit nix-wallpaper; };
+        modules = [ 
+          stylix.homeModules.stylix
+          nixvim.homeManagerModules.nixvim
+          ./home.nix
+        ];
       };
     };
 }

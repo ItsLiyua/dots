@@ -3,7 +3,7 @@
 		enable = true;
 		settings = {
 			logo = {
-				source = "nixos_small";
+				source = "nixos_old_small";
 				padding.right = 4;
 			};
 			display = {
@@ -30,12 +30,6 @@
 			modules = [
 				"title"
 				"os"
-				# {
-				# 	type = "os";
-				# 	key = "OS";
-				# 	keyColor = "blue";
-				# 	format = "{name} {version}";
-				# }
 				"host"
 				"kernel"
 				"shell"

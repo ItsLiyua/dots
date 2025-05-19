@@ -1,7 +1,7 @@
 { pkgs, lib, inputs, ... }: {
 	imports = [
 		./hyprland.nix
-    ./cursor.nix
+    ./theme.nix
     ./ags/ags.nix
 	];
 }
