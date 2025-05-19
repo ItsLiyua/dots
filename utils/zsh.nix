@@ -21,8 +21,17 @@
 			gca = "git commit -a";
 			gcam = "git commit -am";
 			gp = "git push";
+      ls = "eza";
+      ll = "ls -l";
+      la = "ls -la";
 		};
 	};
+  programs.eza = {
+    enable = true;
+    colors = "always";
+    git = true;
+    icons = "always";
+  };
 	programs.zoxide = {
 		enable = true;
 		enableZshIntegration = true;
