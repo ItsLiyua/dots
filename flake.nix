@@ -37,25 +37,27 @@
   outputs = { nixpkgs, home-manager, stylix, nixvim, nix-wallpaper, nixcord, nur, ... } @ inputs:
     let
       system = "x86_64-linux";
+      extraSpecialArgs = { 
+        inherit nixpkgs;
+        inherit inputs; 
+        inherit system; 
+        inherit stylix;
+        inherit nix-wallpaper; 
+        inherit nixcord;
+        inherit nur;
+      };
+      sharedModules = [
+        nur.modules.homeManager.default
+        stylix.homeModules.stylix
+        nixvim.homeManagerModules.nixvim
+        nixcord.homeModules.nixcord
+        ./shared.nix
+      ];
     in {
-      homeConfigurations."liyua" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."liyua@liberty" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = { 
-          inherit nixpkgs;
-          inherit inputs; 
-          inherit system; 
-          inherit stylix;
-          inherit nix-wallpaper; 
-          inherit nixcord;
-          inherit nur;
-        };
-        modules = [ 
-          nur.modules.homeManager.default
-          stylix.homeModules.stylix
-          nixvim.homeManagerModules.nixvim
-          nixcord.homeModules.nixcord
-          ./home.nix
-        ];
+        inherit extraSpecialArgs;
+        modules = sharedModules ++ [ ./hosts/liberty.nix ];
       };
     };
 }
