@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }: {
-  home.packages = with pkgs; [ grim slurp ];
 	wayland.windowManager.hyprland = {
 		enable = true;
 		settings = {
@@ -88,11 +87,7 @@
 				touchpad.natural_scroll = false;
 			};
 			gestures.workspace_swipe = true;
-      bind = with config.lib.stylix.colors; let
-        out = "${config.home.homeDirectory}/Pictures/screenshots/$(date +%Y%m%d-%H%M%S).png";
-        screenshot = "mkdir -p \"$(dirname '${out}')\"; ${pkgs.grim}/bin/grim";
-        screenshot_area = "${screenshot} -g \"$(${pkgs.slurp}/bin/slurp -b ${base01}88 -c ${base0C}ff)\""; 
-      in [
+      bind = [
 				"$mod, Q, killactive"
 				"$mod, M, exit"
 
@@ -134,11 +129,6 @@
 				"$mod SHIFT, 8, movetoworkspacesilent, 8"
 				"$mod SHIFT, 9, movetoworkspacesilent, 9"
 				"$mod SHIFT, 0, movetoworkspacesilent, 10"
-
-        ", Print, exec, ${screenshot} \"${out}\""
-        "SHIFT, Print, exec, ${screenshot_area} \"${out}\""
-        "$mod, P, exec, ${screenshot} \"${out}\""
-        "$mod SHIFT, P, exec, ${screenshot_area} \"${out}\""
 			];
 			bindm = [
 				"$mod, mouse:272, movewindow"

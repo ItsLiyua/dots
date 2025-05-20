@@ -5,6 +5,7 @@
     ./idle.nix
     ./theme.nix
     ./ags/ags.nix
+    ./screenshot.nix
 	];
 }
 
