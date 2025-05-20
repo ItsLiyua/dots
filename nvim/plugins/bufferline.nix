@@ -8,7 +8,7 @@
           themable = true;
           numbers = "ordinal";
           indicator.style = "underline";
-          separator_style = "slope";
+          separator_style = "slant";
           diagnostics = "nvim_lsp";
           color_icons = true;
           show_buffer_icons = true;
@@ -32,7 +32,7 @@
           background.bg = inactive_bg;
           buffer_visible = {
             fg = surface1;
-            bg = active_bg;
+            bg = inactive_bg;
             inherit styles;
           };
           buffer_selected = {
@@ -119,11 +119,11 @@
           };
           fill.bg = surface0;
           numbers = {
-            fg = text;
+            fg = surface1;
             bg = inactive_bg;
           };
           numbers_visible = {
-            fg = text;
+            fg = surface1;
             bg = inactive_bg;
           };
           numbers_selected = {
