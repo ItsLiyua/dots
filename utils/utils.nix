@@ -6,6 +6,7 @@
 		./ssh.nix
 		./fastfetch.nix
     ./clipboard.nix
+    ./cava.nix
 	];
 }
 
