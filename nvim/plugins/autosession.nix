@@ -5,6 +5,7 @@
       settings = {
         enabled = true;
         suppressed_dirs = [ "~" "~/Documents" "~/Documents/Code" ];
+        bypass_save_filetypes = [ "neo-tree" "neo-tree-popup" ];
         use_git_branch = true;
       };
       lazyLoad.settings = {
