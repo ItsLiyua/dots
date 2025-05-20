@@ -1,27 +1,14 @@
-{
+{ pkgs, ... }: {
   programs.nixvim = {
+    extraPlugins = [ pkgs.vimPlugins.smart-open-nvim ];
     plugins.telescope = {
       enable = true;
-      lazyLoad.settings = {
-        cmd = [ "Telescope" ];
-        keys = [
-          {
-            __unkeyed-1 = "<leader><leader>";
-            __unkeyed-2 = "<cmd>Telescope find_files<CR>";
-            desc = "Find files or open buffers";
-          }
-          {
-            __unkeyed-1 = "<leader>fg";
-            __unkeyed-2= "<cmd>Telescope live_grep<CR>";
-            desc = "Find text in files";
-          }
-        ];
-      };
       extensions = {
         ui-select.enable = true;
         fzf-native.enable = true;
       };
       settings = {
+        enabledExtensions = [ "smart_open" ];
         mappings = {
           i = let
             action = m: ''require("telescope.actions").${m}'';
@@ -33,5 +20,22 @@
         };
       };
     };
+    keymaps = [
+      {
+        action = "<cmd>Telescope find_files<CR>";
+        key = "<leader>ff";
+        options.desc = "Find files";
+      }
+      {
+        action = "<cmd>Telescope live_grep<CR>";
+        key = "<leader>fg";
+        options.desc = "Find text in project";
+      }
+      {
+        action = "<cmd>Telescope smart_open<CR>";
+        key = "<leader><leader>";
+        options.desc = "Smart open";
+      }
+    ];
   };
 }
