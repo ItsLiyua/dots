@@ -38,11 +38,13 @@
           buffer_selected = {
             fg = text;
             bg = active_bg;
+            sp = teal;
             inherit styles;
           };
           duplicate_selected = {
             fg = text;
             bg = active_bg;
+            sp = teal;
             inherit styles;
           };
           duplicate_visible = {
@@ -62,6 +64,7 @@
           tab_selected = {
             fg = sky;
             bg = active_bg;
+            sp = teal;
             bold = true;
           };
           tab_separator = {
@@ -71,6 +74,7 @@
           tab_separator_selected = {
             fg = separator_fg;
             bg = active_bg;
+            sp = teal;
           };
           tab_close = {
             fg = red;
@@ -84,6 +88,7 @@
           indicator_selected = {
             fg = peach;
             bg = active_bg;
+            sp = teal;
             inherit styles;
           };
           separator = {
@@ -97,6 +102,7 @@
           separator_selected = {
             fg = separator_fg;
             bg = active_bg;
+            sp = teal;
           };
           close_button = {
             fg = surface1;
@@ -109,6 +115,7 @@
           close_button_selected = {
             fg = red;
             bg = active_bg;
+            sp = teal;
           };
           fill.bg = surface0;
           numbers = {
@@ -122,6 +129,7 @@
           numbers_selected = {
             fg = text;
             bg = active_bg;
+            sp = teal;
           };
           error = {
             fg = red;
@@ -134,6 +142,7 @@
           error_selected = {
             fg = red;
             bg = active_bg;
+            sp = teal;
             inherit styles;
           };
           error_diagnostic = {
@@ -147,6 +156,7 @@
           error_diagnostic_selected = {
             fg = red;
             bg = active_bg;
+            sp = teal;
           };
           warning = {
             fg = yellow;
@@ -159,6 +169,7 @@
           warning_selected = {
             fg = yellow;
             bg = active_bg;
+            sp = teal;
             inherit styles;
           };
           warning_diagnostic = {
@@ -172,6 +183,7 @@
           warning_diagnostic_selected = {
             fg = yellow;
             bg = active_bg;
+            sp = teal;
           };
           info = {
             fg = sky;
@@ -184,6 +196,7 @@
           info_selected = {
             fg = sky;
             bg = active_bg;
+            sp = teal;
             inherit styles;
           };
           info_diagnostic = {
@@ -197,6 +210,7 @@
           info_diagnostic_selected = {
             fg = sky;
             bg = active_bg;
+            sp = teal;
           };
           hint = {
             fg = teal;
@@ -209,6 +223,7 @@
           hint_selected = {
             fg = teal;
             bg = active_bg;
+            sp = teal;
             inherit styles;
           };
           hint_diagnostic = {
@@ -222,6 +237,7 @@
           hint_diagnostic_selected = {
             fg = teal;
             bg = active_bg;
+            sp = teal;
           };
           diagnostic = {
             fg = text;
@@ -234,6 +250,7 @@
           diagnostic_selected = {
             fg = text;
             bg = active_bg;
+            sp = teal;
           };
           modified = {
             fg = peach;
@@ -246,6 +263,7 @@
           modified_selected = {
             fg = peach;
             bg = active_bg;
+            sp = teal;
           };
         };
       };
