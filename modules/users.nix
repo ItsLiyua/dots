@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }: {
 	users.users.liyua = {
+    description = "Liyua";
 		isNormalUser = true;
 		useDefaultShell = true;
 		extraGroups = [
