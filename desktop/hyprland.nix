@@ -3,9 +3,6 @@
 		enable = true;
 		settings = {
 			"$mod" = "SUPER";
-			monitor = [
-				"eDP-1,2560x1600@60,0x0,1.6"
-			];
 			env = [
 				"XCURSOR_SIZE,24"
 				"HYPRCURSOR_SIZE,24"
