@@ -1,35 +1,50 @@
-{ config, lib, pkgs, system, nix-wallpaper, ... }: {
+{ config, lib, pkgs, ... }: {
   programs.hyprlock = {
     enable = true;
     settings = {
       general = {
-        disable_loading_bar = true;
         grace = 300;
         hide_cursor = true;
-        no_fade_in = false;
       };
+      background.blur_passes = 2;
       input-field = {
-        size = "200, 50";
-        outline_thickness = 3;
-        dots_size = 0.33;
+        size = "250, 60";
+        outline_thickness = 2;
+        dots_size = 0.2;
         dots_center = true;
-        dots_rounding = -1;
-        fade_on_empty = true;
-        placeholder_text = "<i>Input Password...</i>";
+        fade_on_empty = false;
+        placeholder_text = "<i>Enter Password</i>";
         hide_input = false;
-        rounding = 40;
-        fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
-        capslock_color = -1;
-        numlock_color = -1;
-        bothlock_color = -1;
-        invert_numlock = false;
-        swap_font_color = false;
+        position = "0, -225";
+      };
+      label = [
+        { # Time
+          text = "cmd[update:1000] echo \"<span>$(date +%H:%M)</span>\"";
+          color = "rgba(${config.lib.stylix.colors.base05}b3)";
+          font_size = 130;
+          position = "0, 240";
+        }
+        { # Date
+          text = "cmd[update:1000] echo $(date +\"%A, %d %B\")";
+          color = "rgba(${config.lib.stylix.colors.base05}b3)";
+          font_size = 30;
+          position = "0, 105";
+        }
+        { # User
+          text = "Hi, $DESC";
+          color = "rgba(${config.lib.stylix.colors.base05}b3)";
+          font_size = 25;
+          position = "0, -130";
+        }
+      ];
+      image = {
+        path = "~/.config/home-manager/assets/pfp.png";
+        border_size = 0;
+        size = 120;
+        rounding = -1;
+        rotate = 0;
+        reload_time = -1;
         position = "0, -20";
-        halign = "center";
-        valign = "center";
-        shadow_passes = 10;
-        shadow_size = 20;
-        shadow_boost = 1.6;
       };
     };
   };
