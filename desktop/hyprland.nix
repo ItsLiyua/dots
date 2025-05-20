@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }: {
+  home.packages = with pkgs; [ grim slurp ];
 	wayland.windowManager.hyprland = {
 		enable = true;
 		settings = {
@@ -10,14 +11,6 @@
 				"XCURSOR_SIZE,24"
 				"HYPRCURSOR_SIZE,24"
 			];
-			# ecosystem = {
-			# 	enforce_permissions = true;
-			# };
-			# permission = [
-			# 	"/usr/(bin|local/bin)/grim, screencopy, allow"
-			# 	"/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland, screencopy, allow"
-			# 	"/usr/(bin|local/bin)/hyprpm, plugin, allow"
-			# ];
 			general = {
 				gaps_in = 5;
 				gaps_out = 10;
@@ -95,7 +88,11 @@
 				touchpad.natural_scroll = false;
 			};
 			gestures.workspace_swipe = true;
-			bind = [
+      bind = with config.lib.stylix.colors; let
+        out = "${config.home.homeDirectory}/Pictures/screenshots/$(date +%Y%m%d-%H%M%S).png";
+        screenshot = "mkdir -p \"$(dirname '${out}')\"; ${pkgs.grim}/bin/grim";
+        screenshot_area = "${screenshot} -g \"$(${pkgs.slurp}/bin/slurp -b ${base01}88 -c ${base0C}ff)\""; 
+      in [
 				"$mod, Q, killactive"
 				"$mod, M, exit"
 
@@ -137,10 +134,15 @@
 				"$mod SHIFT, 8, movetoworkspacesilent, 8"
 				"$mod SHIFT, 9, movetoworkspacesilent, 9"
 				"$mod SHIFT, 0, movetoworkspacesilent, 10"
+
+        ", Print, exec, ${screenshot} \"${out}\""
+        "SHIFT, Print, exec, ${screenshot_area} \"${out}\""
+        "$mod, P, exec, ${screenshot} \"${out}\""
+        "$mod SHIFT, P, exec, ${screenshot_area} \"${out}\""
 			];
 			bindm = [
-				"$mod, mouse:272, moveWindow"
-				"$mod, mouse:273, resizeWindow"
+				"$mod, mouse:272, movewindow"
+				"$mod, mouse:273, resizewindow"
 			];
 			bindel = [
 				",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"

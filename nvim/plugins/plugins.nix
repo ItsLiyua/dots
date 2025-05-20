@@ -12,5 +12,6 @@
     ./autopairs.nix
     ./autosession.nix
     ./typescripttools.nix
+    # ./conform.nix
   ];
 }
