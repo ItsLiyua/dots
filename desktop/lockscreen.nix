@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       general = {
-        grace = 300;
+        grace = 60;
         hide_cursor = true;
       };
       background.blur_passes = 2;
