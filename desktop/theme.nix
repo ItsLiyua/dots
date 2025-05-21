@@ -1,5 +1,4 @@
 { config, lib, pkgs, stylix, nix-wallpaper, system, ... }: {
-  # home.packages = [ pkgs.kdePackages.dolphin ];
   gtk.enable = true;
   qt.enable = true;
   stylix = {
@@ -44,5 +43,4 @@
       gtk.enable = true;
     };
   };
-  programs.firefox.profiles.default.extensions.force = true;
 }
