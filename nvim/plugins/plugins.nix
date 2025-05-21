@@ -11,7 +11,6 @@
     ./bufferline.nix
     ./autopairs.nix
     ./autosession.nix
-    ./typescripttools.nix
-    # ./conform.nix
+    ./conform.nix
   ];
 }

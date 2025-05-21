@@ -1,5 +1,4 @@
 { config, lib, pkgs, stylix, nix-wallpaper, system, ... }: {
-  home.packages = [ pkgs.base16-schemes ];
   gtk.enable = true;
   qt.enable = true;
   stylix = {
@@ -32,5 +31,9 @@
       };
     };
     # targets.firefox.colorTheme.enable = true;
+    targets = {
+      qt.enable = true;
+      gtk.enable = true;
+    };
   };
 }
