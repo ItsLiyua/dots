@@ -38,10 +38,11 @@
         name = "Noto Color Emoji";
       };
     };
-    # targets.firefox.colorTheme.enable = true;
+    targets.firefox.colorTheme.enable = true;
     targets = {
       qt.enable = true;
       gtk.enable = true;
     };
   };
+  programs.firefox.profiles.default.extensions.force = true;
 }
