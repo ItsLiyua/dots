@@ -18,5 +18,6 @@
 		./modules/input.nix
 		./modules/network.nix
 		./modules/extras.nix
+    ./modules/logind.nix
 	];
 }
