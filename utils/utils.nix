@@ -7,6 +7,7 @@
 		./fastfetch.nix
     ./clipboard.nix
     ./cava.nix
+    ./unfree-whitelist.nix
 	];
 }
 

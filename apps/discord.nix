@@ -1,5 +1,4 @@
 { config, lib, pkgs, nixpkgs, ... }: {
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "discord" ];
   programs.nixcord = {
     enable = true;
     config = {
