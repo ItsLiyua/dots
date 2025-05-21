@@ -12,5 +12,7 @@
     ./autopairs.nix
     ./autosession.nix
     ./conform.nix
+    ./lspconfig.nix
+    ./whichkey.nix
   ];
 }

@@ -8,7 +8,7 @@
         mode = [ "n" ];
         options = {
           silent = true;
-          desc = "Save and close tab";
+          desc = "Save and close buffer";
         };
       }
       {

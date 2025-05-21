@@ -24,7 +24,10 @@
         settings = {
           "newtaboverride@agenedia.com" = {
             force = true;
-            settings.url = "https://duckduckgo.com";
+            settings = {
+              url = "https://duckduckgo.com";
+              focus_website = true;
+            };
           };
         };
       };
