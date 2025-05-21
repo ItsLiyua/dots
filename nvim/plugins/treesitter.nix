@@ -10,9 +10,13 @@
         nix
         regex
         toml
-        vim vimdoc
+        vim 
+        vimdoc
         xml
         yaml
+
+        javascript
+        typescript
       ];
       lazyLoad.settings = {
         cmd = [ "TSInstall" ];
