@@ -1,4 +1,5 @@
 { config, lib, pkgs, stylix, nix-wallpaper, system, ... }: {
+  # home.packages = [ pkgs.kdePackages.dolphin ];
   gtk.enable = true;
   qt.enable = true;
   stylix = {
@@ -10,6 +11,13 @@
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
       size = 16;
+    };
+    iconTheme = {
+      enable = true;
+      # package = pkgs.catppuccin-papirus-folders;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+      light = "Papirus-Light";
     };
     image = (import ./wallpaper.nix { inherit config; inherit system; inherit nix-wallpaper; }).file;
     fonts = {
