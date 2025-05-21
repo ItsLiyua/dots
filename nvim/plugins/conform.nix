@@ -11,7 +11,7 @@
       ft = builtins.attrNames config.programs.nixvim.plugins.conform-nvim.settings.formatters_by_ft;
       keys = [
         {
-          __unkeyed-1 = "<leader>ca";
+          __unkeyed-1 = "<leader>cf";
           __unkeyed-2.__raw = ''function()require("conform").format({ bufnr = vim.api.nvim_get_current_buf() })end'';
           desc = "Format file";
         }

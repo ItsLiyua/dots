@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.nixvim = {
     plugins.treesitter = {
       enable = true;
@@ -10,17 +10,19 @@
         nix
         regex
         toml
-        vim 
+        vim
         vimdoc
         xml
         yaml
 
         javascript
         typescript
+
+        nix
       ];
       lazyLoad.settings = {
-        cmd = [ "TSInstall" ];
-        event = [ "BufNewFile" "BufReadPre" ];
+        cmd = ["TSInstall"];
+        event = ["BufNewFile" "BufReadPre"];
       };
     };
   };

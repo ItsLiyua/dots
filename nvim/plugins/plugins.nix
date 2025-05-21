@@ -2,6 +2,7 @@
   imports = [
     ./lzn.nix
     ./nix.nix
+    ./dressing.nix
     ./blink.nix
     ./telescope.nix
     ./treesitter.nix
