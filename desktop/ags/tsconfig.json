@@ -11,5 +11,5 @@
         "jsx": "react-jsx",
         "jsxImportSource": "astal/gtk4",
     },
-    "include": ["./**/*.ts?"]
+    // "include": ["./**/*.ts?","./**/*.?css"]
 }

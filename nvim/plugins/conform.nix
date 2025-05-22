@@ -25,6 +25,8 @@
         lua = ["stylua"];
         typescriptreact = ["prettierd"];
         typescript = ["prettierd"];
+        css = ["prettierd"];
+        scss = ["prettierd"];
         nix = ["alejandra"];
       };
       formatters = with pkgs; {
