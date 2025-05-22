@@ -16,5 +16,6 @@
     ./lspconfig.nix
     ./whichkey.nix
     ./tsautotag.nix
+    ./gitsigns.nix
   ];
 }
