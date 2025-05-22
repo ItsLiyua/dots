@@ -1,52 +1,51 @@
 {
   programs.nixvim = {
     plugins.lspconfig.enable = true;
-    lsp = {
-      keymaps = let
-        telescope = name: ''
-          function()
-            require("lz.n").trigger_load("telescope")
-            require("telescope.builtin").${name}()
-          end
-        '';
-      in [
-        {
-          key = "<leader>gd";
-          action.__raw = telescope "lsp_definitions";
-        }
-        {
-          key = "<leader>gD";
-          lspBufAction = "declaration";
-        }
-        {
-          key = "<leader>gi";
-          action.__raw = telescope "lsp_implementations";
-        }
-        {
-          key = "<leader>gr";
-          action.__raw = telescope "lsp_references";
-        }
-        {
-          key = "<leader>gt";
-          action.__raw = telescope "lsp_type_definitions";
-        }
-        {
-          key = "K";
-          lspBufAction = "hover";
-        }
-        {
-          key = "<leader>cr";
-          lspBufAction = "rename";
-        }
-        {
-          key = "<leader>ca";
-          lspBufAction = "code_action";
-        }
-      ];
-      servers = {
-        ts_ls.enable = true;
-        nixd.enable = true;
-      };
+    lsp.servers = {
+      ts_ls.enable = true;
+      nixd.enable = true;
     };
+    keymaps = [
+      {
+        key = "<leader>gd";
+        action = "<cmd>Telescope lsp_definitions<CR>";
+        options.desc = "Go to definition";
+      }
+      {
+        key = "<leader>gD";
+        action.__raw = "vim.lsp.buf.declaration";
+        options.desc = "Go to declaration";
+      }
+      {
+        key = "<leader>gi";
+        action = "<cmd>Telescope lsp_implementations";
+        options.desc = "Go to implementation";
+      }
+      {
+        key = "<leader>gr";
+        action = "<cmd>Telescope lsp_references";
+        options.desc = "Go to reference";
+      }
+      {
+        key = "<leader>gt";
+        action = "<cmd>Telescope lsp_type_definitions";
+        options.desc = "Go to type definition";
+      }
+      {
+        key = "K";
+        action.__raw = "vim.lsp.buf.hover";
+        options.desc = "Hover information";
+      }
+      {
+        key = "<leader>cr";
+        action.__raw = "vim.lsp.buf.rename";
+        options.desc = "Rename";
+      }
+      {
+        key = "<leader>ca";
+        action.__raw = "vim.lsp.buf.code_action";
+        options.desc = "Code actions";
+      }
+    ];
   };
 }

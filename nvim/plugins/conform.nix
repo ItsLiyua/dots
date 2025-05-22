@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }: {
   programs.nixvim.plugins.conform-nvim = {

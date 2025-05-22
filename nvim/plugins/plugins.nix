@@ -15,5 +15,6 @@
     ./conform.nix
     ./lspconfig.nix
     ./whichkey.nix
+    ./tsautotag.nix
   ];
 }
