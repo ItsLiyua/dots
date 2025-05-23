@@ -11,12 +11,12 @@ const DEFAULT_TEXT = GLib.get_user_name() + "@" + GLib.get_host_name();
 
 export default function Title() {
   return (
-    <box cssClasses={["elements", "title"]}>
+    <box cssClasses={["element", "title"]}>
       <label
         label={bind(derive([monitor, workspace, client])).as((a) => {
-          if (a[0].id != a[2].monitor.id) return DEFAULT_TEXT;
+          if (a[2] == null) return DEFAULT_TEXT;
+          else if (a[0].id != a[2].monitor.id) return DEFAULT_TEXT;
           else if (a[1].id != a[2].workspace.id) return DEFAULT_TEXT;
-          else if (a[2] == null) return DEFAULT_TEXT;
           else return a[2].title.substring(0, 30);
         })}
       />

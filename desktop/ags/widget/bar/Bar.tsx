@@ -1,5 +1,14 @@
 import { App, Astal, Gdk } from "astal/gtk4";
 import Title from "./modules/title";
+import Launcher from "./modules/launcher";
+import Music from "./modules/music";
+import Workspaces from "./modules/workspaces";
+import SysTray from "./modules/tray";
+import Misc from "./modules/misc";
+import VolumeBrightness from "./modules/volBright";
+import WifiBtBat from "./modules/wifiBtBat";
+import Power from "./modules/power";
+import Clock from "./modules/clock";
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
 
@@ -14,19 +23,20 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
     >
       <centerbox cssName="centerbox">
         <box>
-          <label cssClasses={["element", "launcher"]} label="Launcher" />
+          <Launcher />
           <Title />
-          <label label="Music" />
+          <Music />
         </box>
         <box>
-          <label label="Workspaces" />
+          <Workspaces />
         </box>
         <box>
-          <label label="Tray" />
-          <label label="Misc" />
-          <label label="VolBright" />
-          <label label="WifiBiBat" />
-          <label label="Power" />
+          <SysTray />
+          <Misc />
+          <VolumeBrightness />
+          <WifiBtBat />
+          <Clock />
+          <Power />
         </box>
       </centerbox>
     </window>

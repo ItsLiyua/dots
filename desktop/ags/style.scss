@@ -4,9 +4,38 @@
 window.Bar {
   .element {
     padding: 5px;
+    margin: 5px 5px 0 5px;
     border-radius: 20px;
+    color: c.$base01;
     &.launcher {
       background-color: c.$base08;
+    }
+    &.title {
+      background-color: c.$base09;
+    }
+    &.music {
+      background-color: c.$base0A;
+    }
+    &.workspaces {
+      background-color: c.$base06;
+    }
+    &.tray {
+      background-color: c.$base0B;
+    }
+    &.misc {
+      background-color: c.$base0C;
+    }
+    &.volBright {
+      background-color: c.$base0D;
+    }
+    &.wifiBtBat {
+      background-color: c.$base07;
+    }
+    &.clock {
+      background-color: c.$base0E;
+    }
+    &.power {
+      background-color: c.$base0F;
     }
   }
 }
