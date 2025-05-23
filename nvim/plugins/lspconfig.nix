@@ -1,8 +1,15 @@
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.nixvim = {
     plugins.lspconfig.enable = true;
     lsp.servers = {
-      ts_ls.enable = true;
+      ts_ls = {
+        enable = true;
+        package = inputs.tsserver-nixpkgs.legacyPackages.${pkgs.system}.typescript-language-server;
+      };
       nixd.enable = true;
       cssls.enable = true;
     };

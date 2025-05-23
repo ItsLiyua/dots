@@ -999,7 +999,8 @@
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
         "nur": "nur",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "tsserver-nixpkgs": "tsserver-nixpkgs"
       }
     },
     "stylix": {
@@ -1270,6 +1271,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "tsserver-nixpkgs": {
+      "locked": {
+        "lastModified": 1736750381,
+        "narHash": "sha256-BDDEM0PZkpl4toWbWijuzEHhsrlx8zTmHKkFF5Nsl04=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "81bc281190c4955903d546169453f16c39908d58",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "81bc281190c4955903d546169453f16c39908d58",
         "type": "github"
       }
     },

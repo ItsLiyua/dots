@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    tsserver-nixpkgs.url = "github:nixos/nixpkgs?rev=81bc281190c4955903d546169453f16c39908d58";
     hyprland.url = "github:hyprwm/Hyprland";
     nixvim = {
       url = "github:nix-community/nixvim";

@@ -1,4 +1,5 @@
 import { App, Astal, Gdk } from "astal/gtk4";
+import Title from "./modules/title";
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
 
@@ -14,7 +15,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       <centerbox cssName="centerbox">
         <box>
           <label cssClasses={["element", "launcher"]} label="Launcher" />
-          <label label="Window Title" />
+          <Title />
           <label label="Music" />
         </box>
         <box>
