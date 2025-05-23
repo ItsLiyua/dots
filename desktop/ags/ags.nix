@@ -11,7 +11,6 @@
     enable = true;
     configDir = ./.;
     extraPackages = with pkgs; [
-      dart-sass
       gtk-layer-shell
       ags.packages.${pkgs.system}.battery
     ];

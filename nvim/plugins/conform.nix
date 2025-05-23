@@ -25,6 +25,7 @@
         lua = ["stylua"];
         typescriptreact = ["prettierd"];
         typescript = ["prettierd"];
+        json = ["prettierd"];
         css = ["prettierd"];
         scss = ["prettierd"];
         nix = ["alejandra"];
