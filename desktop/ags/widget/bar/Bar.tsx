@@ -16,16 +16,21 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       application={App}
     >
       <centerbox cssName="centerbox">
-        <button onClicked="echo hello" hexpand halign={Gtk.Align.CENTER}>
-          Welcome to AGS!
-        </button>
-        <box />
-        <menubutton hexpand halign={Gtk.Align.CENTER}>
-          <label label={time()} />
-          <popover>
-            <Gtk.Calendar />
-          </popover>
-        </menubutton>
+        <box>
+          <label label="Launcher" />
+          <label label="Title" />
+          <label label="Music" />
+        </box>
+        <box>
+          <label label="Workspaces" />
+        </box>
+        <box>
+          <label label="Tray" />
+          <label label="Misc" />
+          <label label="VolBright" />
+          <label label="WifiBiBat" />
+          <label label="Power" />
+        </box>
       </centerbox>
     </window>
   );
