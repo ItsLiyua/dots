@@ -17,8 +17,8 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
     >
       <centerbox cssName="centerbox">
         <box>
-          <label label="Launcher" />
-          <label label="Title" />
+          <label cssClasses={["element", "launcher"]} label="Launcher" />
+          <label label="Window Title" />
           <label label="Music" />
         </box>
         <box>

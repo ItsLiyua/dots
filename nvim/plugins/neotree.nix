@@ -5,7 +5,14 @@
       closeIfLastWindow = true;
       eventHandlers.file_opened = ''function(file_path) require("neo-tree").close_all() end'';
       popupBorderStyle = "rounded";
-      filesystem.followCurrentFile.enabled = true;
+      filesystem = {
+        followCurrentFile.enabled = true;
+        filteredItems = {
+          visible = true;
+          hideDotfiles = false;
+          hideGitignored = false;
+        };
+      };
     };
     plugins.bufferline.settings.options.offsets = [
       {

@@ -10,7 +10,10 @@
   programs.ags = {
     enable = true;
     configDir = ./.;
-    extraPackages = [ags.packages.${pkgs.system}.battery];
+    extraPackages = with ags.packages.${pkgs.system}; [
+      battery
+      hyprland
+    ];
     systemd = {
       enable = true;
       gtk4 = true;
