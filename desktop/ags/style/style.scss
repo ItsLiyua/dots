@@ -1,15 +1,17 @@
 // https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
 @use "colors.scss" as c;
+@use "modules/launcher.scss";
 
+* {
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 14px;
+}
 window.Bar {
   .element {
     padding: 5px;
     margin: 5px 5px 0 5px;
     border-radius: 20px;
     color: c.$base01;
-    &.launcher {
-      background-color: c.$base08;
-    }
     &.title {
       background-color: c.$base09;
     }
