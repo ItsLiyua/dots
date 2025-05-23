@@ -29,7 +29,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags = {
-      url = "github:aylur/ags";
+      url = "github:ItsLiyua/ags/e8a4719d11d756abbc2262505815ca06810a1906";
+      # url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

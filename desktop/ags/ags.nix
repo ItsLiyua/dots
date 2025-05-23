@@ -10,14 +10,13 @@
   programs.ags = {
     enable = true;
     configDir = ./.;
-    extraPackages = with pkgs; [
-      gtk-layer-shell
-      ags.packages.${pkgs.system}.battery
-    ];
-    systemd.enable = true;
+    extraPackages = [ags.packages.${pkgs.system}.battery];
+    systemd = {
+      enable = true;
+      gtk4 = true;
+    };
   };
   home.file.".cache/ags/colors.scss".text =
-    # "* {\n" +
     lib.strings.concatMapStrings
     (x: "\$${x}: ${config.lib.stylix.colors.withHashtag.${x}};\n")
     (map
@@ -28,5 +27,4 @@
           (lib.range 0 9)
         )
         ++ ["A" "B" "C" "D" "E" "F"]));
-  # + "}";
 }

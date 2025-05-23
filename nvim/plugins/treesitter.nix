@@ -17,6 +17,7 @@
 
         javascript
         typescript
+        tsx
 
         nix
       ];

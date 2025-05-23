@@ -4,6 +4,7 @@ $fg-color: #{"@theme_fg_color"};
 $bg-color: #{"@theme_bg_color"};
 
 label {
+  min-height: 10px;
   color: c.$base08;
 }
 // window.Bar {
