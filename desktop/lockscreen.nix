@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -10,6 +15,7 @@
       input-field = {
         size = "250, 60";
         outline_thickness = 2;
+        outer_color = lib.mkForce "rgba(${config.lib.stylix.colors.base0C}ee)";
         dots_size = 0.2;
         dots_center = true;
         fade_on_empty = false;
@@ -18,19 +24,22 @@
         position = "0, -225";
       };
       label = [
-        { # Time
+        {
+          # Time
           text = "cmd[update:1000] echo \"<span>$(date +%H:%M)</span>\"";
           color = "rgba(${config.lib.stylix.colors.base05}b3)";
           font_size = 130;
           position = "0, 240";
         }
-        { # Date
+        {
+          # Date
           text = "cmd[update:1000] echo $(date +\"%A, %d %B\")";
           color = "rgba(${config.lib.stylix.colors.base05}b3)";
           font_size = 30;
           position = "0, 105";
         }
-        { # User
+        {
+          # User
           text = "Hi, $DESC";
           color = "rgba(${config.lib.stylix.colors.base05}b3)";
           font_size = 25;
@@ -49,4 +58,3 @@
     };
   };
 }
-

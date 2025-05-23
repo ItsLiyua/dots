@@ -1,11 +1,15 @@
-{ pkgs, lib, inputs, ... }: {
-	imports = [
-		./hyprland.nix
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
+  imports = [
+    ./hyprland.nix
     ./lockscreen.nix
     ./idle.nix
     ./theme.nix
-    ./ags/ags.nix
+    # ./ags/ags.nix
     ./screenshot.nix
-	];
+  ];
 }
-
