@@ -1,0 +1,9 @@
+@use "../shared.scss";
+@use "colors.scss" as c;
+
+window.Bar .element.clock {
+  button {
+    all: unset;
+  }
+  background-color: c.$base0E;
+}
