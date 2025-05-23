@@ -1,0 +1,17 @@
+@use "../shared.scss";
+@use "colors.scss" as c;
+
+window.Bar .element.power {
+  button {
+    all: unset;
+  }
+  .icon {
+    padding-right: 0.3rem;
+  }
+  revealer {
+    button {
+      margin-right: 3px;
+    }
+  }
+  background-color: c.$base0F;
+}

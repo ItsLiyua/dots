@@ -2,6 +2,7 @@
 @use "colors.scss" as c;
 @use "modules/launcher.scss";
 @use "modules/clock.scss";
+@use "modules/power.scss";
 
 * {
   font-family: "JetBrains Mono Nerd Font";
@@ -33,9 +34,6 @@ window.Bar {
     }
     &.wifiBtBat {
       background-color: c.$base07;
-    }
-    &.power {
-      background-color: c.$base0F;
     }
   }
 }
