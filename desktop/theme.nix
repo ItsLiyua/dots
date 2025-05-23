@@ -1,4 +1,10 @@
-{ config, lib, pkgs, stylix, nix-wallpaper, system, ... }: {
+{
+  config,
+  pkgs,
+  nix-wallpaper,
+  system,
+  ...
+}: {
   gtk.enable = true;
   qt.enable = true;
   stylix = {
@@ -18,7 +24,12 @@
       dark = "Papirus-Dark";
       light = "Papirus-Light";
     };
-    image = (import ./wallpaper.nix { inherit config; inherit system; inherit nix-wallpaper; }).file;
+    image =
+      (import ./wallpaper.nix {
+        inherit config;
+        inherit system;
+        inherit nix-wallpaper;
+      }).file;
     fonts = {
       serif = {
         package = pkgs.dejavu_fonts;
