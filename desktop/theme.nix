@@ -19,8 +19,10 @@
     };
     iconTheme = {
       enable = true;
-      # package = pkgs.catppuccin-papirus-folders;
-      package = pkgs.papirus-icon-theme;
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "blue";
+      };
       dark = "Papirus-Dark";
       light = "Papirus-Light";
     };

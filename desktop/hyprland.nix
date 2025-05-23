@@ -39,7 +39,7 @@
           vibrancy = 0.1696;
         };
       };
-      xwayland.force_zero_scaling = true;
+      xwayland.enable = false;
       animations = {
         enabled = true;
         bezier = [
