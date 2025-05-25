@@ -10,12 +10,18 @@ const WS_PER_MON = 10;
 
 hyprland.connect("workspace-added", () => redraw.set(!redraw.get()));
 hyprland.connect("workspace-removed", () => redraw.set(!redraw.get()));
+function icon(ws: number) {
+  if (ws + 1 == hyprland.focusedWorkspace.id) return "";
+  const w = hyprland.get_workspace(ws + 1);
+  if (w != null && w.clients.length > 0) return "";
+  return "";
+}
 
 function workspaceButton(ws: number) {
   return (
     <box cssClasses={cssClasses(ws)}>
       <button onClicked={() => hyprland.dispatch("workspace", "" + (ws + 1))}>
-        <label label={"" + (ws + 1)} />
+        <label label={icon(ws)} />
       </button>
     </box>
   );
@@ -57,7 +63,7 @@ export default function Workspaces({
         gdkMonitor.get_description()!!.includes(m.serial),
     )!!;
   return (
-    <box cssClasses={["element", "workspaces"]}>
+    <box cssClasses={["element", "workspaces"]} vexpand>
       {bind(
         derive([
           bind(hyprland, "focusedMonitor"),

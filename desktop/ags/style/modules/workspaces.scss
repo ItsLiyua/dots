@@ -4,14 +4,19 @@
 window.Bar .element.workspaces {
   button {
     all: unset;
+    min-width: 1rem;
+    min-height: 1rem;
   }
   .button {
     margin: 0 5px;
-    &.focused {
-      background-color: red;
-    }
-    &.occupied {
-      background-color: green;
+    border-radius: 10px;
+    color: c.$base01;
+    min-height: 1rem;
+    min-width: 1rem;
+    padding: 0;
+    transition-duration: 0.1s;
+    &:hover {
+      color: c.$base0C;
     }
   }
   background-color: c.$base06;
