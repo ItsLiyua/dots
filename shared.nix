@@ -19,5 +19,6 @@
     ./modules/extras.nix
     ./modules/logind.nix
     ./modules/ozone.nix
+    ./modules/gaming.nix
   ];
 }
