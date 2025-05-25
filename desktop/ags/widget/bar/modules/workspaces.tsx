@@ -10,6 +10,10 @@ const WS_PER_MON = 10;
 
 hyprland.connect("workspace-added", () => redraw.set(!redraw.get()));
 hyprland.connect("workspace-removed", () => redraw.set(!redraw.get()));
+hyprland.connect("client-added", () => redraw.set(!redraw.get()));
+hyprland.connect("client-moved", () => redraw.set(!redraw.get()));
+hyprland.connect("client-removed", () => redraw.set(!redraw.get()));
+
 function icon(ws: number) {
   if (ws + 1 == hyprland.focusedWorkspace.id) return "";
   const w = hyprland.get_workspace(ws + 1);
