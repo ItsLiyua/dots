@@ -1,0 +1,15 @@
+@use "../shared.scss";
+@use "colors.scss" as c;
+
+window.Bar .element.workspaces {
+  button {
+    all: unset;
+  }
+  .button {
+    margin: 0 5px;
+    &.active {
+      background-color: red;
+    }
+  }
+  background-color: c.$base06;
+}

@@ -51,6 +51,7 @@
       };
     };
     targets.firefox.colorTheme.enable = true;
+    targets.hyprlock.useWallpaper = false; # Set manually
     targets = {
       qt.enable = true;
       gtk.enable = true;

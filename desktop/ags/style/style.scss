@@ -1,6 +1,8 @@
 // https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
 @use "colors.scss" as c;
 @use "modules/launcher.scss";
+@use "modules/title.scss";
+@use "modules/workspaces.scss";
 @use "modules/clock.scss";
 @use "modules/power.scss";
 
@@ -14,14 +16,8 @@ window.Bar {
     margin: 5px 5px 0 5px;
     border-radius: 20px;
     color: c.$base01;
-    &.title {
-      background-color: c.$base09;
-    }
     &.music {
       background-color: c.$base0A;
-    }
-    &.workspaces {
-      background-color: c.$base06;
     }
     &.tray {
       background-color: c.$base0B;

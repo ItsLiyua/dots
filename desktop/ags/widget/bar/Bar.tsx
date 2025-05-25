@@ -28,7 +28,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           <Music />
         </box>
         <box>
-          <Workspaces />
+          <Workspaces gdkMonitor={gdkmonitor} />
         </box>
         <box>
           <SysTray />
