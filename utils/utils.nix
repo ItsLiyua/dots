@@ -10,5 +10,6 @@
     ./extras.nix
     ./unfree-whitelist.nix
     ./xdg.nix
+    ./steamcfg.nix
   ];
 }
