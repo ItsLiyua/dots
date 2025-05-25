@@ -13,6 +13,7 @@
         "HYPRCURSOR_SIZE,24"
       ];
       ecosystem.no_update_news = true;
+      exec-once = ["systemctl --user restart ags"];
       general = {
         gaps_in = 5;
         gaps_out = 10;
@@ -39,7 +40,10 @@
           vibrancy = 0.1696;
         };
       };
-      xwayland.enable = false;
+      xwayland = {
+        enabled = true;
+        force_zero_scaling = false;
+      };
       animations = {
         enabled = true;
         bezier = [
@@ -156,10 +160,5 @@
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
     };
-  };
-  xdg.portal = {
-    enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
-    config.hyprland.preferred = ["hyprland" "gtk"];
   };
 }

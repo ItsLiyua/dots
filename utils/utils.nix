@@ -9,5 +9,6 @@
     ./cava.nix
     ./extras.nix
     ./unfree-whitelist.nix
+    ./xdg.nix
   ];
 }
