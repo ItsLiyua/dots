@@ -7,8 +7,11 @@ window.Bar .element.workspaces {
   }
   .button {
     margin: 0 5px;
-    &.active {
+    &.focused {
       background-color: red;
+    }
+    &.occupied {
+      background-color: green;
     }
   }
   background-color: c.$base06;

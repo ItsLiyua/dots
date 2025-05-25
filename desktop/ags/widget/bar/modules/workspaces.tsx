@@ -1,4 +1,4 @@
-import { bind, derive, Gio, Variable } from "astal";
+import { bind, derive, Variable } from "astal";
 import { Gdk } from "astal/gtk4";
 import Hyprland from "gi://AstalHyprland?version=0.1";
 
@@ -13,13 +13,7 @@ hyprland.connect("workspace-removed", () => redraw.set(!redraw.get()));
 
 function workspaceButton(ws: number) {
   return (
-    <box
-      cssClasses={
-        hyprland.focusedWorkspace.id == ws + 1
-          ? ["button", "active"]
-          : ["button"]
-      }
-    >
+    <box cssClasses={cssClasses(ws)}>
       <button onClicked={() => hyprland.dispatch("workspace", "" + (ws + 1))}>
         <label label={"" + (ws + 1)} />
       </button>
@@ -41,6 +35,13 @@ function showWorkspace(mon: number, ws: number) {
   )
     return true;
   return false;
+}
+
+function cssClasses(ws: number) {
+  if (hyprland.focusedWorkspace.id == ws + 1) return ["button", "focused"];
+  const w = hyprland.get_workspace(ws + 1);
+  if (w != null && w.clients.length > 0) return ["button", "occupied"];
+  return ["button"];
 }
 
 export default function Workspaces({
