@@ -18,5 +18,6 @@
     ./modules/network.nix
     ./modules/extras.nix
     ./modules/logind.nix
+    ./modules/ozone.nix
   ];
 }
