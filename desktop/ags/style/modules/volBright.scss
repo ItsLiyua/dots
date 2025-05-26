@@ -3,10 +3,16 @@
 
 window.Bar .element.volBright {
   background-color: c.$base0D;
-  .brightness {
-    > label {
-      padding-right: 0.1em;
-    }
+  .brightness > label {
+    padding-right: 0.1em;
+  }
+  .volume > label,
+  .micVolume > label {
+    padding-right: 0.5em;
+  }
+  .brightness,
+  .volume,
+  .micVolume {
     revealer label {
       margin-left: 0.25em;
     }

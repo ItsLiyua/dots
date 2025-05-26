@@ -1,4 +1,4 @@
-import { bind, exec, execAsync, Variable } from "astal";
+import { bind, derive, exec, execAsync, Variable } from "astal";
 import { Gtk } from "astal/gtk4";
 import Wp from "gi://AstalWp?version=0.1";
 
@@ -22,6 +22,8 @@ const BRIGHTNESS_ICONS = [
   "",
   "",
 ];
+const VOLUME_MUTE_ICON = "";
+const VOLUME_ICONS = ["", "", ""];
 const MAX_BRIGHTNESS = parseInt(
   exec(["bash", "-c", "brightnessctl -c backlight m"]),
 );
@@ -58,6 +60,10 @@ fastPollBrightness.subscribe((s) => {
     );
 });
 
+const speaker = wp.defaultSpeaker;
+let speakerVolume = bind(speaker, "volume");
+let speakerMute = bind(speaker, "mute");
+
 function icon(icons: string[], value: number): string {
   for (let i = 0; i < icons.length; i++)
     if ((1.0 / icons.length) * i >= value) return icons[i];
@@ -79,7 +85,40 @@ export default function VolumeBrightness() {
         cssClasses={["volume"]}
         onHoverEnter={() => expandVolume.set(true)}
         onHoverLeave={() => expandVolume.set(false)}
-      ></box>
+        onScroll={(_, __, dy) => {
+          if (dy < 0) {
+            wp.defaultSpeaker.volume = Math.min(
+              wp.defaultSpeaker.volume + VOLUME_STEP,
+              1,
+            );
+            wp.defaultSpeaker.mute = false;
+          } else if (dy > 0) {
+            wp.defaultSpeaker.volume = Math.max(
+              wp.defaultSpeaker.volume - VOLUME_STEP,
+              0,
+            );
+            if (wp.defaultSpeaker.volume == 0) wp.defaultSpeaker.mute = true;
+          }
+        }}
+      >
+        <label
+          label={bind(derive([speakerVolume, speakerMute])).as((a) =>
+            !a[1] && Math.floor(a[0] * 100) != 0
+              ? icon(VOLUME_ICONS, a[0])
+              : VOLUME_MUTE_ICON,
+          )}
+        />
+        <revealer
+          revealChild={bind(expandVolume)}
+          transitionType={Gtk.RevealerTransitionType.SLIDE_LEFT}
+        >
+          <label
+            label={bind(derive([speakerVolume, speakerMute])).as(
+              (a) => (!a[1] ? Math.round(a[0] * 100) : 0) + "",
+            )}
+          />
+        </revealer>
+      </box>
       <box
         cssClasses={["micVolume"]}
         onHoverEnter={() => expandMicVolume.set(true)}
