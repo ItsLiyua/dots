@@ -1,0 +1,14 @@
+@use "../shared.scss";
+@use "colors.scss" as c;
+
+window.Bar .element.volBright {
+  background-color: c.$base0D;
+  .brightness {
+    > label {
+      padding-right: 0.1em;
+    }
+    revealer label {
+      margin-left: 0.25em;
+    }
+  }
+}

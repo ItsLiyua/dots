@@ -3,6 +3,7 @@
 @use "modules/launcher.scss";
 @use "modules/title.scss";
 @use "modules/workspaces.scss";
+@use "modules/volBright.scss";
 @use "modules/clock.scss";
 @use "modules/power.scss";
 
@@ -24,9 +25,6 @@ window.Bar {
     }
     &.misc {
       background-color: c.$base0C;
-    }
-    &.volBright {
-      background-color: c.$base0D;
     }
     &.wifiBtBat {
       background-color: c.$base07;
