@@ -14,6 +14,7 @@ window.Bar .element.workspaces {
     min-height: 1rem;
     min-width: 1rem;
     padding: 0;
+    // transition: all 1s ease-out;
     transition-duration: 0.1s;
     &:hover {
       color: c.$base08;
