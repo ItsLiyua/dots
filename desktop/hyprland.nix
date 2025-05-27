@@ -158,7 +158,10 @@
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
-      workspace = ["r[0-5] persistent:true"];
+      layerrule = [
+        "noanim, selection"
+        "noanim, my-bar"
+      ];
     };
   };
 }
