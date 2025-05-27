@@ -72,7 +72,7 @@ function iconClassSet(
   value: number,
 ): { icon: string; cssClass: string } {
   for (let i = 0; i < icons.length; i++)
-    if ((1.0 / icons.length) * i >= value) return icons[i];
+    if ((1.0 / icons.length) * (i + 1) >= value) return icons[i];
   return icons[icons.length - 1];
 }
 

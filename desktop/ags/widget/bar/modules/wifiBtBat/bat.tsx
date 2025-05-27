@@ -10,15 +10,12 @@ const ICONS = ["", "", "", "", ""];
 function icon(state: AstalBattery.State, charge: number): string {
   switch (state) {
     case AstalBattery.State.CHARGING:
-    case AstalBattery.State.FULLY_CHARGED:
       return CHARGING_ICON;
-    case AstalBattery.State.DISCHARGING: {
+    default: {
       for (let i = 0; i < ICONS.length; i++)
-        if (i * (1 / ICONS.length) <= charge) return ICONS[i];
+        if ((i + 1) * (1 / ICONS.length) >= charge) return ICONS[i];
       return ICONS[ICONS.length - 1];
     }
-    default:
-      return "ERROR";
   }
 }
 
@@ -31,6 +28,9 @@ export default function Battery() {
       onHoverLeave={() => expandBat.set(false)}
     >
       <label
+        cssClasses={bind(bat, "state").as((s) =>
+          s != AstalBattery.State.CHARGING ? ["wide-icon"] : [],
+        )}
         label={bind(derive([bind(bat, "state"), bind(bat, "percentage")])).as(
           (a) => icon(a[0], a[1]),
         )}
