@@ -14,7 +14,7 @@ export default function HoverIcon({
   onScroll,
   onHoverExtra,
 }: {
-  enable: boolean;
+  enable: boolean | Binding<boolean>;
   initState: boolean;
   valueProvider: string | Binding<string>;
   iconProvider: string | Binding<string>;
@@ -31,7 +31,7 @@ export default function HoverIcon({
   const state = Variable(initState);
   if (!enable) return <></>;
   return (
-    <button onClicked={onClick}>
+    <button onClicked={onClick} visible={enable}>
       <box
         cssClasses={elementClassProvider}
         onHoverEnter={() => {
