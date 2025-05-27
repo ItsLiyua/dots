@@ -4,6 +4,7 @@
 @use "modules/title.scss";
 @use "modules/workspaces.scss";
 @use "modules/volBright.scss";
+@use "modules/wifiBtBat.scss";
 @use "modules/clock.scss";
 @use "modules/power.scss";
 
@@ -25,9 +26,6 @@ window.Bar {
     }
     &.misc {
       background-color: c.$base0C;
-    }
-    &.wifiBtBat {
-      background-color: c.$base07;
     }
   }
 }

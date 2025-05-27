@@ -1,0 +1,15 @@
+@use "../shared.scss";
+@use "colors.scss" as c;
+
+window.Bar .element.wifiBtBat {
+  background-color: c.$base07;
+  .wifi {
+  }
+  .bt {
+  }
+  .bat {
+    revealer > label {
+      margin-left: 0.25em;
+    }
+  }
+}

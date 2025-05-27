@@ -1,7 +1,11 @@
+import Battery from "./wifiBtBat/bat";
+
 export default function WifiBtBat() {
   return (
     <box cssClasses={["element", "wifiBtBat"]}>
-      <label label="WifiBtBat" />
+      <box cssClasses={["wifi"]}></box>
+      <box cssClasses={["bt"]}></box>
+      <Battery />
     </box>
   );
 }

@@ -69,7 +69,7 @@
     homeConfigurations."liyua@liberty" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
       inherit extraSpecialArgs;
-      modules = sharedModules ++ [./hosts/liberty.nix];
+      modules = sharedModules ++ [./hosts/liberty];
     };
   };
 }
