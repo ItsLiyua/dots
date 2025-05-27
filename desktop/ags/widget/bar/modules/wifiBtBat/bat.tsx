@@ -20,7 +20,7 @@ function icon(state: AstalBattery.State, charge: number): string {
 }
 
 export default function Battery() {
-  if (!bat.powerSupply) return <></>;
+  if (bat == null || !bat.powerSupply) return <></>;
   return (
     <box
       cssClasses={["bat"]}

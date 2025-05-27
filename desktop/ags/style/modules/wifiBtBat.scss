@@ -2,8 +2,18 @@
 @use "colors.scss" as c;
 
 window.Bar .element.wifiBtBat {
+  button {
+    all: unset;
+  }
   background-color: c.$base07;
   .wifi {
+    > label {
+      padding-right: 0.3em;
+    }
+    > revealer > label {
+      margin-left: 0.4em;
+    }
+    margin-right: 0.4em;
   }
   .bt {
   }
