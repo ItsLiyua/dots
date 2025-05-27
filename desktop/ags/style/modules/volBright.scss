@@ -10,8 +10,8 @@ window.Bar .element.volBright {
   .micVolume {
     & > label {
       padding-right: 0.5em;
-      &.mute {
-        padding-right: 0.25em;
+      &.small {
+        padding-right: 0.4em;
       }
     }
     margin-right: 0.4em;
