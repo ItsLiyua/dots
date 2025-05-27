@@ -1,11 +1,15 @@
-import { bind, derive, Variable } from "astal";
+import { bind, derive } from "astal";
 import { Gtk } from "astal/gtk4";
 import AstalBattery from "gi://AstalBattery?version=0.1";
+import HoverIcon from "../../lib/hovericon";
 
 const bat = AstalBattery.get_default();
-const expandBat = Variable(false);
 const CHARGING_ICON = "󱐋";
 const ICONS = ["", "", "", "", ""];
+
+const state = bind(bat, "state");
+const percentage = bind(bat, "percentage");
+const both = bind(derive([state, percentage]));
 
 function icon(state: AstalBattery.State, charge: number): string {
   switch (state) {
@@ -20,29 +24,22 @@ function icon(state: AstalBattery.State, charge: number): string {
 }
 
 export default function Battery() {
-  if (bat == null || !bat.powerSupply) return <></>;
   return (
-    <box
-      cssClasses={["bat"]}
-      onHoverEnter={() => expandBat.set(true)}
-      onHoverLeave={() => expandBat.set(false)}
-    >
-      <label
-        cssClasses={bind(bat, "state").as((s) =>
-          s != AstalBattery.State.CHARGING ? ["wide-icon"] : [],
-        )}
-        label={bind(derive([bind(bat, "state"), bind(bat, "percentage")])).as(
-          (a) => icon(a[0], a[1]),
-        )}
-      />
-      <revealer
-        revealChild={bind(expandBat)}
-        transitionType={Gtk.RevealerTransitionType.SLIDE_LEFT}
-      >
-        <label
-          label={bind(bat, "percentage").as((p) => "" + Math.round(p * 100))}
-        />
-      </revealer>
-    </box>
+    <HoverIcon
+      enable={bat != null && bat.powerSupply}
+      visible={true}
+      initState={false}
+      valueProvider={percentage.as((p) => "" + Math.round(p * 100))}
+      iconProvider={both.as((a) => icon(a[0], a[1]))}
+      iconClassProvider={state.as((s) =>
+        s != AstalBattery.State.CHARGING ? ["wide-icon"] : [],
+      )}
+      elementClassProvider={["bat"]}
+      gtkRevealerTransition={Gtk.RevealerTransitionType.SLIDE_LEFT}
+      gtkRevealerDuration={500}
+      onClick={() => {}}
+      onScroll={() => {}}
+      onHoverExtra={() => {}}
+    />
   );
 }

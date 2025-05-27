@@ -44,6 +44,7 @@ export default function HoverIcon({
           state.set(false);
           onHoverExtra(false);
         }}
+        onScroll={(_, dx, dy) => onScroll(dx, dy)}
       >
         <label label={iconProvider} cssClasses={iconClassProvider} />
         <revealer
