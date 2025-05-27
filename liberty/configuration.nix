@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ./modules/disko.nix
     ./modules/bluetooth.nix
+    ./modules/upower.nix
   ];
 
   networking.hostName = "liberty";
