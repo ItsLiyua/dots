@@ -5,6 +5,8 @@
 }: rec {
   package = with config.lib.stylix.colors.withHashtag;
     nix-wallpaper.packages.${system}.default.override {
+      width = 1920;
+      height = 1080;
       backgroundColor = base00;
       logoColors = {
         color0 = base08;
