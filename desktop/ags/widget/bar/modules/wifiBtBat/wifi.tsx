@@ -17,6 +17,7 @@ export default function Network() {
   return (
     <HoverIcon
       enable={primary.as((p) => p != AstalNetwork.Primary.UNKNOWN)}
+      visible={primary.as((p) => p != AstalNetwork.Primary.UNKNOWN)}
       initState={false}
       valueProvider={derived.as((a) => {
         switch (a[0]) {

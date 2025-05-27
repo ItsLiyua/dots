@@ -3,6 +3,7 @@ import { Gtk } from "astal/gtk4";
 
 export default function HoverIcon({
   enable = true,
+  visible = true,
   initState = false,
   valueProvider,
   iconProvider,
@@ -15,6 +16,7 @@ export default function HoverIcon({
   onHoverExtra,
 }: {
   enable: boolean | Binding<boolean>;
+  visible: boolean | Binding<boolean>;
   initState: boolean;
   valueProvider: string | Binding<string>;
   iconProvider: string | Binding<string>;
@@ -31,7 +33,7 @@ export default function HoverIcon({
   const state = Variable(initState);
   if (!enable) return <></>;
   return (
-    <button onClicked={onClick} visible={enable}>
+    <button onClicked={onClick} visible={visible}>
       <box
         cssClasses={elementClassProvider}
         onHoverEnter={() => {
