@@ -6,9 +6,15 @@ window.Bar .element.volBright {
   .brightness > label {
     padding-right: 0.1em;
   }
-  .volume > label,
-  .micVolume > label {
-    padding-right: 0.5em;
+  .volume,
+  .micVolume {
+    & > label {
+      padding-right: 0.5em;
+      &.mute {
+        padding-right: 0.25em;
+      }
+    }
+    margin-right: 0.4em;
   }
   .brightness,
   .volume,

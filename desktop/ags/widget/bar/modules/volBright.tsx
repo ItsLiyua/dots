@@ -64,6 +64,10 @@ const speaker = wp.defaultSpeaker;
 let speakerVolume = bind(speaker, "volume");
 let speakerMute = bind(speaker, "mute");
 
+const mic = wp.defaultMicrophone;
+let micVolume = bind(mic, "volume");
+let micMute = bind(mic, "mute");
+
 function icon(icons: string[], value: number): string {
   for (let i = 0; i < icons.length; i++)
     if ((1.0 / icons.length) * i >= value) return icons[i];
@@ -102,6 +106,9 @@ export default function VolumeBrightness() {
         }}
       >
         <label
+          cssClasses={bind(derive([speakerVolume, speakerMute])).as((a) =>
+            a[0] == 0 || a[1] ? ["mute"] : [],
+          )}
           label={bind(derive([speakerVolume, speakerMute])).as((a) =>
             !a[1] && Math.floor(a[0] * 100) != 0
               ? icon(VOLUME_ICONS, a[0])
@@ -123,7 +130,44 @@ export default function VolumeBrightness() {
         cssClasses={["micVolume"]}
         onHoverEnter={() => expandMicVolume.set(true)}
         onHoverLeave={() => expandMicVolume.set(false)}
-      ></box>
+        onScroll={(_, __, dy) => {
+          if (dy < 0) {
+            wp.defaultMicrophone.volume = Math.min(
+              wp.defaultMicrophone.volume + VOLUME_STEP,
+              1,
+            );
+            wp.defaultMicrophone.mute = false;
+          } else if (dy > 0) {
+            wp.defaultMicrophone.volume = Math.max(
+              wp.defaultMicrophone.volume - VOLUME_STEP,
+              0,
+            );
+            if (wp.defaultMicrophone.volume == 0)
+              wp.defaultMicrophone.mute = true;
+          }
+        }}
+      >
+        <label
+          cssClasses={bind(derive([micVolume, micMute])).as((a) =>
+            a[0] == 0 || a[1] ? ["mute"] : [],
+          )}
+          label={bind(derive([micVolume, micMute])).as((a) =>
+            !a[1] && Math.floor(a[0] * 100) != 0
+              ? icon(VOLUME_ICONS, a[0])
+              : VOLUME_MUTE_ICON,
+          )}
+        />
+        <revealer
+          revealChild={bind(expandMicVolume)}
+          transitionType={Gtk.RevealerTransitionType.SLIDE_LEFT}
+        >
+          <label
+            label={bind(derive([micVolume, micMute])).as(
+              (a) => (!a[1] ? Math.round(a[0] * 100) : 0) + "",
+            )}
+          />
+        </revealer>
+      </box>
       <box
         cssClasses={["brightness"]}
         onScroll={(_, __, dy) => {
