@@ -7,7 +7,6 @@ const bt = AstalBluetooth.get_default();
 const BT_ICON = "󰂯";
 const BT_CONNECT_ICON = "󰂱";
 
-const powered = bind(bt, "isPowered");
 const connected = bind(bt, "isConnected");
 const fallbackDevices = Array<AstalBluetooth.Device>();
 const device = Variable<AstalBluetooth.Device | null>(null);
@@ -32,10 +31,12 @@ bt.connect("device-removed", (_, d) => {
 export default function Bluetooth() {
   return (
     <HoverIcon
-      enable={powered}
+      enable={bt.isPowered}
       visible={connected}
       initState={false}
-      valueProvider={bind(device).as((d) => (d != null ? d.name : ""))}
+      valueProvider={bind(device).as((d) =>
+        d != null && d.name != null ? d.name : "",
+      )}
       iconProvider={bind(pairable).as((p) => (p ? BT_CONNECT_ICON : BT_ICON))}
       iconClassProvider={[]}
       elementClassProvider={["bt"]}

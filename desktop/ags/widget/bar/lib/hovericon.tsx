@@ -15,7 +15,7 @@ export default function HoverIcon({
   onScroll,
   onHoverExtra,
 }: {
-  enable: boolean | Binding<boolean>;
+  enable: boolean;
   visible: boolean | Binding<boolean>;
   initState: boolean;
   valueProvider: string | Binding<string>;

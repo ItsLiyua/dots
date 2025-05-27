@@ -16,7 +16,7 @@ const derived = bind(derive([primary, wifi, wired]));
 export default function Network() {
   return (
     <HoverIcon
-      enable={primary.as((p) => p != AstalNetwork.Primary.UNKNOWN)}
+      enable={network != null}
       visible={primary.as((p) => p != AstalNetwork.Primary.UNKNOWN)}
       initState={false}
       valueProvider={derived.as((a) => {
