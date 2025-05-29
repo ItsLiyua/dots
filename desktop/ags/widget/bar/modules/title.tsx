@@ -17,7 +17,7 @@ export default function Title() {
           if (a[2] == null) return DEFAULT_TEXT;
           else if (a[2].monitor == null) return DEFAULT_TEXT;
           else if (a[0].id != a[2].monitor.id) return DEFAULT_TEXT;
-          else if (a[1].id != a[2].workspace.id) return DEFAULT_TEXT;
+          // else if (a[1].id != a[2].workspace.id) return DEFAULT_TEXT;
           else return a[2].class.substring(0, 30);
         })}
       />

@@ -2,10 +2,7 @@
 @use "colors.scss" as c;
 
 window.Bar .element.wifiBtBat {
-  button {
-    all: unset;
-  }
-  background-color: c.$base07;
+  background-color: c.$base0D;
   .wifi {
     > label {
       padding-right: 0.3em;

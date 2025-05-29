@@ -1,0 +1,6 @@
+@use "../shared.scss";
+@use "colors.scss" as c;
+
+window.Bar .element.misc {
+  background-color: c.$base0B;
+}

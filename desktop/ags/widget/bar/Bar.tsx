@@ -3,7 +3,6 @@ import Title from "./modules/title";
 import Launcher from "./modules/launcher";
 import Music from "./modules/music";
 import Workspaces from "./modules/workspaces";
-import SysTray from "./modules/tray";
 import Misc from "./modules/misc";
 import VolumeBrightness from "./modules/volBright";
 import WifiBtBat from "./modules/wifiBtBat";
@@ -32,7 +31,6 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           <Workspaces gdkMonitor={gdkmonitor} />
         </box>
         <box>
-          <SysTray />
           <Misc />
           <VolumeBrightness />
           <WifiBtBat />

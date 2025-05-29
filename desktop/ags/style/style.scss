@@ -3,6 +3,7 @@
 @use "modules/launcher.scss";
 @use "modules/title.scss";
 @use "modules/workspaces.scss";
+@use "modules/misc.scss";
 @use "modules/volBright.scss";
 @use "modules/wifiBtBat.scss";
 @use "modules/clock.scss";
@@ -20,12 +21,6 @@ window.Bar {
     color: c.$base01;
     &.music {
       background-color: c.$base0A;
-    }
-    &.tray {
-      background-color: c.$base0B;
-    }
-    &.misc {
-      background-color: c.$base0C;
     }
   }
 }
