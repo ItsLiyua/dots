@@ -3,4 +3,19 @@
 
 window.Bar .element.misc {
   background-color: c.$base0B;
+  .rotateScreen {
+    margin-right: 0.3em;
+    &.toLandscape label {
+      padding-right: 0.3em;
+    }
+  }
+  .osk {
+    margin-right: 0.3em;
+    label {
+      padding-right: 0.4em;
+    }
+  }
+  .showoff label {
+    padding-right: 0.1em;
+  }
 }

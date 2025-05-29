@@ -1,14 +1,25 @@
+import { execAsync } from "astal";
+
 export default function Misc() {
+  // 󰹑
   return (
     <box cssClasses={["element", "misc"]}>
-      <button cssClasses={["screenshot"]}>
-        <label label="Screenshot" />
+      <button cssClasses={["rotateScreen", "toPortrait"]}>
+        <label label="󰨵" />
       </button>
-      <button cssClasses={["osk"]}>
-        <label label="OSK" />
+      <button
+        cssClasses={["osk"]}
+        onClicked={() => console.log("coming soon (TM)")}
+      >
+        <label label="" />
       </button>
-      <button cssClasses={["showoff"]}>
-        <label label="Showoff" />
+      <button
+        cssClasses={["showoff"]}
+        onClicked={() =>
+          execAsync(["bash", "-c", "~/.config/ags/scripts/showoff.sh"])
+        }
+      >
+        <label label="" />
       </button>
     </box>
   );
