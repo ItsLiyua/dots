@@ -13,12 +13,13 @@
     extraPackages = with ags.packages.${pkgs.system}; [
       hyprland
       mpris
-      tray
       wireplumber
       network
       bluetooth
       battery
       notifd
+      pkgs.hyprpicker.overrideAttrs
+      (p: {buildInputs = p.buildInputs ++ [pkgs.wl-clipboard];})
     ];
     systemd = {
       enable = true;

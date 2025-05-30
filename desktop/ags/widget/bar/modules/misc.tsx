@@ -21,6 +21,12 @@ export default function Misc() {
       >
         <label label="" />
       </button>
+      <button
+        cssClasses={["colorPicker"]}
+        onClicked={() => execAsync(["bash", "-c", "hyprpicker -an"])}
+      >
+        <label label="" />
+      </button>
     </box>
   );
 }
