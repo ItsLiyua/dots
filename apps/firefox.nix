@@ -1,12 +1,16 @@
-{ config, lib, pkgs, ... }: {
-  stylix.targets.firefox.profileNames = [ "default" ];
-	programs.firefox = {
-		# enable = false;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  stylix.targets.firefox.profileNames = ["default"];
+  programs.firefox = {
     enable = true;
-		profiles.default = {
-			id = 0;
-			name = "default";
-			isDefault = true;
+    profiles.default = {
+      id = 0;
+      name = "default";
+      isDefault = true;
       extensions = {
         force = true;
         packages = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -16,7 +20,6 @@
           enhancer-for-youtube
           return-youtube-dislikes
           istilldontcareaboutcookies
-          sponsorblock
           sponsorblock
           clearurls
           new-tab-override
@@ -32,8 +35,14 @@
         };
       };
       settings = let
-        lock-false = { Value = false; Status = "locked"; };
-        lock-true = { Value = true; Status = "locked"; };
+        lock-false = {
+          Value = false;
+          Status = "locked";
+        };
+        lock-true = {
+          Value = true;
+          Status = "locked";
+        };
       in {
         "extensions.pocket.enabled" = lock-false;
         "extensions.screenshotd.enabled" = lock-false;
@@ -122,8 +131,8 @@
         "browser.aboutConfig.showWarning" = lock-false;
         "browser.newtab.extensionControlled" = lock-true;
         "browser.newtab.url" = "https://duckduckgo.com";
-			};
-		};
+      };
+    };
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
@@ -136,5 +145,5 @@
       OverridePostUpdatePage = "";
       DontCheckDefaultBrowser = true;
     };
-	};
+  };
 }

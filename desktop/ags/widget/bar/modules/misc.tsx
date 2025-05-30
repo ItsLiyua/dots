@@ -18,7 +18,7 @@ export default function Misc() {
           "rotateScreen",
           m.split(" ")[0],
         ])}
-        onClicked={}
+        onClicked={() => console.log("Coming soon")}
       >
         <label label={bind(rotateMode).as((m) => m.split(" ")[1])} />
       </button>
