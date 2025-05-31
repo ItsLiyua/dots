@@ -71,5 +71,10 @@
       inherit extraSpecialArgs;
       modules = sharedModules ++ [./hosts/liberty];
     };
+    homeConfigurations."liyua@linode" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      inherit extraSpecialArgs;
+      modules = sharedModules ++ [./hosts/linode];
+    };
   };
 }
