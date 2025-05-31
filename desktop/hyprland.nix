@@ -5,7 +5,7 @@
 }: {
   options = {
     liyua.hyprland.enable = lib.mkEnableOption "Adds hyprland to the users configuration";
-    liyua.hyprland.monitors = lib.mkOption {
+    liyua.monitors = lib.mkOption {
       default = [",preferred,auto,auto"];
       example = ["eDP-1, 2560x1600@60, 0x0, 1.6, transform, 1"];
       description = "Defines the monitor resolution, refreshrate, position, scale and rotation for hyprland.";
@@ -16,7 +16,7 @@
     wayland.windowManager.hyprland = lib.mkIf config.liyua.hyprland.enable {
       enable = true;
       settings = {
-        monitor = config.liyua.hyprland.monitors;
+        monitor = config.liyua.monitors;
         "$mod" = "SUPER";
         # env = [
         #   "XCURSOR_SIZE,24"
