@@ -1,5 +1,5 @@
-{ config, lib, pkgs, inputs, ... }: {
-	imports = [
+{
+  imports = [
     ./options.nix
     ./keymap.nix
     ./theme.nix
