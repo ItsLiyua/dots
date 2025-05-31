@@ -7,18 +7,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs @ { nixpkgs, disko, ... }: 
-  let 
+  outputs = inputs @ {nixpkgs, ...}: let
     system = "x86_64-linux";
   in {
-    nixosConfigurations.liberty = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
-      modules = [ 
-        disko.nixosModules.disko
-        ./shared.nix
-        ./liberty/configuration.nix 
-      ];
+    nixosConfigurations = {
+      liberty = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./shared.nix
+          ./liberty/configuration.nix
+        ];
+      };
+      linode = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./shared.nix
+          ./linode/configuration.nix
+        ];
+      };
     };
   };
 }
