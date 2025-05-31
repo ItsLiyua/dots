@@ -4,10 +4,10 @@
   ...
 }: {
   imports = [
-    ./desktop/desktop.nix
-    ./utils/utils.nix
-    ./apps/apps.nix
-    ./nvim/nvim.nix
+    ./desktop
+    ./utils
+    ./apps
+    ./nvim
   ];
   config = {
     home.username = "liyua";
