@@ -1,5 +1,12 @@
-{lib, ...}: {
+{
+  lib,
+  inputs,
+  ...
+}: {
   imports = [
+    inputs.disko.nixosModules.disko
+    inputs.sops-nix.nixosModules.sops
+
     ./modules/nix.nix
     ./modules/grub.nix
     ./modules/users.nix
