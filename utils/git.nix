@@ -13,11 +13,6 @@
       init.defaultBranch = "master";
       push.autoSetupRemote = true;
       pull.rebase = false;
-      url = {
-        "git@github.com:ItsLiyua/" = "liyua:";
-        "git@github.com/" = "gh:";
-        "git@gitlab.com/" = "gl:";
-      };
     };
   };
 }
