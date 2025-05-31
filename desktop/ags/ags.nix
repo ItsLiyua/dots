@@ -7,10 +7,10 @@
 }: {
   imports = [ags.homeManagerModules.default];
 
-  options.liyua.bar.enable = lib.mkEnableOption "Enables the top bar in hyprland";
+  options.liyua.desktop.bar.enable = lib.mkEnableOption "Enables the top bar in hyprland";
 
   config = {
-    programs.ags = lib.mkIf config.liyua.bar.enable {
+    programs.ags = lib.mkIf config.liyua.desktop.bar.enable {
       enable = true;
       configDir = ./.;
       extraPackages = with ags.packages.${pkgs.system}; [

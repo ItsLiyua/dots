@@ -4,8 +4,8 @@
   pkgs,
   ...
 }: {
-  options.liyua.screenshot.enable = lib.mkEnableOption "Adds screenshot utilities and keybinds to hyprland";
-  config = lib.mkIf config.liyua.screenshot.enable {
+  options.liyua.desktop.screenshot.enable = lib.mkEnableOption "Adds screenshot utilities and keybinds to hyprland";
+  config = lib.mkIf config.liyua.desktop.screenshot.enable {
     wayland.windowManager.hyprland.settings.bind = with config.lib.stylix.colors; let
       out = "${config.home.homeDirectory}/Pictures/screenshots/$(date +%Y%m%d-%H%M%S).png";
       _dir_cmd = "mkdir -p \"$(dirname '${out}')\"";

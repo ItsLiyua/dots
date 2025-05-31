@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   imports = [
     ./hyprland.nix
     ./lockscreen.nix
@@ -9,17 +13,18 @@
     ./screenRotation.nix
     ./background.nix
   ];
-  config.liyua = {
-    hyprland.enable = lib.mkDefault true;
+  options.liyua.desktop.enable = lib.mkEnableOption "Graphical Session";
+  config.liyua.desktop = with config.liyua.desktop; {
+    hyprland.enable = lib.mkDefault enable;
     screenRotation.enable = lib.mkDefault false;
-    lockscreen.enable = lib.mkDefault true;
-    idle.enable = lib.mkDefault true;
-    theme.enable = lib.mkDefault true;
-    screenshot.enable = lib.mkDefault true;
-    bar.enable = lib.mkDefault true;
+    lockscreen.enable = lib.mkDefault enable;
+    idle.enable = lib.mkDefault enable;
+    theme.enable = lib.mkDefault enable;
+    screenshot.enable = lib.mkDefault enable;
+    bar.enable = lib.mkDefault enable;
     wallpaper = {
-      enable = lib.mkDefault true;
-      gen.enable = lib.mkDefault true;
+      enable = lib.mkDefault enable;
+      gen.enable = lib.mkDefault enable;
     };
   };
 }

@@ -2,15 +2,13 @@
   config,
   lib,
   pkgs,
-  nix-wallpaper,
-  system,
   ...
 }: {
-  options.liyua.theme.enable = lib.mkEnableOption "Applies the color scheme to all applications";
-  config = {
-    gtk.enable = lib.mkIf config.liyua.theme.enable true;
-    qt.enable = lib.mkIf config.liyua.theme.enable true;
-    stylix = lib.mkIf config.liyua.theme.enable {
+  options.liyua.desktop.theme.enable = lib.mkEnableOption "Applies the color scheme to all applications";
+  config = lib.mkIf config.liyua.desktop.theme.enable {
+    gtk.enable = true;
+    qt.enable = true;
+    stylix = {
       enable = true;
       autoEnable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";

@@ -1,5 +1,10 @@
 {
-  programs.nixvim = {
+  config,
+  lib,
+  ...
+}: {
+  options.liyua.nvim.enable = lib.mkEnableOption "Neovim Config (nixvim)";
+  config.programs.nixvim = lib.mkIf config.liyua.nvim.enable {
     enable = true;
     clipboard = {
       register = "unnamedplus";

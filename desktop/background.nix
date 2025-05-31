@@ -5,7 +5,7 @@
   nix-wallpaper,
   ...
 }: {
-  options.liyua.wallpaper = {
+  options.liyua.desktop.wallpaper = {
     enable = lib.mkEnableOption "Generate and apply a wallpaper using hyprpaper";
     gen = {
       enable = lib.mkEnableOption "Enables the wallpaper generator based on the theme colors";
@@ -46,7 +46,7 @@
     wallpapers =
       lib.map (s: rec {
         name = s.name;
-        package = config.liyua.wallpaper.gen.package.override {
+        package = config.liyua.desktop.wallpaper.gen.package.override {
           width = s.width;
           height = s.height;
         };
@@ -55,7 +55,7 @@
       wallpaperSpecs;
     files = lib.map (w: w.file) wallpapers;
   in
-    lib.mkIf config.liyua.wallpaper.enable {
+    lib.mkIf config.liyua.desktop.wallpaper.enable {
       stylix.targets.hyprpaper.enable = lib.mkForce false;
 
       services.hyprpaper = {

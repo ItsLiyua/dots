@@ -1,5 +1,10 @@
 {
-  programs = {
+  config,
+  lib,
+  ...
+}: {
+  options.liyua.cli.zsh.enable = lib.mkEnableOption "ZSH configuration";
+  config.programs = lib.mkIf config.liyua.cli.zsh.enable {
     zsh = {
       enable = true;
       dotDir = ".config/zsh";

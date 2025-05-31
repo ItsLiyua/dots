@@ -1,15 +1,12 @@
 {
   config,
   lib,
-  pkgs,
-  nix-wallpaper,
   ...
 }: {
-  options.liyua.lockscreen.enable = lib.mkEnableOption "Adds the configuration for a lockscreen.";
-  config = {
+  options.liyua.desktop.lockscreen.enable = lib.mkEnableOption "Adds the configuration for a lockscreen.";
+  config = lib.mkIf config.liyua.desktop.lockscreen.enable {
     stylix.targets.hyprlock.useWallpaper = false;
-
-    programs.hyprlock = lib.mkIf config.liyua.lockscreen.enable {
+    programs.hyprlock = {
       enable = true;
       settings = {
         general = {
