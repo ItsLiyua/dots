@@ -55,7 +55,7 @@
               width = s.width;
               height = s.height;
             };
-            file = "${package}/share/wallpapers/nix-wallpaper.png";
+            file = "${package}/share/wallpapers/nixos-wallpaper.png";
           })
           wallpaperSpecs;
         files = lib.map (w: w.file) wallpapers;
