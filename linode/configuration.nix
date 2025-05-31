@@ -1,4 +1,4 @@
-{ pkgs, ... }:{
+{ lib, pkgs, ... }:{
   imports = [./hardware-configuration.nix];
   config = {
     liyua = {
@@ -31,6 +31,10 @@
       useDHCP = false;
       interfaces.eth0.useDHCP = true;
     };
+    boot.loader = {
+      efi.canTouchEfiVariables = lib.mkForce false;
+      grub.efiSupport = lib.mkForce false;
+    };
+    system.stateVersion = "25.05"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES
   };
-  system.stateVersion = "25.05"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES
 }
