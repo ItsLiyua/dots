@@ -16,16 +16,6 @@
           grace = 60;
           hide_cursor = true;
         };
-        background = {
-          blur_passes = 2;
-          path = "${
-            (import ./wallpaper.nix {
-              inherit config;
-              system = pkgs.system;
-              inherit nix-wallpaper;
-            }).file
-          }";
-        };
         input-field = {
           size = "250, 60";
           outline_thickness = 2;

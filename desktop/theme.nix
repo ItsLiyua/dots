@@ -29,12 +29,6 @@
         dark = "Papirus-Dark";
         light = "Papirus-Light";
       };
-      image =
-        (import ./wallpaper.nix {
-          inherit config;
-          inherit system;
-          inherit nix-wallpaper;
-        }).file;
       fonts = {
         serif = {
           package = pkgs.dejavu_fonts;
