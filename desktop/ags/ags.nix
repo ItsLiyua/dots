@@ -9,8 +9,8 @@
 
   options.liyua.desktop.bar.enable = lib.mkEnableOption "Enables the top bar in hyprland";
 
-  config = {
-    programs.ags = lib.mkIf config.liyua.desktop.bar.enable {
+  config = lib.mkIf config.liyua.desktop.bar.enable {
+    programs.ags = {
       enable = true;
       configDir = ./.;
       extraPackages = with ags.packages.${pkgs.system}; [
