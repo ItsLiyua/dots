@@ -82,10 +82,6 @@
       };
       input = {
         kb_layout = "de";
-        # kb_variant = null;
-        # kb_model = null;
-        kb_options = "caps:swapescape";
-        # kb_rules = null;
 
         follow_mouse = 1;
         sensitivity = 0;
