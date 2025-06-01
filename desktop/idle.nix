@@ -3,7 +3,10 @@
   lib,
   ...
 }: {
-  options.liyua.desktop.idle.enable = lib.mkEnableOption "Enable the idle handler";
+  options.liyua.desktop.idle = {
+    enable = lib.mkEnableOption "Enable the idle handler";
+    suspend.enable = lib.mkEnableOption "Sleep mode";
+  };
   config.services.hypridle = lib.mkIf config.liyua.desktop.idle.enable {
     enable = true;
     settings = {
@@ -24,10 +27,6 @@
             on-timeout = "hyprctl dispatch dpms off";
             on-resume = "hyprctl dispatch dpms on && brightnessctl -r";
           }
-          {
-            timeout = 1800; # 30 minutes
-            on-timeout = "systemctl suspend";
-          }
         ]
         ++ (
           if config.liyua.desktop.lockscreen.enable # Add Hyprlock to hypridle if hyprlock is enabled
@@ -35,6 +34,16 @@
             {
               timeout = 300; # 5 minutes
               on-timeout = "pidof hyprlock || hyprlock";
+            }
+          ]
+          else []
+        )
+        ++ (
+          if config.liyua.desktop.idle.suspend.enable
+          then [
+            {
+              timeout = 1800; # 30 minutes
+              on-timeout = "systemctl suspend";
             }
           ]
           else []

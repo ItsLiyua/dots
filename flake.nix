@@ -34,6 +34,10 @@
       # url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprsplit = {
+      url = "github:shezdy/hyprsplit";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = {
@@ -59,6 +63,7 @@
       inherit ags;
     };
     sharedModules = [
+      inputs.hyprland.homeManagerModules.default
       nur.modules.homeManager.default
       stylix.homeModules.stylix
       nixvim.homeManagerModules.nixvim
@@ -75,6 +80,11 @@
       pkgs = nixpkgs.legacyPackages.${system};
       inherit extraSpecialArgs;
       modules = sharedModules ++ [./hosts/linode];
+    };
+    homeConfigurations."liyua@resolute" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      inherit extraSpecialArgs;
+      modules = sharedModules ++ [./hosts/resolute];
     };
   };
 }

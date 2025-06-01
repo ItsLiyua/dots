@@ -1,18 +1,22 @@
 {
   config,
   lib,
+  pkgs,
+  inputs,
   ...
 }: {
-  options.liyua.desktop.hyprland.enable = lib.mkEnableOption "Adds hyprland to the users configuration";
+  options.liyua.desktop.hyprland = {
+    enable = lib.mkEnableOption "Adds hyprland to the users configuration";
+    splitMonitorWorkspaces.enable = lib.mkEnableOption "Plugin for seperate workspaces per monitor";
+  };
   config.wayland.windowManager.hyprland = lib.mkIf config.liyua.desktop.hyprland.enable {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     settings = {
       "$mod" = "SUPER";
-      # env = [
-      #   "XCURSOR_SIZE,24"
-      #   "HYPRCURSOR_SIZE,24"
-      # ];
       ecosystem.no_update_news = true;
+      env = ["QT_QPA_PLATFORMTHEME,qt6ct"];
       general = {
         gaps_in = 5;
         gaps_out = 10;
@@ -78,60 +82,53 @@
       master.new_status = "master";
       misc = {
         force_default_wallpaper = -1;
-        # disable_hyprland_logo = false;
       };
       input = {
         kb_layout = "de";
 
         follow_mouse = 1;
+        accel_profile = "flat";
         sensitivity = 0;
 
         touchpad.natural_scroll = false;
       };
       gestures.workspace_swipe = true;
-      bind = [
-        "$mod, Q, killactive"
-        "$mod, M, exit"
+      bind = let
+        genWorkspaceKeybinds = start: end: mod: rule: ((lib.range start end)
+          |> map (x: "${mod}, ${x |> (x: x - builtins.floor (x / end) * end) |> builtins.toString}, ${
+            if config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable
+            then "split:${rule}"
+            else rule
+          }, ${builtins.toString x}"));
+      in
+        [
+          "$mod, Q, killactive"
+          "$mod, M, exit"
 
-        "$mod, T, exec, foot"
-        "$mod, F, exec, firefox"
-        "$mod, A, exec, wofi --show drun"
+          "$mod, T, exec, ${pkgs.foot}/bin/foot"
+          "$mod, F, exec, ${pkgs.firefox}/bin/firefox"
+          "$mod, A, exec, ${pkgs.wofi}/bin/wofi --show drun"
 
-        "$mod, V, togglefloating"
-        # "$mod, B, togglefullscreen"
+          "$mod, V, togglefloating"
+          "$mod, B, fullscreen"
 
-        "$mod, H, movefocus, l"
-        "$mod, J, movefocus, d"
-        "$mod, K, movefocus, u"
-        "$mod, L, movefocus, r"
+          "$mod, H, movefocus, l"
+          "$mod, J, movefocus, d"
+          "$mod, K, movefocus, u"
+          "$mod, L, movefocus, r"
 
-        "$mod SHIFT, H, movewindow, l"
-        "$mod SHIFT, J, movewindow, d"
-        "$mod SHIFT, K, movewindow, u"
-        "$mod SHIFT, L, movewindow, r"
-
-        "$mod, 1, workspace, 1"
-        "$mod, 2, workspace, 2"
-        "$mod, 3, workspace, 3"
-        "$mod, 4, workspace, 4"
-        "$mod, 5, workspace, 5"
-        "$mod, 6, workspace, 6"
-        "$mod, 7, workspace, 7"
-        "$mod, 8, workspace, 8"
-        "$mod, 9, workspace, 9"
-        "$mod, 0, workspace, 10"
-
-        "$mod SHIFT, 1, movetoworkspacesilent, 1"
-        "$mod SHIFT, 2, movetoworkspacesilent, 2"
-        "$mod SHIFT, 3, movetoworkspacesilent, 3"
-        "$mod SHIFT, 4, movetoworkspacesilent, 4"
-        "$mod SHIFT, 5, movetoworkspacesilent, 5"
-        "$mod SHIFT, 6, movetoworkspacesilent, 6"
-        "$mod SHIFT, 7, movetoworkspacesilent, 7"
-        "$mod SHIFT, 8, movetoworkspacesilent, 8"
-        "$mod SHIFT, 9, movetoworkspacesilent, 9"
-        "$mod SHIFT, 0, movetoworkspacesilent, 10"
-      ];
+          "$mod SHIFT, H, movewindow, l"
+          "$mod SHIFT, J, movewindow, d"
+          "$mod SHIFT, K, movewindow, u"
+          "$mod SHIFT, L, movewindow, r"
+        ]
+        ++ (genWorkspaceKeybinds 1 10 "$mod" "workspace")
+        ++ (genWorkspaceKeybinds 1 10 "$mod SHIFT" "movetoworkspacesilent")
+        ++ (
+          if config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable
+          then ["$mod, Tab, focusMonitor, +1" "$mod SHIFT, Tab, movewindow, mon:+1 silent"]
+          else []
+        );
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
@@ -158,6 +155,10 @@
         "noanim, selection"
         "noanim, my-bar"
       ];
+      plugin.hyprsplit.num_workspaces = lib.mkIf config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable 10;
     };
+    plugins =
+      lib.mkIf config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable
+      [inputs.hyprsplit.packages.${pkgs.system}.hyprsplit];
   };
 }
