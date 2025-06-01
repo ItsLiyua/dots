@@ -153,6 +153,6 @@
       ];
       plugin.split-monitor-workspaces.count = lib.mkIf config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable 10;
     };
-    plugins = lib.mkIf config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable [inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces];
+    plugins = lib.mkIf config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable ["${inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces}/lib/split-monitor-workspaces.so"];
   };
 }
