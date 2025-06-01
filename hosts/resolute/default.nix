@@ -1,6 +1,9 @@
 {lib, ...}: {
   config = {
-    liyua.desktop.screenRotation.enable = false;
+    liyua.desktop = {
+      screenRotation.enable = false;
+      hyprland.splitMonitorWorkspaces.enable = true;
+    };
     wayland.windowManager.hyprland.settings = {
       monitor = [
         "HDMI-A-1,1920x1080@60,-1920x0,1"
