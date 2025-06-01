@@ -98,7 +98,7 @@
         genWorkspaceKeybinds = start: end: mod: rule: ((lib.range start end)
           |> map (x: "${mod}, ${x |> (x: x - builtins.floor (x / end) * end) |> builtins.toString}, ${
             if config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable
-            then "split-${rule}"
+            then "split:${rule}"
             else rule
           }, ${builtins.toString x}"));
       in
@@ -127,7 +127,7 @@
         ++ (genWorkspaceKeybinds 1 10 "$mod SHIFT" "movetoworkspacesilent")
         ++ (
           if config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable
-          then ["$mod, Tab, focusMonitor, +1" "$mod SHIFT, Tab, split-changemonitorsilent, next"]
+          then ["$mod, Tab, focusMonitor, +1" "$mod SHIFT, Tab, movewindow, mon:+1 silent"]
           else []
         );
       bindm = [
@@ -156,10 +156,10 @@
         "noanim, selection"
         "noanim, my-bar"
       ];
-      plugin.split-monitor-workspaces.count = lib.mkIf config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable 10;
+      plugin.hyprsplit.num_workspaces = lib.mkIf config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable 10;
     };
     plugins =
       lib.mkIf config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable
-      [inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces];
+      [inputs.hyprsplit.packages.${pkgs.system}.hyprsplit];
   };
 }
