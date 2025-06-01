@@ -83,7 +83,7 @@
           userVoiceShow.enable = true;
           validReply.enable = true;
           validUser.enable = true;
-          vcNarrator.enable = true;
+          vcNarrator.enable = false;
           viewIcons.enable = true;
           whoReacted.enable = true;
           youtubeAdblock.enable = true;
