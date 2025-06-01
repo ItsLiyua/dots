@@ -79,7 +79,6 @@
       master.new_status = "master";
       misc = {
         force_default_wallpaper = -1;
-        # disable_hyprland_logo = false;
       };
       input = {
         kb_layout = "de";
@@ -124,7 +123,13 @@
           "$mod SHIFT, K, movewindow, u"
           "$mod SHIFT, L, movewindow, r"
         ]
-        ++ (genWorkspaceKeybinds 1 10 "workspace") ++ (genWorkspaceKeybinds 1 10 "movetoworkspacesilent");
+        ++ (genWorkspaceKeybinds 1 10 "workspace")
+        ++ (genWorkspaceKeybinds 1 10 "movetoworkspacesilent")
+        ++ (
+          if config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable
+          then ["$mod, Tab, focusMonitor, +1" "$mod SHIFT, Tab, split-changemonitorsilent, next"]
+          else []
+        );
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
