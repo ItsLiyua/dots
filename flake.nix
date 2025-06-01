@@ -63,6 +63,7 @@
       inherit ags;
     };
     sharedModules = [
+      inputs.hyprland.homeManagerModules.default
       nur.modules.homeManager.default
       stylix.homeModules.stylix
       nixvim.homeManagerModules.nixvim

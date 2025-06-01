@@ -14,6 +14,7 @@
     settings = {
       "$mod" = "SUPER";
       ecosystem.no_update_news = true;
+      env = ["QT_QPA_PLATFORMTHEME,qt6ct"];
       general = {
         gaps_in = 5;
         gaps_out = 10;
