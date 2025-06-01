@@ -11,6 +11,8 @@
   };
   config.wayland.windowManager.hyprland = lib.mkIf config.liyua.desktop.hyprland.enable {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     settings = {
       "$mod" = "SUPER";
       ecosystem.no_update_news = true;
@@ -83,10 +85,7 @@
       };
       input = {
         kb_layout = "de";
-        # kb_variant = null;
-        # kb_model = null;
         kb_options = "caps:swapescape";
-        # kb_rules = null;
 
         follow_mouse = 1;
         accel_profile = "flat";
@@ -96,8 +95,8 @@
       };
       gestures.workspace_swipe = true;
       bind = let
-        genWorkspaceKeybinds = start: end: rule: ((lib.range start end)
-          |> map (x: "$mod, ${x |> (x: x - builtins.floor (x / end) * end) |> builtins.toString}, ${
+        genWorkspaceKeybinds = start: end: mod: rule: ((lib.range start end)
+          |> map (x: "${mod}, ${x |> (x: x - builtins.floor (x / end) * end) |> builtins.toString}, ${
             if config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable
             then "split-${rule}"
             else rule
@@ -124,8 +123,8 @@
           "$mod SHIFT, K, movewindow, u"
           "$mod SHIFT, L, movewindow, r"
         ]
-        ++ (genWorkspaceKeybinds 1 10 "workspace")
-        ++ (genWorkspaceKeybinds 1 10 "movetoworkspacesilent")
+        ++ (genWorkspaceKeybinds 1 10 "$mod" "workspace")
+        ++ (genWorkspaceKeybinds 1 10 "$mod SHIFT" "movetoworkspacesilent")
         ++ (
           if config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable
           then ["$mod, Tab, focusMonitor, +1" "$mod SHIFT, Tab, split-changemonitorsilent, next"]
