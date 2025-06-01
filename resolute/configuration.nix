@@ -1,7 +1,7 @@
 {
   imports = [
-    ./disko.nix
     ./hardware-configuration.nix
+    ./disko.nix
   ];
   networking.hostName = "resolute";
   console.keyMap = "us";

@@ -3,9 +3,9 @@
   inputs,
   ...
 }: {
-  imports = [
-    inputs.disko.nixosModules.disko
-    inputs.sops-nix.nixosModules.sops
+  imports = with inputs; [
+    disko.nixosModules.disko
+    sops-nix.nixosModules.sops
 
     ./modules/nix.nix
     ./modules/grub.nix
