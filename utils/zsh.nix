@@ -55,6 +55,13 @@
         			"alignment": "left",
         			"newline": true,
         			"segments": [
+                {
+                  "type": "session",
+                  "style": "plain",
+                  "background": "transparent",
+                  "foreground": "blue",
+                  "template": "{{ if .SSHSession }}{{ .UserName }}@{{ .HostName }}{{ end }} "
+                },
         				{
         					"type": "path",
         					"style": "plain",
