@@ -4,5 +4,8 @@
   ...
 }: {
   options.liyua.networkmanager.enable = lib.mkEnableOption "NetworkManager";
-  config.networking.networkmanager.enable = lib.mkIf config.liyua.networkmanager.enable true;
+  config.networking = lib.mkIf config.liyua.networkmanager.enable {
+    networkmanager.enable = true;
+    firewall.enable = true;
+  };
 }
