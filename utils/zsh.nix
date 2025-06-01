@@ -17,6 +17,7 @@
         ignoreSpace = true;
       };
       shellAliases = {
+        b = "btop";
         c = "clear";
         f = "fastfetch";
         v = "nvim";
@@ -27,6 +28,7 @@
         gca = "git commit -a";
         gcam = "git commit -am";
         gp = "git push";
+        gu = "git pull";
         ls = "eza";
         ll = "ls -l";
         la = "ls -la";
