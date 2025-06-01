@@ -31,6 +31,13 @@
           ./linode/configuration.nix
         ];
       };
+      resolute = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./shared.nix
+          ./resolute/configuration.nix
+        ];
+      };
     };
   };
 }
