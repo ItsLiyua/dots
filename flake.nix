@@ -76,5 +76,10 @@
       inherit extraSpecialArgs;
       modules = sharedModules ++ [./hosts/linode];
     };
+    homeConfigurations."liyua@resolute" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      inherit extraSpecialArgs;
+      modules = sharedModules ++ [./hosts/resolute];
+    };
   };
 }

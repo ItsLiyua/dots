@@ -8,10 +8,6 @@
     enable = true;
     settings = {
       "$mod" = "SUPER";
-      # env = [
-      #   "XCURSOR_SIZE,24"
-      #   "HYPRCURSOR_SIZE,24"
-      # ];
       ecosystem.no_update_news = true;
       general = {
         gaps_in = 5;
@@ -88,6 +84,7 @@
         # kb_rules = null;
 
         follow_mouse = 1;
+        accel_profile = "flat";
         sensitivity = 0;
 
         touchpad.natural_scroll = false;
