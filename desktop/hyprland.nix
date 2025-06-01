@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options.liyua.desktop.hyprland.enable = lib.mkEnableOption "Adds hyprland to the users configuration";
@@ -94,12 +95,12 @@
         "$mod, Q, killactive"
         "$mod, M, exit"
 
-        "$mod, T, exec, foot"
-        "$mod, F, exec, firefox"
-        "$mod, A, exec, wofi --show drun"
+        "$mod, T, exec, ${pkgs.foot}/bin/foot"
+        "$mod, F, exec, ${pkgs.firefox}/bin/firefox"
+        "$mod, A, exec, ${pkgs.wofi}/bin/wofi --show drun"
 
         "$mod, V, togglefloating"
-        # "$mod, B, togglefullscreen"
+        "$mod, B, fullscreen"
 
         "$mod, H, movefocus, l"
         "$mod, J, movefocus, d"
