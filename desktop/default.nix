@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ./hyprland.nix
+    ./hyprland
     ./lockscreen.nix
     ./idle.nix
     ./theme.nix
