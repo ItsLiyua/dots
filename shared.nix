@@ -23,7 +23,7 @@
       apps.enable = lib.mkDefault true;
       cli.enable = lib.mkDefault true;
       desktop.enable = lib.mkDefault true;
-      nvim.enable = lib.mkDefault true;
+      # nvim.enable = lib.mkDefault true;
       utils.enable = lib.mkDefault true;
     };
   };
