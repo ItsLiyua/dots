@@ -95,7 +95,9 @@
       gestures.workspace_swipe = true;
       bind = let
         genWorkspaceKeybinds = start: end: mod: rule: ((lib.range start end)
-          |> map (x: "${mod}, ${x |> (x: x - builtins.floor (x / end) * end) |> builtins.toString}, ${
+          |> map (x: "${mod}, ${x
+            |> (x: x - builtins.floor (x / end) * end)
+            |> builtins.toString}, ${
             if config.liyua.desktop.hyprland.splitMonitorWorkspaces.enable
             then "split:${rule}"
             else rule
