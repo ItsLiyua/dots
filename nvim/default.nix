@@ -1,6 +1,9 @@
 { pkgs, inputs, ... }:
 {
-  imports = [ ./ui/neotree.nix ];
+  imports = [ 
+    ./editor/autoclose.nix
+    ./ui/neotree.nix 
+  ];
   config.programs.nvf = {
     enable = true;
     settings = {
