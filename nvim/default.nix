@@ -1,9 +1,9 @@
 { pkgs, inputs, ... }:
 {
   imports = [ 
-    ./options.nix
     ./editor
     ./ui
+    ./misc
   ];
   config.programs.nvf = {
     enable = true;
@@ -37,10 +37,6 @@
         telescope.enable = true;
         autocomplete.blink-cmp.enable = true;
         formatter.conform-nvim.enable = true;
-        clipboard = {
-          enable = true;
-          providers.wl-copy.enable = true;
-        };
       };
     };
   };
