@@ -11,6 +11,16 @@
     programs.nvf.settings.vim = lib.mkIf config.liyua.nvim.ui.telescope.enable {
       telescope = {
         enable = true;
+        setupOpts.defaults = {
+				path_display = [ "smart" ];
+				mappings = {
+					i = {
+						"<C-k>" = lib.mkLuaInline ''require("telescope.actions").move_selection_previous'';
+						"<C-j>" = lib.mkLuaInline ''require("telescope.actions").move_selection_next'';
+						"<ESC>" = lib.mkLuaInline ''require("telescope.actions").close'';
+					};
+				};
+			};
       };
       lazy.plugins = with pkgs.vimPlugins; {
         # "telescope-ui-select.nvim" = {
