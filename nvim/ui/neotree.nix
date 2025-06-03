@@ -1,0 +1,24 @@
+{ config, lib, ... }:
+{
+  options.liyua.nvim.ui.filetree.enable = lib.mkEnableOption "Filetree";
+  config = {
+    liyua.nvim.ui.filetree.enable = lib.mkDefault true;
+    programs.nvf.settings.vim = lib.mkIf config.liyua.nvim.ui.filetree.enable {
+    filetree.neo-tree = {
+      enable = true;
+      setupOpts = {
+        enable_cursor_hijack = true;
+        auto_clean_after_session_restore = true;
+      };
+    };
+    keymaps = [
+      { 
+        key = "<C-n>";
+        mode = ["n" "i" "v"];
+        action = "<cmd>Neotree<CR>";
+        silent = true;
+        desc = "Open filetree";
+      }
+    ];
+  };};
+}
