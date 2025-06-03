@@ -2,7 +2,7 @@
   config = {
     liyua.desktop = {
       screenRotation.enable = false;
-      hyprland.splitMonitorWorkspaces.enable = true;
+      hyprland.hyprsplit.enable = true;
     };
     wayland.windowManager.hyprland.settings = {
       monitor = [

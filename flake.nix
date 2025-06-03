@@ -5,10 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     tsserver-nixpkgs.url = "github:nixos/nixpkgs?rev=81bc281190c4955903d546169453f16c39908d58";
     hyprland.url = "github:hyprwm/Hyprland";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,17 +34,15 @@
       url = "github:shezdy/hyprsplit";
       inputs.hyprland.follows = "hyprland";
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
-    stylix,
-    nixvim,
-    nix-wallpaper,
-    nixcord,
-    nur,
-    ags,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -56,18 +50,15 @@
       inherit nixpkgs;
       inherit inputs;
       inherit system;
-      inherit stylix;
-      inherit nix-wallpaper;
-      inherit nixcord;
-      inherit nur;
-      inherit ags;
     };
-    sharedModules = [
-      inputs.hyprland.homeManagerModules.default
+    sharedModules = with inputs; [
+      ags.homeManagerModules.default
+      hyprland.homeManagerModules.default
       nur.modules.homeManager.default
+      nvf.homeManagerModules.default
       stylix.homeModules.stylix
-      nixvim.homeManagerModules.nixvim
       nixcord.homeModules.nixcord
+
       ./shared.nix
     ];
   in {

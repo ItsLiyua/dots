@@ -2,18 +2,16 @@
   config,
   lib,
   pkgs,
-  ags,
+  inputs,
   ...
 }: {
-  imports = [ags.homeManagerModules.default];
-
   options.liyua.desktop.bar.enable = lib.mkEnableOption "Enables the top bar in hyprland";
 
   config = lib.mkIf config.liyua.desktop.bar.enable {
     programs.ags = {
       enable = true;
       configDir = ./.;
-      extraPackages = with ags.packages.${pkgs.system}; [
+      extraPackages = with inputs.ags.packages.${pkgs.system}; [
         hyprland
         mpris
         wireplumber
