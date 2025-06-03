@@ -1,7 +1,9 @@
 { lib, ... }:
 {
   imports = [
+    ./lualine.nix
     ./neotree.nix
+    ./telescope.nix
     ./wordhighlight.nix
   ];
   options.liyua.nvim.ui.enable = lib.mkEnableOption "UI Improvements";

@@ -1,8 +1,15 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   config = {
-    liyua.desktop = {
-      screenRotation.enable = false;
-      hyprland.hyprsplit.enable = true;
+    liyua = {
+      desktop = {
+        screenRotation.enable = false;
+        hyprland.hyprsplit.enable = true;
+      };
+      nvim = {
+        enable = true;
+        lsp.enable = true;
+      };
     };
     wayland.windowManager.hyprland.settings = {
       monitor = [
