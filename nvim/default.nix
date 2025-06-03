@@ -2,7 +2,7 @@
 {
   imports = [ 
     ./options.nix
-    ./editor/autoclose.nix
+    ./editor
     ./ui
   ];
   config.programs.nvf = {
