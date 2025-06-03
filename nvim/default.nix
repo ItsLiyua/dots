@@ -3,6 +3,7 @@
   imports = [ 
     ./editor/autoclose.nix
     ./ui/neotree.nix 
+    ./ui/wordhighlight.nix
   ];
   config.programs.nvf = {
     enable = true;
