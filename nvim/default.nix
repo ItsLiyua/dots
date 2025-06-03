@@ -1,9 +1,9 @@
 { pkgs, inputs, ... }:
 {
   imports = [ 
+    ./options.nix
     ./editor/autoclose.nix
-    ./ui/neotree.nix 
-    ./ui/wordhighlight.nix
+    ./ui
   ];
   config.programs.nvf = {
     enable = true;
@@ -40,32 +40,6 @@
         clipboard = {
           enable = true;
           providers.wl-copy.enable = true;
-        };
-        options = {
-          autoindent = true;
-          tabstop = 2;
-          softtabstop = 2;
-          shiftwidth = 2;
-          expandtab = true;
-          number = true;
-          relativenumber = true;
-          wrap = false;
-          ignorecase = true;
-          smartcase = true;
-          termguicolors = true;
-          background = "dark";
-          signcolumn = "yes";
-          backspace = "indent,eol,start";
-          splitright = true;
-          splitbelow = true;
-          conceallevel = 2;
-          concealcursor = "";
-          scrolloff = 10;
-          sidescrolloff = 20;
-          cursorline = true;
-          autoread = true;
-          foldmethod = "indent";
-          foldlevel = 100;
         };
       };
     };

@@ -2,7 +2,7 @@
 {
   options.liyua.nvim.ui.filetree.enable = lib.mkEnableOption "Filetree";
   config = {
-    liyua.nvim.ui.filetree.enable = lib.mkDefault true;
+    liyua.nvim.ui.filetree.enable = lib.mkDefault config.liyua.nvim.ui.enable;
     programs.nvf.settings.vim = lib.mkIf config.liyua.nvim.ui.filetree.enable {
       filetree.neo-tree = {
         enable = true;

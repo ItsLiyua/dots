@@ -8,7 +8,7 @@
   options.liyua.nvim.ui.wordHighlight.enable =
     lib.mkEnableOption "Highlight the word under the cursor";
   config = {
-    liyua.nvim.ui.wordHighlight.enable = lib.mkDefault true;
+    liyua.nvim.ui.wordHighlight.enable = lib.mkDefault config.liyua.nvim.ui.enable;
     programs.nvf.settings.vim = lib.mkIf config.liyua.nvim.ui.wordHighlight.enable {
       lazy.plugins = {
         "local-highlight.nvim" = {
