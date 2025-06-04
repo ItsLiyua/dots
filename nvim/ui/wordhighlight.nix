@@ -44,7 +44,7 @@
           ];
         };
       };
-      highlight.LocalHighlight.bg = config.lib.stylix.colors.withHashtag.base02;
+      # highlight.LocalHighlight.bg = config.lib.stylix.colors.withHashtag.base02;
     };
   };
 }
