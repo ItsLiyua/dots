@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   imports = [
+    ./indent-blankline.nix
     ./lualine.nix
     ./neotree.nix
     ./telescope.nix
