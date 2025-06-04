@@ -22,6 +22,11 @@
         user = "liyua";
         identityFile = "~/.ssh/id_ed25519";
       };
+      "rpi5" = {
+        hostname = "rpi5";
+        user = "liyua";
+        identityFile = "~/.ssh/id_ed25519";
+      };
     };
   };
 }
