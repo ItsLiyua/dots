@@ -28,6 +28,7 @@
     ./modules/ozone.nix
     ./modules/gaming.nix
     ./modules/keyd.nix
+    ./modules/sops.nix
   ];
   config.liyua = {
     audio.enable = lib.mkDefault true;
