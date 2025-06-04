@@ -1,5 +1,8 @@
 { lib, pkgs, ... }:{
-  imports = [./hardware-configuration.nix];
+  imports = [
+    ./hardware-configuration.nix
+    ./wireguard.nix
+  ];
   config = {
     liyua = {
       audio.enable = false;
