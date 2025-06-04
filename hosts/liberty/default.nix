@@ -1,9 +1,16 @@
 {
   config = {
-    liyua.desktop = {
-      screenRotation.enable = true;
-      idle.suspend.enable = true;
+    liyua = {
+      desktop = {
+        screenRotation.enable = true;
+        idle.suspend.enable = true;
+      };
+      nvim = {
+        enable = true;
+        lsp.enable = true;
+        editor.autocomplete.enable = true;
+      };
     };
-    wayland.windowManager.hyprland.settings.monitor = ["eDP-1,2560x1600@60,0x0,1.6"];
+    wayland.windowManager.hyprland.settings.monitor = [ "eDP-1,2560x1600@60,0x0,1.6" ];
   };
 }

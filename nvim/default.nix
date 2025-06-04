@@ -27,7 +27,6 @@
       treesitter.enable = true;
       binds.whichKey.enable = true;
       syntaxHighlighting = true;
-      autocomplete.blink-cmp.enable = true;
       keymaps = [
         {
           key = "<leader>lf";
