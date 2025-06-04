@@ -5,7 +5,7 @@
     nvim = {
       enable = true;
       lsp.enable = false;
-      editorautocomplete.enable = false;
+      editor.autocomplete.enable = false;
     };
     cli = {
       enable = true;
