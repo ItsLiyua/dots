@@ -10,34 +10,41 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
-  outputs = inputs @ {nixpkgs, ...}: let
-    system = "x86_64-linux";
-  in {
-    nixosConfigurations = {
-      liberty = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./shared.nix
-          ./liberty/configuration.nix
-        ];
-      };
-      linode = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./shared.nix
-          ./linode/configuration.nix
-        ];
-      };
-      resolute = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./shared.nix
-          ./resolute/configuration.nix
-        ];
-      };
+    mysecrets = {
+      url = "git+ssh://git@github.com/ItsLiyua/sops-secrets.git?ref=master&shallow=1";
+      flake = false;
     };
   };
+  outputs =
+    inputs@{ nixpkgs, ... }:
+    let
+      system = "x86_64-linux";
+    in
+    {
+      nixosConfigurations = {
+        liberty = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./shared.nix
+            ./liberty/configuration.nix
+          ];
+        };
+        linode = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./shared.nix
+            ./linode/configuration.nix
+          ];
+        };
+        resolute = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./shared.nix
+            ./resolute/configuration.nix
+          ];
+        };
+      };
+    };
 }

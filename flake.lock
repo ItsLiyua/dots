@@ -20,6 +20,24 @@
         "type": "github"
       }
     },
+    "mysecrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1749049515,
+        "narHash": "sha256-wpeNU7x4It0+pp0AGeg11Q70niqKxV0TlJGwKZ3fLsw=",
+        "ref": "master",
+        "rev": "661a17670c88300ec49720adf1d2c2cf1c3b5e7f",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/ItsLiyua/sops-secrets.git"
+      },
+      "original": {
+        "ref": "master",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/ItsLiyua/sops-secrets.git"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1748693115,
@@ -39,6 +57,7 @@
     "root": {
       "inputs": {
         "disko": "disko",
+        "mysecrets": "mysecrets",
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix"
       }
