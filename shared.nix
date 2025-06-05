@@ -5,7 +5,7 @@
 }: {
   imports = with inputs; [
     disko.nixosModules.disko
-    sops-nix.nixosModules.sops
+    # sops-nix.nixosModules.sops
 
     ./modules/nix.nix
     ./modules/grub.nix
@@ -28,7 +28,6 @@
     ./modules/ozone.nix
     ./modules/gaming.nix
     ./modules/keyd.nix
-    ./modules/sops.nix
   ];
   config.liyua = {
     audio.enable = lib.mkDefault true;
