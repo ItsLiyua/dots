@@ -1,8 +1,5 @@
-{ lib, pkgs, ... }:{
-  imports = [
-    ./hardware-configuration.nix
-    ./wireguard.nix
-  ];
+{ lib, pkgs, ... }: {
+  imports = [ ./hardware-configuration.nix ./wireguard.nix ];
   config = {
     liyua = {
       audio.enable = false;
@@ -24,11 +21,7 @@
       '';
     };
     networking.hostName = "linode";
-    environment.systemPackages = with pkgs; [
-      inetutils
-      mtr
-      sysstat
-    ];
+    environment.systemPackages = with pkgs; [ inetutils mtr sysstat ];
     networking = {
       usePredictableInterfaceNames = false;
       useDHCP = false;

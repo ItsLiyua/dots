@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{ config, lib, ... }: {
   options.liyua.audio.enable = lib.mkEnableOption "Adds pipewire";
   config = lib.mkIf config.liyua.audio.enable {
     security.rtkit.enable = true;

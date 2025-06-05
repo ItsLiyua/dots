@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   networking = {
     nat = {
       enable = true;
@@ -20,12 +19,10 @@
         ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/8 -o eth0 -j MASQUERADE
       '';
       privateKeyFile = "/home/liyua/privatekey";
-      peers = [
-        {
-          publicKey = "8malqWLIkMY2LaM4nOTlfBJsWWX15VYZtnjqSah+ak8=";
-          allowedIPs = [ "10.100.0.2/8" ];
-        }
-      ];
+      peers = [{
+        publicKey = "8malqWLIkMY2LaM4nOTlfBJsWWX15VYZtnjqSah+ak8=";
+        allowedIPs = [ "10.100.0.2/8" ];
+      }];
     };
   };
 }

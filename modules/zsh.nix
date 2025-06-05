@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{ config, lib, pkgs, ... }: {
   options.liyua.zsh.enable = lib.mkEnableOption "ZSH as the default shell";
   config = lib.mkIf config.liyua.zsh.enable {
     users.defaultUserShell = pkgs.zsh;
