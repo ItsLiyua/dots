@@ -42,12 +42,11 @@
   outputs =
     { nixpkgs, home-manager, ... }@inputs:
     let
-      system = "x86_64-linux";
       extraSpecialArgs = {
-        inherit nixpkgs;
-        inherit inputs;
-        inherit system;
+        inherit nixpkgs inputs;
       };
+      pkgs-x86 = nixpkgs.legacyPackages.x86_64-linux;
+      pkgs-amd64 = nixpkgs.legacyPackages.aarch64-linux;
       sharedModules = with inputs; [
         ags.homeManagerModules.default
         hyprland.homeManagerModules.default
@@ -61,20 +60,23 @@
     in
     {
       homeConfigurations."liyua@liberty" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = pkgs-x86;
         inherit extraSpecialArgs;
         modules = sharedModules ++ [ ./hosts/liberty ];
       };
       homeConfigurations."liyua@linode" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = pkgs-x86;
         inherit extraSpecialArgs;
         modules = sharedModules ++ [ ./hosts/linode ];
       };
       homeConfigurations."liyua@resolute" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = pkgs-x86;
         inherit extraSpecialArgs;
         modules = sharedModules ++ [ ./hosts/resolute ];
       };
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
+      formatter = {
+        x86_64-linux = pkgs-x86.nixfmt-tree;
+        aarch64-linux = pkgs-amd64.nixfmt-tree;
+      };
     };
 }
