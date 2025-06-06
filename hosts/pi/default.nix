@@ -1,6 +1,6 @@
-{ config, inputs, ... }:
+{ nixos-raspberrypi, ... }:
 {
-  imports = with inputs.nixos-raspberrypi.nixosModules; [
+  imports = with nixos-raspberrypi.nixosModules; [
     raspberry-pi-5.base
     raspberry-pi-5.bluetooth
     ./disko.nix

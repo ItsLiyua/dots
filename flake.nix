@@ -15,40 +15,24 @@
       nixos-raspberrypi,
       ...
     }@inputs:
+    let
+      inputConfigs = with inputs; [ disko.nixosModules.disko ];
+      mkSysConfig =
+        mainRepo: cfg:
+        mainRepo.lib.nixosSystem {
+          specialArgs = inputs;
+          modules = inputConfigs ++ [
+            ./shared.nix
+            cfg
+          ];
+        };
+    in
     {
       nixosConfigurations = {
-        liberty = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./shared.nix
-            ./liberty/configuration.nix
-          ];
-        };
-        linode = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./shared.nix
-            ./linode/configuration.nix
-          ];
-        };
-        resolute = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./shared.nix
-            ./resolute/configuration.nix
-          ];
-        };
-
-        rpi5-1 = nixos-raspberrypi.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            nixos-raspberrypi = inputs.nixos-raspberrypi;
-          };
-          modules = [
-            ./shared.nix
-            ./pi/configuration.nix
-          ];
-        };
+        liberty = mkSysConfig nixpkgs ./hosts/liberty;
+        linode = mkSysConfig nixpkgs ./hosts/linode;
+        resolute = mkSysConfig nixpkgs ./hosts/resolute;
+        rpi5-1 = mkSysConfig nixos-raspberrypi ./hosts/pi;
       };
       formatter = {
         x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;

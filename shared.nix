@@ -1,8 +1,6 @@
-{ lib, inputs, ... }:
+{ lib, ... }:
 {
-  imports = with inputs; [
-    disko.nixosModules.disko
-
+  imports = [
     ./modules/nix.nix
     ./modules/grub.nix
     ./modules/users.nix
