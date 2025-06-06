@@ -1,6 +1,7 @@
 import { bind, derive, Variable } from "astal";
 import { Gtk } from "astal/gtk4";
 import Wp from "gi://AstalWp?version=0.1";
+import HoverIcon from "../../lib/hovericon";
 
 const wp = Wp.get_default()!!;
 const VOLUME_STEP = 0.03;
@@ -24,48 +25,90 @@ function iconClassSet(
   return icons[icons.length - 1];
 }
 
-export default function Volume(){
-const old = (      <box
-        cssClasses={["volume"]}
-        onHoverEnter={() => expandVolume.set(true)}
-        onHoverLeave={() => expandVolume.set(false)}
-        onScroll={(_, __, dy) => {
-          if (dy < 0) {
-            wp.defaultSpeaker.volume = Math.min(
-              wp.defaultSpeaker.volume + VOLUME_STEP,
-              1,
-            );
-            wp.defaultSpeaker.mute = false;
-          } else if (dy > 0) {
-            wp.defaultSpeaker.volume = Math.max(
-              wp.defaultSpeaker.volume - VOLUME_STEP,
-              0,
-            );
-            if (wp.defaultSpeaker.volume == 0) wp.defaultSpeaker.mute = true;
-          }
-        }}
+export default function Volume() {
+  const old = (
+    <box
+      cssClasses={["volume"]}
+      onHoverEnter={() => expandVolume.set(true)}
+      onHoverLeave={() => expandVolume.set(false)}
+      onScroll={(_, __, dy) => {
+        if (dy < 0) {
+          wp.defaultSpeaker.volume = Math.min(
+            wp.defaultSpeaker.volume + VOLUME_STEP,
+            1,
+          );
+          wp.defaultSpeaker.mute = false;
+        } else if (dy > 0) {
+          wp.defaultSpeaker.volume = Math.max(
+            wp.defaultSpeaker.volume - VOLUME_STEP,
+            0,
+          );
+          if (wp.defaultSpeaker.volume == 0) wp.defaultSpeaker.mute = true;
+        }
+      }}
+    >
+      <label
+        cssClasses={bind(derive([speakerVolume, speakerMute])).as((a) => [
+          !a[1] && Math.floor(a[0] * 100) != 0
+            ? iconClassSet(VOLUME_ICONS, a[0]).cssClass
+            : VOLUME_MUTE_ICON.cssClass,
+        ])}
+        label={bind(derive([speakerVolume, speakerMute])).as((a) =>
+          !a[1] && Math.floor(a[0] * 100) != 0
+            ? iconClassSet(VOLUME_ICONS, a[0]).icon
+            : VOLUME_MUTE_ICON.icon,
+        )}
+      />
+      <revealer
+        revealChild={bind(expandVolume)}
+        transitionType={Gtk.RevealerTransitionType.SLIDE_LEFT}
       >
         <label
-          cssClasses={bind(derive([speakerVolume, speakerMute])).as((a) => [
-            !a[1] && Math.floor(a[0] * 100) != 0
-              ? iconClassSet(VOLUME_ICONS, a[0]).cssClass
-              : VOLUME_MUTE_ICON.cssClass,
-          ])}
-          label={bind(derive([speakerVolume, speakerMute])).as((a) =>
-            !a[1] && Math.floor(a[0] * 100) != 0
-              ? iconClassSet(VOLUME_ICONS, a[0]).icon
-              : VOLUME_MUTE_ICON.icon,
+          label={bind(derive([speakerVolume, speakerMute])).as(
+            (a) => (!a[1] ? Math.round(a[0] * 100) : 0) + "",
           )}
         />
-        <revealer
-          revealChild={bind(expandVolume)}
-          transitionType={Gtk.RevealerTransitionType.SLIDE_LEFT}
-        >
-          <label
-            label={bind(derive([speakerVolume, speakerMute])).as(
-              (a) => (!a[1] ? Math.round(a[0] * 100) : 0) + "",
-            )}
-          />
-        </revealer>
-      </box>)
+      </revealer>
+    </box>
+  );
+  return (
+    <HoverIcon
+      enable={true}
+      visible={true}
+      initState={false}
+      valueProvider={bind(derive([speakerVolume, speakerMute]))
+        .as((a) => (a[1] ? 0 : a[0]))
+        .as(toString)}
+      iconProvider={bind(derive([speakerVolume, speakerMute])).as((a) =>
+        !a[1] && Math.floor(a[0] * 100) != 0
+          ? iconClassSet(VOLUME_ICONS, a[0]).icon
+          : VOLUME_MUTE_ICON.icon,
+      )}
+      iconClassProvider={bind(derive([speakerVolume, speakerMute])).as((a) => [
+        !a[1] && Math.floor(a[0] * 100) != 0
+          ? iconClassSet(VOLUME_ICONS, a[0]).cssClass
+          : VOLUME_MUTE_ICON.cssClass,
+      ])}
+      elementClassProvider={["volume"]}
+      gtkRevealerTransition={Gtk.RevealerTransitionType.SLIDE_LEFT}
+      gtkRevealerDuration={500}
+      onClick={function (button: any): void {}}
+      onScroll={function (dx: number, dy: number): void {
+        if (dy < 0) {
+          wp.defaultSpeaker.volume = Math.min(
+            wp.defaultSpeaker.volume + VOLUME_STEP,
+            1,
+          );
+          wp.defaultSpeaker.mute = false;
+        } else if (dy > 0) {
+          wp.defaultSpeaker.volume = Math.max(
+            wp.defaultSpeaker.volume - VOLUME_STEP,
+            0,
+          );
+          if (wp.defaultSpeaker.volume == 0) wp.defaultSpeaker.mute = true;
+        }
+      }}
+      onHoverExtra={function (enter: boolean): void {}}
+    />
+  );
 }

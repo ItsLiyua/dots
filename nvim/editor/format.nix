@@ -6,15 +6,15 @@
     programs.nvf.settings.vim = lib.mkIf config.liyua.nvim.editor.format.enable {
       formatter.conform-nvim.enable = true;
       lsp.mappings.format = null;
-      # keymaps = [
-      #   {
-      #     key = "<leader>lf";
-      #     mode = [ "n" ];
-      #     action = ''require("conform").format()'';
-      #     lua = true;
-      #     desc = "Format file";
-      #   }
-      # ];
+      keymaps = [
+        {
+          key = "<leader>lf";
+          mode = [ "n" ];
+          action = ''function()require("conform").format()end'';
+          lua = true;
+          desc = "Format file";
+        }
+      ];
     };
   };
 }

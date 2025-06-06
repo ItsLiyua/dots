@@ -4,10 +4,10 @@ import Launcher from "./modules/launcher";
 import Music from "./modules/music";
 import Workspaces from "./modules/workspaces";
 import Misc from "./modules/misc";
-import VolumeBrightness from "./modules/volBright";
 import WifiBtBat from "./modules/wifiBtBat";
 import Power from "./modules/power";
 import Clock from "./modules/clock";
+import VolumeBrightness from "./modules/volBright/volBright";
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
 

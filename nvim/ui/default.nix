@@ -7,6 +7,7 @@
     ./noice.nix
     ./smearcursor.nix
     ./telescope.nix
+    ./whichkey.nix
     ./wordhighlight.nix
   ];
   options.liyua.nvim.ui.enable = lib.mkEnableOption "UI Improvements";

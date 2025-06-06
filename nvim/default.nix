@@ -21,17 +21,7 @@
         enableFormat = true;
       };
       treesitter.enable = true;
-      binds.whichKey.enable = true;
       syntaxHighlighting = true;
-      keymaps = lib.mkIf (!config.liyua.nvim.lsp.enable) [
-        {
-          key = "<leader>lf";
-          mode = [ "n" ];
-          action = ''function()require("conform").format()end'';
-          lua = true;
-          desc = "Format file";
-        }
-      ];
     };
   };
 }
