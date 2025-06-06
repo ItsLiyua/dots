@@ -1,9 +1,10 @@
 { nixos-raspberrypi, ... }:
 {
-  imports = with nixos-raspberrypi.nixosModules; [
-    raspberry-pi-5.base
-    raspberry-pi-5.bluetooth
-    ./disko.nix
+  imports = with nixos-raspberrypi.nixosModules.raspberry-pi-5; [
+    base
+    bluetooth
+    ./modules/disko.nix
+    ./modules/package-cache.nix
   ];
   config = {
     liyua = {
@@ -18,13 +19,6 @@
       waylandNativeOzone.enable = false;
     };
     networking.hostName = "rpi5-1";
-    nix.settings = {
-
-      substituters = [ "https://nixos-raspberrypi.cachix.org" ];
-      trusted-public-keys = [
-        "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
-      ];
-    };
     system.stateVersion = "25.05";
   };
 }
