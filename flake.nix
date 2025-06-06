@@ -39,42 +39,42 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    extraSpecialArgs = {
-      inherit nixpkgs;
-      inherit inputs;
-      inherit system;
-    };
-    sharedModules = with inputs; [
-      ags.homeManagerModules.default
-      hyprland.homeManagerModules.default
-      nur.modules.homeManager.default
-      nvf.homeManagerModules.default
-      stylix.homeModules.stylix
-      nixcord.homeModules.nixcord
+  outputs =
+    { nixpkgs, home-manager, ... }@inputs:
+    let
+      system = "x86_64-linux";
+      extraSpecialArgs = {
+        inherit nixpkgs;
+        inherit inputs;
+        inherit system;
+      };
+      sharedModules = with inputs; [
+        ags.homeManagerModules.default
+        hyprland.homeManagerModules.default
+        nur.modules.homeManager.default
+        nvf.homeManagerModules.default
+        stylix.homeModules.stylix
+        nixcord.homeModules.nixcord
 
-      ./shared.nix
-    ];
-  in {
-    homeConfigurations."liyua@liberty" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      inherit extraSpecialArgs;
-      modules = sharedModules ++ [./hosts/liberty];
+        ./shared.nix
+      ];
+    in
+    {
+      homeConfigurations."liyua@liberty" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        inherit extraSpecialArgs;
+        modules = sharedModules ++ [ ./hosts/liberty ];
+      };
+      homeConfigurations."liyua@linode" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        inherit extraSpecialArgs;
+        modules = sharedModules ++ [ ./hosts/linode ];
+      };
+      homeConfigurations."liyua@resolute" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        inherit extraSpecialArgs;
+        modules = sharedModules ++ [ ./hosts/resolute ];
+      };
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
     };
-    homeConfigurations."liyua@linode" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      inherit extraSpecialArgs;
-      modules = sharedModules ++ [./hosts/linode];
-    };
-    homeConfigurations."liyua@resolute" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      inherit extraSpecialArgs;
-      modules = sharedModules ++ [./hosts/resolute];
-    };
-  };
 }

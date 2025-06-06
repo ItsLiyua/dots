@@ -12,7 +12,7 @@
       "smear-cursor.nvim" = {
         package = pkgs.vimPlugins.smear-cursor-nvim;
         setupModule = "smear_cursor";
-        setupOpts = {};
+        setupOpts = { };
         lazy = true;
         cmd = [ "SmearCursorToggle" ];
         event = [

@@ -1,8 +1,5 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options.liyua.desktop.idle = {
     enable = lib.mkEnableOption "Enable the idle handler";
     suspend.enable = lib.mkEnableOption "Sleep mode";
@@ -29,24 +26,28 @@
           }
         ]
         ++ (
-          if config.liyua.desktop.lockscreen.enable # Add Hyprlock to hypridle if hyprlock is enabled
-          then [
-            {
-              timeout = 300; # 5 minutes
-              on-timeout = "pidof hyprlock || hyprlock";
-            }
-          ]
-          else []
+          if
+            config.liyua.desktop.lockscreen.enable # Add Hyprlock to hypridle if hyprlock is enabled
+          then
+            [
+              {
+                timeout = 300; # 5 minutes
+                on-timeout = "pidof hyprlock || hyprlock";
+              }
+            ]
+          else
+            [ ]
         )
         ++ (
-          if config.liyua.desktop.idle.suspend.enable
-          then [
-            {
-              timeout = 1800; # 30 minutes
-              on-timeout = "systemctl suspend";
-            }
-          ]
-          else []
+          if config.liyua.desktop.idle.suspend.enable then
+            [
+              {
+                timeout = 1800; # 30 minutes
+                on-timeout = "systemctl suspend";
+              }
+            ]
+          else
+            [ ]
         );
     };
   };

@@ -1,8 +1,5 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options.liyua.cli.zsh.enable = lib.mkEnableOption "ZSH configuration";
   config.programs = lib.mkIf config.liyua.cli.zsh.enable {
     zsh = {

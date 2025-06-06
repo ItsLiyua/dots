@@ -1,8 +1,5 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options.liyua.cli.cava.enable = lib.mkEnableOption "Cava";
   config = lib.mkIf config.liyua.cli.cava.enable {
     stylix.targets.cava.rainbow.enable = true;

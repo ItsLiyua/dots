@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options.liyua.cli.btop.enable = lib.mkEnableOption "Btop++";
   config.programs.btop = lib.mkIf config.liyua.cli.btop.enable {
     enable = true;

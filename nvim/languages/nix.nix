@@ -7,7 +7,10 @@
       languages.nix = {
         enable = true;
         format.type = "nixfmt";
-        lsp.enable = config.liyua.nvim.lsp.enable;
+        lsp = {
+          enable = config.liyua.nvim.lsp.enable;
+          options.nix.flake.autoEvalInputs = true;
+        };
       };
     };
   };

@@ -56,15 +56,6 @@ fastPollBrightness.subscribe((s) => {
 });
 
 
-function iconClassSet(
-  icons: { icon: string; cssClass: string }[],
-  value: number,
-): { icon: string; cssClass: string } {
-  for (let i = 0; i < icons.length; i++)
-    if ((1.0 / icons.length) * (i + 1) >= value) return icons[i];
-  return icons[icons.length - 1];
-}
-
 function brightnessUp() {
   execAsync(["bash", "-c", "brightnessctl s +" + BRIGHTNESS_STEP * 100 + "%"]);
 }

@@ -1,8 +1,5 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options.liyua.desktop.hyprland.rules.enable = lib.mkEnableOption "Layer- and WindowRules";
   config = {
     liyua.desktop.hyprland.rules.enable = config.liyua.desktop.hyprland.enable;

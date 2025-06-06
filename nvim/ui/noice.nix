@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 {
   options.liyua.nvim.ui.noice.enable = lib.mkEnableOption "Notifications and CMD line customizations";
   config = {

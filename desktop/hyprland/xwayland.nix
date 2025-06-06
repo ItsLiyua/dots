@@ -1,8 +1,5 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options.liyua.desktop.hyprland.xwayland.enable = lib.mkEnableOption "XWayland on Hyprland";
   config = {
     liyua.desktop.hyprland.xwayland.enable = lib.mkDefault config.liyua.desktop.hyprland.enable;

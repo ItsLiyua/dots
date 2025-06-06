@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options.liyua.utils.clipboard.enable = lib.mkEnableOption "Clipboard persistence";
   config = lib.mkIf config.liyua.utils.clipboard.enable {
     home.packages = [
@@ -12,7 +13,7 @@
     ];
     systemd.user.services.clipboard-persist = {
       Unit.Description = "Persist clipboard";
-      Install.WantedBy = ["graphical-session.target"];
+      Install.WantedBy = [ "graphical-session.target" ];
       Service.ExecStart = "${pkgs.wl-clip-persist}/bin/wl-clip-persist --clipboard both";
     };
   };
