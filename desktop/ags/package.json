@@ -1,6 +1,6 @@
 {
-    "name": "astal-shell",
     "dependencies": {
         "astal": "/home/liyua/.local/share/ags"
-    }
+    },
+    "name": "astal-shell"
 }

@@ -27,7 +27,7 @@
       treesitter.enable = true;
       binds.whichKey.enable = true;
       syntaxHighlighting = true;
-      keymaps = [
+      keymaps = lib.mkIf (!config.liyua.nvim.lsp.enable) [
         {
           key = "<leader>lf";
           mode = [ "n" ];
