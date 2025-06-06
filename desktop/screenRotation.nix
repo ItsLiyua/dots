@@ -3,8 +3,10 @@
   lib,
   pkgs,
   ...
-}: {
-  options.liyua.desktop.screenRotation.enable = lib.mkEnableOption "Adds a button to rotate the screen.";
+}:
+{
+  options.liyua.desktop.screenRotation.enable =
+    lib.mkEnableOption "Adds a button to rotate the screen.";
   config = {
     home.file = lib.mkIf config.liyua.desktop.screenRotation.enable {
       ".local/bin/scripts/rotateScreen.sh".text = ''

@@ -1,8 +1,5 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options.liyua.apps.foot.enable = lib.mkEnableOption "Foot terminal emulator";
   config.programs.foot = lib.mkIf config.liyua.apps.foot.enable {
     enable = true;

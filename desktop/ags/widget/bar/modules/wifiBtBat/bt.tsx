@@ -39,7 +39,7 @@ export default function Bluetooth() {
       )}
       iconProvider={bind(pairable).as((p) => (p ? BT_CONNECT_ICON : BT_ICON))}
       iconClassProvider={[]}
-      elementClassProvider={["bt"]}
+      elementClassProvider={bt.isPowered ? ["bt"] : []}
       gtkRevealerTransition={Gtk.RevealerTransitionType.SLIDE_LEFT}
       gtkRevealerDuration={500}
       onClick={() => {}}

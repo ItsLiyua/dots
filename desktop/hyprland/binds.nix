@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options.liyua.desktop.hyprland.binds.enable = lib.mkEnableOption "Custom hyprland binds";
   config = {
     liyua.desktop.hyprland.binds.enable = config.liyua.desktop.hyprland.enable;

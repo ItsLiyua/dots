@@ -1,9 +1,7 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
-  options.liyua.desktop.lockscreen.enable = lib.mkEnableOption "Adds the configuration for a lockscreen.";
+  options.liyua.desktop.lockscreen.enable =
+    lib.mkEnableOption "Adds the configuration for a lockscreen.";
   config = lib.mkIf config.liyua.desktop.lockscreen.enable {
     stylix.targets.hyprlock.useWallpaper = false;
     programs.hyprlock = {
@@ -27,14 +25,14 @@
         label = [
           {
             # Time
-            text = "cmd[update:1000] echo \"<span>$(date +%H:%M)</span>\"";
+            text = ''cmd[update:1000] echo "<span>$(date +%H:%M)</span>"'';
             color = "rgba(${config.lib.stylix.colors.base05}b3)";
             font_size = 130;
             position = "0, 240";
           }
           {
             # Date
-            text = "cmd[update:1000] echo $(date +\"%A, %d %B\")";
+            text = ''cmd[update:1000] echo $(date +"%A, %d %B")'';
             color = "rgba(${config.lib.stylix.colors.base05}b3)";
             font_size = 30;
             position = "0, 105";

@@ -12,7 +12,7 @@
           event_handlers = [
             {
               event = "file_open_requested";
-              handler= lib.mkLuaInline ''
+              handler = lib.mkLuaInline ''
                 function()
                   require('neo-tree.command').execute({ action = 'close' }) 
                 end

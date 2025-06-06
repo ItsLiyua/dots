@@ -39,49 +39,50 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    extraSpecialArgs = {
-      inherit nixpkgs;
-      inherit inputs;
-      inherit system;
-    };
-    sharedModules = with inputs; [
-      ags.homeManagerModules.default
-      hyprland.homeManagerModules.default
-      nur.modules.homeManager.default
-      nvf.homeManagerModules.default
-      stylix.homeModules.stylix
-      nixcord.homeModules.nixcord
+  outputs =
+    { nixpkgs, home-manager, ... }@inputs:
+    let
+      extraSpecialArgs = {
+        inherit nixpkgs inputs nixos-raspberrypi;
+      };
+      pkgs-x86 = nixpkgs.legacyPackages.x86_64-linux;
+      pkgs-amd64 = nixpkgs.legacyPackages.aarch64-linux;
+      sharedModules = with inputs; [
+        ags.homeManagerModules.default
+        hyprland.homeManagerModules.default
+        nur.modules.homeManager.default
+        nvf.homeManagerModules.default
+        stylix.homeModules.stylix
+        nixcord.homeModules.nixcord
 
-      ./shared.nix
-    ];
-  in {
-    homeConfigurations."liyua@liberty" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      inherit extraSpecialArgs;
-      modules = sharedModules ++ [./hosts/liberty];
+        ./shared.nix
+      ];
+    in
+    {
+      homeConfigurations."liyua@liberty" = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgs-x86;
+        inherit extraSpecialArgs;
+        modules = sharedModules ++ [ ./hosts/liberty ];
+      };
+      homeConfigurations."liyua@linode" = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgs-x86;
+        inherit extraSpecialArgs;
+        modules = sharedModules ++ [ ./hosts/linode ];
+      };
+      homeConfigurations."liyua@resolute" = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgs-x86;
+        inherit extraSpecialArgs;
+        modules = sharedModules ++ [ ./hosts/resolute ];
+      };
+      homeConfigurations."liyua@rpi5-1" =
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgs-amd64;
+          inherit extraSpecialArgs;
+          modules = sharedModules ++ [ ./hosts/rpi5 ];
+        };
+      formatter = {
+        x86_64-linux = pkgs-x86.nixfmt-tree;
+        aarch64-linux = pkgs-amd64.nixfmt-tree;
+      };
     };
-    homeConfigurations."liyua@linode" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      inherit extraSpecialArgs;
-      modules = sharedModules ++ [./hosts/linode];
-    };
-    homeConfigurations."liyua@resolute" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      inherit extraSpecialArgs;
-      modules = sharedModules ++ [./hosts/resolute];
-    };
-    homeConfigurations."liyua@rpi5-1" = let 
-      system = "aarch64-linux";
-    in home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      inherit extraSpecialArgs;
-      modules = sharedModules ++ [./hosts/rpi5];
-    };
-  };
 }

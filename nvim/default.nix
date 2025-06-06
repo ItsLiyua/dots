@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 {
   imports = [
     ./editor
@@ -25,17 +21,7 @@
         enableFormat = true;
       };
       treesitter.enable = true;
-      binds.whichKey.enable = true;
       syntaxHighlighting = true;
-      keymaps = [
-        {
-          key = "<leader>lf";
-          mode = [ "n" ];
-          action = ''function()require("conform").format()end'';
-          lua = true;
-          desc = "Format file";
-        }
-      ];
     };
   };
 }

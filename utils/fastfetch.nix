@@ -1,8 +1,5 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options.liyua.cli.fastfetch.enable = lib.mkEnableOption "FastFetch";
   config.programs.fastfetch = lib.mkIf config.liyua.cli.fastfetch.enable {
     enable = true;

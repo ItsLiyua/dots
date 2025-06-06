@@ -1,8 +1,5 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options.liyua.cli.ssh.enable = lib.mkEnableOption "Custom SSH configuration";
   config.programs.ssh = lib.mkIf config.liyua.cli.ssh.enable {
     enable = true;

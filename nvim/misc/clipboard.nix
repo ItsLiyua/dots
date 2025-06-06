@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 {
   options.liyua.nvim.misc.clipboard.enable = lib.mkEnableOption "Clipboard integration";
   config = {

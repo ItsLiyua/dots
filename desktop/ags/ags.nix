@@ -4,7 +4,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   options.liyua.desktop.bar.enable = lib.mkEnableOption "Enables the top bar in hyprland";
 
   config = lib.mkIf config.liyua.desktop.bar.enable {
@@ -29,14 +30,21 @@
     };
     home.file.".cache/ags/colors.scss".text =
       lib.strings.concatMapStrings
-      (x: "\$${x}: ${config.lib.stylix.colors.withHashtag.${x}};\n")
-      (map
-        (x: "base0${x}")
-        ((
-            map
-            (x: toString x)
-            (lib.range 0 9)
+        (x: ''
+          ''$${x}: ${config.lib.stylix.colors.withHashtag.${x}};
+        '')
+        (
+          map (x: "base0${x}") (
+            (map (x: toString x) (lib.range 0 9))
+            ++ [
+              "A"
+              "B"
+              "C"
+              "D"
+              "E"
+              "F"
+            ]
           )
-          ++ ["A" "B" "C" "D" "E" "F"]));
+        );
   };
 }

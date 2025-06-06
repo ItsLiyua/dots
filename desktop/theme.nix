@@ -3,8 +3,10 @@
   lib,
   pkgs,
   ...
-}: {
-  options.liyua.desktop.theme.enable = lib.mkEnableOption "Applies the color scheme to all applications";
+}:
+{
+  options.liyua.desktop.theme.enable =
+    lib.mkEnableOption "Applies the color scheme to all applications";
   config = lib.mkIf config.liyua.desktop.theme.enable {
     gtk.enable = true;
     qt.enable = true;
