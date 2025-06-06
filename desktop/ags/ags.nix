@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  inputs,
+  ags,
   ...
 }:
 {
@@ -12,7 +12,7 @@
     programs.ags = {
       enable = true;
       configDir = ./.;
-      extraPackages = with inputs.ags.packages.${pkgs.system}; [
+      extraPackages = with ags.packages.${pkgs.system}; [
         hyprland
         mpris
         wireplumber

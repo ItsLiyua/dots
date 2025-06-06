@@ -42,9 +42,7 @@
   outputs =
     { nixpkgs, home-manager, ... }@inputs:
     let
-      extraSpecialArgs = {
-        inherit nixpkgs inputs;
-      };
+      extraSpecialArgs = inputs;
       pkgs-x86 = nixpkgs.legacyPackages.x86_64-linux;
       pkgs-amd64 = nixpkgs.legacyPackages.aarch64-linux;
       sharedModules = with inputs; [

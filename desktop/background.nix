@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  inputs,
+  nix-wallpaper,
   ...
 }:
 {
@@ -14,7 +14,7 @@
         with config.lib.stylix.colors.withHashtag;
         lib.mkOption {
           description = "Defines the package providing the wallpaper";
-          default = inputs.nix-wallpaper.packages.${pkgs.system}.default.override {
+          default = nix-wallpaper.packages.${pkgs.system}.default.override {
             backgroundColor = base00;
             logoColors = {
               color0 = base08;

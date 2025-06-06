@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  inputs,
+  tsserver-nixpkgs,
   ...
 }:
 {
@@ -13,7 +13,7 @@
       enable = true;
       lsp = {
         enable = config.liyua.nvim.lsp.enable;
-        package = inputs.tsserver-nixpkgs.legacyPackages.${pkgs.system}.typescript-language-server;
+        package = tsserver-nixpkgs.legacyPackages.${pkgs.system}.typescript-language-server;
         server = "ts_ls";
       };
       format = {

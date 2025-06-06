@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  inputs,
+  hyprsplit,
   ...
 }:
 {
@@ -37,6 +37,6 @@
             [ ]
         );
     };
-    plugins = lib.mkIf enable [ inputs.hyprsplit.packages.${pkgs.system}.hyprsplit ];
+    plugins = lib.mkIf enable [ hyprsplit.packages.${pkgs.system}.hyprsplit ];
   };
 }
