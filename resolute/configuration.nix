@@ -1,5 +1,8 @@
 {
-  imports = [ ./hardware-configuration.nix ./disko.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./disko.nix
+  ];
   networking.hostName = "resolute";
   console.keyMap = "us";
   networking.firewall = {

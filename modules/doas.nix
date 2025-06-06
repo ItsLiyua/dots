@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   options.liyua.doas.enable = lib.mkEnableOption "Replaces sudo with doas";
   config = lib.mkIf config.liyua.doas.enable {
     users.groups.power.gid = 1000;
@@ -25,7 +31,6 @@
         }
       ];
     };
-    environment.systemPackages =
-      [ (pkgs.writeShellScriptBin "sudo" ''exec doas "$@"'') ];
+    environment.systemPackages = [ (pkgs.writeShellScriptBin "sudo" ''exec doas "$@"'') ];
   };
 }

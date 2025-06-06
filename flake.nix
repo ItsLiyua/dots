@@ -9,23 +9,34 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, disko, nixos-raspberrypi, ... }:
-    let system = "x86_64-linux";
-    in {
+  outputs =
+    {
+      nixpkgs,
+      nixos-raspberrypi,
+      ...
+    }@inputs:
+    {
       nixosConfigurations = {
         liberty = nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = { inherit inputs; };
-          modules = [ ./shared.nix ./liberty/configuration.nix ];
+          modules = [
+            ./shared.nix
+            ./liberty/configuration.nix
+          ];
         };
         linode = nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = { inherit inputs; };
-          modules = [ ./shared.nix ./linode/configuration.nix ];
+          modules = [
+            ./shared.nix
+            ./linode/configuration.nix
+          ];
         };
         resolute = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ ./shared.nix ./resolute/configuration.nix ];
+          modules = [
+            ./shared.nix
+            ./resolute/configuration.nix
+          ];
         };
 
         rpi5-1 = nixos-raspberrypi.lib.nixosSystem {
@@ -38,6 +49,10 @@
             ./pi/configuration.nix
           ];
         };
+      };
+      formatter = {
+        x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
+        aarch64-linux = nixpkgs.legacyPackages.aarch64-linux.nixfmt-tree;
       };
     };
 }
