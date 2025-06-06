@@ -45,8 +45,10 @@ export default function Network() {
             return NO_NETWORK_ICON;
         }
       })}
-      iconClassProvider={[]}
-      elementClassProvider={["wifi"]}
+      iconClassProvider={bind(primary).as((p) =>
+        p == AstalNetwork.Primary.WIRED ? ["wide"] : [],
+      )}
+      elementClassProvider={network != null ? ["wifi"] : []}
       gtkRevealerTransition={Gtk.RevealerTransitionType.SLIDE_LEFT}
       gtkRevealerDuration={500}
       onClick={() => {}}

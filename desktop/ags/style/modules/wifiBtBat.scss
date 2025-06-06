@@ -3,29 +3,46 @@
 
 window.Bar .element.wifiBtBat {
   background-color: c.$base0D;
+
   .wifi {
-    > label {
+    >label {
       padding-right: 0.3em;
+
+      &.wide {
+        padding-right: 0.5em;
+      }
     }
-    > revealer > label {
+
+    >revealer>label {
       margin-left: 0.4em;
     }
-    margin-right: 0.4em;
+
+    &+.bt,
+    &+.bat {
+      margin-left: 0/4em;
+    }
   }
+
   .bt {
-    > label {
+    >label {
       padding-right: 0.1em;
     }
-    > revealer > label {
+
+    >revealer>label {
       margin-left: 0.4em;
     }
-    margin-right: 0.4em;
+
+    &+.bat {
+      margin-left: 0/4em;
+    }
   }
+
   .bat {
     label.wide-icon {
       padding-right: 0.4em;
     }
-    revealer > label {
+
+    revealer>label {
       margin-left: 0.25em;
     }
   }

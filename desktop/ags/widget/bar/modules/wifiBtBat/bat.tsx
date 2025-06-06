@@ -34,7 +34,7 @@ export default function Battery() {
       iconClassProvider={state.as((s) =>
         s != AstalBattery.State.CHARGING ? ["wide-icon"] : [],
       )}
-      elementClassProvider={["bat"]}
+      elementClassProvider={bat != null && bat.powerSupply ? ["bat"] : []}
       gtkRevealerTransition={Gtk.RevealerTransitionType.SLIDE_LEFT}
       gtkRevealerDuration={500}
       onClick={() => {}}

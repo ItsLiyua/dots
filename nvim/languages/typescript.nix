@@ -18,7 +18,7 @@
       };
       format = {
         enable = true;
-        package = pkgs.prettierd;
+        type = "prettierd";
       };
     };
   };

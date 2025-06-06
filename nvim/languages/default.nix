@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   imports = [
+    ./css.nix
     ./nix.nix
     ./typescript.nix
   ];

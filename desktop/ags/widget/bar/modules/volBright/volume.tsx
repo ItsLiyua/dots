@@ -26,51 +26,6 @@ function iconClassSet(
 }
 
 export default function Volume() {
-  const old = (
-    <box
-      cssClasses={["volume"]}
-      onHoverEnter={() => expandVolume.set(true)}
-      onHoverLeave={() => expandVolume.set(false)}
-      onScroll={(_, __, dy) => {
-        if (dy < 0) {
-          wp.defaultSpeaker.volume = Math.min(
-            wp.defaultSpeaker.volume + VOLUME_STEP,
-            1,
-          );
-          wp.defaultSpeaker.mute = false;
-        } else if (dy > 0) {
-          wp.defaultSpeaker.volume = Math.max(
-            wp.defaultSpeaker.volume - VOLUME_STEP,
-            0,
-          );
-          if (wp.defaultSpeaker.volume == 0) wp.defaultSpeaker.mute = true;
-        }
-      }}
-    >
-      <label
-        cssClasses={bind(derive([speakerVolume, speakerMute])).as((a) => [
-          !a[1] && Math.floor(a[0] * 100) != 0
-            ? iconClassSet(VOLUME_ICONS, a[0]).cssClass
-            : VOLUME_MUTE_ICON.cssClass,
-        ])}
-        label={bind(derive([speakerVolume, speakerMute])).as((a) =>
-          !a[1] && Math.floor(a[0] * 100) != 0
-            ? iconClassSet(VOLUME_ICONS, a[0]).icon
-            : VOLUME_MUTE_ICON.icon,
-        )}
-      />
-      <revealer
-        revealChild={bind(expandVolume)}
-        transitionType={Gtk.RevealerTransitionType.SLIDE_LEFT}
-      >
-        <label
-          label={bind(derive([speakerVolume, speakerMute])).as(
-            (a) => (!a[1] ? Math.round(a[0] * 100) : 0) + "",
-          )}
-        />
-      </revealer>
-    </box>
-  );
   return (
     <HoverIcon
       enable={true}
@@ -78,7 +33,7 @@ export default function Volume() {
       initState={false}
       valueProvider={bind(derive([speakerVolume, speakerMute]))
         .as((a) => (a[1] ? 0 : a[0]))
-        .as(toString)}
+        .as((n) => "" + Math.floor(n * 100))}
       iconProvider={bind(derive([speakerVolume, speakerMute])).as((a) =>
         !a[1] && Math.floor(a[0] * 100) != 0
           ? iconClassSet(VOLUME_ICONS, a[0]).icon
