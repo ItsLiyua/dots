@@ -4,6 +4,7 @@
     ./indent-blankline.nix
     ./lualine.nix
     ./neotree.nix
+    ./smearcursor.nix
     ./telescope.nix
     ./wordhighlight.nix
   ];
