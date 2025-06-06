@@ -76,5 +76,12 @@
       inherit extraSpecialArgs;
       modules = sharedModules ++ [./hosts/resolute];
     };
+    homeConfigurations."liyua@rpi5-1" = let 
+      system = "aarch64-linux";
+    in home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      inherit extraSpecialArgs;
+      modules = sharedModules ++ [./hosts/rpi5];
+    };
   };
 }
