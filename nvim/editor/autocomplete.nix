@@ -66,7 +66,7 @@
             nerd_font_variant = "normal";
           };
           sources = {
-            default = [
+            default = lib.mkForce [
               "lsp"
               "snippets"
               "path"
