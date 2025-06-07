@@ -8,8 +8,6 @@
       };
       nvim = {
         enable = true;
-        lsp.enable = true;
-        editor.autocomplete.enable = true;
       };
     };
     wayland.windowManager.hyprland.settings = {
