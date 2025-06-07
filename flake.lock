@@ -7,35 +7,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1748832438,
-        "narHash": "sha256-/CtyLVfNaFP7PrOPrTEuGOJBIhcBKVQ91KiEbtXJi0A=",
+        "lastModified": 1749147380,
+        "narHash": "sha256-UvCI5f1qD9l1fCQkoG/kJI0yNjDQIiJaN7gkve8fmII=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "58d6e5a83fff9982d57e0a0a994d4e5c0af441e4",
+        "rev": "d74db625a5cf3f46cf8fa545d6ef10bd3463ea07",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "disko",
         "type": "github"
-      }
-    },
-    "mysecrets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1749049515,
-        "narHash": "sha256-wpeNU7x4It0+pp0AGeg11Q70niqKxV0TlJGwKZ3fLsw=",
-        "ref": "master",
-        "rev": "661a17670c88300ec49720adf1d2c2cf1c3b5e7f",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/ItsLiyua/sops-secrets.git"
-      },
-      "original": {
-        "ref": "master",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/ItsLiyua/sops-secrets.git"
       }
     },
     "nixpkgs": {
