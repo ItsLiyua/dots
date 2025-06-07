@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   imports = [
+    ./gitsigns.nix
     ./indent-blankline.nix
     ./lualine.nix
     ./neotree.nix
