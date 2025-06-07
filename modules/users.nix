@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 {
   options.liyua.userAccount.enable = lib.mkEnableOption "Liyua's User Account";
   config = lib.mkIf config.liyua.userAccount.enable {

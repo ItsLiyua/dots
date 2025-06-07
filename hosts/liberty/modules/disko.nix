@@ -8,13 +8,13 @@
           type = "gpt";
           partitions = {
             ESP = {
-              size = "512M";
+              size = "256M";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = ["umask=0077"];
+                mountOptions = [ "umask=0077" ];
               };
             };
             luks = {
@@ -22,13 +22,23 @@
               content = {
                 type = "luks";
                 name = "root";
-                settings.allowDiscards = true;
+                settings = {
+                  allowDiscards = true;
+                  # keyfile = ...
+                };
                 content = {
                   type = "btrfs";
-                  extraArgs = ["-f"];
+                  extraArgs = [ "-f" ];
                   subvolumes = {
                     "/root" = {
                       mountpoint = "/";
+                      mountOptions = [
+                        "compress=zstd"
+                        "noatime"
+                      ];
+                    };
+                    "/home" = {
+                      mountpoint = "/home";
                       mountOptions = [
                         "compress=zstd"
                         "noatime"
@@ -43,37 +53,6 @@
                     };
                     "/swap" = {
                       mountpoint = "/.swapvol";
-                      swap.swapfile.size = "8G";
-                    };
-                  };
-                };
-              };
-            };
-          };
-        };
-      };
-      home = {
-        type = "disk";
-        device = "/dev/nvme1n1";
-        content = {
-          type = "gpt";
-          partitions = {
-            luks = {
-              size = "100%";
-              content = {
-                type = "luks";
-                name = "home";
-                settings.allowDiscards = true;
-                content = {
-                  type = "btrfs";
-                  extraArgs = ["-f"];
-                  subvolumes = {
-                    "/home" = {
-                      mountpoint = "/home";
-                      mountOptions = [
-                        "compress=zstd"
-                        "noatime"
-                      ];
                     };
                   };
                 };

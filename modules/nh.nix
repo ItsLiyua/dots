@@ -1,8 +1,5 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options.liyua.nh.enable = lib.mkEnableOption "Nix Helper CLI";
   config = lib.mkIf config.liyua.nh.enable {
     environment.sessionVariables = {

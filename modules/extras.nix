@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options.liyua.extras.dconf.enable = lib.mkEnableOption "Adds dconf";
   config = {
     environment.systemPackages = with pkgs; [

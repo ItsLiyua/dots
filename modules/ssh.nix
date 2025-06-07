@@ -1,14 +1,11 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options.liyua.ssh.enable = lib.mkEnableOption "SSH Server";
   config = lib.mkIf config.liyua.ssh.enable {
-    networking.firewall.allowedTCPPorts = [22];
+    networking.firewall.allowedTCPPorts = [ 22 ];
     services.openssh = {
       enable = true;
-      ports = [22];
+      ports = [ 22 ];
       settings = {
         PasswordAuthentication = false;
         KbdInteractiveAuthentication = false;
