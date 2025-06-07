@@ -4,8 +4,6 @@
     desktop.enable = false;
     nvim = {
       enable = true;
-      lsp.enable = false;
-      editor.autocomplete.enable = true;
     };
     cli = {
       enable = true;

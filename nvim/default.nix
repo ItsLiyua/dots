@@ -1,27 +1,14 @@
 { config, lib, ... }:
 {
   imports = [
-    ./editor
-    ./languages
-    ./ui
     ./misc
+    ./plugins
   ];
   options.liyua.nvim = {
-    enable = lib.mkEnableOption "Nvim configuration";
-    lsp.enable = lib.mkEnableOption "(most likely quite resource intensive) LSP support";
+    enable = lib.mkEnableOption "NeoVim configuration";
+    lsp.enable = lib.mkEnableOption "LSP support";
   };
-  config.programs.nvf = {
+  config.programs.nixvim = lib.mkIf config.liyua.nvim.enable {
     enable = true;
-    settings.vim = {
-      viAlias = false;
-      vimAlias = true;
-      lsp.enable = config.liyua.nvim.lsp.enable;
-      languages = {
-        enableTreesitter = true;
-        enableFormat = true;
-      };
-      treesitter.enable = true;
-      syntaxHighlighting = true;
-    };
   };
 }

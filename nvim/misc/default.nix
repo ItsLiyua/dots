@@ -1,9 +1,6 @@
-{ lib, ... }:
 {
   imports = [
-    ./clipboard.nix
+    ./keymap.nix
     ./options.nix
   ];
-  options.liyua.nvim.misc.enable = lib.mkEnableOption "Misc stuff";
-  config.liyua.nvim.misc.enable = lib.mkDefault true;
 }

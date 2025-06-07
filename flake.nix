@@ -33,8 +33,8 @@
       url = "github:shezdy/hyprsplit";
       inputs.hyprland.follows = "hyprland";
     };
-    nvf = {
-      url = "github:notashelf/nvf";
+    nixvim = {
+      url = "github:nix-community/nixvim/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -49,9 +49,9 @@
         ags.homeManagerModules.default
         hyprland.homeManagerModules.default
         nur.modules.homeManager.default
-        nvf.homeManagerModules.default
         stylix.homeModules.stylix
         nixcord.homeModules.nixcord
+        nixvim.homeModules.nixvim
 
         ./shared.nix
       ];
