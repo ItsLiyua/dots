@@ -17,6 +17,7 @@
       libinput.enable = false;
       logind.enable = false;
       waylandNativeOzone.enable = false;
+      keyd.enable = false;
     };
     networking.hostName = "rpi5-1";
     system.stateVersion = "25.05";

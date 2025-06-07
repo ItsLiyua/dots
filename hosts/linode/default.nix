@@ -16,6 +16,7 @@
       libinput.enable = false;
       logind.enable = false;
       waylandNativeOzone.enable = false;
+      keyd.enable = false;
     };
     networking.hostName = "linode";
     system.stateVersion = "25.05"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES
