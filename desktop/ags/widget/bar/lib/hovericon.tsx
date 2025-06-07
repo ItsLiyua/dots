@@ -33,9 +33,12 @@ export default function HoverIcon({
   const state = Variable(initState);
   if (!enable) return <></>;
   return (
-    <button onClicked={onClick} visible={visible}>
+    <button
+      onClicked={onClick}
+      visible={visible}
+      cssClasses={elementClassProvider}
+    >
       <box
-        cssClasses={elementClassProvider}
         onHoverEnter={() => {
           state.set(true);
           onHoverExtra(true);

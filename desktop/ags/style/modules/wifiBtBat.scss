@@ -5,7 +5,7 @@ window.Bar .element.wifiBtBat {
   background-color: c.$base0D;
 
   .wifi {
-    >label {
+    >box>label {
       padding-right: 0.3em;
 
       &.wide {
@@ -17,28 +17,30 @@ window.Bar .element.wifiBtBat {
       margin-left: 0.4em;
     }
 
-    &+.bt,
-    &+.bat {
-      margin-left: 0/4em;
+    &~.bt,
+    &~.bat {
+      margin-left: 0.4em;
     }
   }
 
   .bt {
-    >label {
-      padding-right: 0.1em;
+    >box {
+      >label {
+        padding-right: 0.1em;
+      }
+
+      >revealer>label {
+        margin-left: 0.4em;
+      }
     }
 
-    >revealer>label {
+    &~.bat {
       margin-left: 0.4em;
-    }
-
-    &+.bat {
-      margin-left: 0/4em;
     }
   }
 
   .bat {
-    label.wide-icon {
+    >box>label.wide-icon {
       padding-right: 0.4em;
     }
 

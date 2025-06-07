@@ -79,8 +79,8 @@ export default function Brightness() {
         )}
         iconProvider={bind(currentBrightness).as(icon)}
         iconClassProvider={[]}
-        elementClassProvider={[]}
-        gtkRevealerTransition={Gtk.RevealerTransitionType.NONE}
+        elementClassProvider={["brightness"]}
+        gtkRevealerTransition={Gtk.RevealerTransitionType.SLIDE_LEFT}
         gtkRevealerDuration={0}
         onClick={() => {}}
         onScroll={(dy) => {
