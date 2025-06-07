@@ -58,8 +58,8 @@
                   "type": "session",
                   "style": "plain",
                   "background": "transparent",
-                  "foreground": "blue",
-                  "template": "{{ if .SSHSession }}{{ .UserName }}@{{ .HostName }}{{ end }} "
+                  "foreground": "red",
+                  "template": "{{ if .SSHSession }}<b>{{ .UserName }}@{{ .HostName }}</b>{{ end }} "
                 },
         				{
         					"type": "path",
