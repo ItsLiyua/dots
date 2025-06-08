@@ -9,7 +9,7 @@ window.Bar .element.volBright {
   }
 
   .volume {
-    label {
+    box>label {
       padding-right: 0.5em;
 
       &.small {
@@ -19,6 +19,7 @@ window.Bar .element.volBright {
 
     &+.brightness {
       margin-left: 0.4em;
+      background-color:red;
     }
   }
 }
