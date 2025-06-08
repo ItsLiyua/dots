@@ -3,6 +3,6 @@
     ./dconf.nix
     ./gaming.nix
     ./greeter.nix
-    ./ozone.nix
+    ./wayland.nix
   ];
 }

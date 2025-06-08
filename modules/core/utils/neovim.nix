@@ -1,7 +1,6 @@
 { config, lib, ... }:
 {
-  options.liyua.neovim.enable = lib.mkEnableOption "Neovim";
-  config = lib.mkIf config.liyua.neovim.enable {
+  config = {
     programs.nano.enable = false;
     programs.neovim = {
       enable = true;

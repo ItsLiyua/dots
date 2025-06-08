@@ -1,12 +1,9 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }:
 {
-  options.liyua.doas.enable = lib.mkEnableOption "Replaces sudo with doas";
-  config = lib.mkIf config.liyua.doas.enable {
+  config = {
     users.groups.power.gid = 1000;
     security.sudo.enable = false;
     security.doas = {
