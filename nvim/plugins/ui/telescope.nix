@@ -6,33 +6,33 @@
       lazyLoad.settings = {
         cmd = "Telescope";
         keys = [
-             "<leader>ff" "<leader>fg" "<leader><leader>"        ];
-      };
-      keymaps = {
-        "<leader>ff" = {
-          action = "find_files";
-          options.desc = "Find files";
-        };
-        "<leader>fg" = {
-          action = "live_grep";
-          options.desc = "Find string in project";
-        };
-        "<leader><leader>" = {
-          action = "smart_open";
-          options.desc = "Smart open";
-        };
+          {
+            __unkeyed-1 = "<leader>ff";
+            __unkeyed-2.__raw = ''function()require("telescope.builtin").find_files()end'';
+            desc = "Find files";
+          }
+          {
+            __unkeyed-1 = "<leader>fg";
+            __unkeyed-2.__raw = ''function()require("telescope.builtin").live_grep()end'';
+            desc = "Find files";
+          }
+          {
+            __unkeyed-1 = "<leader><leader>";
+            __unkeyed-2.__raw = ''function()require("telescope.builtin").find_files()end'';
+            desc = "Find files";
+          }
+        ];
       };
       extensions = {
         fzf-native.enable = true;
         ui-select.enable = true;
       };
-      enabledExtensions = [ "smart_open" ];
       settings.defaults.mappings.i = {
         "<C-j>".__raw = ''require("telescope.actions").move_selection_next'';
         "<C-k>".__raw = ''require("telescope.actions").move_selection_previous'';
-        "<ESC>".__raw = ''require("telescope.actions").close'';
+        "<esc>".__raw = ''require("telescope.actions").close'';
       };
     };
-    extraPlugins = [ pkgs.vimPlugins.smart-open-nvim ];
+    dependencies.ripgrep.enable = true;
   };
 }
