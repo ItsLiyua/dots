@@ -6,8 +6,12 @@
     ./modules/upower.nix
   ];
 
-  networking.hostName = "liberty";
-  console.keyMap = "de";
+  config = {
+    networking.hostName = "liberty";
+    console.keyMap = "de";
 
-  system.stateVersion = "24.11"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES!
+    liyua.keyd.enable = true;
+
+    system.stateVersion = "24.11"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES!
+  };
 }
