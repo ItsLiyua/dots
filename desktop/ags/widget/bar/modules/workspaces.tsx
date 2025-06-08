@@ -35,7 +35,7 @@ function showWorkspace(mon: number, ws: number) {
   const range = [mon * WS_PER_MON, (mon + 1) * WS_PER_MON];
   if (ws < range[0] || ws >= range[1]) return false;
   else if (ws % 10 < MIN_WS_PER_MON) return true;
-  else if (ws <= hyprland.focusedWorkspace.id - 1) return true;
+  else if (ws <= (hyprland.focusedWorkspace.id - 1) % WS_PER_MON) return true;
   else if (
     [...Array(WS_PER_MON).keys()]
       .map((n) => mon * WS_PER_MON + n)
@@ -76,7 +76,6 @@ export default function Workspaces({
         ]),
       ).as((_) =>
         [...Array(WS_PER_MON).keys()]
-          .map((n) => n)
           .map((n) => mon.id * WS_PER_MON + n)
           .filter((n) => showWorkspace(mon.id, n))
           .sort((a, b) => a - b)
