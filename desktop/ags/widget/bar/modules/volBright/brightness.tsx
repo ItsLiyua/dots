@@ -81,7 +81,7 @@ export default function Brightness() {
         iconClassProvider={[]}
         elementClassProvider={["brightness"]}
         gtkRevealerTransition={Gtk.RevealerTransitionType.SLIDE_LEFT}
-        gtkRevealerDuration={0}
+        gtkRevealerDuration={500}
         onClick={() => {}}
         onScroll={(dy) => {
           if (dy < 0) brightnessUp();
