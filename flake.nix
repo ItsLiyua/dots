@@ -22,7 +22,7 @@
         mainRepo.lib.nixosSystem {
           specialArgs = inputs;
           modules = inputConfigs ++ [
-            ./shared.nix
+            ./modules
             cfg
           ];
         };

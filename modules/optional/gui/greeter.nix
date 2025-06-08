@@ -5,7 +5,7 @@
   ...
 }:
 {
-  options.liyua.greeter.enable = lib.mkEnableOption "Greetd";
+  options.liyua.greeter.enable = lib.mkEnableOption "TUI Greeter";
   config.services.greetd = lib.mkIf config.liyua.greeter.enable {
     enable = true;
     settings = {

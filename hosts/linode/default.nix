@@ -7,16 +7,9 @@
     ./hardware-configuration.nix
   ];
   config = {
-    liyua = {
-      audio.enable = false;
-      extras.dconf.enable = false;
-      fonts.enable = false;
-      gaming.enable = false;
-      greeter.enable = false;
-      libinput.enable = false;
-      logind.enable = false;
-      waylandNativeOzone.enable = false;
-      keyd.enable = false;
+    liyua.bootloader = {
+      enable = true;
+      efi.enable = false;
     };
     networking.hostName = "linode";
     system.stateVersion = "25.05"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES
