@@ -3,11 +3,11 @@
   programs.nixvim = {
     plugins.telescope = {
       enable = true;
-      extensions = {
-        fzf-native.enable = true;
-        ui-select.enable = true;
+      lazyLoad.settings = {
+        cmd = "Telescope";
+        keys = [
+             "<leader>ff" "<leader>fg" "<leader><leader>"        ];
       };
-      enabledExtensions = [ "smart_open" ];
       keymaps = {
         "<leader>ff" = {
           action = "find_files";
@@ -22,6 +22,11 @@
           options.desc = "Smart open";
         };
       };
+      extensions = {
+        fzf-native.enable = true;
+        ui-select.enable = true;
+      };
+      enabledExtensions = [ "smart_open" ];
       settings.defaults.mappings.i = {
         "<C-j>".__raw = ''require("telescope.actions").move_selection_next'';
         "<C-k>".__raw = ''require("telescope.actions").move_selection_previous'';
