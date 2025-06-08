@@ -10,15 +10,15 @@
     };
     keymaps = [
       {
+        action = "<cmd>Neotree<CR>";
         key = "<C-n>";
         mode = [
           "n"
           "v"
         ];
-        action = "<cmd>Neotree<CR>";
         options = {
+          desc = "Filetree";
           silent = true;
-          desc = "Open filetree";
         };
       }
     ];
