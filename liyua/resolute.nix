@@ -1,0 +1,51 @@
+{
+  config.liyua = {
+    apps = {
+      discord.enable = true;
+      firefox.enable = true;
+      foot.enable = true;
+      nautilus.enable = true;
+      prismlauncher.enable = true;
+    };
+    desktop = {
+      displays = {
+        DP-3 = {
+          width = 3440;
+          height = 1440;
+        };
+        HDMI-A-1 = {
+          width = 1920;
+          height = 1080;
+          position = {
+            x = -1920;
+            y = 1080;
+          };
+        };
+      };
+      layout = "us";
+      bar.enable = true;
+      wm.hyprland = {
+        enable = true;
+        xwayland.enable = true;
+      };
+      wallpaper = {
+        enable = true;
+        type = "nix";
+      };
+      idle = {
+        enable = true;
+        suspend = false;
+      };
+      lockscreen.enable = true;
+      screenshot.enable = true;
+      theming.enable = true;
+    };
+    cli = {
+      cava.enable = true;
+    };
+    clipboard.enable = true;
+    nvim.lsp.enable = true;
+    xdg.enable = true;
+    steam.enable = true;
+  };
+}

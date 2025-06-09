@@ -53,21 +53,25 @@
         nixcord.homeModules.nixcord
         nixvim.homeModules.nixvim
 
-        ./shared.nix
+        ./modules
       ];
-      mkHomeConfig =
+
+      mkHomeConfigLiyua =
         pkgs: cfg:
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs extraSpecialArgs;
-          modules = sharedModules ++ [ cfg ];
+          modules = sharedModules ++ [
+            ./liyua/common
+            cfg
+          ];
         };
     in
     {
       homeConfigurations = {
-        "liyua@liberty" = mkHomeConfig pkgs-x86 ./hosts/liberty;
-        "liyua@linode" = mkHomeConfig pkgs-x86 ./hosts/linode;
-        "liyua@resolute" = mkHomeConfig pkgs-x86 ./hosts/resolute;
-        "liyua@rpi5-1" = mkHomeConfig pkgs-amd64 ./hosts/rpi5;
+        "liyua@liberty" = mkHomeConfigLiyua pkgs-x86 ./liyua/liberty.nix;
+        "liyua@linode" = mkHomeConfigLiyua pkgs-x86 ./liyua/linode.nix;
+        "liyua@resolute" = mkHomeConfigLiyua pkgs-x86 ./liyua/resolute.nix;
+        "liyua@rpi5-1" = mkHomeConfigLiyua pkgs-amd64 ./liyua/rpi5.nix;
       };
       formatter = {
         x86_64-linux = pkgs-x86.nixfmt-tree;
