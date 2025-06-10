@@ -61,8 +61,8 @@
           default = "nix";
         };
         splash = lib.mkOption {
-        type = lib.types.bool;
-        default = true;
+          type = lib.types.bool;
+          default = true;
         };
         path = lib.mkOption {
           type = lib.types.str;
@@ -75,7 +75,7 @@
               "rainbow"
               "custom"
             ];
-            default = "rainbow";
+            default = "normal";
           };
           customColors = {
             background = lib.mkOption {

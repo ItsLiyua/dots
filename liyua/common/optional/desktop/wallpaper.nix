@@ -28,15 +28,16 @@
               };
               colors =
                 if nix.theme == "normal" then
-                  if config.liyua.desktop.theming then
-                    with config.lib.stylix.colors; mkOverrides base00 base0C base0D base0C base0D base0C base0D
+                  if config.liyua.desktop.theming.enable then
+                    with config.lib.stylix.colors;
+                    mkOverrides base00 "7FBBE5" "5178C4" "7FBBE5" "5178C4" "7FBBE5" "5178C4"
                   else
-                    mkOverrides "000000" "00FFFF" "7FFFD4" "00FFFF" "7FFFD4" "00FFFF" "7FFFD4"
+                    mkOverrides "1E1E2E" "7FBBE5" "5178C4" "7FBBE5" "5178C4" "7FBBE5" "5178C4"
                 else if nix.theme == "rainbow" then
                   if config.liyua.desktop.theming.enable then
                     with config.lib.stylix.colors; mkOverrides base00 base08 base09 base0A base0B base0D base0E
                   else
-                    mkOverrides "000000" "FF0000" "FF8800" "FFFF00" "00FF00" "00FFFF" "FF00FF"
+                    mkOverrides "1E1E2E" "FF0000" "FF8800" "FFFF00" "00FF00" "00FFFF" "FF00FF"
                 else if nix.theme == "custom" then
                   with config.liyua.desktop.wallpaper.nix.customColors;
                   mkOverrides background color0 color1 color2 color3 color4 color5
