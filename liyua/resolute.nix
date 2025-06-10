@@ -24,7 +24,7 @@
           };
         };
       };
-      layout = "us";
+      layout = "eu";
       bar.enable = true;
       wm.hyprland = {
         enable = true;
