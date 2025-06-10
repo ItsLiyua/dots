@@ -40,6 +40,7 @@
                 raspberry-pi-5.base
                 raspberry-pi-5.display-vc4
                 raspberry-pi-5.bluetooth
+                ./pi-disko.nix
               ];
             }
             ({config,lib,pkgs,...}:{
