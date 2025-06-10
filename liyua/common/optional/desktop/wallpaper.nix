@@ -17,14 +17,18 @@
             let
               mkOverrides = backgroundColor: color0: color1: color2: color3: color4: color5: {
                 backgroundColor = "#${backgroundColor}";
-                logoColors = {
-                  color0 = "#${color0}";
-                  color1 = "#${color1}";
-                  color2 = "#${color2}";
-                  color3 = "#${color3}";
-                  color4 = "#${color4}";
-                  color5 = "#${color5}";
-                };
+                logoColors =
+                  {
+                    inherit
+                      color0
+                      color1
+                      color2
+                      color3
+                      color4
+                      color5
+                      ;
+                  }
+                  |> lib.concatMapAttrs (name: value: { ${name} = "#${value}"; });
               };
               colors =
                 if nix.theme == "normal" then
