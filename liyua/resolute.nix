@@ -16,7 +16,7 @@
         HDMI-A-1 = {
           width = 1920;
           height = 1080;
-          position = {
+          pos = {
             x = -1920;
             y = 1080;
           };
