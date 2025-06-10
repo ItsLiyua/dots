@@ -15,10 +15,54 @@
         settings =
           if type == "nix" then
             let
+              mkOverrides = backgroundColor: color0: color1: color2: color3: color4: color5: {
+                backgroundColor = "#${backgroundColor}";
+                logoColors = {
+                  color0 = "#${color0}";
+                  color1 = "#${color1}";
+                  color2 = "#${color2}";
+                  color3 = "#${color3}";
+                  color4 = "#${color4}";
+                  color5 = "#${color5}";
+                };
+              };
+              colors =
+                if nix.theme == "normal" then
+                  if config.liyua.desktop.theming then
+                    with config.lib.stylix.colors; mkOverrides base00 base0C base0D base0C base0D base0C base0D
+                  else
+                    mkOverrides "000000" "00FFFF" "7FFFD4" "00FFFF" "7FFFD4" "00FFFF" "7FFFD4"
+                else if nix.theme == "rainbow" then
+                  if config.liyua.desktop.theming.enable then
+                    with config.lib.stylix.colors; mkOverrides base00 base08 base09 base0A base0B base0D base0E
+                  else
+                    mkOverrides "000000" "FF0000" "FF8800" "FFFF00" "00FF00" "00FFFF" "FF00FF"
+                else if nix.theme == "custom" then
+                  with config.liyua.desktop.wallpaper.nix.customColors;
+                  mkOverrides background color0 color1 color2 color3 color4 color5
+                else
+                  throw "Invalid theme type";
+              images =
+                builtins.attrNames config.liyua.desktop.displays
+                |> map (name: {
+                  inherit name;
+                  value = config.liyua.desktop.displays.${name};
+                })
+                |> map (d: {
+                  inherit (d) name;
+                  img = nix-wallpaper.packages.${pkgs.system}.default.override (
+                    { inherit (d.value) width height; } // colors
+                  );
+                })
+                |> map (d: {
+                  inherit (d) name;
+                  path = "${d.img}/share/wallpapers/nixos-wallpaper.png";
+                });
             in
             {
-              splash = true;
-              preload = [ ];
+              inherit splash;
+              preload = map (i: i.path) images;
+              wallpaper = map (i: "${i.name},${i.path}") images;
             }
           else if type == "path" then
             { }
@@ -26,51 +70,4 @@
             throw "Wallpaper type not set correctly";
       };
     };
-  # let
-  #   monitorProps = builtins.map (
-  #     m: lib.splitString "," m
-  #   ) config.wayland.windowManager.hyprland.settings.monitor;
-  #   names = builtins.map (p: lib.trim (builtins.elemAt p 0)) monitorProps;
-  #   resolutions = builtins.map (
-  #     p: lib.trim (builtins.elemAt (lib.splitString "@" (builtins.elemAt p 1)) 0)
-  #   ) monitorProps;
-  #   wallpaperSpecs = lib.imap0 (
-  #     i: v:
-  #     let
-  #       dimensions = toString (builtins.elemAt resolutions i);
-  #     in
-  #     {
-  #       name = v;
-  #       width = lib.toInt (lib.elemAt (lib.splitString "x" dimensions) 0);
-  #       height = lib.toInt (lib.elemAt (lib.splitString "x" dimensions) 1);
-  #     }
-  #   ) names;
-  #   wallpapers = lib.map (s: rec {
-  #     name = s.name;
-  #     package = config.liyua.desktop.wallpaper.gen.package.override {
-  #       width = s.width;
-  #       height = s.height;
-  #     };
-  #     file = "${package}/share/wallpapers/nixos-wallpaper.png";
-  #   }) wallpaperSpecs;
-  #   files = lib.map (w: w.file) wallpapers;
-  # in
-  # lib.mkIf config.liyua.desktop.wallpaper.enable {
-  #   stylix.targets.hyprpaper.enable = lib.mkForce false;
-  #
-  #   services.hyprpaper = {
-  #     enable = true;
-  #     settings = {
-  #       preload = files;
-  #       wallpaper = lib.map (w: "${w.name},${w.file}") wallpapers;
-  #     };
-  #   };
-  #   programs.hyprlock.settings.background = lib.mkForce (
-  #     lib.map (w: {
-  #       monitor = w.name;
-  #       path = w.file;
-  #       blur_passes = 2;
-  #     }) wallpapers
-  #   );
-  # };
 }

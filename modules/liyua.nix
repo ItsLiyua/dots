@@ -25,8 +25,14 @@
                 default = 1.0;
               };
               pos = {
-                  x = lib.mkOption { type = int; default = 0; };
-                  y = lib.mkOption { type = int; default = 0;};
+                x = lib.mkOption {
+                  type = int;
+                  default = 0;
+                };
+                y = lib.mkOption {
+                  type = int;
+                  default = 0;
+                };
               };
             };
           }));
@@ -53,6 +59,54 @@
             "nix"
           ];
           default = "nix";
+        };
+        splash = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        };
+        path = lib.mkOption {
+          type = lib.types.str;
+          description = "The path to the wallpaper";
+        };
+        nix = {
+          theme = lib.mkOption {
+            type = lib.types.enum [
+              "normal"
+              "rainbow"
+              "custom"
+            ];
+            default = "rainbow";
+          };
+          customColors = {
+            background = lib.mkOption {
+              type = lib.types.str;
+              description = "Background color as hex without hashtag.";
+            };
+            color0 = lib.mkOption {
+              type = lib.types.str;
+              description = "First color as hex without hashtag.";
+            };
+            color1 = lib.mkOption {
+              type = lib.types.str;
+              description = "Second color as hex without hashtag.";
+            };
+            color2 = lib.mkOption {
+              type = lib.types.str;
+              description = "Third color as hex without hashtag.";
+            };
+            color3 = lib.mkOption {
+              type = lib.types.str;
+              description = "Fourth color as hex without hashtag.";
+            };
+            color4 = lib.mkOption {
+              type = lib.types.str;
+              description = "Fifth color as hex without hashtag.";
+            };
+            color5 = lib.mkOption {
+              type = lib.types.str;
+              description = "Sixth color as hex without hashtag.";
+            };
+          };
         };
       };
       idle = {
