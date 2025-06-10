@@ -8,12 +8,18 @@
   ];
   config = {
     liyua = {
-      bootloader = {
-        enable = true;
-        efi.enable = false;
-      };
-      swapescape.enable = true;
+      dconf.enable = false;
+      gaming.enable = false;
+      greeter.enable = false;
+      wayland.enable = false;
+
+      audio.enable = false;
+      bootloader.enable = false;
+      libinput.enable = false;
+      logind.enable = false;
+      swapescape.enable = false;
     };
+
     networking.hostName = "rpi5-1";
     system.stateVersion = "25.05";
   };
