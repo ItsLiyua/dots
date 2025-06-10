@@ -25,8 +25,8 @@
         settings = {
           plugin.hyprsplit.num_workspaces = 10;
           bind =
-            (genWorkspaceKeybinds 1 10 "$mod" "workspace")
-            ++ (genWorkspaceKeybinds 1 10 "$mod SHIFT" "movetoworkspacesilent")
+            (genWorkspaceKeybinds 1 10 "$mod" "split:workspace")
+            ++ (genWorkspaceKeybinds 1 10 "$mod SHIFT" "split:movetoworkspacesilent")
             ++ [
               "$mod, Tab, focusMonitor, +1"
               "$mod SHIFT, Tab, movewindow, mon:+1 silent"
@@ -37,7 +37,7 @@
     else
       {
         settings.bind =
-          (genWorkspaceKeybinds 1 10 "$mod" "split:workspace")
-          ++ (genWorkspaceKeybinds 1 10 "$mod SHIFT" "split:movetoworkspacesilent");
+          (genWorkspaceKeybinds 1 10 "$mod" "workspace")
+          ++ (genWorkspaceKeybinds 1 10 "$mod SHIFT" "movetoworkspacesilent");
       };
 }
