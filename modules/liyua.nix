@@ -13,20 +13,20 @@
         type =
           with lib.types;
           (attrsOf (submodule {
-            width = lib.mkOption { type = ints.positive; };
-            height = lib.mkOption { type = ints.positive; };
-            scale = lib.mkOption {
-              type = lib.types.float;
-              default = 1;
-            };
-            pos = submodule {
-              x = lib.mkOption {
+            options = {
+              width = lib.mkOption { type = ints.positive; };
+              height = lib.mkOption { type = ints.positive; };
+              refreshRate = lib.mkOption {
                 type = ints.positive;
-                default = 0;
+                default = 60;
               };
-              y = lib.mkOption {
-                type = ints.positibe;
-                default = 0;
+              scale = lib.mkOption {
+                type = lib.types.float;
+                default = 1.0;
+              };
+              pos = {
+                  x = lib.mkOption { type = int; default = 0; };
+                  y = lib.mkOption { type = int; default = 0;};
               };
             };
           }));

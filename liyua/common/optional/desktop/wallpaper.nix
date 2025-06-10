@@ -8,23 +8,24 @@
 {
   config =
     with config.liyua.desktop.wallpaper;
-    if enable then
-      services.hyprpaper = let 
-      settings = if type == "nix" then (let
-      in {
-        splash = true;
-        preload = [];
-      })
-      else if type == "path" then
-        { }
-      else
-        throw "Wallpaper type not set correctly"
-    else
-      { };
-      in{
-      enable = true;
-      settings = {};
+    lib.mkIf enable {
+      services.hyprpaper = {
+        enable = true;
+
+        settings =
+          if type == "nix" then
+            let
+            in
+            {
+              splash = true;
+              preload = [ ];
+            }
+          else if type == "path" then
+            { }
+          else
+            throw "Wallpaper type not set correctly";
       };
+    };
   # let
   #   monitorProps = builtins.map (
   #     m: lib.splitString "," m

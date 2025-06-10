@@ -10,6 +10,7 @@
     ./animation.nix
     ./binds.nix
     ./decoration.nix
+    ./display.nix
     ./general.nix
     ./hyprsplit.nix
     ./input.nix
