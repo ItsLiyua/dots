@@ -12,11 +12,13 @@
         DP-3 = {
           width = 3440;
           height = 1440;
+          refreshRate = 144;
         };
         HDMI-A-1 = {
           width = 1920;
           height = 1080;
-          position = {
+          refreshRate = 60;
+          pos = {
             x = -1920;
             y = 1080;
           };
