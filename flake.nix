@@ -43,16 +43,33 @@
                 ./pi-disko.nix
               ];
             }
-            ({config,lib,pkgs,...}:{
-              networking.hostname = "rpi5-1";
-              system.nixos.tags = let
-                cfg = config.boot.loader.raspberryPi;
-              in [
-                "raspberry-pi-${cfg.variant}"
-                cfg.bootlaoder
-                config.boot.kernelPackages.kernel.version
-              ];
-            })
+            (
+              {
+                config,
+                lib,
+                pkgs,
+                ...
+              }:
+              {
+                networking.hostname = "rpi5-1";
+                nix.settings = {
+                  substituters = [ "https://nixos-raspberrypi.cachix.org" ];
+                  trusted-public-keys = [
+                    "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
+                  ];
+                };
+
+                system.nixos.tags =
+                  let
+                    cfg = config.boot.loader.raspberryPi;
+                  in
+                  [
+                    "raspberry-pi-${cfg.variant}"
+                    cfg.bootlaoder
+                    config.boot.kernelPackages.kernel.version
+                  ];
+              }
+            )
           ];
         };
       };
