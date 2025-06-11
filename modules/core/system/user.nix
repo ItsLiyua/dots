@@ -3,6 +3,7 @@
     description = "Liyua";
     isNormalUser = true;
     useDefaultShell = true;
+    initialHashedPassword = "$y$j9T$9GiQAXVMVzvYEdZvJgU341$s1OB.HLE98wD0bSNfyUUj7W1gDkDGWijm61nhCeCNe2";
     extraGroups = [
       "wheel"
       "networkmanager"
