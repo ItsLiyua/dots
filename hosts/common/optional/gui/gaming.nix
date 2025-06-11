@@ -18,6 +18,6 @@
         ]
       else
         [ ];
-
+    hardware.xpadneo.enable = gamepadSupport;
   };
 }
