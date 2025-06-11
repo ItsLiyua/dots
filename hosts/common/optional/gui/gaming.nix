@@ -1,20 +1,23 @@
 { config, lib, ... }:
 {
-  config =
-    with config.liyua.gaming;
-    lib.mkIf enable {
-      liyua.allow-unfree = [
-        "steam"
-        "steam-original"
-        "steam-unwrapped"
-        "steam-run"
-      ];
-
-      programs.steam = lib.mkIf steam.enable {
+  config = with config.liyua.ui.gaming; {
+    programs.steam =
+      with steam;
+      lib.mkIf enable {
         enable = true;
-        localNetworkGameTransfers.openFirewall = steam.localGameTransfers;
-        inherit (protontricks.enable) ;
+        localNetworkGameTransfers.openFirewall = localGameTransfers;
+        inherit protontricks;
       };
-      hardware.xpadneo.enable = gamepadSupport;
-    };
+    liyua.allow-unfree =
+      if steam.enable then
+        [
+          "steam"
+          "steam-original"
+          "steam-unwrapped"
+          "steam-run"
+        ]
+      else
+        [ ];
+
+  };
 }

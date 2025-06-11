@@ -11,7 +11,7 @@
             default = true;
             description = "Whether to allow game transfers from one LAN device to another";
           };
-          protonTricks.enable = lib.mkEnableOption "ProtonTricks for modding games";
+          protontricks.enable = lib.mkEnableOption "ProtonTricks for modding games";
         };
         gamepadSupport = lib.mkOption {
           type = lib.types.bool;

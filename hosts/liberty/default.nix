@@ -10,7 +10,10 @@
     liyua = {
       ui = {
         dconf.enable = true;
-        greeter.enable = true;
+        greeter = {
+          enable = true;
+          launchCommand = "Hyprland";
+        };
         wayland.enable = true;
       };
       audio.enable = true;
