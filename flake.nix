@@ -17,7 +17,7 @@
   #     "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
   #   ];
   # };
-  #
+
   outputs =
     {
       nixpkgs,
@@ -31,7 +31,7 @@
         mainRepo.lib.nixosSystem {
           specialArgs = inputs;
           modules = inputConfigs ++ [
-            ./modules
+            ./hosts/common
             cfg
           ];
         };
