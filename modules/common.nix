@@ -35,7 +35,6 @@
         };
       };
     };
-    audio.enable = lib.mkEnableOption "PipeWire";
     bootloader = {
       enable = lib.mkEnableOption "Bootloader for standard x86-64 systems";
       mode = lib.mkOption {
@@ -63,6 +62,7 @@
         description = "Maximum amount of stored fallback images";
       };
     };
+    audio.enable = lib.mkEnableOption "PipeWire";
     libinput.enable = lib.mkEnableOption "LibInput";
     logind = {
       enable = lib.mkEnableOption "LoginD";
@@ -82,5 +82,11 @@
       };
     };
     swapescape.enable = lib.mkEnableOption "Esc-Capslock swap";
+    allow-unfree = lib.mkOption {
+      default = [ ];
+      example = [ "steam" ];
+      description = "Specify allowed unfree packages";
+      type = with lib.types; listOf (uniq str);
+    };
   };
 }

@@ -32,6 +32,7 @@
           specialArgs = inputs;
           modules = inputConfigs ++ [
             ./hosts/common
+            ./modules
             cfg
           ];
         };

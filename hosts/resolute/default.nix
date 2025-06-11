@@ -14,7 +14,7 @@
       audio.enable = true;
       bootloader = {
         enable = true;
-        efi.enable = true;
+        efi = true;
       };
       libinput.enable = true;
       logind.enable = true;
