@@ -61,7 +61,7 @@
                 ...
               }:
               {
-                networking.hostname = "rpi5-1";
+                networking.hostName = "rpi5-1";
                 nix.settings = {
                   substituters = [ "https://nixos-raspberrypi.cachix.org" ];
                   trusted-public-keys = [
