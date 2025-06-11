@@ -12,6 +12,13 @@
           enable = true;
           launchCommand = "Hyprland";
         };
+        gaming = {
+          steam = {
+            enable = true;
+            protontricks.enable = true;
+          };
+          gamepadSupport = true;
+        };
         wayland.enable = true;
       };
       audio.enable = true;
