@@ -8,18 +8,22 @@
 
   config = {
     liyua = {
-      dconf.enable = true;
-      gaming.enable = true;
-      greeter.enable = true;
-      wayland.enable = true;
-
+      ui = {
+        dconf.enable = true;
+        greeter.enable = true;
+        wayland.enable = true;
+      };
       audio.enable = true;
+
       bootloader = {
         enable = true;
-        efi.enable = true;
+        mode = "grub";
+        memtest86.enable = true;
       };
-      libinput.enable = true;
-      logind.enable = true;
+      logind = {
+        enable = true;
+        powerKeyMode = "suspend";
+      };
       swapescape.enable = true;
     };
 
