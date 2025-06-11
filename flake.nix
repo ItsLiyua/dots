@@ -1,5 +1,5 @@
 {
-  description = "System configuration";
+  description = "Liyua's System configuration";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
