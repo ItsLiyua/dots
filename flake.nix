@@ -46,6 +46,7 @@
           modules = [
             {
               imports = with nixos-raspberrypi.nixosModules; [
+                inputs.disko.nixosModules.disko
                 raspberry-pi-5.base
                 raspberry-pi-5.display-vc4
                 raspberry-pi-5.bluetooth
