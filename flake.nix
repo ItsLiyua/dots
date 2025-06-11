@@ -42,6 +42,7 @@
         linode = mkSysConfig nixpkgs ./hosts/linode;
         resolute = mkSysConfig nixpkgs ./hosts/resolute;
         rpi5-1 = mkSysConfig nixos-raspberrypi ./hosts/rpi5-1.nix;
+        rpi5-2 = mkSysConfig nixos-raspberrypi ./hosts/rpi5-2.nix;
       };
       formatter = {
         x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
