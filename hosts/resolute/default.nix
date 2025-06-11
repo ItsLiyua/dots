@@ -6,17 +6,21 @@
   ];
   config = {
     liyua = {
-      dconf.enable = true;
-      gaming.enable = true;
-      greeter.enable = true;
-      wayland.enable = true;
-
+      ui = {
+        dconf.enable = true;
+        greeter = {
+          enable = true;
+          launchCommand = "Hyprland";
+        };
+        wayland.enable = true;
+      };
       audio.enable = true;
+
       bootloader = {
         enable = true;
-        efi = true;
+        mode = "grub";
+        memtest86.enable = true;
       };
-      libinput.enable = true;
       logind.enable = true;
       swapescape.enable = true;
     };
