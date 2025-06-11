@@ -41,48 +41,7 @@
         liberty = mkSysConfig nixpkgs ./hosts/liberty;
         linode = mkSysConfig nixpkgs ./hosts/linode;
         resolute = mkSysConfig nixpkgs ./hosts/resolute;
-        rpi5-1 = nixos-raspberrypi.lib.nixosSystem {
-          specialArgs = inputs;
-          modules = [
-            {
-              imports = with nixos-raspberrypi.nixosModules; [
-                inputs.disko.nixosModules.disko
-                raspberry-pi-5.base
-                raspberry-pi-5.display-vc4
-                raspberry-pi-5.bluetooth
-                ./pi-disko.nix
-              ];
-            }
-            (
-              {
-                config,
-                lib,
-                pkgs,
-                ...
-              }:
-              {
-                networking.hostName = "rpi5-1";
-                nix.settings = {
-                  substituters = [ "https://nixos-raspberrypi.cachix.org" ];
-                  trusted-public-keys = [
-                    "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
-                  ];
-                };
-                system.stateVersion = "25.05";
-
-                system.nixos.tags =
-                  let
-                    cfg = config.boot.loader.raspberryPi;
-                  in
-                  [
-                    "raspberry-pi-${cfg.variant}"
-                    cfg.bootloader
-                    config.boot.kernelPackages.kernel.version
-                  ];
-              }
-            )
-          ];
-        };
+        rpi5-1 = mkSysConfig nixos-raspberrypi ./hosts/rpi5-1.nix;
       };
       formatter = {
         x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
