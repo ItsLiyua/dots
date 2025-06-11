@@ -36,6 +36,7 @@
               };
             };
           }));
+        default = { };
       };
       layout = lib.mkOption {
         type = lib.types.str;
@@ -131,8 +132,9 @@
           nullOr (enum [
             "nvidia"
             "rocm"
+            "none"
           ]);
-        default = "rocm";
+        default = "none";
       };
     };
     clipboard.enable = lib.mkEnableOption "Clipboard";
