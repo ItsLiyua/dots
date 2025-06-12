@@ -2,7 +2,7 @@
   description = "Home Manager configuration of liyua";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    tsserver-nixpkgs.url = "github:nixos/nixpkgs?rev=81bc281190c4955903d546169453f16c39908d58";
+    # tsserver-nixpkgs.url = "github:nixos/nixpkgs?rev=81bc281190c4955903d546169453f16c39908d58";
     hyprland.url = "github:hyprwm/Hyprland";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -33,10 +33,6 @@
       url = "github:shezdy/hyprsplit";
       inputs.hyprland.follows = "hyprland";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -51,7 +47,6 @@
         nur.modules.homeManager.default
         stylix.homeModules.stylix
         nixcord.homeModules.nixcord
-        nixvim.homeModules.nixvim
 
         ./modules
       ];

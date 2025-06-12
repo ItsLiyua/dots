@@ -1,6 +1,0 @@
-{
-  imports = [
-    ./extras
-    ./ui
-  ];
-}
