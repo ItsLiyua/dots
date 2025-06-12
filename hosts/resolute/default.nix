@@ -19,6 +19,7 @@
           };
           gamepadSupport = true;
         };
+        overclocking.gpu.lact.enable = true;
         wayland.enable = true;
       };
       audio.enable = true;

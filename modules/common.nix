@@ -34,6 +34,7 @@
           description = "Whether to launch electron apps with native wayland if possible or to use XWayland";
         };
       };
+      overclocking.gpu.lact.enable = lib.mkEnableOption "LACT";
     };
     bootloader = {
       enable = lib.mkEnableOption "Bootloader for standard x86-64 systems";
