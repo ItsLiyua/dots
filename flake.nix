@@ -7,6 +7,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # nixConfig = {
@@ -36,8 +40,22 @@
             cfg
           ];
         };
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
     in
     {
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+        in
+        nixpkgs.lib.packagesFromDirectoryRecursive {
+          callPackage = nixpkgs.lib.callPackageWith pkgs;
+          directory = ./pkgs/common;
+        }
+      );
       nixosConfigurations = {
         liberty = mkSysConfig nixpkgs ./hosts/liberty;
         linode = mkSysConfig nixpkgs ./hosts/linode;
@@ -45,9 +63,6 @@
         rpi5-1 = mkSysConfig nixos-raspberrypi ./hosts/pi/rpi5-1.nix;
         rpi5-2 = mkSysConfig nixos-raspberrypi ./hosts/pi/rpi5-2.nix;
       };
-      formatter = {
-        x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
-        aarch64-linux = nixpkgs.legacyPackages.aarch64-linux.nixfmt-tree;
-      };
+      formatter = forAllSystems (s: nixpkgs.legacyPackages.${s}.nixfmt-tree);
     };
 }
