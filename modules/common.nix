@@ -36,6 +36,7 @@
       };
       overclocking.gpu.lact.enable = lib.mkEnableOption "LACT";
     };
+    graphics.enable = lib.mkEnableOption "Hardware acceleration and so on";
     bootloader = {
       enable = lib.mkEnableOption "Bootloader for standard x86-64 systems";
       mode = lib.mkOption {

@@ -17,7 +17,7 @@
         wayland.enable = true;
       };
       audio.enable = true;
-
+      graphics.enable = true;
       bootloader = {
         enable = true;
         mode = "grub";
