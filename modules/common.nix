@@ -37,6 +37,10 @@
       overclocking.gpu.lact.enable = lib.mkEnableOption "LACT";
     };
     graphics.enable = lib.mkEnableOption "Hardware acceleration and so on";
+    nvim = {
+      enable = lib.mkEnableOption "Neovim";
+      lsp = lib.mkEnableOption "LSP support";
+    };
     bootloader = {
       enable = lib.mkEnableOption "Bootloader for standard x86-64 systems";
       mode = lib.mkOption {
