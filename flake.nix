@@ -52,7 +52,7 @@
           pkgs = nixpkgs.legacyPackages.${system};
         in
         nixpkgs.lib.packagesFromDirectoryRecursive {
-          callPackage = nixpkgs.lib.callPackageWith (pkgs//inputs);
+          callPackage = nixpkgs.lib.callPackageWith (pkgs // inputs);
           directory = ./pkgs/common;
         }
       );

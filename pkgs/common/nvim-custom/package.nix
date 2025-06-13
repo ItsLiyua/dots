@@ -3,6 +3,6 @@
   pkgs,
 }:
 (nvf.lib.neovimConfiguration {
-inherit pkgs;
+  inherit pkgs;
   modules = [ ./modules ];
 }).neovim
