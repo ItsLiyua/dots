@@ -40,6 +40,11 @@
     nvim = {
       enable = lib.mkEnableOption "Neovim";
       lsp = lib.mkEnableOption "LSP support";
+      replaceNano = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = "Whether to uninstall nano";
+      };
     };
     bootloader = {
       enable = lib.mkEnableOption "Bootloader for standard x86-64 systems";
