@@ -5,6 +5,7 @@
     ./grub.nix
     ./libinput.nix
     ./logind.nix
+    ./nvim.nix
     ./swapescape.nix
     ./unfree-whitelist.nix
   ];

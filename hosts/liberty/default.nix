@@ -28,6 +28,10 @@
         powerKeyMode = "suspend";
       };
       swapescape.enable = true;
+      nvim = {
+        enable = true;
+        lsp = true;
+      };
     };
 
     networking.hostName = "liberty";

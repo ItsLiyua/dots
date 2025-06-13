@@ -1,12 +1,8 @@
 {
-  nixpkgs,
-  system,
   nvf,
+  pkgs,
 }:
-let
-  pname = "nvim-custom";
-in
 (nvf.lib.neovimConfiguration {
-  pkgs = nixpkgs.legacyPackages.${system};
+inherit pkgs;
   modules = [ ./modules ];
-})
+}).neovim
