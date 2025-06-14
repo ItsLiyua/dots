@@ -40,6 +40,21 @@
     nvim = {
       enable = lib.mkEnableOption "Neovim";
       lsp = lib.mkEnableOption "LSP support";
+      replaceNano = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = "Whether to uninstall nano";
+      };
+      sharedClipboard = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = "Whether to install wl-clipboard for a shared system clipboard";
+      };
+      theme = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = "Whether to enable stylix theming.";
+      };
     };
     bootloader = {
       enable = lib.mkEnableOption "Bootloader for standard x86-64 systems";
