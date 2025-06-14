@@ -7,10 +7,15 @@
     ./hardware-configuration.nix
   ];
   config = {
-    liyua.bootloader = {
-      enable = true;
-      efi = false;
-      mode = "grub";
+    liyua = {
+      bootloader = {
+        enable = true;
+        mode = "grub";
+      };
+      nvim = {
+        enable = true;
+        lsp = true;
+      };
     };
     networking.hostName = "linode";
     system.stateVersion = "25.05"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES
