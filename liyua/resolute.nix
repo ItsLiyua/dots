@@ -48,7 +48,6 @@
       btop.gpudriver = "rocm";
     };
     clipboard.enable = true;
-    nvim.lsp.enable = true;
     xdg.enable = true;
     steam.enable = true;
   };

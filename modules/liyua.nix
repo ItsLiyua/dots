@@ -140,6 +140,5 @@
     clipboard.enable = lib.mkEnableOption "Clipboard";
     steam.enable = lib.mkEnableOption "Steam configuration";
     xdg.enable = lib.mkEnableOption "XDG";
-    nvim.lsp.enable = lib.mkEnableOption "LSP support for nvim";
   };
 }
