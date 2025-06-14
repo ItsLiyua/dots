@@ -4,5 +4,8 @@
 }:
 (nvf.lib.neovimConfiguration {
   inherit pkgs;
-  modules = [ ./modules ];
+  modules = [
+    ./plugins
+    ./options.nix
+  ];
 }).neovim

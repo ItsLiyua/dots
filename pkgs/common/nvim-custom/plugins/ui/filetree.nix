@@ -1,4 +1,4 @@
-{ lib ,...}:
+{ lib, ... }:
 {
   config.vim = {
     filetree.neo-tree = {
@@ -19,6 +19,7 @@
         mode = "n";
         silent = true;
         action = "<cmd>Neotree<CR>";
+        desc = "File Manager";
       }
     ];
   };
