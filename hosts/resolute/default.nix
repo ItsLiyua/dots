@@ -27,6 +27,8 @@
       nvim = {
         enable = true;
         lsp = true;
+        sharedClipboard = true;
+        theme = true;
       };
       bootloader = {
         enable = true;
