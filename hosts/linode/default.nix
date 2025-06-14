@@ -2,6 +2,7 @@
   imports = [
     ./modules/bootloader.nix
     ./modules/linode-utils.nix
+    ./modules/remote-build-access.nix
     ./modules/wireguard.nix
     ./modules/net-interfaces.nix
     ./hardware-configuration.nix
