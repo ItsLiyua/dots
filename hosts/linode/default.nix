@@ -9,7 +9,7 @@
   config = {
     liyua = {
       bootloader = {
-        enable = true;
+        enable = false;
         mode = "grub";
       };
       nvim = {
