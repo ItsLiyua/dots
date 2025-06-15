@@ -28,12 +28,6 @@
         powerKeyMode = "suspend";
       };
       swapescape.enable = true;
-      nvim = {
-        enable = true;
-        lsp = true;
-        sharedClipboard = true;
-        theme = true;
-      };
     };
 
     networking.hostName = "liberty";

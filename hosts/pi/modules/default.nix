@@ -13,13 +13,7 @@
     ./disko.nix
   ];
   config = {
-    liyua = {
-      swapescape.enable = true;
-      nvim = {
-        enable = true;
-        lsp = true;
-      };
-    };
+    liyua.swapescape.enable = true;
 
     nix.settings = {
       substituters = [ "https://nixos-raspberrypi.cachix.org" ];

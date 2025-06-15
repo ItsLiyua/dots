@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./editor
-    ./languages
-    ./ui
-  ];
-}
