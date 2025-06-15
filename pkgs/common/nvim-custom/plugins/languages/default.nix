@@ -1,5 +1,5 @@
 {
-  imports = [./nix.nix];
+  imports = [ ./nix.nix ];
   vim = {
     languages = {
       enableExtraDiagnostics = true;
@@ -19,6 +19,14 @@
         "de"
       ];
       programmingWordlist.enable = true;
+    };
+    treesitter = {
+      autotagHtml = true;
+      context.enable = true;
+      fold = true;
+      highlight.enable = true;
+      incrementalSelection.enable = true;
+      indent.enable = true;
     };
   };
 }

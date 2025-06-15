@@ -7,9 +7,9 @@
         color_devicons = true;
         path_display = [ "smart" ];
         mappings.i = {
-          "<C-j>" = lib.mkLuaInline ''function()require("telescope.actions").move_selection_next()end'';
-          "<C-k>" = lib.mkLuaInline ''function()require("telescope.actions").move_selection_previous()end'';
-          "<ESC>" = lib.mkLuaInline ''function()require("telescope.actions").close()end'';
+          "<C-j>" = lib.mkLuaInline ''require("telescope.actions").move_selection_next'';
+          "<C-k>" = lib.mkLuaInline ''require("telescope.actions").move_selection_previous'';
+          "<ESC>" = lib.mkLuaInline ''require("telescope.actions").close'';
         };
       };
       extensions = [
@@ -21,18 +21,10 @@
         {
           name = "ui-select";
           packages = [ pkgs.vimPlugins.telescope-ui-select-nvim ];
-          setup.ui-select = lib.mkLuaInline ''require("telescope.themes").get_dropdown({})'';
+          setup.ui-select = lib.mkLuaInline ''function()return require("telescope.themes").get_dropdown({})end'';
         }
       ];
+      mappings.findFiles = "<leader><leader>";
     };
-    keymaps = [
-      {
-        action = "<cmd>Telescope find_files<CR>";
-        key = "<leader><leader>";
-        mode = "n";
-        silent = true;
-        desc = "Find files";
-      }
-    ];
   };
 }
