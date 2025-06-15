@@ -33,6 +33,10 @@
       url = "github:shezdy/hyprsplit";
       inputs.hyprland.follows = "hyprland";
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -47,6 +51,7 @@
         nur.modules.homeManager.default
         stylix.homeModules.stylix
         nixcord.homeModules.nixcord
+        nvf.homeManagerModules.default
 
         ./modules
       ];

@@ -46,6 +46,11 @@
     cli = {
       cava.enable = true;
       btop.gpudriver = "rocm";
+      nvim = {
+        lsp = true;
+        sharedClipboard = true;
+        theme = true;
+      };
     };
     clipboard.enable = true;
     xdg.enable = true;

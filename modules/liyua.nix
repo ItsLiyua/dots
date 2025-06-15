@@ -136,6 +136,19 @@
           ]);
         default = "none";
       };
+      nvim = {
+        lsp = lib.mkEnableOption "LSP support";
+        sharedClipboard = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+          description = "Whether to install wl-clipboard for a shared system clipboard";
+        };
+        theme = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+          description = "Whether to enable stylix theming.";
+        };
+      };
     };
     clipboard.enable = lib.mkEnableOption "Clipboard";
     steam.enable = lib.mkEnableOption "Steam configuration";
