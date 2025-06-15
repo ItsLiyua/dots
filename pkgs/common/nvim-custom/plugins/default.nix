@@ -1,1 +1,6 @@
-{ imports = [ ./ui ]; }
+{
+  imports = [
+    ./languages
+    ./ui
+  ];
+}
