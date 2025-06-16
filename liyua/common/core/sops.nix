@@ -3,6 +3,6 @@
   sops = {
     defaultSopsFile = ../../../secrets.yaml;
     validateSopsFiles = false;
-    age.keyFile = "/home/${config.home.username}/.config/sops/age/keys.txt";
+    age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
   };
 }

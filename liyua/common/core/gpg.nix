@@ -1,9 +1,14 @@
+{ config, ... }:
 {
+  sops.secrets = {
+    "liyua/private-gpg" = { };
+    "liyua/public-gpg" = { };
+  };
   programs.gpg = {
     enable = true;
     publicKeys = [
       {
-        text = "0x317AC965011159A4";
+        source = config.sops.secrets."liyua/public-gpg".path;
         trust = "ultimate";
       }
     ];

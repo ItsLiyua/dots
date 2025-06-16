@@ -1,8 +1,6 @@
 { config, ... }:
 {
-  sops.secrets."liyua/ssh" = {
-    path = "/home/${config.home.username}/.ssh/id_ed25519";
-  };
+  sops.secrets."liyua/ssh".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
   programs.ssh = {
     enable = true;
     matchBlocks = {
