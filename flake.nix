@@ -55,8 +55,12 @@
 
         ./modules
       ];
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
 
-      mkHomeConfigLiyua =
+      mkHomeConfig =
         pkgs: cfg:
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs extraSpecialArgs;
@@ -68,14 +72,11 @@
     in
     {
       homeConfigurations = {
-        "liyua@liberty" = mkHomeConfigLiyua pkgs-x86 ./liyua/liberty.nix;
-        "liyua@linode" = mkHomeConfigLiyua pkgs-x86 ./liyua/linode.nix;
-        "liyua@resolute" = mkHomeConfigLiyua pkgs-x86 ./liyua/resolute.nix;
-        "liyua@rpi5-1" = mkHomeConfigLiyua pkgs-amd64 ./liyua/rpi5.nix;
+        "liyua@liberty" = mkHomeConfig pkgs-x86 ./liyua/liberty.nix;
+        "liyua@linode" = mkHomeConfig pkgs-x86 ./liyua/linode.nix;
+        "liyua@resolute" = mkHomeConfig pkgs-x86 ./liyua/resolute.nix;
+        "liyua@rpi5-1" = mkHomeConfig pkgs-amd64 ./liyua/rpi5.nix;
       };
-      formatter = {
-        x86_64-linux = pkgs-x86.nixfmt-tree;
-        aarch64-linux = pkgs-amd64.nixfmt-tree;
-      };
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
     };
 }
