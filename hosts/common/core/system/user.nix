@@ -1,8 +1,8 @@
 { config, ... }:
 {
   sops.secrets = {
-    "liyua/password".neededForUsers = true;
-    "root/password".neededForUsers = true;
+    "users/liyua/password".neededForUsers = true;
+    "users/root/password".neededForUsers = true;
   };
   users = {
     mutableUsers = false;
@@ -11,7 +11,7 @@
         description = "Liyua";
         isNormalUser = true;
         useDefaultShell = true;
-        hashedPasswordFile = config.sops.secrets."liyua/password".path;
+        hashedPasswordFile = config.sops.secrets."users/liyua/password".path;
         extraGroups = [
           "wheel"
           "networkmanager"
@@ -24,7 +24,7 @@
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHKZZyrwb0depJAXqeoN8+q8kquwgAHz3uRssneGDtp0 liyua"
         ];
       };
-      root.hashedPasswordFile = config.sops.secrets."root/password".path;
+      root.hashedPasswordFile = config.sops.secrets."users/root/password".path;
     };
   };
 }

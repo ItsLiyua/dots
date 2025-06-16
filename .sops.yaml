@@ -1,5 +1,5 @@
 keys:
-  - &liyua age1rmy6762zugxc3nh7e4k3xetdx4dtx3ps8k25g3aszlutyn0629aseycv2c
+  - &liyua age1x0tt0aw933scsms872xynu2henqa5rll4m6pajxj6f6m2242mp6sl3jer9
   - &liberty age14q30ynrxljm276k52yzud3ppk6awh8h30k5etrlccn9mux95e43ss39rfe
 creation_rules:
   - path_regex: secrets.yaml$
