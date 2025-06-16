@@ -7,6 +7,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -16,7 +20,10 @@
       ...
     }@inputs:
     let
-      inputConfigs = with inputs; [ disko.nixosModules.disko ];
+      inputConfigs = with inputs; [
+        disko.nixosModules.disko
+        sops-nix.nixosModules.sops
+      ];
       mkSysConfig =
         mainRepo: cfg:
         mainRepo.lib.nixosSystem {
