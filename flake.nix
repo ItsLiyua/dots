@@ -7,10 +7,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   # nixConfig = {
@@ -46,16 +42,6 @@
       ];
     in
     {
-      packages = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        nixpkgs.lib.packagesFromDirectoryRecursive {
-          callPackage = nixpkgs.lib.callPackageWith (pkgs // inputs);
-          directory = ./pkgs/common;
-        }
-      );
       nixosConfigurations = {
         liberty = mkSysConfig nixpkgs ./hosts/liberty;
         linode = mkSysConfig nixpkgs ./hosts/linode;

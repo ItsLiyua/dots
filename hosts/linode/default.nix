@@ -13,10 +13,6 @@
         enable = false;
         mode = "grub";
       };
-      nvim = {
-        enable = true;
-        lsp = true;
-      };
     };
     networking.hostName = "linode";
     system.stateVersion = "25.05"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES

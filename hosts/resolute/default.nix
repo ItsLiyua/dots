@@ -24,12 +24,6 @@
       };
       audio.enable = true;
       graphics.enable = true;
-      nvim = {
-        enable = true;
-        lsp = true;
-        sharedClipboard = true;
-        theme = true;
-      };
       bootloader = {
         enable = true;
         mode = "grub";
