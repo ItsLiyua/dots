@@ -10,7 +10,6 @@
       enable = true;
       formatOnSave = true;
       inlayHints.enable = true;
-      lspSignature.enable = true;
     };
     spellcheck = {
       enable = true;
@@ -22,7 +21,6 @@
     };
     treesitter = {
       autotagHtml = true;
-      context.enable = true;
       fold = true;
       highlight.enable = true;
       incrementalSelection.enable = true;

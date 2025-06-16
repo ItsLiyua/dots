@@ -1,1 +1,6 @@
-{ imports = [ ./autopairs.nix ]; }
+{
+  imports = [
+    ./autocomplete.nix
+    ./autopairs.nix
+  ];
+}
