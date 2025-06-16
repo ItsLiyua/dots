@@ -45,10 +45,10 @@
           name = "Noto Color Emoji";
         };
       };
-      targets.firefox.colorTheme.enable = true;
       targets = {
         qt.enable = true;
         gtk.enable = true;
+        firefox.colorTheme.enable = true;
       };
     };
   };
