@@ -37,6 +37,10 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -52,6 +56,7 @@
         stylix.homeModules.stylix
         nixcord.homeModules.nixcord
         nvf.homeManagerModules.default
+        sops-nix.homeManagerModules.sops
 
         ./modules
       ];

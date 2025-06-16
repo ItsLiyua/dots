@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   home = {
     username = "liyua";

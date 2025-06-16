@@ -1,6 +1,9 @@
-{ config, lib, ... }:
+{ config, ... }:
 {
-  config.programs.ssh = {
+  sops.secrets."liyua/ssh" = {
+    path = "/home/${config.home.username}/.ssh/id_ed25519";
+  };
+  programs.ssh = {
     enable = true;
     matchBlocks = {
       "github.com" = {
