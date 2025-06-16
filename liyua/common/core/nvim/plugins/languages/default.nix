@@ -1,5 +1,8 @@
 {
-  imports = [ ./nix.nix ];
+  imports = [
+    ./nix.nix
+    ./ts.nix
+  ];
   programs.nvf.settings.vim = {
     languages = {
       enableExtraDiagnostics = true;

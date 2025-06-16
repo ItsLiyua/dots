@@ -4,7 +4,10 @@
     format.type = "nixfmt";
     lsp = {
       enable = true;
-      options.nix.flake.autoEvalInputs = true;
+      options.nil.nix.flake = {
+        autoEvalInputs = true;
+        autoArchive = true;
+      };
     };
   };
 }

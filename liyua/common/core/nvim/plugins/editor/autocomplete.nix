@@ -35,20 +35,10 @@
       sources = {
         default = [
           "lsp"
-          "snippets"
           "path"
           "buffer"
+          "snippets"
         ];
-        transform_items = lib.mkLuaInline ''
-          function(_, items)
-            return vim.tbl_filter(function(item)
-              return not (
-                item.kind == require("blink.cmp.types").CompletionItemKind.Snippet
-                and item.source.name == "LSP"
-              )
-            end, items)
-          end
-        '';
       };
       completion = {
         menu = {
