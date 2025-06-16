@@ -2,6 +2,7 @@
   imports = [
     ./nix.nix
     ./ts.nix
+    ./yaml.nix
   ];
   programs.nvf.settings.vim = {
     languages = {
