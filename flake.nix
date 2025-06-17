@@ -80,7 +80,9 @@
         "liyua@liberty" = mkHomeConfig pkgs-x86 ./liyua/liberty.nix;
         "liyua@linode" = mkHomeConfig pkgs-x86 ./liyua/linode.nix;
         "liyua@resolute" = mkHomeConfig pkgs-x86 ./liyua/resolute.nix;
+        "liyua@t480" = mkHomeConfig pkgs-x86 ./liyua/t480.nix;
         "liyua@rpi5-1" = mkHomeConfig pkgs-amd64 ./liyua/rpi5.nix;
+        "liyua@rpi5-2" = mkHomeConfig pkgs-amd64 ./liyua/rpi5.nix;
       };
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
     };
