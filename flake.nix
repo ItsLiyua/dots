@@ -43,7 +43,6 @@
     {
       nixosConfigurations = {
         liberty = mkSysConfig nixpkgs ./hosts/liberty;
-        linode = mkSysConfig nixpkgs ./hosts/linode;
         resolute = mkSysConfig nixpkgs ./hosts/resolute;
         t480 = mkSysConfig nixpkgs ./hosts/t480;
         rpi5-1 = mkSysConfig nixos-raspberrypi ./hosts/pi/rpi5-1.nix;
