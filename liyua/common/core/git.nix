@@ -1,5 +1,5 @@
 {
-  config.programs.git = {
+  programs.git = {
     enable = true;
     userName = "Liyua";
     userEmail = "liyua@duck.com";

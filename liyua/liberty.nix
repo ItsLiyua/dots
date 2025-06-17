@@ -47,5 +47,6 @@
     clipboard.enable = true;
     xdg.enable = true;
     steam.enable = true;
+    remoteAccess.enable = true;
   };
 }

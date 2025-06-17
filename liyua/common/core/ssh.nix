@@ -1,34 +1,23 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
-  sops.secrets."liyua/ssh".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+  sops.secrets = {
+    "liyua/git/public".path = "${config.home.homeDirectory}/.ssh/id_github.pub";
+    "liyua/git/private".path = "${config.home.homeDirectory}/.ssh/id_github";
+  };
   programs.ssh = {
     enable = true;
-    matchBlocks = {
-      "github.com" = {
-        hostname = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/id_ed25519";
-      };
-      "liberty" = {
-        hostname = "liberty";
+    matchBlocks =
+      lib.genAttrs [ "liberty" "resolute" "rpi5-1" "rpi5-2" ] (hostname: {
+        inherit hostname;
         user = "liyua";
         identityFile = "~/.ssh/id_ed25519";
+      })
+      // {
+        "github.com" = {
+          hostname = "github.com";
+          user = "git";
+          identityFile = "~/.ssh/id_github";
+        };
       };
-      "resolute" = {
-        hostname = "resolute";
-        user = "liyua";
-        identityFile = "~/.ssh/id_ed25519";
-      };
-      "rpi5-1" = {
-        hostname = "rpi5-1";
-        user = "liyua";
-        identityFile = "~/.ssh/id_ed25519";
-      };
-      "rpi5-2" = {
-        hostname = "rpi5-2";
-        user = "liyua";
-        identityFile = "~/.ssh/id_ed25519";
-      };
-    };
   };
 }
