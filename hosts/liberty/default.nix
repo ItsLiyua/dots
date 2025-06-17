@@ -1,5 +1,7 @@
+{ nixos-hardware, ... }:
 {
   imports = [
+    nixos-hardware.nixosModules.minisforum-v3
     ./hardware-configuration.nix
     ./modules/disko.nix
     ./modules/bluetooth.nix
