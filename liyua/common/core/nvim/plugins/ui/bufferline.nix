@@ -13,7 +13,7 @@
         always_show_bufferline = true;
       };
       highlights.fill.bg =
-        if config.liyua.cli.nvim.style then config.lib.stylix.colors.withHashtag.base01 else "#000000";
+        if config.liyua.cli.nvim.theme then config.lib.stylix.colors.withHashtag.base01 else "#000000";
     };
     mappings = {
       closeCurrent = "<leader>e";
