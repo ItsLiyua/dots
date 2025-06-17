@@ -12,7 +12,8 @@
         show_buffer_icons = true;
         always_show_bufferline = true;
       };
-      highlights.fill.bg = config.lib.stylix.colors.withHashtag.base01 or "#000000";
+      highlights.fill.bg =
+        if config.liyua.cli.nvim.theme then config.lib.stylix.colors.withHashtag.base01 else "#000000";
     };
     mappings = {
       closeCurrent = "<leader>e";
