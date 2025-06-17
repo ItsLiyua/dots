@@ -1,6 +1,7 @@
+{ config, lib, ... }:
 {
   programs.nvf.settings.vim = {
-    clipboard = {
+    clipboard = lib.mkIf config.liyua.cli.nvim.sharedClipboard {
       enable = true;
       registers = "unnamedplus";
       providers.wl-copy.enable = true;
