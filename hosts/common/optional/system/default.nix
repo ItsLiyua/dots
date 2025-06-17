@@ -1,6 +1,7 @@
 {
   imports = [
     ./audio.nix
+    ./bluetooth.nix
     ./fwupd.nix
     ./graphics.nix
     ./grub.nix
@@ -8,5 +9,6 @@
     ./logind.nix
     ./swapescape.nix
     ./unfree-whitelist.nix
+    ./upower.nix
   ];
 }

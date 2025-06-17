@@ -1,5 +1,6 @@
+{ config, lib, ... }:
 {
-  hardware.bluetooth = {
+  hardware.bluetooth = lib.mkIf config.liyua.bluetooth.enable {
     enable = true;
     powerOnBoot = true;
     settings.General = {

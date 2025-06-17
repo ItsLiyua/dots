@@ -29,6 +29,8 @@
       };
       swapescape.enable = true;
       # firmwareUpdater.enable = true;
+      bluetooth.enable = true;
+      upower.enable = true;
     };
 
     networking.hostName = "t480";

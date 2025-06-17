@@ -4,8 +4,6 @@
     nixos-hardware.nixosModules.minisforum-v3
     ./hardware-configuration.nix
     ./modules/disko.nix
-    ./modules/bluetooth.nix
-    ./modules/upower.nix
   ];
 
   config = {
@@ -30,6 +28,8 @@
         powerKeyMode = "suspend";
       };
       swapescape.enable = true;
+      bluetooth.enable = true;
+      upower.enable = true;
     };
 
     networking.hostName = "liberty";
