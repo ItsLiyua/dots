@@ -2,7 +2,7 @@
 {
   imports = [
     nixos-hardware.nixosModules.lenovo-thinkpad-t480
-    ../../hardware-configuration.nix
+    ./hardware-configuration.nix
     ./modules/disko.nix
   ];
 
