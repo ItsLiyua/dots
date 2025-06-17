@@ -3,10 +3,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,6 +45,7 @@
         liberty = mkSysConfig nixpkgs ./hosts/liberty;
         linode = mkSysConfig nixpkgs ./hosts/linode;
         resolute = mkSysConfig nixpkgs ./hosts/resolute;
+        t480 = mkSysConfig nixpkgs ./hosts/t480;
         rpi5-1 = mkSysConfig nixos-raspberrypi ./hosts/pi/rpi5-1.nix;
         rpi5-2 = mkSysConfig nixos-raspberrypi ./hosts/pi/rpi5-2.nix;
       };
