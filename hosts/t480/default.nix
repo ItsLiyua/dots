@@ -2,7 +2,7 @@
 {
   imports = [
     nixos-hardware.nixosModules.lenovo-thinkpad-t480
-    # ./hardware-configuration.nix
+    ../../hardware-configuration.nix
     ./modules/disko.nix
   ];
 
@@ -30,7 +30,7 @@
       swapescape.enable = true;
     };
 
-    networking.hostName = "liberty";
+    networking.hostName = "t480";
     console.keyMap = "de";
 
     system.stateVersion = "24.11"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES!
