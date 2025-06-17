@@ -90,5 +90,6 @@
       description = "Specify allowed unfree packages";
       type = with lib.types; listOf (uniq str);
     };
+    firmwareUpdater.enable = lib.mkEnableOption "Firmware updater tool";
   };
 }

@@ -1,6 +1,7 @@
 {
   imports = [
     ./audio.nix
+    ./fwupd.nix
     ./graphics.nix
     ./grub.nix
     ./libinput.nix

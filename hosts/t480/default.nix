@@ -28,6 +28,7 @@
         powerKeyMode = "suspend";
       };
       swapescape.enable = true;
+      # firmwareUpdater.enable = true;
     };
 
     networking.hostName = "t480";
