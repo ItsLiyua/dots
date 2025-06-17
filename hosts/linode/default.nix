@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   imports = [
     ./modules/bootloader.nix
@@ -11,5 +12,6 @@
     liyua.bootloader.enable = false;
     networking.hostName = "linode";
     system.stateVersion = "25.05"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   };
 }
