@@ -5,7 +5,7 @@
     ./modules/linode-utils.nix
     ./modules/remote-build-access.nix
     ./modules/net-interfaces.nix
-    ./hardware-configuration.nix
+    # ./hardware-configuration.nix
   ];
   config = {
     liyua.bootloader.enable = false;
