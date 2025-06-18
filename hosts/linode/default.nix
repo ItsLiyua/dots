@@ -1,41 +1,7 @@
+{ config, lib, ... }:
 {
   imports = [
-    {
-      disko.devices.disk.root = {
-        device = "/dev/sda";
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            ESP = {
-              size = "256M";
-              type = "EF00";
-              content = {
-                type = "filesystem";
-                format = "vfat";
-                mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
-              };
-            };
-            swap = {
-              size = "4G";
-              content = {
-                type = "swap";
-                discardPolicy = "both";
-              };
-            };
-            root = {
-              size = "100%";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/";
-              };
-            };
-          };
-        };
-      };
-    }
+    ./disko.nix
     (
       { pkgs, ... }:
       {
@@ -51,21 +17,11 @@
         boot.loader.grub.enable = true;
         services.openssh = {
           enable = true;
-          settings.PermitRootLogin = "yes";
+          settings.PermitRootLogin = lib.mkForce "yes";
         };
         networking.firewall.allowedTCPPorts = [ 22 ];
         users.users = {
           liyua = {
-            isNormalUser = true;
-            home = "/home/liyua";
-            description = "Liyua";
-            extraGroups = [
-              "wheel"
-              "networkmanager"
-            ];
-            openssh.authorizedKeys.keys = [
-              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIIQcmoKJxqALKZJIFwuM0mcT0EPlkvlMaGXSEXb0zyd liyua"
-            ];
             password = "nixpassword123";
           };
           root.password = "rootpassword123";

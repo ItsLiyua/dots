@@ -47,11 +47,12 @@
         t480 = mkSysConfig nixpkgs ./hosts/t480;
         rpi5-1 = mkSysConfig nixos-raspberrypi ./hosts/pi/rpi5-1.nix;
         rpi5-2 = mkSysConfig nixos-raspberrypi ./hosts/pi/rpi5-2.nix;
-        linode = nixpkgs.lib.nixosSystem {
-          modules = inputConfigs ++ [
-            ./hosts/linode
-          ];
-        };
+        linode = mkSysConfig nixpkgs ./hosts/linode;
+        # linode = nixpkgs.lib.nixosSystem {
+        #   modules = inputConfigs ++ [
+        #     ./hosts/linode
+        #   ];
+        # };
       };
       formatter = forAllSystems (s: nixpkgs.legacyPackages.${s}.nixfmt-tree);
     };
