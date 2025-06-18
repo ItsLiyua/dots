@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [ ./modules ];
   networking = {
@@ -21,11 +21,11 @@
         ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
       '';
 
-      privateKeyFile = config.sops.secrets."wireguard/rpi5-2/private".path;
+      privateKeyFile = sops.secrets."wireguard/rpi5-2/private".path;
 
       peers = [
         {
-          publicKey = builtins.readFile config.sops.secrets."wireguard/linode/public".path;
+          publicKey = builtins.readFile sops.secrets."wireguard/linode/public".path;
           allowedIPs = [ "10.15.0.2/32" ];
         }
       ];
