@@ -2,10 +2,7 @@
 {
   imports = [ ./modules ];
 
-  sops.secrets = {
-    "wireguard/linode/public" = { };
-    "wireguard/rpi5-2/private" = { };
-  };
+  sops.secrets."wireguard/rpi5-2" = { };
 
   networking = {
     hostName = "rpi5-2";
@@ -27,11 +24,11 @@
         ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
       '';
 
-      privateKeyFile = config.sops.secrets."wireguard/rpi5-2/private".path;
+      privateKeyFile = config.sops.secrets."wireguard/rpi5-2".path;
 
       peers = [
         {
-          publicKey = builtins.readFile config.sops.secrets."wireguard/linode/public".path;
+          publicKey = "cOa8ACs07xdE+C7H3O/+2tA7BKfIIHaojz80WZbazlM=";
           allowedIPs = [ "10.15.0.2/32" ];
         }
       ];
