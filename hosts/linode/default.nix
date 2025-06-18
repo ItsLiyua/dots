@@ -1,4 +1,3 @@
-{ config, lib, ... }:
 {
   imports = [
     ./disko.nix
@@ -20,7 +19,6 @@
         boot.loader.grub.device = "/dev/sda";
         boot.loader.timeout = 10;
         boot.loader.grub.enable = true;
-        networking.firewall.allowedTCPPorts = [ 22 ];
         networking.usePredictableInterfaceNames = false;
         networking.useDHCP = false; # Disable DHCP globally as we will not need it.
         # required for ssh?
