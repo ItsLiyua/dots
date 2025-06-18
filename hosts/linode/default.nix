@@ -28,6 +28,7 @@
           mtr
           sysstat
         ];
+        networking.hostName = "linode";
       }
     )
     { imports = [ ./hardware-configuration.nix ]; }

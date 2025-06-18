@@ -50,7 +50,9 @@
         # linode = mkSysConfig nixpkgs ./hosts/linode;
         linode = nixpkgs.lib.nixosSystem {
           modules = inputConfigs ++ [
-            ./hosts/common/core/system
+            # ./hosts/common/core/system
+            ./modules
+            ./hosts/common
             ./hosts/linode
           ];
         };
