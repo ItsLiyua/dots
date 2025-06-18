@@ -10,7 +10,7 @@
     wireguard.interfaces.wg0 = {
       ips = [ "10.15.0.2/24" ];
       listenPort = 51820;
-      privateKeyFile = config.sops.secrets."wireguard/linode".path;
+      privateKeyFile = config.sops.secrets."wireguard/rpi5-2".path;
       peers = [
         {
           publicKey = "JzFAa30tHG5Z+mVu1GZEeXGS18FQOfoNlDqBNNcb1iw=";

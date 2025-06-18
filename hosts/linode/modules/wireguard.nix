@@ -21,7 +21,7 @@
         ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
       '';
 
-      privateKeyFile = config.sops.secrets."wireguard/rpi5-2".path;
+      privateKeyFile = config.sops.secrets."wireguard/linode".path;
 
       peers = [
         {
