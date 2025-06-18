@@ -2,6 +2,11 @@
 {
   imports = [
     ./disko.nix
+    {
+      users.users.root.openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIIQcmoKJxqALKZJIFwuM0mcT0EPlkvlMaGXSEXb0zyd liyua"
+      ];
+    }
     (
       { pkgs, ... }:
       {
@@ -15,17 +20,13 @@
         boot.loader.grub.device = "/dev/sda";
         boot.loader.timeout = 10;
         boot.loader.grub.enable = true;
-        services.openssh = {
-          enable = true;
-          settings.PermitRootLogin = lib.mkForce "yes";
-        };
         networking.firewall.allowedTCPPorts = [ 22 ];
-        users.users = {
-          liyua = {
-            password = "nixpassword123";
-          };
-          root.password = "rootpassword123";
-        };
+        # users.users = {
+        #   liyua = {
+        #     password = "nixpassword123";
+        #   };
+        #   root.password = "rootpassword123";
+        # };
         networking.usePredictableInterfaceNames = false;
         networking.useDHCP = false; # Disable DHCP globally as we will not need it.
         # required for ssh?
