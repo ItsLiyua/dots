@@ -8,8 +8,8 @@
       enable = true;
       externalInterface = "eth0";
       internalInterfaces = [ "wg0" ];
-      firewall.allowedUDPPorts = [ 51820 ];
     };
+    firewall.allowedUDPPorts = [ 51820 ];
     wireguard.interfaces.wg0 = {
       ips = [ "10.15.0.1/24" ];
       listenPort = 51820;
