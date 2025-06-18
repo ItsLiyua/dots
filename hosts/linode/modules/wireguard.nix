@@ -1,5 +1,10 @@
 { config, ... }:
 {
+  sops.secrets = {
+    "wireguard/linode/private" = { };
+    "wireguard/rpi5-2/public" = { };
+  };
+
   networking = {
     firewall.allowedUDPPorts = [ 51820 ];
     wireguard.interfaces.wg0 = {

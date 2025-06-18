@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 {
   imports = [ ./modules ];
+
+  sops.secrets = {
+    "wireguard/linode/public" = { };
+    "wireguard/rpi5-2/private" = { };
+  };
+
   networking = {
     hostName = "rpi5-2";
     # WireGuard server
