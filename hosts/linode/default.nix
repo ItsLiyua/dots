@@ -21,12 +21,6 @@
         boot.loader.timeout = 10;
         boot.loader.grub.enable = true;
         networking.firewall.allowedTCPPorts = [ 22 ];
-        # users.users = {
-        #   liyua = {
-        #     password = "nixpassword123";
-        #   };
-        #   root.password = "rootpassword123";
-        # };
         networking.usePredictableInterfaceNames = false;
         networking.useDHCP = false; # Disable DHCP globally as we will not need it.
         # required for ssh?

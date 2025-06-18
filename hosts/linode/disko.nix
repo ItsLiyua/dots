@@ -5,10 +5,10 @@
     content = {
       type = "gpt";
       partitions = {
-        legacy = {
-          size = "1M";
-          type = "EF02";
-        };
+        # legacy = {
+        #   size = "1M";
+        #   type = "EF02";
+        # };
         ESP = {
           size = "256M";
           type = "EF00";
