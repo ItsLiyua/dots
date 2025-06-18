@@ -43,11 +43,19 @@
     {
       nixosConfigurations = {
         liberty = mkSysConfig nixpkgs ./hosts/liberty;
-        linode = mkSysConfig nixpkgs ./hosts/linode;
         resolute = mkSysConfig nixpkgs ./hosts/resolute;
         t480 = mkSysConfig nixpkgs ./hosts/t480;
         rpi5-1 = mkSysConfig nixos-raspberrypi ./hosts/pi/rpi5-1.nix;
         rpi5-2 = mkSysConfig nixos-raspberrypi ./hosts/pi/rpi5-2.nix;
+        # linode = mkSysConfig nixpkgs ./hosts/linode;
+        linode = nixpkgs.lib.nixosSystem {
+          modules = inputConfigs ++ [
+            # ./hosts/common/core/system
+            ./modules
+            ./hosts/common
+            ./hosts/linode
+          ];
+        };
       };
       formatter = forAllSystems (s: nixpkgs.legacyPackages.${s}.nixfmt-tree);
     };
