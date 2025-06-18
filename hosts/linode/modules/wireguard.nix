@@ -28,6 +28,10 @@
           publicKey = "JzFAa30tHG5Z+mVu1GZEeXGS18FQOfoNlDqBNNcb1iw=";
           allowedIPs = [ "10.15.0.2/32" ];
         }
+        {
+          publicKey = "PCFtL6M/vfrxFFVSXAi7ascCUFBrM9i8PhLLuTUDeyA=";
+          allowedIPs = [ "10.15.0.3/32" ];
+        }
       ];
     };
   };
