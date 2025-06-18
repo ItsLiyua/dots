@@ -8,5 +8,8 @@
     ./hardware-configuration.nix
   ];
 
+  liyua.bootloader.enable = false;
+
+  system.stateVersion = "25.05";
   networking.hostName = "linode";
 }
