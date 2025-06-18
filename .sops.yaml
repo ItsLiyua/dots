@@ -1,6 +1,7 @@
 keys:
   - &liyua age1x0tt0aw933scsms872xynu2henqa5rll4m6pajxj6f6m2242mp6sl3jer9
   - &liberty age14q30ynrxljm276k52yzud3ppk6awh8h30k5etrlccn9mux95e43ss39rfe
+  - &resolute age1kcydglemswdtsk5j92gm9dtwdql33e68z3krzy0cvth6a0rpue6se2qvuf
   - &t480 age1efvve8f2dnyyhv8y0jfmkcdadpzkx2ldxh3ezua0hnc97p454feq8t66zp
 creation_rules:
   - path_regex: secrets.yaml$
@@ -8,4 +9,5 @@ creation_rules:
       - age:
         - *liyua
         - *liberty
+        - *resolute
         - *t480
