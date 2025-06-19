@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  sops.secrets."wireguard/linode" = { };
+  sops.secrets."wireguard/linode".group = "systemd-network";
 
   networking = {
     # WireGuard server

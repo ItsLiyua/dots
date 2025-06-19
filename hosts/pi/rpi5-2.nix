@@ -2,7 +2,7 @@
 {
   imports = [ ./modules ];
 
-  sops.secrets."wireguard/rpi5-2" = { };
+  sops.secrets."wireguard/rpi5-2".group = "systemd-network";
 
   networking = {
     hostName = "rpi5-2";

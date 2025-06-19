@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  sops.secrets."wireguard/resolute" = { };
+  sops.secrets."wireguard/resolute".group = "systemd-network";
   networking = {
     firewall.allowedUDPPorts = [ 51820 ];
     wireguard.interfaces.wg0 = {
