@@ -34,7 +34,8 @@
       address = [ "10.15.0.1/24" ];
       networkConfig = {
         IPMasquerade = "ipv4";
-        IPForward = true;
+        IPv4Forwarding = true;
+        IPv6Forwarding = true;
       };
     };
   };
