@@ -4,6 +4,7 @@
     ./modules/remote-build-access.nix
     ./modules/bootloader.nix
     ./modules/network.nix
+    ./modules/nginx.nix
     ./modules/linode-utils.nix
     ./modules/wireguard.nix
     ./hardware-configuration.nix
