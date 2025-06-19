@@ -1,4 +1,5 @@
 {
+  networking.firewall.allowedTCPPorts = [ 25665 ];
   services.traefik = {
     enable = true;
     staticConfigOptions = {
