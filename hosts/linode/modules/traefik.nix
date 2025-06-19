@@ -12,7 +12,7 @@
           rule = "HostRegexp('.*\.liyua.moe')";
           service = "smp";
         };
-        services.smp.loadBalancer.servers.url = [ "10.15.0.3:25566" ];
+        services.smp.loadBalancer.servers.url = [ "10.15.0.3:25565" ];
       };
     };
   };
