@@ -5,8 +5,6 @@
     ./modules/bootloader.nix
     ./modules/network.nix
     ./modules/linode-utils.nix
-    ./modules/traefik.nix
-    ./modules/wireguard.nix
     ./hardware-configuration.nix
   ];
 
