@@ -93,5 +93,12 @@
       type = with lib.types; listOf (uniq str);
     };
     firmwareUpdater.enable = lib.mkEnableOption "Firmware updater tool";
+    network = {
+      wireless.enable = lib.mkEnableOption "Add wireless networking support";
+      usePredictableInterfaceNames = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+      };
+    };
   };
 }

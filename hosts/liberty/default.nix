@@ -20,7 +20,7 @@
       graphics.enable = true;
       bootloader = {
         enable = true;
-        mode = "grub";
+        mode = "systemd-boot";
         memtest86.enable = true;
       };
       logind = {
@@ -30,6 +30,7 @@
       swapescape.enable = true;
       bluetooth.enable = true;
       upower.enable = true;
+      network.wireless.enable = true;
     };
 
     networking.hostName = "liberty";
