@@ -9,7 +9,7 @@
       tcp = {
         routers.smp = {
           entryPoints = [ "smp" ];
-          rule = "Host('liyua.moe')";
+          rule = "HostRegexp('.*\.liyua.moe')";
           service = "smp";
         };
         services.smp.loadBalancer.servers.url = [ "10.15.0.3:25566" ];
