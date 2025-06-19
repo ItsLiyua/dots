@@ -16,7 +16,10 @@
       wireguardPeers = [
         {
           PublicKey = "cOa8ACs07xdE+C7H3O/+2tA7BKfIIHaojz80WZbazlM=";
-          AllowedIPs = [ "10.15.0.1/24" ];
+          AllowedIPs = [
+            "10.15.0.1/24"
+            "fc00::1/64"
+          ];
           Endpoint = "172.105.73.145:51820";
           PersistentKeepalive = 25;
         }
@@ -26,16 +29,11 @@
       matchConfig.Name = "wg0";
       address = [
         "10.15.0.3/24"
-        "fc00::3/120"
-        "fe80::3/64"
       ];
       DHCP = "no";
-      dns = [ "fc00::53" ];
-      ntp = [ "fc00::123" ];
-      gateway = [
-        "fc00::1"
-        "10.15.0.1"
-      ];
+      # dns = [ "fc00::53" ];
+      # ntp = [ "fc00::123" ];
+      # gateway = [ "10.15.0.1" ];
       networkConfig.IPv6AcceptRA = false;
     };
   };
