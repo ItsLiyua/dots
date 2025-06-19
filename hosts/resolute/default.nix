@@ -32,6 +32,7 @@
       };
       logind.enable = true;
       swapescape.enable = true;
+      network.wireless.enable = true;
     };
     networking.hostName = "resolute";
     networking.firewall.allowedTCPPorts = [ 25566 ];
