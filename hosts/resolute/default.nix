@@ -27,7 +27,7 @@
       graphics.enable = true;
       bootloader = {
         enable = true;
-        mode = "grub";
+        mode = "systemd-boot";
         memtest86.enable = true;
       };
       logind.enable = true;
