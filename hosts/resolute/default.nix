@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ./modules/disko.nix
     ./modules/firewall.nix
+    ./modules/wireguard.nix
   ];
   config = {
     liyua = {

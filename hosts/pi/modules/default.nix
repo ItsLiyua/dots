@@ -1,7 +1,4 @@
 {
-  config,
-  lib,
-  pkgs,
   nixos-raspberrypi,
   ...
 }:
@@ -10,17 +7,11 @@
     raspberry-pi-5.base
     raspberry-pi-5.display-vc4
     raspberry-pi-5.bluetooth
-    ./disko.nix
+    ./shared
   ];
   config = {
     liyua.swapescape.enable = true;
 
-    nix.settings = {
-      substituters = [ "https://nixos-raspberrypi.cachix.org" ];
-      trusted-public-keys = [
-        "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
-      ];
-    };
     system.stateVersion = "25.05";
   };
 }
