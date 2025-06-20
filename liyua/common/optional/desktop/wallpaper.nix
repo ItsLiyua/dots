@@ -8,28 +8,26 @@
 {
   config =
     with config.liyua.desktop.wallpaper;
-    lib.mkIf enable {
-      services.hyprpaper = {
-        enable = true;
-
-        settings =
+    lib.mkIf enable (
+      let
+        mkOverrides = backgroundColor: color0: color1: color2: color3: color4: color5: {
+          backgroundColor = "#${backgroundColor}";
+          logoColors =
+            {
+              inherit
+                color0
+                color1
+                color2
+                color3
+                color4
+                color5
+                ;
+            }
+            |> lib.concatMapAttrs (name: value: { ${name} = "#${value}"; });
+        };
+        wallpapers =
           if type == "nix" then
             let
-              mkOverrides = backgroundColor: color0: color1: color2: color3: color4: color5: {
-                backgroundColor = "#${backgroundColor}";
-                logoColors =
-                  {
-                    inherit
-                      color0
-                      color1
-                      color2
-                      color3
-                      color4
-                      color5
-                      ;
-                  }
-                  |> lib.concatMapAttrs (name: value: { ${name} = "#${value}"; });
-              };
               colors =
                 if nix.theme == "normal" then
                   if config.liyua.desktop.theming.enable then
@@ -47,32 +45,37 @@
                   mkOverrides background color0 color1 color2 color3 color4 color5
                 else
                   throw "Invalid theme type";
-              images =
-                builtins.attrNames config.liyua.desktop.displays
-                |> map (name: {
-                  inherit name;
-                  value = config.liyua.desktop.displays.${name};
-                })
-                |> map (d: {
-                  inherit (d) name;
-                  img = nix-wallpaper.packages.${pkgs.system}.default.override (
-                    { inherit (d.value) width height; } // colors
-                  );
-                })
-                |> map (d: {
-                  inherit (d) name;
-                  path = "${d.img}/share/wallpapers/nixos-wallpaper.png";
-                });
             in
-            {
-              inherit splash;
-              preload = map (i: i.path) images;
-              wallpaper = map (i: "${i.name},${i.path}") images;
-            }
+            builtins.attrNames config.liyua.desktop.displays
+            |> map (name: {
+              inherit name;
+              value = config.liyua.desktop.displays.${name};
+            })
+            |> map (d: {
+              inherit (d) name;
+              img = nix-wallpaper.packages.${pkgs.system}.default.override (
+                { inherit (d.value) width height; } // colors
+              );
+            })
+            |> map (d: {
+              display = d.name;
+              path = "${d.img}/share/wallpapers/nixos-wallpaper.png";
+            })
           else if type == "path" then
             { }
           else
             throw "Wallpaper type not set correctly";
-      };
-    };
+      in
+      {
+        services.hyprpaper = {
+          enable = true;
+
+          settings = {
+            inherit splash;
+            preload = map (i: i.path) wallpapers;
+            wallpaper = map (i: "${i.display},${i.path}") wallpapers;
+          };
+        };
+      }
+    );
 }

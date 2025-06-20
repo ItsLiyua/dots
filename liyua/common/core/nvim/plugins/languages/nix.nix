@@ -4,10 +4,7 @@
     format.type = "nixfmt";
     lsp = {
       enable = true;
-      options.nil.nix.flake = {
-        autoEvalInputs = true;
-        autoArchive = true;
-      };
+      server = "nixd";
     };
   };
 }
