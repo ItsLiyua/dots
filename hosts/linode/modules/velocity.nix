@@ -8,7 +8,7 @@
     servers.proxy = {
       enable = true;
       package = pkgs.velocityServers.velocity;
-      stopCommand = "end";
+      stopCommand = "stop";
       files = {
         "velocity.toml".value = {
           config-version = "2.5";
@@ -23,7 +23,7 @@
           player-info-forwarding-mode = "modern";
           forwarding-secret-file = config.sops.secrets.velocity.path;
         };
-        "plugins/bStats/config.txt".value.enabled = false;
+        "plugins/bStats/config.txt".value = [ "enabled=false" ];
       };
     };
   };
