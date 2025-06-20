@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
+  sops.secrets.velocity.owner = "minecraft";
   services.minecraft-servers = {
     enable = true;
     eula = true;
@@ -15,7 +16,8 @@
         online-mode = true;
         servers.test = "10.15.0.2:25565";
         forced-hosts.test = [ "test" ];
-        player-info-forwarding-mode = "legacy";
+        player-info-forwarding-mode = "modern";
+        forwarding-secret-file = config.sops.secrets.velocity.path;
       };
     };
   };
