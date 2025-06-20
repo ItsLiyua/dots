@@ -21,8 +21,4 @@
       }
     ];
   };
-  services.gpg-agent.pinentry = {
-    package = pkgs.pinentry-tty;
-    program = "pinentry-tty";
-  };
 }
