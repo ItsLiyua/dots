@@ -5,7 +5,6 @@
       with steam;
       lib.mkIf enable {
         enable = true;
-        localNetworkGameTransfers.openFirewall = localGameTransfers;
         inherit protontricks;
       };
     liyua.allow-unfree =

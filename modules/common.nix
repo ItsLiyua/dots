@@ -6,11 +6,6 @@
       gaming = {
         steam = {
           enable = lib.mkEnableOption "Steam";
-          localGameTransfers = lib.mkOption {
-            type = lib.types.bool;
-            default = true;
-            description = "Whether to allow game transfers from one LAN device to another";
-          };
           protontricks.enable = lib.mkEnableOption "ProtonTricks for modding games";
         };
         gamepadSupport = lib.mkOption {
