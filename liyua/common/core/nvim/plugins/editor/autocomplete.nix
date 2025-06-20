@@ -65,7 +65,7 @@
       close = null;
       complete = null;
       confirm = null;
-      netx = null;
+      next = null;
       previous = null;
       scrollDocsDown = null;
       scrollDocsUp = null;
