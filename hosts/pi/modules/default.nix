@@ -10,7 +10,10 @@
     ./shared
   ];
   config = {
-    liyua.swapescape.enable = true;
+    liyua = {
+      swapescape.enable = true;
+      network.hostnameAdvertisement.enable = true;
+    };
 
     system.stateVersion = "25.05";
   };

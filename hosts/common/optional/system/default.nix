@@ -1,6 +1,7 @@
 {
   imports = [
     ./audio.nix
+    ./avahi.nix
     ./bluetooth.nix
     ./fwupd.nix
     ./graphics.nix

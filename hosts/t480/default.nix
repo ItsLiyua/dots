@@ -31,7 +31,10 @@
       # firmwareUpdater.enable = true;
       bluetooth.enable = true;
       upower.enable = true;
-      network.wireless.enable = true;
+      network = {
+        wireless.enable = true;
+        hostnameAdvertisement.enable = true;
+      };
     };
 
     networking.hostName = "t480";

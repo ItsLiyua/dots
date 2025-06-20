@@ -26,7 +26,10 @@
       };
       logind.enable = true;
       swapescape.enable = true;
-      network.wireless.enable = true;
+      network = {
+        wireless.enable = true;
+        hostnameAdvertisement.enable = true;
+      };
     };
     networking.hostName = "resolute";
     console.keyMap = "us";

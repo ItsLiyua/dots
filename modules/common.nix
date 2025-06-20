@@ -90,6 +90,7 @@
         type = lib.types.bool;
         default = false;
       };
+      hostnameAdvertisement.enable = lib.mkEnableOption "Access via hostname by advertising it to other devices on the network";
     };
   };
 }
