@@ -61,5 +61,14 @@
         };
       };
     };
+    mappings = {
+      close = null;
+      complete = null;
+      confirm = null;
+      netx = null;
+      previous = null;
+      scrollDocsDown = null;
+      scrollDocsUp = null;
+    };
   };
 }
