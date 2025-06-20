@@ -12,6 +12,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -24,12 +28,17 @@
       inputConfigs = with inputs; [
         disko.nixosModules.disko
         sops-nix.nixosModules.sops
+        nix-minecraft.nixosModules.minecraft-servers
+      ];
+      inputOverlays = with inputs; [
+        nix-minecraft.overlay
       ];
       mkSysConfig =
         mainRepo: cfg:
         mainRepo.lib.nixosSystem {
           specialArgs = inputs;
           modules = inputConfigs ++ [
+            { nixpkgs.overlays = inputOverlays; }
             ./hosts/common
             ./modules
             cfg
@@ -48,13 +57,6 @@
         rpi5-1 = mkSysConfig nixos-raspberrypi ./hosts/pi/rpi5-1.nix;
         rpi5-2 = mkSysConfig nixos-raspberrypi ./hosts/pi/rpi5-2.nix;
         linode = mkSysConfig nixpkgs ./hosts/linode;
-        # linode = nixpkgs.lib.nixosSystem {
-        #   modules = inputConfigs ++ [
-        #     ./modules
-        #     ./hosts/common
-        #     ./hosts/linode
-        #   ];
-        # };
       };
       formatter = forAllSystems (s: nixpkgs.legacyPackages.${s}.nixfmt-tree);
     };
