@@ -5,7 +5,7 @@ import Network from "./wifiBtBat/wifi";
 export default function WifiBtBat() {
   return (
     <box cssClasses={["element", "wifiBtBat"]}>
-      <Network />
+      {/* <Network /> */}
       <Bluetooth />
       <Battery />
     </box>

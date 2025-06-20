@@ -15,7 +15,7 @@
         hyprland
         mpris
         wireplumber
-        network
+        # network
         bluetooth
         battery
         notifd
