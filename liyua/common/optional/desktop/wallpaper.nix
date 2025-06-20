@@ -58,7 +58,7 @@
               );
             })
             |> map (d: {
-              display = d.name;
+              monitor = d.name;
               path = "${d.img}/share/wallpapers/nixos-wallpaper.png";
             })
           else if type == "path" then
@@ -73,8 +73,19 @@
           settings = {
             inherit splash;
             preload = map (i: i.path) wallpapers;
-            wallpaper = map (i: "${i.display},${i.path}") wallpapers;
+            wallpaper = map (i: "${i.monitor},${i.path}") wallpapers;
           };
+        };
+        programs.hyprlock.settings = lib.mkIf config.liyua.desktop.lockscreen.enable {
+          background = lib.mkForce (
+            wallpapers
+            |> map (i: {
+              inherit (i) monitor;
+              inherit (i) path;
+              blur_passes = 3;
+              blur_size = 8;
+            })
+          );
         };
       }
     );
