@@ -16,10 +16,10 @@
           motd = "Velocity Procy";
           online-mode = true;
           servers = {
-            test = "10.15.0.2:25565";
-            try = [ "test" ];
+            smp = "10.15.0.2:25565";
+            try = [ "smp" ];
           };
-          forced-hosts.test = [ "test" ];
+          forced-hosts.smp = [ "smp" ];
           player-info-forwarding-mode = "modern";
           forwarding-secret-file = config.sops.secrets.velocity.path;
         };
