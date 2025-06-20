@@ -13,13 +13,7 @@
           enable = true;
           launchCommand = "Hyprland";
         };
-        gaming = {
-          steam = {
-            enable = true;
-            protontricks.enable = true;
-          };
-          gamepadSupport = true;
-        };
+        gaming.gamepadSupport = true;
         overclocking.gpu.lact.enable = true;
         wayland.enable = true;
       };

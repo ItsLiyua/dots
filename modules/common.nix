@@ -4,10 +4,6 @@
     ui = {
       dconf.enable = lib.mkEnableOption "dconf (used for some UI apps)";
       gaming = {
-        steam = {
-          enable = lib.mkEnableOption "Steam";
-          protontricks.enable = lib.mkEnableOption "ProtonTricks for modding games";
-        };
         gamepadSupport = lib.mkOption {
           type = lib.types.bool;
           default = false;
