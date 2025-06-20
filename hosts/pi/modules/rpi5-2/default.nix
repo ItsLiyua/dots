@@ -1,1 +1,1 @@
-{ imports = [ ./vaultwarden.nix ]; }
+{ }
