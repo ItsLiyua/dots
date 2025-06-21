@@ -1,5 +1,5 @@
 {
-  networking.firewall.allowedTCPPorts = [ 80 ];
+  networking.firewall.allowedTCPPorts = [ 8222 ];
   services.vaultwarden = {
     enable = true;
     config = {
