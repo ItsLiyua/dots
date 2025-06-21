@@ -15,6 +15,7 @@
           bind = "0.0.0.0:25565";
           motd = "Velocity Procy";
           online-mode = true;
+          ping-passthrough = "ALL";
           servers = {
             smp = "10.15.0.2:25565";
             try = [ "smp" ];
