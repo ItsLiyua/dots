@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  sops.secrets."wireguard/linode".owner = "systemd-network";
+  sops.secrets."wireguard/rpi5-1".owner = "systemd-network";
   networking = {
     firewall.allowedUDPPorts = [ 51820 ];
     useNetworkd = true;
@@ -14,31 +14,23 @@
         MTUBytes = "1300";
       };
       wireguardConfig = {
-        PrivateKeyFile = config.sops.secrets."wireguard/linode".path;
+        PrivateKeyFile = config.sops.secrets."wireguard/rpi5-1".path;
         ListenPort = 51820;
         RouteTable = "main";
       };
       wireguardPeers = [
         {
-          # Resolute
-          PublicKey = "PCFtL6M/vfrxFFVSXAi7ascCUFBrM9i8PhLLuTUDeyA=";
-          AllowedIPs = [ "10.15.0.2" ];
-        }
-        {
-          # RPi5-1
-          PublicKey = "xF4JZGpbqSziuR82BRIBtYSyL0/MVqE58dgcK/mTcF8=";
-          AllowedIPs = [ "10.15.0.3" ];
-        }
-        {
-          # RPi5-2
-          PublicKey = "UQ8STKuIHeKLHJE1Zv44Ms1LVshGITvCggtGXP6TBCw=";
-          AllowedIPs = [ "10.15.0.4" ];
+          # Linode
+          PublicKey = "cOa8ACs07xdE+C7H3O/+2tA7BKfIIHaojz80WZbazlM=";
+          AllowedIPs = [ "10.15.0.1" ];
+          PersistentKeepalive = 25;
+          Endpoint = [ "172.105.73.145:51820" ];
         }
       ];
     };
     networks.wg0 = {
       matchConfig.Name = "wg0";
-      address = [ "10.15.0.1/24" ];
+      address = [ "10.15.0.3/24" ];
       networkConfig = {
         IPMasquerade = "ipv4";
         IPv4Forwarding = true;
