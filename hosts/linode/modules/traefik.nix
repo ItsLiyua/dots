@@ -25,7 +25,7 @@
       certificateResolvers.myresolver.acme = {
         email = "liyua@duck.com";
         storage = "${config.services.traefik.dataDir}/acme.json";
-        caserver = "https://acme-v02.api.letsencrypt.org/directory";
+        # caserver = "https://acme-v02.api.letsencrypt.org/directory";
         httpchallenge.entryPoint = "web";
       };
     };
