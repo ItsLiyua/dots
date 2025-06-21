@@ -7,7 +7,7 @@
     enable = true;
     staticConfigOptions = {
       log.level = "WARN";
-      api = { };
+      api.insecure = true;
       entryPoints = {
         web = {
           address = ":80";
