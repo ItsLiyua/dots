@@ -37,11 +37,13 @@
             rule = "Host(`traefik.liyua.moe`)";
             service = "api@internal";
             middlewares = [ "auth" ];
+            tls.certResolver = "myresolver";
             entrypoints = "websecure";
           };
           vaultwarden = {
             rule = "Host(`vault.liyua.moe`)";
             service = "vaultwarden";
+            tls.certResolver = "myresolver";
             entrypoints = "websecure";
           };
         };
