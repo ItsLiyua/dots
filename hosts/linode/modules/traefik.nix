@@ -45,8 +45,17 @@
             tls.certResolver = "myresolver";
             entrypoints = "websecure";
           };
+          radicale = {
+            rule = "Host(`calendar.liyua.moe`)";
+            service = "radicale";
+            tls.certResolver = "myresolver";
+            entrypoints = "websecure";
+          };
         };
-        services.vaultwarden.loadBalancer.servers = [ { url = "http://10.15.0.3:8222"; } ];
+        services = {
+          vaultwarden.loadBalancer.servers = [ { url = "http://10.15.0.3:8222"; } ];
+          radicale.loadBalancer.servers = [ { url = "http://10.15.0.3:5232"; } ];
+        };
         middlewares.auth.basicAuth.usersFile = config.sops.secrets."traefik/dashboard".path;
       };
     };
