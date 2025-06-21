@@ -1,7 +1,7 @@
 { config, ... }:
 {
-  sops.secrets.radicale.owner = "radicale/login";
-  networking.firewall.allowedTCPPorts = [ "5232" ];
+  sops.secrets."radicale/login".owner = "radicale";
+  networking.firewall.allowedTCPPorts = [ 5232 ];
   services.radicale = {
     enable = true;
     settings = {
