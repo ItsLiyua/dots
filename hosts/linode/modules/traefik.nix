@@ -4,7 +4,7 @@
   networking.firewall.allowedTCPPorts = [
     80
     443
-    8080
+    25565
   ];
   services.traefik = {
     enable = true;
@@ -23,6 +23,7 @@
           address = ":443";
           http.tls.certResolver = "myresolver";
         };
+        minecraft.address = ":25565/tcp";
       };
       certificatesResolvers.myresolver.acme = {
         email = "liyua@duck.com";
@@ -49,6 +50,13 @@
         };
         services.vaultwarden.loadBalancer.servers = [ { url = "http://10.15.0.3:8222"; } ];
         middlewares.auth.basicAuth.usersFile = config.sops.secrets."traefik/dashboard".path;
+      };
+      tcp = {
+        routers.smp = {
+          rule = "Host(`smp.liyua.moe`)";
+          service = "minecraft-smp";
+        };
+        services.minecraft-smp.loadBalancer.servers = [ { url = "10.15.0.2:25565"; } ];
       };
     };
   };
