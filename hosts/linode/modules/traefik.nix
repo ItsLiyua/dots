@@ -3,6 +3,7 @@
   networking.firewall.allowedTCPPorts = [
     80
     443
+    8080
   ];
   services.traefik = {
     enable = true;
@@ -22,19 +23,20 @@
           http.tls.certResolver = "myresolver";
         };
       };
-      certificateResolvers.myresolver.acme = {
+      certificatesResolvers.myresolver.acme = {
         email = "liyua@duck.com";
         storage = "${config.services.traefik.dataDir}/acme.json";
-        # caserver = "https://acme-v02.api.letsencrypt.org/directory";
-        httpchallenge.entryPoint = "web";
+        httpChallenge.entryPoint = "web";
       };
     };
     dynamicConfigOptions = {
-      routers = {
-        api = {
-          rule = "Host(`traefik.liyua.moe`)";
-          service = "api@internal";
-          tls.certResolver = "myresolver";
+      http = {
+        routers = {
+          api = {
+            rule = "Host(`traefik.liyua.moe`)";
+            service = "api@internal";
+            # tls.certResolver = "myresolver";
+          };
         };
       };
     };
