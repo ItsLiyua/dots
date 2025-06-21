@@ -47,7 +47,7 @@
             entrypoints = "websecure";
           };
         };
-        services.vaultwarden.loadBalancer.servers = [ { url = "http://10.15.0.3:80"; } ];
+        services.vaultwarden.loadBalancer.servers = [ { url = "http://10.15.0.3:8222"; } ];
         middlewares.auth.basicAuth.usersFile = config.sops.secrets."traefik/dashboard".path;
       };
     };
