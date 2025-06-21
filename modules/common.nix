@@ -47,7 +47,7 @@
       };
       timeout = lib.mkOption {
         type = lib.types.ints.positive;
-        default = 3;
+        default = 1;
         description = "For how long to show the bootloader";
       };
       memtest86.enable = lib.mkEnableOption "Support for Memtest86";

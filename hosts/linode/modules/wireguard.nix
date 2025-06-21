@@ -23,7 +23,6 @@
           # Resolute
           PublicKey = "PCFtL6M/vfrxFFVSXAi7ascCUFBrM9i8PhLLuTUDeyA=";
           AllowedIPs = [ "10.15.0.2" ];
-          PersistentKeepalive = 25;
         }
       ];
     };

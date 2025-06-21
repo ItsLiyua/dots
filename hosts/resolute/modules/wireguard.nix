@@ -23,6 +23,7 @@
           # Linode
           PublicKey = "cOa8ACs07xdE+C7H3O/+2tA7BKfIIHaojz80WZbazlM=";
           AllowedIPs = [ "10.15.0.1" ];
+          PersistentKeepalive = 25;
           Endpoint = [ "172.105.73.145:51820" ];
         }
       ];
