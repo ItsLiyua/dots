@@ -1,1 +1,6 @@
-{ imports = [ ./wireguard.nix ]; }
+{
+  imports = [
+    ./vaultwarden.nix
+    ./wireguard.nix
+  ];
+}
