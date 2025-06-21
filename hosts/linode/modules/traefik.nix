@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   networking.firewall.allowedTCPPorts = [
     80
@@ -7,7 +8,7 @@
     enable = true;
     staticConfigOptions = {
       log.level = "WARN";
-      api = { };
+      api.dashboard = true;
       entryPoints = {
         web = {
           address = ":80";
@@ -16,11 +17,14 @@
             scheme = "https";
           };
         };
-        websecure.address = ":443";
+        websecure = {
+          address = ":443";
+          http.tls.certResolver = "myresolver";
+        };
       };
       certificateResolvers.myresolver.acme = {
         email = "liyua@duck.com";
-        storage = "/var/lib/traefik/acme.json";
+        storage = "${config.services.traefik.dataDir}/acme.json";
         caserver = "https://acme-v02.api.letsencrypt.org/directory";
         httpchallenge.entryPoint = "web";
       };
