@@ -6,7 +6,7 @@
   services.traefik = {
     enable = true;
     staticConfigOptions = {
-      log.level = "WARN";
+      log.level = "DEBUG"; # TODO: CHANGE THIS BACK
       api = { };
       entryPoints = {
         web = {
