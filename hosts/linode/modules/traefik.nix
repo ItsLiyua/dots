@@ -37,8 +37,15 @@
             rule = "Host(`traefik.liyua.moe`)";
             service = "api@internal";
             middlewares = [ "auth" ];
+            entrypoints = "websecure";
+          };
+          vaultwarden = {
+            rule = "Host(`vault.liyua.moe`)";
+            service = "vaultwarden";
+            entrypoints = "websecure";
           };
         };
+        services.vaultwarden.loadBalancer.servers = [ { url = "http://10.15.0.3:80"; } ];
         middlewares.auth.basicAuth.usersFile = config.sops.secrets."traefik/dashboard".path;
       };
     };
