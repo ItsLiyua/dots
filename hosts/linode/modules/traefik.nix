@@ -1,5 +1,6 @@
 { config, ... }:
 {
+  sops.secrets."traefik/dashboard".owner = "traefik";
   networking.firewall.allowedTCPPorts = [
     80
     443
@@ -38,9 +39,7 @@
             middlewares = [ "auth" ];
           };
         };
-        middlewares.auth.basicAuth.users = [
-          "liyua:$y$j9T$Uj3UPs0HlUFyY7ERQWd9I.$hk/ORnNO77QUKIsKwt2GUXLb8H42yTOCVtomnEbm7x9"
-        ];
+        middlewares.auth.basicAuth.usersFile = config.sops.secrets."traefik/dashboard".path;
       };
     };
   };
