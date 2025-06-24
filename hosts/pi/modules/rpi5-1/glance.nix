@@ -23,10 +23,31 @@
               size = "small";
               widgets = [
                 {
+                  type = "clock";
+                  hour-format = "24h";
+                  timezones = [
+                    {
+                      timezone = "America/New_York";
+                      label = "New York";
+                    }
+                    {
+                      timezone = "Asia/Tokyo";
+                      label = "Tokyo";
+                    }
+                  ];
+                }
+                {
                   type = "calendar";
                   first-day-of-week = "monday";
                 }
-                { type = "todo"; }
+                {
+                  type = "weather";
+                  location = "London, United Kingdom";
+                  units = "metric";
+                  hour-format = "24h";
+                  hide-location = true;
+                }
+                { type = "to-do"; }
               ];
             }
             {
@@ -46,14 +67,62 @@
                     {
                       title = "Nix Packages";
                       shortcut = "!np";
-                      url = "https://search.nixos.org/packages?channel=unstable&query={QUERY}";
+                      url = "https://search.nixos.org/packages?channel=unstable&sort=relevance&query={QUERY}";
                     }
                   ];
                 }
                 {
-                  type = "group";
+                  type = "split-column";
                   widgets = [
-
+                    {
+                      type = "server-stats";
+                      server = [ { type = "local"; } ];
+                    }
+                    {
+                      type = "monitor";
+                      cache = "1m";
+                      title = "Services";
+                      sites = [
+                        {
+                          title = "Dashboard";
+                          url = "https://home.liyua.moe";
+                          icon = "di:glance";
+                        }
+                        {
+                          title = "Radicale";
+                          url = "https://calendar.liyua.moe";
+                          icon = "di:radicale";
+                          # alt-status-codes = [ 302 ];
+                        }
+                        {
+                          title = "Vaultwarden";
+                          url = "https://vault.liyua.moe";
+                          icon = "di:vaultwarden";
+                        }
+                      ];
+                    }
+                  ];
+                }
+                {
+                  type = "split-column";
+                  widgets = [
+                    {
+                      type = "videos";
+                      style = "vertical-list";
+                      collapse-after = 5;
+                      channels = [
+                        "UCXuqSBlHAE6Xw-yeJA0Tunw" # LTT
+                        "UCg6gPGh8HU2U01vaFCAsvmQ" # CTT
+                        "UCwHwDuNd9lCdA7chyyquDXw" # Bread on Penguins
+                        "UCld68syR8Wi-GY_n4CaoJGA" # Brodie Robertson
+                        "UCJLZe_NoiG0hT7QCX_9vmqw" # I did a thing
+                        "UCl2mFZoRqjw_ELax4Yisf6w" # Louis Rossmann
+                        "UCFAiFyGs6oDiF1Nf-rRJpZA" # Technoblade
+                        "UC5UAwBUum7CPN5buc-_N1Fw" # The Linux Experiment
+                        "UCsnGwSIHyoYN0kiINAGUKxg" # Wolfgans Channel
+                        "UC6IxnFzHofFJ5X2PycSMsww" # xkcd
+                      ];
+                    }
                     {
                       type = "twitch-channels";
                       channels = [
@@ -73,11 +142,51 @@
               size = "small";
               widgets = [
                 {
-                  type = "weather";
-                  location = "London, United Kingdom";
-                  units = "metric";
-                  hour-format = "24h";
-                  hide-location = true;
+                  type = "bookmarks";
+                  groups = [
+                    {
+                      links = [
+                        {
+                          title = "ProtonMail";
+                          url = "https://mail.proton.me";
+                        }
+                        {
+                          title = "GitHub";
+                          url = "https://github.com";
+                        }
+                        {
+                          title = "Wikipedia";
+                          url = "https://en.wikipedia.org";
+                        }
+                        {
+                          title = "Reddit";
+                          url = "https://reddit.com";
+                        }
+                      ];
+                    }
+                    {
+                      title = "Entertainment";
+                      color = "343.27 81.25 74.9";
+                      links = [
+                        {
+                          title = "Disney+";
+                          url = "https://disneyplus.com";
+                        }
+                        {
+                          title = "Netflix";
+                          url = "https://netflix.com";
+                        }
+                        {
+                          title = "Amazon Video";
+                          url = "https://amazon.com/gp/video/storefront";
+                        }
+                        {
+                          title = "Crunchyroll";
+                          url = "https://crunchyroll.com";
+                        }
+                      ];
+                    }
+                  ];
                 }
                 {
                   type = "releases";
