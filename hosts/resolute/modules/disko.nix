@@ -62,6 +62,7 @@
           partitions = {
             luks = {
               size = "100%";
+              config.uuid = "7e8518a0-be2d-48b9-81c9-fcc30bfd99b3";
               content = {
                 type = "luks";
                 name = "home";
@@ -89,6 +90,8 @@
     };
   };
   environment.etc.crypttab.text = ''
-    home ${config.disko.devices.disk.home.device}p1 ${config.sops.secrets."disks/home".path}
+    home PARTUUID=${config.disko.devices.home.content.partitions.luks.config.uuid} ${
+      config.sops.secrets."disks/home".path
+    }
   '';
 }
