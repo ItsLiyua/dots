@@ -1,4 +1,6 @@
+{ config, ... }:
 {
+  sops.secrets."disks/home" = { };
   disko.devices = {
     disk = {
       main = {
@@ -65,6 +67,7 @@
                 name = "home";
                 settings.allowDiscards = true;
                 initrdUnlock = false;
+                keyFile = config.sops.secrets."disks/home".path;
                 content = {
                   type = "btrfs";
                   extraArgs = [ "-f" ];
@@ -85,4 +88,7 @@
       };
     };
   };
+  environment.etc.crypttab.text = ''
+    home ${config.disko.devices.disk.home.device}p1 ${config.sops.secrets."disks/home".path}
+  '';
 }
