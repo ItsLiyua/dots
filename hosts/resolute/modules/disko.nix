@@ -1,6 +1,7 @@
 { config, ... }:
 {
-  sops.secrets."disks/home" = { };
+  sops.secrets."disks/home/keyfile" = { };
+  sops.secrets."disks/home/password" = { };
   disko.devices = {
     disk = {
       main = {
@@ -69,6 +70,7 @@
                 settings.allowDiscards = true;
                 initrdUnlock = false;
                 keyFile = config.sops.secrets."disks/home".path;
+                passwordFile = config.sops.secrepts."disks/home/password".path;
                 content = {
                   type = "btrfs";
                   extraArgs = [ "-f" ];
@@ -91,7 +93,7 @@
   };
   environment.etc.crypttab.text = ''
     home PARTUUID=${config.disko.devices.disk.home.content.partitions.luks.uuid} ${
-      config.sops.secrets."disks/home".path
+      config.sops.secrets."disks/home/keyfile".path
     }
   '';
 }
