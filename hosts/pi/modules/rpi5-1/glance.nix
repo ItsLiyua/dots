@@ -128,7 +128,7 @@
                 }
                 {
                   type = "releases";
-                  cache = "id";
+                  cache = "1d";
                   repositories = [
                     "glanceapp/glance"
                     "go-gitea/gitea"
