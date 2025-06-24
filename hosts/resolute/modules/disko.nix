@@ -1,7 +1,10 @@
 { config, ... }:
 {
-  sops.secrets."disks/home/keyfile" = { };
-  sops.secrets."disks/home/password" = { };
+  sops.secrets = {
+    "disks/root/password" = { };
+    "disks/home/keyfile" = { };
+    "disks/home/password" = { };
+  };
   disko.devices = {
     disk = {
       main = {
@@ -25,6 +28,7 @@
               content = {
                 type = "luks";
                 name = "root";
+                passwordFile = config.sops.secrets."disks/root/password".path;
                 settings.allowDiscards = true;
                 content = {
                   type = "btrfs";
