@@ -64,6 +64,7 @@
                 type = "luks";
                 name = "home";
                 settings.allowDiscards = true;
+                initrdUnlock = false;
                 content = {
                   type = "btrfs";
                   extraArgs = [ "-f" ];
