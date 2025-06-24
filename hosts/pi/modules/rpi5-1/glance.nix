@@ -42,6 +42,22 @@
             {
               size = "full";
               widgets = [
+                {
+                  type = "search";
+                  search-engine = "duckduckgo";
+                  bangs = [
+                    {
+                      title = "YouTube";
+                      shortcut = "!yt";
+                      url = "https://youtube.com/results?search_query={QUERY}";
+                    }
+                    {
+                      title = "Nix Packages";
+                      shortcut = "!np";
+                      url = "https://search.nixos.org/packages?channel=unstable&query={QUERY}";
+                    }
+                  ];
+                }
               ];
             }
             {
