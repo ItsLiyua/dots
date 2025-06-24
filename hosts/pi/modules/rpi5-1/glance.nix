@@ -26,17 +26,7 @@
                   type = "calendar";
                   first-day-of-week = "monday";
                 }
-                {
-                  type = "twitch-channels";
-                  channels = [
-                    "theprimeagen"
-                    "j_blow"
-                    "piratesoftware"
-                    "cohhcarnage"
-                    "christitustech"
-                    "EJ_SA"
-                  ];
-                }
+                { type = "todo"; }
               ];
             }
             {
@@ -45,6 +35,8 @@
                 {
                   type = "search";
                   search-engine = "duckduckgo";
+                  new-tab = true;
+                  autofocus = true;
                   bangs = [
                     {
                       title = "YouTube";
@@ -55,6 +47,23 @@
                       title = "Nix Packages";
                       shortcut = "!np";
                       url = "https://search.nixos.org/packages?channel=unstable&query={QUERY}";
+                    }
+                  ];
+                }
+                {
+                  type = "group";
+                  widgets = [
+
+                    {
+                      type = "twitch-channels";
+                      channels = [
+                        "theprimeagen"
+                        "j_blow"
+                        "piratesoftware"
+                        "cohhcarnage"
+                        "christitustech"
+                        "EJ_SA"
+                      ];
                     }
                   ];
                 }
