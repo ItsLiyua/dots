@@ -51,10 +51,17 @@
             tls.certResolver = "myresolver";
             entrypoints = "websecure";
           };
+          glance = {
+            rule = "Host(`home.liyua.moe`)";
+            service = "glance";
+            tls.certResolver = "myresolver";
+            entrypoints = "websecure";
+          };
         };
         services = {
           vaultwarden.loadBalancer.servers = [ { url = "http://10.15.0.3:8222"; } ];
           radicale.loadBalancer.servers = [ { url = "http://10.15.0.3:5232"; } ];
+          glance.loadBalancer.servers = [ { url = "http://10.15.0.3:7575"; } ];
         };
         middlewares.auth.basicAuth.usersFile = config.sops.secrets."traefik/dashboard".path;
       };
