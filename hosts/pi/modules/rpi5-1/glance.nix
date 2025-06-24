@@ -6,10 +6,18 @@
       server = {
         host = "0.0.0.0";
         port = 7575;
+        proxies = true;
+      };
+      theme = {
+        background-color = " 240 21 15";
+        contrast-multiplier = " 1.2";
+        primary-color = " 217 92 83";
+        positive-color = " 115 54 76";
+        negative-color = " 347 70 65";
       };
       pages = [
         {
-          name = "Home";
+          name = "Start";
           columns = [
             {
               size = "small";
@@ -17,29 +25,6 @@
                 {
                   type = "calendar";
                   first-day-of-week = "monday";
-                }
-                {
-                  type = "rss";
-                  limit = 10;
-                  collapse-after = 3;
-                  cache = "12h";
-                  feeds = [
-                    {
-                      url = "https;//selfh.st/rss/";
-                      title = "selfh.st";
-                      limit = 4;
-                    }
-                    { url = "https://ciechaniw.ski/atom.xml"; }
-                    {
-                      url = "https://www.joshwcomeau.com/rss.xml";
-                      title = "Josh Comeau";
-                    }
-                    { url = "https://samwho.dev/rss.xml"; }
-                    {
-                      url = "ishadeed.com/feed.xml";
-                      title = "Ahmad Shadded";
-                    }
-                  ];
                 }
                 {
                   type = "twitch-channels";
@@ -57,38 +42,6 @@
             {
               size = "full";
               widgets = [
-                {
-                  type = "group";
-                  widgets = [
-                    { type = "hacker-news"; }
-                    { type = "lobsters"; }
-                  ];
-                }
-                {
-                  type = "videos";
-                  channels = [
-                    "UCXuqSBlHAE6Xw-yeJA0Tunw" # Linus Tech Tips
-                    "UCR-DXc1voovS8nhAvccRZhg" # Jeff Geerling
-                    "UCsBjURrPoezykLs9EqgamOA" # Fireship
-                    "UCBJycsmduvYEL83R_U4JriQ" # Marques Brownlee
-                    "UCHnyfMqiRRG1u-2MsSQLbXA" # Veritasium
-                  ];
-                }
-                {
-                  type = "group";
-                  widgets = [
-                    {
-                      type = "reddit";
-                      subreddit = "technology";
-                      show-thumbnails = true;
-                    }
-                    {
-                      type = "reddit";
-                      subreddit = "selfhosted";
-                      show-thumbnails = true;
-                    }
-                  ];
-                }
               ];
             }
             {
@@ -100,31 +53,6 @@
                   units = "metric";
                   hour-format = "24h";
                   hide-location = true;
-                }
-                {
-                  type = "markets";
-                  markets = [
-                    {
-                      symbol = "SPY";
-                      name = "S&P 500";
-                    }
-                    {
-                      symbol = "BTC-USD";
-                      name = "Bitcoin";
-                    }
-                    {
-                      symbol = "NVDA";
-                      name = "NVIDIA";
-                    }
-                    {
-                      symbol = "AAPL";
-                      name = "Apple";
-                    }
-                    {
-                      symbol = "MSFT";
-                      name = "Microsoft";
-                    }
-                  ];
                 }
                 {
                   type = "releases";
