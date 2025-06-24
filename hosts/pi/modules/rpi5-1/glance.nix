@@ -42,7 +42,7 @@
                   ];
                 }
                 {
-                  type = "Twitch Channels";
+                  type = "twitch-channels";
                   channels = [
                     "theprimeagen"
                     "j_blow"
