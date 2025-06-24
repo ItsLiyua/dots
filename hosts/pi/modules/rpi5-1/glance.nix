@@ -3,7 +3,10 @@
     enable = true;
     openFirewall = true;
     settings = {
-      server.port = 7575;
+      server = {
+        host = "0.0.0.0";
+        port = 7575;
+      };
       pages = [ ];
     };
   };
