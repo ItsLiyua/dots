@@ -9,7 +9,6 @@
       ROCKET_PORT = 8222;
       EXTENDED_LOGGING = true;
       LOG_LEVEL = "warn";
-      EXPERIMENTAL_CLIENT_FEATURE_FLAGS = "ssh-key-vault-item";
     };
   };
 }
