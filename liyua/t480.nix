@@ -15,9 +15,12 @@
       };
       layout = "de";
       bar.enable = true;
-      wm.hyprland = {
-        enable = true;
-        xwayland.enable = true;
+      wm = {
+        hyprland = {
+          enable = true;
+          xwayland.enable = true;
+        };
+        # niri.enable = true;
       };
       wallpaper = {
         enable = true;

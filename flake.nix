@@ -41,6 +41,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -49,7 +53,10 @@
       extraSpecialArgs = inputs;
       pkgs-x86 = nixpkgs.legacyPackages.x86_64-linux;
       pkgs-amd64 = nixpkgs.legacyPackages.aarch64-linux;
+
+      extraOverlays = [ inputs.niri.overlays.niri ];
       sharedModules = with inputs; [
+        { nixpkgs.overlays = extraOverlays; }
         ags.homeManagerModules.default
         hyprland.homeManagerModules.default
         nur.modules.homeManager.default
@@ -57,9 +64,12 @@
         nixcord.homeModules.nixcord
         nvf.homeManagerModules.default
         sops-nix.homeManagerModules.sops
+        niri.homeModules.niri
+        niri.homeModules.stylix
 
         ./modules
       ];
+
       forAllSystems = nixpkgs.lib.genAttrs [
         "x86_64-linux"
         "aarch64-linux"
