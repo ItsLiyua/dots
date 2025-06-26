@@ -13,7 +13,7 @@
         "velocity.toml".value = {
           config-version = "2.5";
           bind = "0.0.0.0:25565";
-          motd = "§cThis server is currently offline.";
+          motd = "<red>This server is currently offline.</red>";
           online-mode = true;
           ping-passthrough = "ALL";
           servers = {
