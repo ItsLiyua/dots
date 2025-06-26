@@ -17,10 +17,10 @@
       bar.enable = true;
       wm = {
         hyprland = {
-          enable = true;
+          # enable = true;
           xwayland.enable = true;
         };
-        # niri.enable = true;
+        niri.enable = true;
       };
       wallpaper = {
         enable = true;
