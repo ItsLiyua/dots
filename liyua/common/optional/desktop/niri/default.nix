@@ -9,6 +9,7 @@
     programs.niri = {
       enable = true;
       settings = {
+        # environment.WAYLAND_DISPLAY = "niri";
         binds = with config.lib.niri.actions; {
           "Mod+Q".action = close-window;
           "Mod+M".action = quit { skip-confirmation = false; };
