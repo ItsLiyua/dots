@@ -45,18 +45,31 @@
           "Mod+9".action = focus-workspace 9;
           "Mod+0".action = focus-workspace 10;
 
-          "Mod+Shift+1".action = move-column-to-workspace 1;
-          "Mod+Shift+2".action = move-column-to-workspace 2;
-          "Mod+Shift+3".action = move-column-to-workspace 3;
-          "Mod+Shift+4".action = move-column-to-workspace 4;
-          "Mod+Shift+5".action = move-column-to-workspace 5;
-          "Mod+Shift+6".action = move-column-to-workspace 6;
-          "Mod+Shift+7".action = move-column-to-workspace 7;
-          "Mod+Shift+8".action = move-column-to-workspace 8;
-          "Mod+Shift+9".action = move-column-to-workspace 9;
-          "Mod+Shift+0".action = move-column-to-workspace 10;
+          "Mod+Shift+1".action.move-column-to-workspace = 1;
+          "Mod+Shift+2".action.move-column-to-workspace = 2;
+          "Mod+Shift+3".action.move-column-to-workspace = 3;
+          "Mod+Shift+4".action.move-column-to-workspace = 4;
+          "Mod+Shift+5".action.move-column-to-workspace = 5;
+          "Mod+Shift+6".action.move-column-to-workspace = 6;
+          "Mod+Shift+7".action.move-column-to-workspace = 7;
+          "Mod+Shift+8".action.move-column-to-workspace = 8;
+          "Mod+Shift+9".action.move-column-to-workspace = 9;
+          "Mod+Shift+0".action.move-column-to-workspace = 10;
 
           "Print".action = screenshot;
+          "Mod+Space".action = toggle-overview;
+
+          # XF86WakeUp.action = null;
+          XF86AudioMute.action = spawn "wpctl" "set-mute" "@DEFAULT_SINK@" "toggle";
+          XF86AudioLowerVolume.action = spawn "wpctl" "set-volume" "@DEFAULT_SINK@" "0.03-";
+          XF86AudioRaiseVolume.action = spawn "wpctl" "set-volume" "@DEFAULT_SINK@" "0.03+";
+          XF86MonBrightnessDown.action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "2%-";
+          XF86MonBrightnessUp.action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "s" "+2%";
+          # XF86Display.action = null;
+          # XF86WLAN.action = null;
+          # XF86Tools.action = null;
+          # XF86Bluetooth.action = null;
+          # XF86Favorites.action = null;
         };
         input = {
           keyboard.xkb.layout = "de";
