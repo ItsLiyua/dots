@@ -1,5 +1,6 @@
 {
   imports = [
+    ./markdown.nix
     ./nix.nix
     ./ts.nix
     ./yaml.nix
