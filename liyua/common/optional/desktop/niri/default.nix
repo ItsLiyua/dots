@@ -9,7 +9,7 @@
     programs.niri = {
       enable = true;
       settings = {
-        # environment.WAYLAND_DISPLAY = "niri";
+        prefer-no-csd = true;
         binds = with config.lib.niri.actions; {
           "Mod+Q".action = close-window;
           "Mod+M".action = quit { skip-confirmation = false; };
@@ -88,6 +88,7 @@
         };
         layout.default-column-width.proportion = 0.5;
         screenshot-path = "~/Pictures/screenshots/$(date +%Y%m%d-%H%M%S).png";
+        overview.backdrop-color = config.lib.stylix.colors.withHashtag.base01;
       };
     };
     stylix.targets.niri.enable = true;
