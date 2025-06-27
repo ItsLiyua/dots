@@ -815,6 +815,27 @@
         "type": "github"
       }
     },
+    "nil_ls": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750558251,
+        "narHash": "sha256-wmb+kcqG05jQA2RPq+KZhOeCxSEOAgumgp/remOsczs=",
+        "owner": "oxalica",
+        "repo": "nil",
+        "rev": "4e5ac6ec65c775fbc6adba1c6022b29c7eccde0f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "ref": "main",
+        "repo": "nil",
+        "type": "github"
+      }
+    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -1120,6 +1141,7 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprsplit": "hyprsplit",
+        "nil_ls": "nil_ls",
         "niri": "niri",
         "nix-wallpaper": "nix-wallpaper",
         "nixcord": "nixcord",
@@ -1128,7 +1150,7 @@
         "nvf": "nvf",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
-        "tsserver-nixpkgs": "tsserver-nixpkgs"
+        "tsserver": "tsserver"
       }
     },
     "sops-nix": {
@@ -1387,7 +1409,7 @@
         "type": "github"
       }
     },
-    "tsserver-nixpkgs": {
+    "tsserver": {
       "locked": {
         "lastModified": 1736750381,
         "narHash": "sha256-BDDEM0PZkpl4toWbWijuzEHhsrlx8zTmHKkFF5Nsl04=",

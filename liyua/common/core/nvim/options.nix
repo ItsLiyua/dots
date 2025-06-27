@@ -37,5 +37,12 @@
       foldmethod = "indent";
       foldlevel = 100;
     };
+    diagnostics = {
+      enable = true;
+      config = {
+        underline = true;
+        virtual_lines = true;
+      };
+    };
   };
 }

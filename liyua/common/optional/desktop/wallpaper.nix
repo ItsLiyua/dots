@@ -67,15 +67,6 @@
             throw "Wallpaper type not set correctly";
       in
       {
-        # services.hyprpaper = {
-        #   enable = true;
-        #
-        #   settings = {
-        #     inherit splash;
-        #     preload = map (i: i.path) wallpapers;
-        #     wallpaper = map (i: "${i.monitor},${i.path}") wallpapers;
-        #   };
-        # };
         systemd.user.services.wallpaper = {
           Unit.Description = "Sets the wallpaper";
           Install.WantedBy = [ "graphical-session.target" ];
