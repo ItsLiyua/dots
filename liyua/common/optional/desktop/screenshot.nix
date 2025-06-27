@@ -5,7 +5,7 @@
   ...
 }:
 {
-  config = lib.mkIf config.liyua.desktop.screenshot.enable {
+  config = lib.mkIf (config.liyua.desktop.screenshot.enable && !config.liyua.desktop.wm.niri.enable) {
     wayland.windowManager.hyprland.settings.bind =
       with config.lib.stylix.colors;
       let

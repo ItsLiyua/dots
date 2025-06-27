@@ -1,6 +1,6 @@
 { config, lib, ... }:
 {
-  config = lib.mkIf config.liyua.desktop.lockscreen.enable {
+  config = lib.mkIf (config.liyua.desktop.lockscreen.enable && !config.liyua.desktop.wm.niri.enable) {
     stylix.targets.hyprlock.useWallpaper = false;
     programs.hyprlock = {
       enable = true;
