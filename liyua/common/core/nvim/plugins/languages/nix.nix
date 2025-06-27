@@ -8,5 +8,6 @@
       package = nil_ls.packages.${pkgs.system}.nil;
       server = "nil";
     };
+    extraDiagnostics.enable = false;
   };
 }

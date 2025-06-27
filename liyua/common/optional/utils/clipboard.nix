@@ -13,7 +13,13 @@
     systemd.user.services.clipboard-persist = {
       Unit.Description = "Persist clipboard";
       Install.WantedBy = [ "graphical-session.target" ];
-      Service.ExecStart = "${pkgs.wl-clip-persist}/bin/wl-clip-persist --clipboard both";
+      Service = {
+        Environment = [
+          "WAYLAND_DISPLAY=wayland-1"
+          "XDG_RUNTIME_DIR=${config.home.sessionVariables.XDG_RUNTIME_DIR or "/run/user/1000"}"
+        ];
+        ExecStart = "${pkgs.wl-clip-persist}/bin/wl-clip-persist --clipboard both";
+      };
     };
   };
 }
