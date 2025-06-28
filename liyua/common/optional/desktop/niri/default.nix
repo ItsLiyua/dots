@@ -10,6 +10,18 @@
       enable = true;
       settings = {
         prefer-no-csd = true;
+        spawn-at-startup = [
+          {
+            command = [
+              "systemctl"
+              "--user"
+              "import-environment"
+              "WAYLAND_DISPLAY"
+              "XDG_CURRENT_DESKTOP"
+              "XDG_RUNTIME_DIR"
+            ];
+          }
+        ];
         binds = with config.lib.niri.actions; {
           "Mod+Q".action = close-window;
           "Mod+M".action = quit { skip-confirmation = false; };

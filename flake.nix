@@ -30,7 +30,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprsplit = {
-      url = "github:shezdy/hyprsplit";
+      url = "github:shezdy/hyprsplit?ref=pull/52/head";
       inputs.hyprland.follows = "hyprland";
     };
     nvf = {
