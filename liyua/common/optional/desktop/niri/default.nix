@@ -90,14 +90,25 @@
           mouse.accel-profile = "flat";
           focus-follows-mouse.enable = true;
         };
-        outputs."eDP-1" = {
-          scale = 1;
-          mode = {
-            height = 1920;
-            width = 1080;
-            refresh = 60.0;
-          };
-        };
+        outputs =
+          config.liyua.desktop.displays
+          |> builtins.attrNames
+          |> map (name: {
+            inherit name;
+            value = config.liyua.desktop.displays.${name};
+          })
+          |> map (pair: {
+            inherit (pair) name;
+            value = {
+              mode = {
+                inherit (pair.value) width height;
+                refresh = pair.value.refreshRate;
+              };
+              inherit (pair.value) scale;
+              position = pair.value.pos;
+            };
+          })
+          |> builtins.listToAttrs;
         layout.default-column-width.proportion = 0.5;
         screenshot-path = "~/Pictures/screenshots/$(date +%Y%m%d-%H%M%S).png";
         overview.backdrop-color = config.lib.stylix.colors.withHashtag.base01;

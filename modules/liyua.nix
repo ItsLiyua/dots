@@ -17,7 +17,7 @@
               width = lib.mkOption { type = ints.positive; };
               height = lib.mkOption { type = ints.positive; };
               refreshRate = lib.mkOption {
-                type = ints.positive;
+                type = float;
                 default = 60;
               };
               scale = lib.mkOption {

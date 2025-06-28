@@ -11,7 +11,7 @@
       displays.eDP-1 = {
         width = 1920;
         height = 1080;
-        refreshRate = 60;
+        refreshRate = 60.0;
       };
       layout = "de";
       bar.enable = true;
