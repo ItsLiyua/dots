@@ -1,9 +1,0 @@
-@use "../shared.scss";
-@use "colors.scss" as c;
-
-window.Bar .element.launcher {
-  background-color: c.$base08;
-  .icon {
-    padding-right: 0.4em;
-  }
-}

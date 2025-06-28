@@ -1,1 +1,0 @@
-hyprctl exec foot fastfetch
