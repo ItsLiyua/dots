@@ -716,15 +716,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1746992858,
-        "narHash": "sha256-0jrsiUoQi/VXM2Ji7YTOEYDYYlBI2C3ZbgQpYoAEVKI=",
+        "lastModified": 1750992560,
+        "narHash": "sha256-GRmqYscTk+uaG9yyWKPE1sw4wUb8YVGtLeOipQLWB+Q=",
         "owner": "shezdy",
         "repo": "hyprsplit",
-        "rev": "bfe9bd397ca4f7d85aa70e13eaf1d82c26f2ffb4",
+        "rev": "03c5ce8eb39bd79dc25cd36ec3fd1808632e4b3e",
         "type": "github"
       },
       "original": {
         "owner": "shezdy",
+        "ref": "pull/52/head",
         "repo": "hyprsplit",
         "type": "github"
       }
