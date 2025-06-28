@@ -8,13 +8,11 @@
   xdg = lib.mkIf config.liyua.xdg.enable {
     portal = {
       enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-      ];
+      # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       config = {
         hyprland.preferred = [
           "hyprland"
-          "gtk"
+          # "gtk"
         ];
         niri.preferred = [ "gtk" ];
       };
