@@ -74,8 +74,7 @@
             Environment = "WAYLAND_DISPLAY=wayland-1";
             ExecStart = "${
               pkgs.writeShellScriptBin "wallpaper" (
-                wallpapers
-                |> map (w: "${pkgs.swaybg}/bin/swaybg -o ${w.monitor} -i ${w.path}\n")
+                [ "${pkgs.swaybg}/bin/swaybg " ] ++ (wallpapers |> map (w: "-o ${w.monitor} -i ${w.path} "))
                 |> lib.concatStrings
               )
             }/bin/wallpaper";
