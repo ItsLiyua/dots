@@ -116,7 +116,7 @@
             };
           })
           |> builtins.listToAttrs;
-        layout.default-column-width.proportion = 1.0;
+        layout.default-column-width.proportion = 0.5;
         screenshot-path = "~/Pictures/screenshots/$(date +%Y%m%d-%H%M%S).png";
         overview.backdrop-color = config.lib.stylix.colors.withHashtag.base01;
         hotkey-overlay.skip-at-startup = true;
