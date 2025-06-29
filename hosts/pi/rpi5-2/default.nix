@@ -1,7 +1,7 @@
 {
   imports = [
-    ./modules/shared
-    ./modules/rpi5-2
+    ./shared
+    ../common
   ];
 
   networking.hostName = "rpi5-2";

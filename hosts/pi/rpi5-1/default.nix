@@ -1,8 +1,10 @@
 {
   imports = [
+    ./shared
+    ../common
     ./glance.nix
     ./radicale.nix
     ./vaultwarden.nix
-    ./wireguard.nix
   ];
+  networking.hostName = "rpi5-1";
 }
