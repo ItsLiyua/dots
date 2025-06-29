@@ -68,7 +68,11 @@
       in
       {
         systemd.user.services.wallpaper = {
-          Unit.Description = "Sets the wallpaper";
+          Unit = {
+            Description = "Sets the wallpaper";
+            PartOf = "graphical-session.target";
+            After = "graphical-session.target";
+          };
           Install.WantedBy = [ "graphical-session.target" ];
           Service = {
             Environment = "WAYLAND_DISPLAY=wayland-1";
