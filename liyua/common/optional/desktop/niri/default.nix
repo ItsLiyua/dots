@@ -113,6 +113,7 @@
         screenshot-path = "~/Pictures/screenshots/$(date +%Y%m%d-%H%M%S).png";
         overview.backdrop-color = config.lib.stylix.colors.withHashtag.base01;
         hotkey-overlay.skip-at-startup = true;
+        xwayland-satellite.enable = true;
       };
     };
     stylix.targets.niri.enable = true;
