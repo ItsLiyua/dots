@@ -43,6 +43,7 @@
         sharedClipboard = true;
         theme = true;
       };
+      tokei.enable = true;
     };
     clipboard.enable = true;
     xdg.enable = true;

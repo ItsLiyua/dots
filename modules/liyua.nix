@@ -136,6 +136,7 @@
           ]);
         default = "none";
       };
+      tokei.enable = lib.mkEnableOption "Tokei";
       nvim = {
         lsp = lib.mkEnableOption "LSP support";
         sharedClipboard = lib.mkOption {
