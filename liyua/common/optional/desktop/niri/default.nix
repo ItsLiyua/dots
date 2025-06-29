@@ -8,6 +8,7 @@
   config = lib.mkIf config.liyua.desktop.wm.niri.enable {
     programs.niri = {
       enable = true;
+      package = pkgs.niri-unstable;
       settings = {
         prefer-no-csd = true;
         spawn-at-startup = [
@@ -58,8 +59,14 @@
           "Mod+9".action = focus-workspace 9;
           "Mod+0".action = focus-workspace 10;
 
-          "Mod+Shift+1".action.move-column-to-workspace = 1;
-          "Mod+Shift+2".action.move-column-to-workspace = 2;
+          "Mod+Shift+1".action.move-column-to-workspace = [
+            1
+            { focus = false; }
+          ];
+          "Mod+Shift+2".action.move-column-to-workspace = [
+            2
+            { focus = false; }
+          ];
           "Mod+Shift+3".action.move-column-to-workspace = 3;
           "Mod+Shift+4".action.move-column-to-workspace = 4;
           "Mod+Shift+5".action.move-column-to-workspace = 5;
@@ -109,11 +116,14 @@
             };
           })
           |> builtins.listToAttrs;
-        layout.default-column-width.proportion = 0.5;
+        layout.default-column-width.proportion = 1.0;
         screenshot-path = "~/Pictures/screenshots/$(date +%Y%m%d-%H%M%S).png";
         overview.backdrop-color = config.lib.stylix.colors.withHashtag.base01;
         hotkey-overlay.skip-at-startup = true;
-        xwayland-satellite.enable = true;
+        xwayland-satellite = {
+          enable = true;
+          path = "${pkgs.xwayland-satellite-unstable}/bin/xwayland-satellite";
+        };
       };
     };
     stylix.targets.niri.enable = true;
