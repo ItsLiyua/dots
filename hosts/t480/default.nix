@@ -12,7 +12,7 @@
         dconf.enable = true;
         greeter = {
           enable = true;
-          launchCommand = "niri";
+          launchCommand = "niri-session";
         };
         wayland.enable = true;
       };

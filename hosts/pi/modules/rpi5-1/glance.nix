@@ -162,6 +162,10 @@
                           title = "Reddit";
                           url = "https://reddit.com";
                         }
+                        {
+                          title = "YouTube";
+                          url = "https://youtube.com";
+                        }
                       ];
                     }
                     {
