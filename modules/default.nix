@@ -1,1 +1,9 @@
-{ imports = [ ./common.nix ]; }
+{
+  imports = [
+    ./network
+    ./boot.nix
+    ./common.nix
+    ./logind.nix
+    ./ui.nix
+  ];
+}
