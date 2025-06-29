@@ -41,6 +41,7 @@
             { nixpkgs.overlays = inputOverlays; }
             ./hosts/common
             ./modules
+            ./hosts/shared.nix
             cfg
           ];
         };

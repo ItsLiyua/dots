@@ -5,7 +5,7 @@
 {
   config = {
     sops.secrets."wireguard/rpi5-2".owner = "systemd-network";
-    liyua.network.wireguard.devices.linode = {
+    liyua.network.wireguard.devices.rpi5-2 = {
       server = true;
       assignedIP = "10.15.0.4";
       privateKeyFile = config.sops.secrets."wireguard/rpi5-2".path;

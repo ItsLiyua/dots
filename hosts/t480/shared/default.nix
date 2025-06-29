@@ -1,0 +1,1 @@
+{ imports = [ ./wireguard.nix ]; }
