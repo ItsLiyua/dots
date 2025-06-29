@@ -124,8 +124,16 @@
           enable = true;
           path = "${pkgs.xwayland-satellite-unstable}/bin/xwayland-satellite";
         };
+        layout.focus-ring = {
+          active.gradient = {
+            from = config.lib.stylix.colors.withHashtag.base0B;
+            to = config.lib.stylix.colors.withHashtag.base0D;
+            angle = 45;
+            # relative-to = "workspace-view";
+          };
+          inactive.color = config.lib.stylix.colors.withHashtag.base03;
+        };
       };
     };
-    stylix.targets.niri.enable = true;
   };
 }

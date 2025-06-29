@@ -69,7 +69,6 @@
         nvf.homeManagerModules.default
         sops-nix.homeManagerModules.sops
         niri.homeModules.niri
-        niri.homeModules.stylix
 
         ./modules
       ];
