@@ -12,7 +12,7 @@
         eDP-1 = {
           width = 2560;
           height = 1600;
-          refreshRate = 60;
+          refreshRate = 60.0;
           scale = 1.6;
         };
       };
