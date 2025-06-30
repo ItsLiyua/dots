@@ -12,7 +12,7 @@
         dconf.enable = true;
         greeter = {
           enable = true;
-          launchCommand = "Hyprland";
+          launchCommand = "niri-session";
         };
         wayland.enable = true;
       };
