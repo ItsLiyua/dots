@@ -29,6 +29,10 @@
       network = {
         wireless.enable = true;
         hostnameAdvertisement.enable = true;
+        wireguard = {
+          enable = true;
+          self = "resolute"; # See modules/network/wireguard.nix
+        };
       };
     };
     networking.hostName = "resolute";

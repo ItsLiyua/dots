@@ -4,5 +4,11 @@
     ../common
   ];
 
-  networking.hostName = "rpi5-2";
+  config = {
+    liyua.network.wireguard = {
+      enable = true;
+      self = "rpi5-2"; # See modules/network/wireguard.nix
+    };
+    networking.hostName = "rpi5-2";
+  };
 }

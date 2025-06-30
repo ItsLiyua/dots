@@ -33,6 +33,10 @@
       network = {
         wireless.enable = true;
         hostnameAdvertisement.enable = true;
+        wireguard = {
+          enable = true;
+          self = "liberty"; # See modules/network/wireguard.nix
+        };
       };
     };
 

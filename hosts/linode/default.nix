@@ -10,7 +10,13 @@
     ./hardware-configuration.nix
   ];
 
-  liyua.bootloader.enable = false;
+  liyua = {
+    bootloader.enable = false;
+    network.wireguard = {
+      enable = true;
+      self = "linode"; # See modules/network/wireguard.nix
+    };
+  };
 
   system.stateVersion = "25.05";
   networking.hostName = "linode";
