@@ -6,7 +6,7 @@
   config = {
     sops.secrets."wireguard/linode".owner = "systemd-network";
     liyua.network.wireguard = {
-      endpoint = "liyua.moe:51820";
+      endpoint = "liyua.moe:${toString config.liyua.network.wireguard.port}";
       port = 51820;
       keepAliveInterval = 25;
       netMaskBits = 24;
