@@ -6,7 +6,6 @@
     ./modules/linode-utils.nix
     ./modules/traefik.nix
     ./modules/velocity.nix
-    ./modules/wireguard.nix
     ./hardware-configuration.nix
   ];
 
