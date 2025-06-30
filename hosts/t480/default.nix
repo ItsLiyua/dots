@@ -34,6 +34,10 @@
       network = {
         wireless.enable = true;
         hostnameAdvertisement.enable = true;
+        wireguard = {
+          enable = true;
+          self = "t480"; # See modules/network/wireguard.nix
+        };
       };
     };
 

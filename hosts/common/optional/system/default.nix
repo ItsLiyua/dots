@@ -11,5 +11,6 @@
     ./swapescape.nix
     ./unfree-whitelist.nix
     ./upower.nix
+    ./wireguard.nix
   ];
 }

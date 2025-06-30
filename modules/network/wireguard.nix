@@ -9,13 +9,15 @@
     keepAliveInterval = lib.mkOption {
       type = lib.types.int;
       description = "The delay in seconds between two keepalive packets";
+      default = 25;
     };
     self = lib.mkOption {
       type = lib.types.str;
       description = "The device configuration to be used for this device";
     };
     port = lib.mkOption {
-      type = lib.types.ints.port;
+      type = lib.types.port;
+      default = 51820;
       description = "The port to listen to for incoming connections";
     };
     netMaskBits = lib.mkOption {
@@ -25,21 +27,25 @@
       example = 8;
     };
     devices = lib.mkOption {
-      type = lib.types.attrsOf {
-        server = lib.mkEnableOption "Server features";
-        assignedIP = lib.mkOption {
-          type = lib.types.str;
-          description = "The IP of this device";
-        };
-        privateKeyFile = lib.mkOption {
-          type = lib.types.str;
-          description = "The path to the file containing this devices private key.";
-        };
-        publicKey = lib.mkOption {
-          type = lib.types.str;
-          description = "The public key of this device";
-        };
-      };
+      type = lib.types.attrsOf (
+        lib.types.submodule {
+          options = {
+            server = lib.mkEnableOption "Server features";
+            assignedIP = lib.mkOption {
+              type = lib.types.str;
+              description = "The IP of this device";
+            };
+            privateKeyFile = lib.mkOption {
+              type = lib.types.str;
+              description = "The path to the file containing this devices private key.";
+            };
+            publicKey = lib.mkOption {
+              type = lib.types.str;
+              description = "The public key of this device";
+            };
+          };
+        }
+      );
     };
   };
 }
