@@ -1,6 +1,3 @@
 {
-  programs.nvf.settings.vim.languages.yaml = {
-    enable = true;
-    lsp.enable = true;
-  };
+  programs.nvf.settings.vim.languages.yaml.enable = true;
 }
