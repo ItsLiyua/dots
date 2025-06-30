@@ -13,7 +13,7 @@
       enableTreesitter = true;
     };
     lsp = {
-      enable = lib.mkDefault config.liyua.cli.nvim.lsp;
+      enable = lib.mkForce config.liyua.cli.nvim.lsp;
       formatOnSave = true;
       inlayHints.enable = true;
     };
