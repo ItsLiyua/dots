@@ -23,6 +23,9 @@ lib.mkIf config.liyua.btop.enable {
       owner = "root";
       group = "root";
       source = "${pkg}/bin/btop";
-      capabilities = "cap_sys_admin=+ep";
+      capabilities = "cap_perfmon=ep";
     };
+  environment.etc."btop.conf".text = ''
+    theme_background = False
+  '';
 }
