@@ -1,10 +1,9 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }:
-lib.mkIf config.liyua.btop.enable {
+{
   security.wrappers.btop =
     let
       gpu = config.liyua.btop.gpuType;

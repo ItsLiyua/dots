@@ -3,7 +3,6 @@
     ./audio.nix
     ./avahi.nix
     ./bluetooth.nix
-    ./btop.nix
     ./fwupd.nix
     ./graphics.nix
     ./grub.nix

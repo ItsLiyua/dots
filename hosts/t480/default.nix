@@ -40,10 +40,7 @@
         };
       };
       powerManagement.enable = true;
-      btop = {
-        enable = true;
-        gpuType = "intel";
-      };
+      btop.gpuType = "intel";
     };
 
     networking.hostName = "t480";

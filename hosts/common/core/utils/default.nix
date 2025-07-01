@@ -1,5 +1,6 @@
 {
   imports = [
+    ./btop.nix
     ./doas.nix
     ./git.nix
     ./nh.nix

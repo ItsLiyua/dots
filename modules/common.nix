@@ -15,20 +15,17 @@
     };
     firmwareUpdater.enable = lib.mkEnableOption "Firmware updater tool";
     powerManagement.enable = lib.mkEnableOption "Power Management via TLP";
-    btop = {
-      enable = lib.mkEnableOption "Btop";
-      gpuType = lib.mkOption {
-        type =
-          with lib.types;
-          nullOr (enum [
-            "intel"
-            "amd"
-            "nvidia"
-          ]);
-        description = "The type of GPU driver you want to use for GPU stats. Null means no specialized package will be used";
-        example = "amd";
-        default = null;
-      };
+    btop.gpuType = lib.mkOption {
+      type =
+        with lib.types;
+        nullOr (enum [
+          "intel"
+          "amd"
+          "nvidia"
+        ]);
+      description = "The type of GPU driver you want to use for GPU stats. Null means no specialized package will be used";
+      example = "amd";
+      default = null;
     };
   };
 }
