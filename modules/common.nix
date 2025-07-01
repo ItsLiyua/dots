@@ -27,6 +27,7 @@
           ]);
         description = "The type of GPU driver you want to use for GPU stats. Null means no specialized package will be used";
         example = "amd";
+        default = null;
       };
     };
   };

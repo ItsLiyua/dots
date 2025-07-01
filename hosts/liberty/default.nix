@@ -38,6 +38,7 @@
       };
     };
     powerManagement.enable = true;
+    btop.gpuType = "amd";
   };
 
   networking.hostName = "liberty";

@@ -5,8 +5,7 @@
   ...
 }:
 lib.mkIf config.liyua.btop.enable {
-  # security.wrappers.btop =
-  environment.systemPackages =
+  security.wrappers.btop =
     let
       gpu = config.liyua.btop.gpuType;
       pkg =
@@ -19,12 +18,11 @@ lib.mkIf config.liyua.btop.enable {
         else
           pkgs.btop;
     in
-    [ pkg ];
-  # {
-  #   enable = true;
-  #   owner = "root";
-  #   group = "root";
-  #   source = "${pkg}/bin/btop";
-  #   capabilities = "cap_perfmon=+ep";
-  # };
+    {
+      enable = true;
+      owner = "root";
+      group = "root";
+      source = "${pkg}/bin/btop";
+      capabilities = "cap_perfmon=+ep";
+    };
 }
