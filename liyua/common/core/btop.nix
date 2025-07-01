@@ -1,12 +1,11 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }:
 {
   programs.btop = {
-    enable = true;
+    enable = false;
     package =
       let
         gpudriver = config.liyua.cli.btop.gpudriver;

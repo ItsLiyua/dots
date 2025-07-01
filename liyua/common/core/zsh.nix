@@ -1,4 +1,3 @@
-{ config, lib, ... }:
 {
   config.programs = {
     zsh = {

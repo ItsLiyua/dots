@@ -34,7 +34,7 @@
       inputs.hyprland.follows = "hyprland";
     };
     nvf = {
-      url = "github:notashelf/nvf";
+      url = "github:notashelf/nvf?ref=pull/984/head";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
