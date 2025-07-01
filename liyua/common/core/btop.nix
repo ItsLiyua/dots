@@ -53,5 +53,4 @@
     theme[process_mid]="${base0A}"
     theme[process_end]="${base08}"
   '';
-  stylix.targets.btop.enable = false;
 }
