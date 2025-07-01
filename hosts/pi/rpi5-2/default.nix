@@ -2,7 +2,6 @@
   imports = [
     ./shared
     ../common
-    ./blocky.nix
   ];
 
   config = {
