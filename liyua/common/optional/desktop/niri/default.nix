@@ -27,8 +27,9 @@
           "Mod+Q".action = close-window;
           "Mod+M".action = quit { skip-confirmation = false; };
 
-          "Mod+T".action = spawn "${pkgs.foot}/bin/foot";
+          "Mod+T".action = spawn "foot";
           "Mod+F".action = spawn "firefox";
+          "Mod+E".action = spawn "nautilus";
           "Mod+A".action = spawn [
             "${pkgs.wofi}/bin/wofi"
             "--show"
