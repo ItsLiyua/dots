@@ -126,16 +126,6 @@
     };
     cli = {
       cava.enable = lib.mkEnableOption "Cava";
-      btop.gpudriver = lib.mkOption {
-        type =
-          with lib.types;
-          nullOr (enum [
-            "nvidia"
-            "rocm"
-            "none"
-          ]);
-        default = "none";
-      };
       tokei.enable = lib.mkEnableOption "Tokei";
       nvim = {
         lsp = lib.mkEnableOption "LSP support";

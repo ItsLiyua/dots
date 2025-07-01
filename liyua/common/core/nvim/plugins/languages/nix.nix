@@ -14,7 +14,7 @@
       server = "nil";
       options.nix.flake = {
         autoArchive = true;
-        autoEvalInputs = true;
+        autoEvalInputs = false;
       };
     };
     extraDiagnostics.enable = false;

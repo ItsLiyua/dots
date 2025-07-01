@@ -44,7 +44,6 @@
     };
     cli = {
       cava.enable = true;
-      btop.gpudriver = "rocm";
       tokei.enable = true;
       nvim = {
         lsp = true;
