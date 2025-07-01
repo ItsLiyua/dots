@@ -90,6 +90,13 @@
           # XF86Tools.action = null;
           # XF86Bluetooth.action = null;
           # XF86Favorites.action = null;
+          "Mod+Comma".action.set-column-width = "+5%";
+          "Mod+Shift+Comma".action.set-column-width = "-5%";
+          "Mod+Period".action.set-window-height = "+5%";
+          "Mod+Shift+Period".action.set-window-height = "-5%";
+          "Mod+W".action = switch-preset-column-width;
+          "Mod+C".action = consume-or-expel-window-left;
+          "Mod+Shift+C".action = consume-or-expel-window-right;
         };
         input = {
           keyboard.xkb.layout = "de";
@@ -116,7 +123,13 @@
             };
           })
           |> builtins.listToAttrs;
-        layout.default-column-width.proportion = 0.5;
+        layout = {
+          default-column-width.proportion = 0.5;
+          preset-column-widths = [
+            { proportion = 0.5; }
+            { proportion = 1.0; }
+          ];
+        };
         screenshot-path = "~/Pictures/screenshots/$(date +%Y%m%d-%H%M%S).png";
         overview.backdrop-color = config.lib.stylix.colors.withHashtag.base01;
         hotkey-overlay.skip-at-startup = true;
