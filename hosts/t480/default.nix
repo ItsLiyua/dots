@@ -39,6 +39,7 @@
           self = "t480"; # See modules/network/wireguard.nix
         };
       };
+      powerManagement.enable = true;
     };
 
     networking.hostName = "t480";

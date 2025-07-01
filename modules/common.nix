@@ -14,5 +14,6 @@
       type = with lib.types; listOf (uniq str);
     };
     firmwareUpdater.enable = lib.mkEnableOption "Firmware updater tool";
+    powerManagement.enable = lib.mkEnableOption "Power Management via TLP";
   };
 }

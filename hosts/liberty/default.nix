@@ -38,6 +38,7 @@
           self = "liberty"; # See modules/network/wireguard.nix
         };
       };
+      powerManagement.enable = true;
     };
 
     networking.hostName = "liberty";

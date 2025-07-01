@@ -9,6 +9,7 @@
     ./libinput.nix
     ./logind.nix
     ./swapescape.nix
+    ./tlp.nix
     ./unfree-whitelist.nix
     ./upower.nix
     ./wireguard.nix
