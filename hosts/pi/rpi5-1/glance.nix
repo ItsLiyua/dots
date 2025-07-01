@@ -197,9 +197,9 @@
                   cache = "1d";
                   repositories = [
                     "glanceapp/glance"
-                    "go-gitea/gitea"
-                    "immich-app/immich"
-                    "syncthing/syncthing"
+                    "Kozea/Radicale"
+                    "dani-garcia/vaultwarden"
+                    "lunik1/nix-wallpaper"
                   ];
                 }
               ];
