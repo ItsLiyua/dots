@@ -173,8 +173,8 @@
                       color = "267 84 81";
                       links = [
                         {
-                          title = "My Flake";
-                          url = "https://github.com/ItsLiyua/dots";
+                          title = "My Flake [user]";
+                          url = "https://github.com/ItsLiyua/dots/tree/user";
                         }
                         {
                           title = "My Flake [system]";
