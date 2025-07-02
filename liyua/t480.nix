@@ -1,11 +1,10 @@
 {
-  config.liyua = {
+  liyua = {
     apps = {
       discord.enable = true;
       firefox.enable = true;
       foot.enable = true;
-      nautilus.enable = true;
-      prismlauncher.enable = false;
+      thunar.enable = true;
     };
     desktop = {
       displays.eDP-1 = {

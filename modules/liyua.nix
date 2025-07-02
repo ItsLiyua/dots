@@ -6,6 +6,7 @@
       firefox.enable = lib.mkEnableOption "Firefox";
       foot.enable = lib.mkEnableOption "Foot Terminal";
       nautilus.enable = lib.mkEnableOption "Nautilus File Manager";
+      thunar.enable = lib.mkEnableOption "Thunar File Manager";
       prismlauncher.enable = lib.mkEnableOption "PrismLauncher for Minecraft";
     };
     desktop = {

@@ -8,7 +8,7 @@
   config = lib.mkIf config.liyua.desktop.wm.niri.enable {
     programs.niri = {
       enable = true;
-      package = pkgs.niri-unstable;
+      package = pkgs.niri-unstable.override { withScreencastSupport = false; };
       settings = {
         prefer-no-csd = true;
         spawn-at-startup = [
