@@ -173,6 +173,14 @@
                       color = "267 84 81";
                       links = [
                         {
+                          title = "My Flake";
+                          url = "https://github.com/ItsLiyua/dots";
+                        }
+                        {
+                          title = "My Flake [system]";
+                          url = "https://github.com/ItsLiyua/dots/tree/system";
+                        }
+                        {
                           title = "nixpkgs";
                           url = "https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages";
                         }
