@@ -69,6 +69,16 @@
                       shortcut = "!np";
                       url = "https://search.nixos.org/packages?channel=unstable&sort=relevance&query={QUERY}";
                     }
+                    {
+                      title = "MyNixOS";
+                      shortcut = "!mno";
+                      url = "https://mynixos.com/search?q={QUERY}";
+                    }
+                    {
+                      title = "GitHub";
+                      shortcut = "!gh";
+                      url = "https://github.com/search?q={QUERY}&type=repositories";
+                    }
                   ];
                 }
                 {
