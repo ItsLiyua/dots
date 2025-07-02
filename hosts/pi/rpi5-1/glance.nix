@@ -174,7 +174,7 @@
                       links = [
                         {
                           title = "nixpkgs";
-                          url = "https://search.nixos.org";
+                          url = "https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages";
                         }
                         {
                           title = "MyNixOS";
