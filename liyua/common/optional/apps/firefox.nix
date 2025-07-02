@@ -34,7 +34,7 @@
               force = true;
               settings = {
                 url = "https://home.liyua.moe";
-                focusWebsite = true;
+                focus_website = true;
               };
             };
           };
