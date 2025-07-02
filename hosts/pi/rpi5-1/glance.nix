@@ -200,6 +200,8 @@
                     "Kozea/Radicale"
                     "dani-garcia/vaultwarden"
                     "lunik1/nix-wallpaper"
+                    "YaLTeR/niri"
+                    "hyprwm/Hyprland"
                   ];
                 }
               ];
