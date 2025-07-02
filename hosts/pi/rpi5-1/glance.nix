@@ -169,6 +169,20 @@
                       ];
                     }
                     {
+                      title = "Nix";
+                      color = "267 84 81";
+                      links = [
+                        {
+                          title = "nixpkgs";
+                          url = "https://search.nixos.org";
+                        }
+                        {
+                          title = "MyNixOS";
+                          url = "https://mynixos.com";
+                        }
+                      ];
+                    }
+                    {
                       title = "Entertainment";
                       color = "343.27 81.25 74.9";
                       links = [
@@ -187,6 +201,24 @@
                         {
                           title = "Crunchyroll";
                           url = "https://crunchyroll.com";
+                        }
+                      ];
+                    }
+                    {
+                      title = "Modding";
+                      color = "115 54 76";
+                      links = [
+                        {
+                          title = "Modrinth";
+                          url = "https://modrinth.com";
+                        }
+                        {
+                          title = "CurseForge";
+                          url = "https:///curseforge.com";
+                        }
+                        {
+                          title = "NexusMods";
+                          url = "https://nexusmods.com";
                         }
                       ];
                     }
