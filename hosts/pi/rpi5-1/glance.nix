@@ -42,7 +42,7 @@
                 }
                 {
                   type = "weather";
-                  location = "London, United Kingdom";
+                  location = "Hamburg, Germany";
                   units = "metric";
                   hour-format = "24h";
                   hide-location = true;
