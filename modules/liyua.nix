@@ -138,6 +138,11 @@
           default = false;
           description = "Whether to enable stylix theming.";
         };
+        extraLanguages = lib.mkOption {
+          type = lib.types.bool;
+          description = "If set to true all other languages besides nix and common config formats will also be enabled";
+          default = false;
+        };
       };
     };
     clipboard.enable = lib.mkEnableOption "Clipboard";

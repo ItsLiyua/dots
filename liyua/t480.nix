@@ -39,6 +39,7 @@
         lsp = true;
         sharedClipboard = true;
         theme = true;
+        extraLanguages = true;
       };
       tokei.enable = true;
     };

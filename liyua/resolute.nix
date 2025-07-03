@@ -49,6 +49,7 @@
         lsp = true;
         sharedClipboard = true;
         theme = true;
+        extraLanguages = true;
       };
     };
     clipboard.enable = true;

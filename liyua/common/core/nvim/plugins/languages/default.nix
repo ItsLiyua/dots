@@ -1,8 +1,8 @@
 { config, lib, ... }:
 {
   imports = [
-    ./markdown.nix
     ./nix.nix
+    ./markdown.nix
     ./ts.nix
     ./typst.nix
     ./yaml.nix
