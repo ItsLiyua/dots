@@ -2,6 +2,7 @@
   imports = [
     ./audio.nix
     ./avahi.nix
+    ./batmon.nix
     ./bluetooth.nix
     ./fwupd.nix
     ./graphics.nix

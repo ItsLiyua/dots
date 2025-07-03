@@ -17,6 +17,7 @@
     };
     audio.enable = true;
     graphics.enable = true;
+    batmon.enable = true;
     bootloader = {
       enable = true;
       mode = "systemd-boot";

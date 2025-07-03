@@ -4,6 +4,7 @@
     graphics.enable = lib.mkEnableOption "Hardware acceleration and so on";
     bluetooth.enable = lib.mkEnableOption "Bluetooth management";
     upower.enable = lib.mkEnableOption "UPower support";
+    batmon.enable = lib.mkEnableOption "Battery Monitor";
     audio.enable = lib.mkEnableOption "PipeWire";
     libinput.enable = lib.mkEnableOption "LibInput";
     swapescape.enable = lib.mkEnableOption "Esc-Capslock swap";
