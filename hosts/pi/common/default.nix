@@ -11,12 +11,12 @@
     ./cachix.nix
     ./disko.nix
   ];
-  config = {
-    liyua = {
-      swapescape.enable = true;
-      network.hostnameAdvertisement.enable = true;
-    };
-
-    system.stateVersion = "25.05";
+  liyua = {
+    swapescape.enable = true;
+    network.hostnameAdvertisement.enable = true;
   };
+
+  console.keyMap = "us";
+
+  system.stateVersion = "25.05";
 }

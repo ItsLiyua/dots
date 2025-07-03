@@ -44,7 +44,7 @@
     };
 
     networking.hostName = "t480";
-    console.keyMap = "de";
+    console.keyMap = "us";
 
     system.stateVersion = "24.11"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES!
   };

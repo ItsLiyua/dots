@@ -17,6 +17,8 @@
     };
   };
 
-  system.stateVersion = "25.05";
   networking.hostName = "linode";
+  console.keyMap = "us";
+
+  system.stateVersion = "25.05";
 }
