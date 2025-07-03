@@ -4,6 +4,7 @@
     ./markdown.nix
     ./nix.nix
     ./ts.nix
+    ./typst.nix
     ./yaml.nix
   ];
   programs.nvf.settings.vim = {
