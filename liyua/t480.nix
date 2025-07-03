@@ -12,7 +12,7 @@
         height = 1080;
         refreshRate = 60.0;
       };
-      layout = "de";
+      layout = "eu";
       bar.enable = true;
       wm = {
         hyprland = {

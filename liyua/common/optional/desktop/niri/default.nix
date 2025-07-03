@@ -100,7 +100,7 @@
           "Mod+Shift+C".action = consume-or-expel-window-right;
         };
         input = {
-          keyboard.xkb.layout = "de";
+          keyboard.xkb.layout = config.liyua.desktop.layout;
           touchpad.natural-scroll = false;
           mouse.accel-profile = "flat";
           focus-follows-mouse.enable = true;
