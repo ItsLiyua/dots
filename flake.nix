@@ -35,7 +35,10 @@
       ];
       mkSysConfig =
         mainRepo: cfg:
-        mainRepo.lib.nixosSystem {
+        let
+          lib = mainRepo.lib.extend (self: super: { liyua = import ./lib { inherit (nixpkgs) lib; }; });
+        in
+        lib.nixosSystem {
           specialArgs = inputs;
           modules = inputConfigs ++ [
             { nixpkgs.overlays = inputOverlays; }
