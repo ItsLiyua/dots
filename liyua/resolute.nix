@@ -1,5 +1,5 @@
 {
-  config.liyua = {
+  liyua = {
     apps = {
       discord.enable = true;
       firefox.enable = true;
