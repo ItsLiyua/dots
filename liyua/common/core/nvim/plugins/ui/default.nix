@@ -4,7 +4,7 @@
     ./filetree.nix
     ./gitsigns.nix
     ./indentguide.nix
-    # ./smearcursor.nix
+    ./outline.nix
     ./statusline.nix
     ./telescope.nix
     ./whichkey.nix

@@ -1,8 +1,10 @@
+{ config, lib, ... }:
 {
   imports = [
-    ./markdown.nix
     ./nix.nix
+    ./markdown.nix
     ./ts.nix
+    ./typst.nix
     ./yaml.nix
   ];
   programs.nvf.settings.vim = {
@@ -12,7 +14,7 @@
       enableTreesitter = true;
     };
     lsp = {
-      enable = true;
+      enable = lib.mkForce config.liyua.cli.nvim.lsp;
       formatOnSave = true;
       inlayHints.enable = true;
     };

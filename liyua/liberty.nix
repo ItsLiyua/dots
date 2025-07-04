@@ -8,24 +8,24 @@
       prismlauncher.enable = true;
     };
     desktop = {
-      displays = {
-        eDP-1 = {
-          width = 2560;
-          height = 1600;
-          refreshRate = 60;
-          scale = 1.6;
-        };
+      displays.eDP-1 = {
+        width = 2560;
+        height = 1600;
+        refreshRate = 60.0;
+        scale = 1.6;
       };
       layout = "de";
       bar.enable = true;
-      wm.hyprland = {
-        enable = true;
-        xwayland.enable = true;
+      wm = {
+        hyprland = {
+          # enable = true;
+          xwayland.enable = true;
+        };
+        niri.enable = true;
       };
       wallpaper = {
         enable = true;
         type = "nix";
-        nix.theme = "rainbow";
       };
       idle = {
         enable = true;
@@ -37,17 +37,17 @@
     };
     cli = {
       cava.enable = true;
-      btop.gpudriver = "rocm";
       nvim = {
         lsp = true;
         sharedClipboard = true;
         theme = true;
+        extraLanguages = true;
       };
       tokei.enable = true;
     };
     clipboard.enable = true;
     xdg.enable = true;
-    steam.enable = true;
+    steam.enable = false;
     remoteAccess.enable = true;
   };
 }

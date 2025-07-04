@@ -44,12 +44,12 @@
     };
     cli = {
       cava.enable = true;
-      btop.gpudriver = "rocm";
       tokei.enable = true;
       nvim = {
         lsp = true;
         sharedClipboard = true;
         theme = true;
+        extraLanguages = true;
       };
     };
     clipboard.enable = true;

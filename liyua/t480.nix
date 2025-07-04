@@ -1,11 +1,10 @@
 {
-  config.liyua = {
+  liyua = {
     apps = {
       discord.enable = true;
       firefox.enable = true;
       foot.enable = true;
-      nautilus.enable = true;
-      prismlauncher.enable = false;
+      thunar.enable = true;
     };
     desktop = {
       displays.eDP-1 = {
@@ -13,7 +12,7 @@
         height = 1080;
         refreshRate = 60.0;
       };
-      layout = "de";
+      layout = "eu";
       bar.enable = true;
       wm = {
         hyprland = {
@@ -40,6 +39,7 @@
         lsp = true;
         sharedClipboard = true;
         theme = true;
+        extraLanguages = true;
       };
       tokei.enable = true;
     };

@@ -10,7 +10,9 @@
     "liyua/gpg/public" = { };
   };
   home.activation.import-gpg-key = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    run ${pkgs.gnupg}/bin/gpg --import "${config.sops.secrets."liyua/gpg/private".path}" $VERBOSE_ARG
+    run ${pkgs.gnupg}/bin/gpg --import --quiet "${
+      config.sops.secrets."liyua/gpg/private".path
+    }" $VERBOSE_ARG
   '';
   programs.gpg = {
     enable = true;

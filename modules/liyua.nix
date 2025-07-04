@@ -6,6 +6,7 @@
       firefox.enable = lib.mkEnableOption "Firefox";
       foot.enable = lib.mkEnableOption "Foot Terminal";
       nautilus.enable = lib.mkEnableOption "Nautilus File Manager";
+      thunar.enable = lib.mkEnableOption "Thunar File Manager";
       prismlauncher.enable = lib.mkEnableOption "PrismLauncher for Minecraft";
     };
     desktop = {
@@ -120,22 +121,10 @@
       };
       lockscreen.enable = lib.mkEnableOption "Lockscreen";
       screenshot.enable = lib.mkEnableOption "Screenshot utility";
-      theming = {
-        enable = lib.mkEnableOption "Theming using stylix";
-      };
+      theming.enable = lib.mkEnableOption "Theming using stylix";
     };
     cli = {
       cava.enable = lib.mkEnableOption "Cava";
-      btop.gpudriver = lib.mkOption {
-        type =
-          with lib.types;
-          nullOr (enum [
-            "nvidia"
-            "rocm"
-            "none"
-          ]);
-        default = "none";
-      };
       tokei.enable = lib.mkEnableOption "Tokei";
       nvim = {
         lsp = lib.mkEnableOption "LSP support";
@@ -148,6 +137,11 @@
           type = lib.types.bool;
           default = false;
           description = "Whether to enable stylix theming.";
+        };
+        extraLanguages = lib.mkOption {
+          type = lib.types.bool;
+          description = "If set to true all other languages besides nix and common config formats will also be enabled";
+          default = false;
         };
       };
     };

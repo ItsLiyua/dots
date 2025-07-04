@@ -34,7 +34,7 @@
       inputs.hyprland.follows = "hyprland";
     };
     nvf = {
-      url = "github:notashelf/nvf";
+      url = "github:notashelf/nvf?ref=pull/984/head";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
@@ -61,6 +61,8 @@
       extraOverlays = [ inputs.niri.overlays.niri ];
       sharedModules = with inputs; [
         { nixpkgs.overlays = extraOverlays; }
+        ./overlays
+
         ags.homeManagerModules.default
         hyprland.homeManagerModules.default
         nur.modules.homeManager.default
