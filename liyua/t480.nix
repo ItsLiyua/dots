@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   liyua = {
     apps = {
@@ -48,4 +49,5 @@
     steam.enable = false;
     remoteAccess.enable = true;
   };
+  home.packages = [ pkgs.libreoffice ];
 }
