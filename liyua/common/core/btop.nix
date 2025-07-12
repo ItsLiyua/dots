@@ -6,7 +6,7 @@
           update_ms = 1000
           proc_sorting = "memory"
           proc_filter_kernel = True
-          selected_battery = "BAT0"
+          selected_battery = "BAT1"
           ${if config.liyua.desktop.theming.enable then ''color_theme = "stylix"'' else ""}
       }
     '';
