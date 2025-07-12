@@ -49,5 +49,7 @@
     steam.enable = false;
     remoteAccess.enable = true;
   };
+
+  programs.btop.settings.selected_battery = "BAT1"; # Use external battery for t480
   home.packages = [ pkgs.libreoffice ];
 }
