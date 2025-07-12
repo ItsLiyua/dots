@@ -52,7 +52,7 @@
                 {
                   type = "search";
                   search-engine = "duckduckgo";
-                  new-tab = true;
+                  new-tab = false;
                   autofocus = true;
                   bangs = [
                     {
