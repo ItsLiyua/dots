@@ -1,10 +1,10 @@
 {
-  config.liyua = {
+  liyua = {
     apps = {
       discord.enable = true;
       firefox.enable = true;
       foot.enable = true;
-      nautilus.enable = true;
+      thunar.enable = true;
       prismlauncher.enable = true;
     };
     desktop = {
