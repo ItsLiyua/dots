@@ -23,5 +23,6 @@
       group = "root";
       source = "${pkg}/bin/btop";
       capabilities = "cap_perfmon=+ep";
+      selected_battery = "BAT0";
     };
 }
