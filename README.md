@@ -25,7 +25,7 @@ installer. For the system configuration I recommend `~/nix` with a symlink to
 `/etc/nixos` and for the home manager configuration I recommend
 `~/.config/home-manager`.
 
-> [!INFO]
+> [!NOTE]
 > For a raspberry pi it is recommended to check out
 > [nvmd/nixos-raspberrypi](https://github.com/nvmd/nixos-raspberrypi). Examples
 > can be found in the configurations for `rpi5-1` and `rpi5-2`.
@@ -49,7 +49,7 @@ To generate the public key you can use:
 nix-shell -p ssh-to-age --run "doas ssh-to-age -i /etc/ssh/ssh_host_ed25519_key.pub"
 ```
 
-> [!INFO]
+> [!NOTE]
 > Only the public age key has to be created for `sops`. The private key will be
 > generated automatically as soon as a rebuild is triggered. This means it is
 > important that the user key (`.config/sops/age/keys.txt`) is backed up
@@ -103,6 +103,8 @@ separate directory for each host. I just use a single file per host.
 - [ ] resolute: Add GoXLR
 - [ ] resolute: Add OpenRGB
 - [ ] rpi5-2: Add actual for budgeting
+- [ ] rpi5-1: NFS for music and such
+- [ ] commkn: MPD type music player for music from NFS
 
 - [ ] liyua@common: Split up niri config into multiple files
 - [ ] liyua@common: Remove as many GNOME dependencies from niri as possible
