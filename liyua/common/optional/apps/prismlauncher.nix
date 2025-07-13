@@ -4,6 +4,7 @@
   pkgs,
   ...
 }:
-{
-  config.home.packages = lib.mkIf config.liyua.apps.prismlauncher.enable [ pkgs.prismlauncher ];
+lib.mkIf config.liyua.apps.prismlauncher.enable {
+  stylix.targets.qt.enable = true;
+  home.packages = [ pkgs.prismlauncher ];
 }

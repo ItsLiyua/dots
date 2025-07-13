@@ -4,6 +4,7 @@
   pkgs,
   ...
 }:
-{
-  config.home.packages = lib.mkIf config.liyua.apps.nautilus.enable [ pkgs.nautilus ];
+lib.mkIf config.liyua.apps.nautilus.enable {
+  stylix.targets.gnome.enable = true;
+  home.packages = [ pkgs.nautilus ];
 }

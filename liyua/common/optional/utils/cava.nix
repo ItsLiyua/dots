@@ -1,7 +1,10 @@
 { config, lib, ... }:
 {
   config = lib.mkIf config.liyua.cli.cava.enable {
-    stylix.targets.cava.rainbow.enable = true;
+    stylix.targets.cava = {
+      enable = true;
+      rainbow.enable = true;
+    };
     programs.cava = {
       enable = true;
       settings = {
