@@ -1,6 +1,6 @@
 {
   services.actual = {
-    enable = true;
+    enable = false;
     openFirewall = true;
     settings.port = 5006;
   };
