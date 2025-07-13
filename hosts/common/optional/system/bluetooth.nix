@@ -1,7 +1,7 @@
 { config, lib, ... }:
 {
-  hardware.bluetooth = lib.mkIf config.liyua.bluetooth.enable {
-    enable = true;
+  hardware.bluetooth = {
+    enable = lib.mkForce config.liyua.bluetooth.enable;
     powerOnBoot = true;
     settings.General = {
       Enable = "Source,Sink,Media,Socket";
