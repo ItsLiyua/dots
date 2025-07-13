@@ -12,7 +12,6 @@
           };
         };
       };
-      format.type = "prettierd";
     };
     utility.preview.markdownPreview.enable = true;
   };

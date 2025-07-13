@@ -5,6 +5,7 @@
 - [Liyuas Nix Flake](#liyuas-nix-flake)
   - [Installation](#installation)
     - [System](#system)
+    - [User](#user)
   - [TODOs](#todos)
 
 <!--toc:end-->
@@ -78,13 +79,26 @@ sudo nixos-rebuild --flake ".#<hostname>"
 
 After the first rebuild `nh` will be installed and can be used from hereon out.
 
-## TODOs(#todos)
+### User
 
-> [!NOTE] > `hostname: text` means this todo element is relevant for that hostname.
-> `common: text` means this todo element is relevant to multiple configurations.
+The user configuration is way easier to install since it doesn't require
+generating a new key (yet). Just clone the repo into `~/.config/home-manager`
+and create a new `homeConfiguration` in `flake.nix`. The naming scheme is very
+similar to the system level configuration but instead of all configuration
+living in `./hosts/` they live in `./liyua/`. Since there isn't much
+per-device-configuration in userspace it's usually not necessary to create a
+separate directory for each host. I just use a single file per host.
+
+## TODOs
+
+> [!NOTE]
+> `hostname: text` means this todo element is relevant for that hostname.\
+> `common: text` means this todo element is relevant to multiple
+> configurations.\
 > `liyua@hostname: text` means this element is relevant to the user
-> configuration on a specific hostname. `liyua@common: text` means this element
-> is relevant to multiple user configurations.
+> configuration on a specific hostname.\
+> `liyua@common: text` means this element is relevant to multiple user
+> configurations.
 
 - [ ] resolute: Add GoXLR
 - [ ] resolute: Add OpenRGB
