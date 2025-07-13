@@ -1,4 +1,3 @@
-{ config, lib, ... }:
 {
   config = {
     environment.sessionVariables = {
@@ -7,7 +6,10 @@
     };
     programs.nh = {
       enable = true;
-      clean.enable = false;
+      clean = {
+        enable = false;
+        extraArgs = "--keep-since 4d --keep 5";
+      };
     };
   };
 }
