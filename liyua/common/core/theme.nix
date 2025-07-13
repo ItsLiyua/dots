@@ -8,11 +8,11 @@ let
   cfg = config.liyua.desktop.theming.enable;
 in
 {
-  gtk.enable = cfg;
-  qt.enable = cfg;
+  gtk.enable = lib.mkForce cfg;
+  qt.enable = lib.mkForce cfg;
   stylix = {
     enable = true;
-    autoEnable = true;
+    autoEnable = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     polarity = "dark";
     cursor = lib.mkIf cfg {
