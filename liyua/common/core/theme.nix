@@ -20,8 +20,8 @@ in
       name = "Bibata-Modern-Ice";
       size = 16;
     };
-    iconTheme = lib.mkIf cfg {
-      enable = true;
+    iconTheme = {
+      enable = cfg;
       package = pkgs.catppuccin-papirus-folders.override {
         flavor = "mocha";
         accent = "blue";
@@ -47,10 +47,18 @@ in
         name = "Noto Color Emoji";
       };
     };
-    targets = lib.mkIf cfg {
-      qt.enable = true;
-      gtk.enable = true;
-      firefox.colorTheme.enable = true;
-    };
+    targets = lib.mkIf cfg (
+      {
+        qt.enable = true;
+        gtk.enable = true;
+        firefox.colorTheme.enable = true;
+      }
+      // (lib.mkIf config.liyua.desktop.theming.enable {
+        qt.enable = true;
+        gtk.enable = true;
+        font-packages.enable = true;
+        fontconfig.enable = true;
+      })
+    );
   };
 }
