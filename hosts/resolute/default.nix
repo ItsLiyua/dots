@@ -33,6 +33,7 @@
       };
     };
     btop.gpuType = "amd";
+    localsend.enable = true;
   };
   networking.hostName = "resolute";
   console.keyMap = "us";

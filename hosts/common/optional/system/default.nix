@@ -8,6 +8,7 @@
     ./graphics.nix
     ./grub.nix
     ./libinput.nix
+    ./localsend.nix
     ./logind.nix
     ./swapescape.nix
     ./tlp.nix

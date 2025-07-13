@@ -16,6 +16,7 @@
     };
     firmwareUpdater.enable = lib.mkEnableOption "Firmware updater tool";
     powerManagement.enable = lib.mkEnableOption "Power Management via TLP";
+    localsend.enable = lib.mkEnableOption "Localsend";
     btop.gpuType = lib.mkOption {
       type =
         with lib.types;
