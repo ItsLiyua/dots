@@ -11,17 +11,17 @@
     programs.ags = {
       enable = true;
       configDir = ./.;
-      extraPackages = with ags.packages.${pkgs.system}; [
-        # hyprland
-        # mpris
-        # wireplumber
-        # network
-        # bluetooth
-        # battery
-        # notifd
-        # pkgs.hyprpicker
-        # pkgs.wl-clipboard
-      ];
+      # extraPackages = with ags.packages.${pkgs.system}; [
+      # hyprland
+      # mpris
+      # wireplumber
+      # network
+      # bluetooth
+      # battery
+      # notifd
+      # pkgs.hyprpicker
+      # pkgs.wl-clipboard
+      # ];
       systemd = {
         enable = true;
         gtk4 = true;
