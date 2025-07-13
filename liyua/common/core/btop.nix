@@ -8,7 +8,7 @@
       update_ms = 1000;
       proc_sorting = "memory";
       proc_filter_kernel = true;
-      color_theme = if config.liyua.desktop.theming.enable then "stylix" else "default";
+      color_theme = "stylix";
     };
     themes.stylix = with config.lib.stylix.colors.withHashtag; ''
       theme[main_bg]="${base00}"

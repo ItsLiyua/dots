@@ -121,7 +121,7 @@
       };
       lockscreen.enable = lib.mkEnableOption "Lockscreen";
       screenshot.enable = lib.mkEnableOption "Screenshot utility";
-      theming.enable = lib.mkEnableOption "Theming using stylix";
+      theming.enable = lib.mkEnableOption "Desktop theming";
     };
     cli = {
       cava.enable = lib.mkEnableOption "Cava";

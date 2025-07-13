@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, ... }:
 {
   wayland.windowManager.hyprland.settings.xwayland = {
     enabled = config.liyua.desktop.wm.hyprland.xwayland.enable;
