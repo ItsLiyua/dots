@@ -7,6 +7,7 @@
         "flakes"
         "pipe-operators"
       ];
+      warn-dirty = false;
     };
     gc = {
       automatic = true;
