@@ -104,9 +104,10 @@ separate directory for each host. I just use a single file per host.
 - [ ] resolute: Add OpenRGB
 - [ ] rpi5-2: Add actual for budgeting
 - [ ] rpi5-1: NFS for music and such
-- [ ] commkn: MPD type music player for music from NFS
+- [ ] common: auto symlink `~/nix` to `/etc/nixos`
 
 - [ ] liyua@common: Split up niri config into multiple files
 - [ ] liyua@common: Remove as many GNOME dependencies from niri as possible
+- [ ] liyua@common: MPD type music player for music from NFS
 - [ ] liyua@resolute: Migrate to niri
 - [ ] liyua@resolute: Remove NetworkManager dependency from steam package
