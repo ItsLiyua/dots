@@ -5,6 +5,7 @@
     ./foot.nix
     ./nautilus.nix
     ./prismlauncher.nix
+    ./steam.nix
     ./thunar.nix
   ];
 }

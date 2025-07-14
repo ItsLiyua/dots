@@ -6,6 +6,7 @@
       foot.enable = true;
       thunar.enable = true;
       prismlauncher.enable = true;
+      steam.enable = true;
     };
     desktop = {
       displays = {
