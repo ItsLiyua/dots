@@ -35,6 +35,7 @@
     btop.gpuType = "amd";
     localsend.enable = true;
     nfs.music.enable = true;
+    goxlr.enable = true;
   };
   networking.hostName = "resolute";
   console.keyMap = "us";
