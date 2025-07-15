@@ -1,8 +1,9 @@
 { config, lib, ... }:
 {
   imports = [
-    ./nix.nix
+    ./kotlin.nix
     ./markdown.nix
+    ./nix.nix
     ./ts.nix
     ./typst.nix
     ./yaml.nix
