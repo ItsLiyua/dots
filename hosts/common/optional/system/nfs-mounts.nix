@@ -6,6 +6,9 @@
     options = [
       "rw"
       "nfsvers=4.2"
+      "x-systemd.automount"
+      "noauto"
+      "x-systemd.idle-timeout=600"
     ];
   };
 }
