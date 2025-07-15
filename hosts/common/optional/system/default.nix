@@ -5,6 +5,7 @@
     ./batmon.nix
     ./bluetooth.nix
     ./fwupd.nix
+    ./goxlr.nix
     ./graphics.nix
     ./grub.nix
     ./libinput.nix
