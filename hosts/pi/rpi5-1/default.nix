@@ -3,6 +3,7 @@
     ./shared
     ../common
     ./glance.nix
+    ./ngs.nix
     ./radicale.nix
     ./vaultwarden.nix
   ];
