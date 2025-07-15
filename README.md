@@ -103,6 +103,7 @@ separate directory for each host. I just use a single file per host.
 - [ ] resolute: Add GoXLR
 - [ ] resolute: Add OpenRGB
 - [ ] rpi5-2: Add actual for budgeting
+- [ ] rpi5-2: Paperless NGX
 - [ ] rpi5-1: NFS for music and such
 - [ ] common: auto symlink `~/nix` to `/etc/nixos`
 
