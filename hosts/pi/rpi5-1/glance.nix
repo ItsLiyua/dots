@@ -165,6 +165,7 @@
                   type = "bookmarks";
                   groups = [
                     {
+                      same-tab = true;
                       links = [
                         {
                           title = "ProtonMail";
@@ -191,6 +192,7 @@
                     {
                       title = "Nix";
                       color = "267 84 81";
+                      same-tab = true;
                       links = [
                         {
                           title = "My Flake [user]";
@@ -213,6 +215,7 @@
                     {
                       title = "Entertainment";
                       color = "343.27 81.25 74.9";
+                      same-tab = true;
                       links = [
                         {
                           title = "Disney+";
@@ -235,6 +238,7 @@
                     {
                       title = "Modding";
                       color = "115 54 76";
+                      same-tab = true;
                       links = [
                         {
                           title = "Modrinth";
