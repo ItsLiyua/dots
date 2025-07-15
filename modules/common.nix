@@ -29,5 +29,6 @@
       example = "amd";
       default = null;
     };
+    nfs.music.enable = lib.mkEnableOption "NFS mount containing my music";
   };
 }
