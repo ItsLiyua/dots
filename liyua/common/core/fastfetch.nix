@@ -37,7 +37,7 @@
         "packages"
         {
           type = "command";
-          text = "echo $(nix-env --list-generations | grep current | awk '{print $1}'; echo '(nix-system)'; home-manager generations | head -1 | awk '{print $5}'; echo '(nix-user)') | tr -d '\n'";
+          text = "echo $(nix-env --list-generations | grep current | awk '{print $1}'; echo '(nix-system),'; home-manager generations | head -1 | awk '{print $5}'; echo '(nix-user)') | tr -d '\n'";
           key = "Nix Gen";
         }
       ];
