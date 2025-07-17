@@ -5,8 +5,8 @@
       firefox.enable = true;
       foot.enable = true;
       thunar.enable = true;
-      prismlauncher.enable = true;
-      steam.enable = true;
+      # prismlauncher.enable = true;
+      steam.enable = false;
     };
     desktop = {
       displays = {
