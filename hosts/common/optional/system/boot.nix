@@ -29,5 +29,6 @@
         theme = "arasaka";
         themePackages = [ pkgs.plymouth-arasaka-theme ];
       };
+      consoleLogLevel = logLevel;
     };
 }

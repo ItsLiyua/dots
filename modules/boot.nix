@@ -20,6 +20,11 @@
       default = 1;
       description = "For how long to show the bootloader";
     };
+    logLevel = lib.mkOption {
+      type = lib.types.int;
+      default = 3;
+      description = "The level of verbosity of the system logs (only on display)";
+    };
     memtest86.enable = lib.mkEnableOption "Support for Memtest86";
     maxEntries = lib.mkOption {
       type = lib.types.ints.positive;
