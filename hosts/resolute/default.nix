@@ -9,7 +9,7 @@
       dconf.enable = true;
       greeter = {
         enable = true;
-        launchCommand = "Hyprland";
+        launchCommand = "niri-session";
       };
       gaming.gamepadSupport = true;
       overclocking.gpu.lact.enable = true;
@@ -37,6 +37,25 @@
     nfs.music.enable = true;
     goxlr.enable = true;
   };
+
+  liyua.allow-unfree = [
+    "steam"
+    "steam-unwrapped"
+  ];
+
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+    protontricks.enable = true;
+  };
+
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+  };
+
   networking.hostName = "resolute";
   console.keyMap = "us";
 
