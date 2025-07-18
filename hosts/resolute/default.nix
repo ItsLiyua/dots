@@ -9,7 +9,7 @@
       dconf.enable = true;
       greeter = {
         enable = true;
-        launchCommand = "Hyprland";
+        launchCommand = "niri-session";
       };
       gaming.gamepadSupport = true;
       overclocking.gpu.lact.enable = true;
