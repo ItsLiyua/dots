@@ -5,8 +5,8 @@
       firefox.enable = true;
       foot.enable = true;
       thunar.enable = true;
-      prismlauncher.enable = true;
-      steam.enable = true;
+      # prismlauncher.enable = true;
+      steam.enable = false;
     };
     desktop = {
       displays = {
@@ -27,10 +27,11 @@
       };
       layout = "eu";
       bar.enable = true;
-      wm.hyprland = {
-        enable = true;
-        xwayland.enable = true;
-      };
+      wm.niri.enable = true;
+      # wm.hyprland = {
+      #   enable = true;
+      #   xwayland.enable = true;
+      # };
       wallpaper = {
         enable = true;
         type = "nix";
