@@ -21,6 +21,7 @@
     bootloader = {
       enable = true;
       mode = "systemd-boot";
+      timeout = 0;
       memtest86.enable = true;
       plymouth.enable = true;
     };

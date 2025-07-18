@@ -16,7 +16,7 @@
       description = "Whether to enable efi support";
     };
     timeout = lib.mkOption {
-      type = lib.types.ints.positive;
+      type = lib.types.int;
       default = 1;
       description = "For how long to show the bootloader";
     };
