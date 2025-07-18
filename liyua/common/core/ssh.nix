@@ -23,13 +23,16 @@
         ] (hostname: mkCfgStdKey "${hostname}.local")
         // {
           linode = mkCfgStdKey "liyua.moe";
-        }
-        // (lib.genAttrs [ "github.com" "gitlab.com" ] (hostname: {
-          ${hostname} = {
+          "github.com" = {
             hostname = "github.com";
             user = "git";
             identityFile = "~/.ssh/id_github";
           };
-        }));
+          "gitlab.com" = {
+            hostname = "gitlab.com";
+            user = "git";
+            identityFile = "~/.ssh/id_github";
+          };
+        };
     };
 }
