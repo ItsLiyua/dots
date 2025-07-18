@@ -30,5 +30,6 @@
         themePackages = [ pkgs.plymouth-arasaka-theme ];
       };
       consoleLogLevel = logLevel;
+      initrd.systemd.enable = true;
     };
 }
