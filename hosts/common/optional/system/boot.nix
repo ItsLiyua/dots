@@ -31,5 +31,6 @@
       };
       consoleLogLevel = logLevel;
       initrd.systemd.enable = true;
+      kernelParams = if logLevel == 0 then [ "quiet" ] else [ ];
     };
 }
