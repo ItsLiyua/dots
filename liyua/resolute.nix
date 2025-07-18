@@ -27,10 +27,11 @@
       };
       layout = "eu";
       bar.enable = true;
-      wm.hyprland = {
-        enable = true;
-        xwayland.enable = true;
-      };
+      wm.niri.enable = true;
+      # wm.hyprland = {
+      #   enable = true;
+      #   xwayland.enable = true;
+      # };
       wallpaper = {
         enable = true;
         type = "nix";
