@@ -26,5 +26,6 @@
       default = 50;
       description = "Maximum amount of stored fallback images";
     };
+    plymouth.enable = lib.mkEnableOption "Plymouth theme";
   };
 }

@@ -22,6 +22,7 @@
       enable = true;
       mode = "systemd-boot";
       memtest86.enable = true;
+      plymouth.enable = true;
     };
     logind = {
       enable = true;

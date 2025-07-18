@@ -4,10 +4,10 @@
     ./avahi.nix
     ./batmon.nix
     ./bluetooth.nix
+    ./boot.nix
     ./fwupd.nix
     ./goxlr.nix
     ./graphics.nix
-    ./grub.nix
     ./libinput.nix
     ./localsend.nix
     ./logind.nix

@@ -16,6 +16,10 @@
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plymouth-arasaka = {
+      url = "gitlab:ItsLiyua/arasaka-plymouth";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -25,42 +29,45 @@
       ...
     }@inputs:
     let
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
       inputConfigs = with inputs; [
         disko.nixosModules.disko
         sops-nix.nixosModules.sops
         nix-minecraft.nixosModules.minecraft-servers
       ];
-      inputOverlays = with inputs; [
-        nix-minecraft.overlay
-      ];
+      inputOverlays =
+        with inputs;
+        forAllSystems (s: [
+          nix-minecraft.overlay
+          plymouth-arasaka.overlays.${s}.default
+        ]);
       mkSysConfig =
-        mainRepo: cfg:
+        mainRepo: arch: cfg:
         let
           lib = mainRepo.lib.extend (self: super: { liyua = import ./lib { inherit (nixpkgs) lib; }; });
         in
         lib.nixosSystem {
           specialArgs = inputs;
           modules = inputConfigs ++ [
-            { nixpkgs.overlays = inputOverlays; }
+            { nixpkgs.overlays = inputOverlays.${arch}; }
             ./hosts/common
             ./modules
             ./hosts/shared.nix
             cfg
           ];
         };
-      forAllSystems = nixpkgs.lib.genAttrs [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
     in
     {
       nixosConfigurations = {
-        liberty = mkSysConfig nixpkgs ./hosts/liberty;
-        resolute = mkSysConfig nixpkgs ./hosts/resolute;
-        t480 = mkSysConfig nixpkgs ./hosts/t480;
-        rpi5-1 = mkSysConfig nixos-raspberrypi ./hosts/pi/rpi5-1;
-        rpi5-2 = mkSysConfig nixos-raspberrypi ./hosts/pi/rpi5-2;
-        linode = mkSysConfig nixpkgs ./hosts/linode;
+        liberty = mkSysConfig nixpkgs "x86_64-linux" ./hosts/liberty;
+        resolute = mkSysConfig nixpkgs "x86_64-linux" ./hosts/resolute;
+        t480 = mkSysConfig nixpkgs "x86_64-linux" ./hosts/t480;
+        rpi5-1 = mkSysConfig nixos-raspberrypi "aarch64-linux" ./hosts/pi/rpi5-1;
+        rpi5-2 = mkSysConfig nixos-raspberrypi "aarch64-linux" ./hosts/pi/rpi5-2;
+        linode = mkSysConfig nixpkgs "x86_64-linux" ./hosts/linode;
       };
       formatter = forAllSystems (s: nixpkgs.legacyPackages.${s}.nixfmt-tree);
     };
