@@ -40,8 +40,8 @@
           "Mod+B".action = fullscreen-window;
 
           "Mod+H".action = focus-column-left;
-          "Mod+J".action = focus-window-or-monitor-down;
-          "Mod+K".action = focus-window-or-monitor-up;
+          "Mod+J".action = focus-window-down;
+          "Mod+K".action = focus-window-up;
           "Mod+L".action = focus-column-right;
 
           "Mod+Shift+H".action = move-column-left;
@@ -98,6 +98,9 @@
           "Mod+W".action = switch-preset-column-width;
           "Mod+C".action = consume-or-expel-window-left;
           "Mod+Shift+C".action = consume-or-expel-window-right;
+
+          "Mod+Tab".action = focus-monitor-next;
+          "Mod+Shift+Tab".action = move-window-to-monitor-next;
         };
         input = {
           keyboard.xkb.layout = config.liyua.desktop.layout;
