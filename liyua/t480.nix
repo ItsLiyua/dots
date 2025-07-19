@@ -53,5 +53,8 @@
   };
 
   programs.btop.settings.selected_battery = "BAT1"; # Use external battery for t480
-  home.packages = [ pkgs.libreoffice ];
+  home.packages = with pkgs; [
+    libreoffice
+    gimp
+  ];
 }
