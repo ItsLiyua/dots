@@ -159,7 +159,6 @@
               name = "${display}-${index}";
               value = {
                 open-on-output = display;
-                name = index;
               };
             }
           )
