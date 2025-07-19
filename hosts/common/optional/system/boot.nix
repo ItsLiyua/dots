@@ -31,6 +31,11 @@
       };
       consoleLogLevel = logLevel;
       initrd.systemd.enable = true;
-      kernelParams = if logLevel == 0 then [ "quiet" ] else [ ];
+      kernelParams =
+        [
+          (if logLevel == 0 then "quiet" else null)
+          (if plymouth.enable then "splash" else null)
+        ]
+        |> lib.filter (e: e != null);
     };
 }
