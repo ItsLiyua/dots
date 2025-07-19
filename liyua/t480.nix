@@ -6,7 +6,7 @@
       firefox.enable = true;
       foot.enable = true;
       thunar.enable = true;
-      # steam.enable = true;
+      steam.enable = true;
     };
     desktop = {
       displays.eDP-1 = {
@@ -47,7 +47,6 @@
     };
     clipboard.enable = true;
     xdg.enable = true;
-    steam.enable = false;
     remoteAccess.enable = true;
     mpd.enable = true;
   };
