@@ -148,6 +148,22 @@
           };
           inactive.color = config.lib.stylix.colors.withHashtag.base03;
         };
+        workspaces =
+          {
+            display = (builtins.attrNames config.liyua.desktop.displays);
+            index = (lib.range 0 9 |> map (n: toString n));
+          }
+          |> lib.mapCartesianProduct (
+            { display, index }:
+            {
+              name = "${display}-${index}";
+              value = {
+                open-on-output = display;
+                name = index;
+              };
+            }
+          )
+          |> builtins.listToAttrs;
       };
     };
   };

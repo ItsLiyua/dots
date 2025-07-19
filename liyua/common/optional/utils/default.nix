@@ -6,7 +6,6 @@
     ./remote-access.nix
     ./tokei.nix
     ./unfree-whitelist.nix
-    ./steamcfg.nix
     ./xdg.nix
   ];
 }

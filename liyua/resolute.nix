@@ -5,7 +5,7 @@
       firefox.enable = true;
       foot.enable = true;
       thunar.enable = true;
-      # prismlauncher.enable = true;
+      prismlauncher.enable = true;
       steam.enable = false;
     };
     desktop = {
@@ -56,7 +56,6 @@
     };
     clipboard.enable = true;
     xdg.enable = true;
-    steam.enable = true;
     remoteAccess.enable = true;
   };
 }
