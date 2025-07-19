@@ -8,7 +8,7 @@
     audio.enable = lib.mkEnableOption "PipeWire";
     libinput.enable = lib.mkEnableOption "LibInput";
     swapescape.enable = lib.mkEnableOption "Esc-Capslock swap";
-    allow-unfree = lib.mkOption {
+    allowedUnfree = lib.mkOption {
       default = [ ];
       example = [ "steam" ];
       description = "Specify allowed unfree packages";
