@@ -15,6 +15,11 @@
         type = lib.types.str;
         description = "Which command to run on login";
       };
+      text = lib.mkOption {
+        type = with lib.types; nullOr str;
+        description = "The extra text on the login screen";
+        default = null;
+      };
     };
     wayland = {
       enable = lib.mkEnableOption "wayland customizations";

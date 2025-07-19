@@ -5,13 +5,15 @@
   ...
 }:
 {
-  config.services.greetd =
+  services.greetd =
     with config.liyua.ui.greeter;
     lib.mkIf enable {
       enable = true;
       settings = {
         default_session = {
-          command = ''${pkgs.greetd.tuigreet}/bin/tuigreet -tr --asterisks --asterisks-char "*" --cmd "${launchCommand}"'';
+          command = ''${pkgs.greetd.tuigreet}/bin/tuigreet -tr --asterisks --asterisks-char "*" ${
+            if text != null then ''-g "${text}"'' else ""
+          } --user-menu --window-padding 2 --theme "text=white;container=black;border=red;greet=white;prompt=red;input=white;action=white" --cmd "${launchCommand}"'';
           user = "greeter";
         };
       };

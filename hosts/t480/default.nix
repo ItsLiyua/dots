@@ -12,6 +12,7 @@
       greeter = {
         enable = true;
         launchCommand = "niri-session";
+        text = "Property of the Arasaka Corporation";
       };
       wayland.enable = true;
     };
