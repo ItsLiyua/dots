@@ -5,6 +5,7 @@
     ./fastfetch.nix
     ./git.nix
     ./gpg.nix
+    ./nh.nix
     ./sops.nix
     ./ssh.nix
     ./theme.nix

@@ -24,6 +24,7 @@
           }
         ];
         binds = with config.lib.niri.actions; {
+          "Mod+grave".action = toggle-overview;
           "Mod+Q".action = close-window;
           "Mod+M".action = quit { skip-confirmation = false; };
 

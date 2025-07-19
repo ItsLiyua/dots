@@ -62,7 +62,13 @@
               path = "${d.img}/share/wallpapers/nixos-wallpaper.png";
             })
           else if type == "path" then
-            { }
+            config.liyua.desktop.wallpaper.path
+            |> lib.mapAttrsToList (
+              n: v: {
+                monitor = n;
+                path = v;
+              }
+            )
           else
             throw "Wallpaper type not set correctly";
       in
