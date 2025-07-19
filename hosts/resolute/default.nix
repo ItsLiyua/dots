@@ -38,24 +38,6 @@
     goxlr.enable = true;
   };
 
-  liyua.allow-unfree = [
-    "steam"
-    "steam-unwrapped"
-  ];
-
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-    protontricks.enable = true;
-  };
-
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-  };
-
   networking.hostName = "resolute";
   console.keyMap = "us";
 
