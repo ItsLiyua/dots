@@ -28,6 +28,11 @@
             user = "git";
             identityFile = "~/.ssh/id_github";
           };
+          "gitlab.com" = {
+            hostname = "gitlab.com";
+            user = "git";
+            identityFile = "~/.ssh/id_github";
+          };
         };
     };
 }
