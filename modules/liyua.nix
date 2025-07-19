@@ -68,8 +68,10 @@
           default = true;
         };
         path = lib.mkOption {
-          type = lib.types.str;
-          description = "The path to the wallpaper";
+          type = with lib.types; (attrsOf str);
+          description = "Monitors mapped to their respective wallpapers";
+          example = "{ eDP-1 = \"/path/to/wallpaper-1.png\"; HDMI-A-1 = \"/path/to/another/wallpaper.jpg\"; }";
+          default = { };
         };
         nix = {
           theme = lib.mkOption {
