@@ -25,8 +25,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags = {
-      url = "github:ItsLiyua/ags/a1494ccaa5ef654333a2dbd10c18b1441ed03cee";
-      # url = "github:aylur/ags";
+      # url = "github:ItsLiyua/ags/a1494ccaa5ef654333a2dbd10c18b1441ed03cee";
+      url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprsplit = {

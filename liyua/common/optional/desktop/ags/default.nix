@@ -23,10 +23,7 @@
         # pkgs.hyprpicker
         # pkgs.wl-clipboard
       ];
-      systemd = {
-        enable = true;
-        gtk4 = true;
-      };
+      systemd.enable = true;
     };
     home.file.".cache/ags/colors.scss".text =
       lib.strings.concatMapStrings

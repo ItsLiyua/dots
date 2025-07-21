@@ -15,7 +15,7 @@
         refreshRate = 60.0;
       };
       layout = "eu";
-      bar.enable = true;
+      bar.enable = false;
       wm = {
         hyprland = {
           # enable = true;
