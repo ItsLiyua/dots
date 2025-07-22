@@ -4,6 +4,7 @@
     ../common
     ./glance.nix
     ./jellyfin.nix
+    ./nfs.nix
     ./radicale.nix
     ./vaultwarden.nix
   ];
