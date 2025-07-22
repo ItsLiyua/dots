@@ -11,7 +11,7 @@ lib.mkIf enable {
     '';
   };
   fileSystems."/mnt/nfs" = {
-    device = "localhost:/";
+    device = "localhost:/export";
     fsType = "nfs";
     options = [ "nfsvers=4.2" ];
   };
