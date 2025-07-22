@@ -11,6 +11,7 @@
     ./libinput.nix
     ./localsend.nix
     ./logind.nix
+    ./nfs.nix
     ./swapescape.nix
     ./tlp.nix
     ./unfree-whitelist.nix
