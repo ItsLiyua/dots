@@ -29,7 +29,7 @@
       example = "amd";
       default = null;
     };
-    nfs.music.enable = lib.mkEnableOption "NFS mount containing my music";
+    nfs.enable = lib.mkEnableOption "Mount NFS drive";
     goxlr.enable = lib.mkEnableOption "GoXLR utility";
   };
 }

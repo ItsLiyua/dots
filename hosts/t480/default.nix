@@ -46,6 +46,7 @@
     powerManagement.enable = true;
     btop.gpuType = "intel";
     localsend.enable = true;
+    nfs.enable = true;
   };
 
   networking.hostName = "t480";
