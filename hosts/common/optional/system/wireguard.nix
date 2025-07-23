@@ -4,6 +4,11 @@ lib.mkIf enable {
   networking = {
     firewall.allowedUDPPorts = [ port ];
     useNetworkd = true;
+    nat = lib.mkIf devices.${self}.server {
+      enable = true;
+      externalInterface = "eth0";
+      internalInterfaces = [ "wg0" ];
+    };
   };
   systemd.network = {
     enable = true;
