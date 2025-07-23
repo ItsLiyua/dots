@@ -57,11 +57,18 @@
             tls.certResolver = "myresolver";
             entrypoints = "websecure";
           };
+          jellyfin = {
+            rule = "Host(`jelly.liyua.moe`)";
+            service = "jellyfin";
+            tls.certResolver = "myresolver";
+            entrypoints = "websecure";
+          };
         };
         services = {
           vaultwarden.loadBalancer.servers = [ { url = "http://10.15.0.3:8222"; } ];
           radicale.loadBalancer.servers = [ { url = "http://10.15.0.3:5232"; } ];
           glance.loadBalancer.servers = [ { url = "http://10.15.0.3:7575"; } ];
+          jellyfin.loadBalancer.servers = [ { url = "http://10.15.0.3:8096"; } ];
         };
         middlewares.auth.basicAuth.usersFile = config.sops.secrets."traefik/dashboard".path;
       };
