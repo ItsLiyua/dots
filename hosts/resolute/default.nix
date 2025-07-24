@@ -34,7 +34,7 @@
     };
     btop.gpuType = "amd";
     localsend.enable = true;
-    nfs.music.enable = true;
+    nfs.enable = true;
     goxlr.enable = true;
   };
 
