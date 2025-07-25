@@ -20,6 +20,10 @@
       url = "gitlab:ItsLiyua/arasaka-plymouth";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    arasaka-greeter = {
+      url = "github:ItsLiyua/arasaka-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
