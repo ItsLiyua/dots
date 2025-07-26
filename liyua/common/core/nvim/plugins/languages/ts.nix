@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  tsserver,
   pkgs,
   ...
 }:
@@ -11,7 +10,6 @@
     format.type = "prettierd";
     lsp = {
       enable = config.liyua.cli.nvim.lsp;
-      package = tsserver.legacyPackages.${pkgs.system}.typescript-language-server;
       server = "ts_ls";
     };
   };

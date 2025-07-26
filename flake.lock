@@ -1080,8 +1080,7 @@
         "nur": "nur",
         "nvf": "nvf",
         "sops-nix": "sops-nix",
-        "stylix": "stylix",
-        "tsserver": "tsserver"
+        "stylix": "stylix"
       }
     },
     "sops-nix": {
@@ -1291,22 +1290,6 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
-        "type": "github"
-      }
-    },
-    "tsserver": {
-      "locked": {
-        "lastModified": 1736750381,
-        "narHash": "sha256-BDDEM0PZkpl4toWbWijuzEHhsrlx8zTmHKkFF5Nsl04=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "81bc281190c4955903d546169453f16c39908d58",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "81bc281190c4955903d546169453f16c39908d58",
         "type": "github"
       }
     },

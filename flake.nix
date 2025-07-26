@@ -2,7 +2,6 @@
   description = "Home Manager configuration of liyua";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    tsserver.url = "github:nixos/nixpkgs?rev=81bc281190c4955903d546169453f16c39908d58";
     hyprland.url = "github:hyprwm/Hyprland";
     home-manager = {
       url = "github:nix-community/home-manager";
