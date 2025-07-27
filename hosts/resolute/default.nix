@@ -38,6 +38,27 @@
     goxlr.enable = true;
   };
 
+  # services.arasaka-greeter = {
+  #   enable = true;
+  #   settings = {
+  #     user = "greeter";
+  #     defaultProperties = {
+  #       username = "liyua";
+  #       command = "niri-session";
+  #     };
+  #   };
+  # };
+
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+    protontricks.enable = true;
+  };
+  liyua.allowedUnfree = [
+    "steam"
+    "steam-unwrapped"
+  ];
+
   networking.hostName = "resolute";
   console.keyMap = "us";
 

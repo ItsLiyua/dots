@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  arasaka-greeter,
   ...
 }:
 with config.liyua.ui.greeter;

@@ -32,11 +32,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753487536,
-        "narHash": "sha256-zUr9U0WZy4kXkQ/KjBH6yzjhRcH6Oln8GcvgrgbXdWc=",
+        "lastModified": 1753565308,
+        "narHash": "sha256-xEqkvJDni0e3ywhmalIp6ujdGRNbrhq83DnBEvl8nfY=",
         "owner": "ItsLiyua",
         "repo": "arasaka-greeter",
-        "rev": "8797905710e9a0c7fe2c1ce399471f92de1b55bb",
+        "rev": "1d998773f68c0568f12a146283084c866b9d1880",
         "type": "github"
       },
       "original": {

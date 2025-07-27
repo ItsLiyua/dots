@@ -10,7 +10,8 @@
       };
     };
     greeter = {
-      enable = lib.mkEnableOption "TUI Display Manager";
+      enable = lib.mkEnableOption "Display Manager";
+      arasaka = lib.mkEnableOption "Arasaka Theme";
       launchCommand = lib.mkOption {
         type = lib.types.str;
         description = "Which command to run on login";
