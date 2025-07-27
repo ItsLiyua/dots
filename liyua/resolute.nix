@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   liyua = {
     apps = {
@@ -6,7 +7,7 @@
       foot.enable = true;
       thunar.enable = true;
       prismlauncher.enable = true;
-      steam.enable = true;
+      steam.enable = false;
     };
     desktop = {
       displays = {
@@ -59,4 +60,6 @@
     xdg.enable = true;
     remoteAccess.enable = true;
   };
+
+  home.packages = [ pkgs.gamescope ];
 }
