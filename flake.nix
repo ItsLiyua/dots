@@ -41,6 +41,7 @@
         disko.nixosModules.disko
         sops-nix.nixosModules.sops
         nix-minecraft.nixosModules.minecraft-servers
+        arasaka-greeter.nixosModules.default
       ];
       inputOverlays =
         with inputs;
