@@ -10,7 +10,7 @@
     ui = {
       dconf.enable = true;
       greeter = {
-        enable = true;
+        enable = false;
         launchCommand = "niri-session";
         text = "Property of the Arasaka Corporation";
       };
@@ -47,6 +47,26 @@
     btop.gpuType = "intel";
     localsend.enable = true;
     nfs.enable = true;
+  };
+  # services.greetd = {
+  #   enable = true;
+  #   settings = {
+  #     default_session = {
+  #       command = ''${arasaka-greeter.packages.x86_64-linux.default}/bin/launch-arasaka-greeter'';
+  #       user = "greeter";
+  #     };
+  #   };
+  # };
+
+  services.arasaka-greeter = {
+    enable = true;
+    settings = {
+      user = "greeter";
+      defaultProperties = {
+        username = "liyua";
+        command = "niri-session";
+      };
+    };
   };
 
   networking.hostName = "t480";

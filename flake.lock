@@ -32,11 +32,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753565308,
-        "narHash": "sha256-xEqkvJDni0e3ywhmalIp6ujdGRNbrhq83DnBEvl8nfY=",
+        "lastModified": 1753580037,
+        "narHash": "sha256-Tx7IbL0ZM0I4QN5NV1sdMVn197py3fQGJ6khs4O6yys=",
         "owner": "ItsLiyua",
         "repo": "arasaka-greeter",
-        "rev": "1d998773f68c0568f12a146283084c866b9d1880",
+        "rev": "24bb92e7dc0d93f93e2dbc20e80af119b755c3e3",
         "type": "github"
       },
       "original": {
@@ -198,11 +198,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753237324,
-        "narHash": "sha256-iXvv/VYLMyAoaTadYrX0PGwd6N2wVX337Os6k8TAlF4=",
+        "lastModified": 1753583461,
+        "narHash": "sha256-yPXsgsTXAn9b0TZVATbhtpZrXH+rFpndsS/TzFBVUqU=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "64ca2cbbf9c65dd3bd98192d74872a80e8dcb871",
+        "rev": "87c3535bbe5d811194978a0b7375f11f37b68767",
         "type": "github"
       },
       "original": {

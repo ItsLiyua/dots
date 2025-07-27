@@ -1,4 +1,9 @@
+{ config, ... }:
 {
+  sops.secrets."nix/github" = {
+    mode = "0440";
+    group = config.users.groups.keys.name;
+  };
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -9,6 +14,9 @@
       ];
       warn-dirty = false;
     };
+    extraOptions = ''
+      !include ${config.sops.secrets."nix/github".path}
+    '';
     gc = {
       automatic = true;
       dates = "weekly";
