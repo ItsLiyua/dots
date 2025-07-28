@@ -1,6 +1,6 @@
 {
-  imports = [
-    ./nautilus.nix
-    ./xdg-desktop-portal-gtk.nix
+  nixpkgs.overlays = [
+    (import ./nautilus.nix)
+    (import ./xdg-desktop-portal-gtk.nix)
   ];
 }
