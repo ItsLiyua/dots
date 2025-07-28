@@ -105,6 +105,11 @@
                           url = "https://vault.liyua.moe";
                           icon = "di:vaultwarden";
                         }
+                        {
+                          title = "Jellyfin";
+                          url = "https://jelly.liyua.moe";
+                          icon = "di:jellyfin";
+                        }
                       ];
                     }
                   ];
