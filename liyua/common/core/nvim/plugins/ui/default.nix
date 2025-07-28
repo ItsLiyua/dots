@@ -1,6 +1,7 @@
 {
   imports = [
     ./bufferline.nix
+    ./colorizer.nix
     ./filetree.nix
     ./gitsigns.nix
     ./indentguide.nix
