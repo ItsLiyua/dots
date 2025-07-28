@@ -1,7 +1,9 @@
 final: prev: {
-  xdg-desktop-portal-gnome = prev.xdg-desktop-portal-gnome.overrideAttrs (old: {
-    buildInputs = old.buildInputs |> builtins.filter (e: e != prev.gnome-desktop);
-    nativeBuildInputs = old.nativeBuildInputs ++ [ prev.gnome-desktop ];
+  xdg-desktop-portal-gtk = prev.xdg-desktop-portal-gtk.overrideAttrs (old: {
+    buildInputs =
+      old.buildInputs
+      |> builtins.filter (e: e != prev.gnome-desktop)
+      |> builtins.filter (e: e != prev.gnome-settings-daemon);
     mesonFlags = [ "-Dwallpaper=disabled" ];
   });
 }
