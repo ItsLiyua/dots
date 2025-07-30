@@ -12,7 +12,6 @@
       enable = true;
       configDir = ./.;
       extraPackages = with ags.packages.${pkgs.system}; [
-        greet
         # hyprland
         # mpris
         # wireplumber
@@ -20,8 +19,6 @@
         # bluetooth
         # battery
         # notifd
-        # pkgs.hyprpicker
-        # pkgs.wl-clipboard
       ];
       systemd.enable = true;
     };
