@@ -28,6 +28,7 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       nixos-raspberrypi,
       ...
@@ -57,7 +58,7 @@
         lib.nixosSystem {
           specialArgs = inputs;
           modules = inputConfigs ++ [
-            { nixpkgs.overlays = inputOverlays.${arch}; }
+            { nixpkgs.overlays = inputOverlays.${arch} ++ [ self.overlays.default ]; }
             ./hosts/common
             ./modules
             ./hosts/shared.nix
@@ -74,6 +75,7 @@
         rpi5-2 = mkSysConfig nixos-raspberrypi "aarch64-linux" ./hosts/pi/rpi5-2;
         linode = mkSysConfig nixpkgs "x86_64-linux" ./hosts/linode;
       };
+      overlays.default = import ./overlays { inherit (nixpkgs) lib; };
       formatter = forAllSystems (s: nixpkgs.legacyPackages.${s}.nixfmt-tree);
     };
 }
