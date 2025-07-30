@@ -3,6 +3,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
+    liyua = {
+      url = "github:ItsLiyua/dots/system";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +28,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags = {
-      # url = "github:ItsLiyua/ags/a1494ccaa5ef654333a2dbd10c18b1441ed03cee";
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -57,10 +60,12 @@
       pkgs-x86 = nixpkgs.legacyPackages.x86_64-linux;
       pkgs-amd64 = nixpkgs.legacyPackages.aarch64-linux;
 
-      extraOverlays = [ inputs.niri.overlays.niri ];
+      extraOverlays = with inputs; [
+        liyua.overlays.default
+        niri.overlays.niri
+      ];
       sharedModules = with inputs; [
         { nixpkgs.overlays = extraOverlays; }
-        ./overlays
 
         ags.homeManagerModules.default
         hyprland.homeManagerModules.default
