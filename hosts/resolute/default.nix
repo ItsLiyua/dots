@@ -15,7 +15,7 @@
       overclocking.gpu.lact.enable = true;
       wayland.enable = true;
     };
-    audio.enable = false;
+    audio.enable = true;
     graphics.enable = true;
     bootloader = {
       enable = true;
