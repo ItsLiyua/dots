@@ -78,6 +78,7 @@ lib.mkIf config.liyua.desktop.wm.niri.enable {
         "Mod+Shift+0".action.move-column-to-workspace = 10;
 
         "Print".action = screenshot;
+        "Mod+P".action = screenshot;
         "Mod+Space".action = toggle-overview;
 
         # XF86WakeUp.action = null;
@@ -134,7 +135,7 @@ lib.mkIf config.liyua.desktop.wm.niri.enable {
           { proportion = 1.0; }
         ];
       };
-      screenshot-path = "~/Pictures/screenshots/$(date +%Y%m%d-%H%M%S).png";
+      screenshot-path = "~/Pictures/screenshots/%Y%m%d-%H%M%S.png";
       overview.backdrop-color = config.lib.stylix.colors.withHashtag.base01;
       hotkey-overlay.skip-at-startup = true;
       xwayland-satellite = {
@@ -168,5 +169,5 @@ lib.mkIf config.liyua.desktop.wm.niri.enable {
         |> builtins.listToAttrs;
     };
   };
-  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
 }

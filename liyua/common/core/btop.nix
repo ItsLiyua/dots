@@ -9,6 +9,8 @@
       proc_sorting = "memory";
       proc_filter_kernel = true;
       color_theme = "stylix";
+      disks_filter = "/boot /home /";
+      use_fstab = false;
     };
   };
 }

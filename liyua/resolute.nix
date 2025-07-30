@@ -6,6 +6,7 @@
       firefox.enable = true;
       foot.enable = true;
       thunar.enable = true;
+      nautilus.enable = true;
       prismlauncher.enable = true;
       steam.enable = false;
     };
