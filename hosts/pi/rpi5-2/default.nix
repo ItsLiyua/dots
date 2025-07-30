@@ -3,6 +3,7 @@
     ./shared
     ../common
     ./actual.nix
+    ./paperless.nix
   ];
 
   config = {
