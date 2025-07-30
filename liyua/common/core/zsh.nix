@@ -1,10 +1,11 @@
+{ config, ... }:
 {
   programs = {
     zsh = {
       enable = true;
-      dotDir = ".config/zsh";
+      dotDir = "${config.xdg.configHome}/zsh";
       history = {
-        path = "$HOME/.cache/zsh_history";
+        path = "${config.xdg.cacheHome}/zsh_history";
         size = 10000;
         append = true;
         saveNoDups = true;
