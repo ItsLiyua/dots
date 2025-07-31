@@ -51,6 +51,10 @@
       url = "github:oxalica/nil/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-userstyles = {
+      url = "github:knoopx/nix-userstyles";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

@@ -2,20 +2,58 @@
   config,
   lib,
   pkgs,
+  nix-userstyles,
   ...
 }:
-{
-  config = lib.mkIf config.liyua.apps.firefox.enable {
-    stylix.targets.firefox = {
-      enable = true;
-      profileNames = [ "default" ];
-    };
-    programs.firefox = {
+lib.mkIf config.liyua.apps.firefox.enable {
+  stylix.targets.firefox = {
+    enable = true;
+    profileNames = [ "default" ];
+  };
+  programs.firefox =
+    let
+      userStyles = [
+        "bsky"
+        "duckduckgo"
+        "github"
+        "google"
+        "nixos-*"
+        "reddit"
+        "stack-overflow"
+        "whatsapp-web"
+        "wikipedia"
+        "youtube"
+      ];
+      palette = {
+        inherit (config.lib.stylix.colors)
+          base00
+          base01
+          base02
+          base03
+          base04
+          base05
+          base06
+          base07
+          base08
+          base09
+          base0A
+          base0B
+          base0C
+          base0D
+          base0E
+          base0F
+          ;
+      };
+    in
+    {
       enable = true;
       profiles.default = {
         id = 0;
         name = "default";
         isDefault = true;
+        userContent = ''
+          ${builtins.readFile "${nix-userstyles.packages.${pkgs.system}.mkUserStyles palette userStyles}"}
+        '';
         extensions = {
           force = true;
           packages = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -100,5 +138,4 @@
         PasswordManagerEnabled = false;
       };
     };
-  };
 }

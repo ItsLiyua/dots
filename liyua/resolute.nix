@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, liyua, ... }:
 {
   liyua = {
     apps = {
@@ -62,5 +62,6 @@
     remoteAccess.enable = true;
   };
 
+  nixpkgs.overlays = [ liyua.overlays.extended ];
   home.packages = [ pkgs.gamescope ];
 }
