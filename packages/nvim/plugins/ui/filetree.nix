@@ -1,3 +1,5 @@
 {
-  vim.filetree.neo-tree.enable = true;
+  vim.filetree.neo-tree = {
+    enable = true;
+  };
 }
