@@ -75,7 +75,7 @@
         rpi5-2 = mkSysConfig nixos-raspberrypi "aarch64-linux" ./hosts/pi/rpi5-2;
         linode = mkSysConfig nixpkgs "x86_64-linux" ./hosts/linode;
       };
-      overlays.default = import ./overlays { inherit (nixpkgs) lib; };
+      overlays = import ./overlays { inherit (nixpkgs) lib; };
       formatter = forAllSystems (s: nixpkgs.legacyPackages.${s}.nixfmt-tree);
     };
 }

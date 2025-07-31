@@ -1,3 +1,4 @@
+{ self, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -38,16 +39,7 @@
     goxlr.enable = true;
   };
 
-  # services.arasaka-greeter = {
-  #   enable = true;
-  #   settings = {
-  #     user = "greeter";
-  #     defaultProperties = {
-  #       username = "liyua";
-  #       command = "niri-session";
-  #     };
-  #   };
-  # };
+  nixpkgs.overlays = [ self.overlays.extended ];
 
   programs.steam = {
     enable = true;
