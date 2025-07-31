@@ -21,7 +21,7 @@
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pname = "liyua-desktop-shell";
+        pname = "desktop-shell";
         pkgs = nixpkgs.legacyPackages.${system};
         astalPackages = with ags.packages.${system}; [
           io
@@ -58,11 +58,7 @@
             runHook postInstall
           '';
         };
-        apps.default = {
-          type = "app";
-          program = "${self.packages.${system}.default}/bin/${pname}";
-        };
-        overlays.default = final: prev: { ${pname} = self.packages.${system}.default; };
+        overlays.default = final: prev: { liyua.${pname} = self.packages.${system}.default; };
         devShells.default = pkgs.mkShell {
           buildInputs = [
             (ags.packages.${system}.default.override {

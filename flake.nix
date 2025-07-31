@@ -32,10 +32,6 @@
       url = "github:shezdy/hyprsplit";
       inputs.hyprland.follows = "hyprland";
     };
-    nvf = {
-      url = "github:notashelf/nvf?ref=pull/984/head";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,8 +48,15 @@
       url = "github:knoopx/nix-userstyles";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    local-my-shell = {
-      url = "path:packages/my-shell";
+    local-desktop-shell = {
+      url = "path:packages/desktop-shell";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
+    local-nvim = {
+      url = "path:packages/nvim";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
@@ -74,8 +77,14 @@
         niri.overlays.niri
       ];
 
-      x86Overlays = with inputs; [ local-my-shell.overlays.x86_64-linux.default ];
-      amd64Overlays = with inputs; [ local-my-shell.overlays.aarch64-linux.default ];
+      x86Overlays = with inputs; [
+        local-desktop-shell.overlays.x86_64-linux.default
+        local-nvim.overlays.x86_64-linux.default
+      ];
+      amd64Overlays = with inputs; [
+        local-desktop-shell.overlays.aarch64-linux.default
+        local-nvim.overlays.aarch64-linux.default
+      ];
 
       sharedModules = with inputs; [
         { nixpkgs.overlays = extraOverlays; }
@@ -83,7 +92,6 @@
         nur.modules.homeManager.default
         stylix.homeModules.stylix
         nixcord.homeModules.nixcord
-        nvf.homeManagerModules.default
         sops-nix.homeManagerModules.sops
         niri.homeModules.niri
 
@@ -118,10 +126,27 @@
           ];
         };
     in
-    flake-utils.lib.eachDefaultSystem (system: {
-      formatter = nixpkgs.legacyPackages.${system}.nixfmt-tree;
-      packages.liyua-desktop-shell = inputs.local-my-shell.packages.${system}.default;
-    })
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        lib = nixpkgs.lib;
+      in
+      {
+        packages = {
+          desktop-shell = inputs.local-desktop-shell.packages.${system}.default;
+          nvim = inputs.local-nvim.packages.${system}.default;
+        };
+        overlays.default =
+          let
+            toMerge = with inputs; [
+              local-desktop-shell.overlays.${s}.default
+              local-nvim.overlays.${s}.default
+            ];
+          in
+          final: prev: toMerge |> map (m: m final prev) |> lib.mergeAttrsList;
+        formatter = nixpkgs.legacyPackages.${system}.nixfmt-tree;
+      }
+    )
     // {
       homeConfigurations = {
         "liyua@liberty" = mkHomeConfig "x86" ./liyua/liberty.nix;
