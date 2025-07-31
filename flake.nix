@@ -2,6 +2,7 @@
   description = "Home Manager configuration of liyua";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
     hyprland.url = "github:hyprwm/Hyprland";
     liyua = {
       url = "github:ItsLiyua/dots/system";
@@ -25,10 +26,6 @@
     };
     nixcord = {
       url = "github:kaylorben/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    ags = {
-      url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprsplit = {
@@ -55,23 +52,33 @@
       url = "github:knoopx/nix-userstyles";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    local-my-shell = {
+      url = "path:packages/my-shell";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }@inputs:
+    {
+      nixpkgs,
+      flake-utils,
+      home-manager,
+      ...
+    }@inputs:
     let
-      extraSpecialArgs = inputs;
-      pkgs-x86 = nixpkgs.legacyPackages.x86_64-linux;
-      pkgs-amd64 = nixpkgs.legacyPackages.aarch64-linux;
-
       extraOverlays = with inputs; [
         liyua.overlays.default
         niri.overlays.niri
       ];
+
+      x86Overlays = with inputs; [ local-my-shell.overlays.x86_64-linux.default ];
+      amd64Overlays = with inputs; [ local-my-shell.overlays.aarch64-linux.default ];
+
       sharedModules = with inputs; [
         { nixpkgs.overlays = extraOverlays; }
-
-        ags.homeManagerModules.default
         hyprland.homeManagerModules.default
         nur.modules.homeManager.default
         stylix.homeModules.stylix
@@ -83,30 +90,46 @@
         ./modules
       ];
 
-      forAllSystems = nixpkgs.lib.genAttrs [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
-
       mkHomeConfig =
-        pkgs: cfg:
+        type: cfg:
         home-manager.lib.homeManagerConfiguration {
-          inherit pkgs extraSpecialArgs;
+          extraSpecialArgs = inputs;
+          pkgs =
+            nixpkgs.legacyPackages.${
+              if type == "x86" then
+                "x86_64-linux"
+              else if type == "pi" then
+                "aarch64-linux"
+              else
+                throw "Invalid type for home config given!"
+            };
           modules = sharedModules ++ [
+            {
+              nixpkgs.overlays =
+                if type == "x86" then
+                  x86Overlays
+                else if type == "pi" then
+                  amd64Overlays
+                else
+                  throw "Invalid architecture given for home config!";
+            }
             ./liyua/common
             cfg
           ];
         };
     in
-    {
+    flake-utils.lib.eachDefaultSystem (system: {
+      formatter = nixpkgs.legacyPackages.${system}.nixfmt-tree;
+      packages.liyua-desktop-shell = inputs.local-my-shell.packages.${system}.default;
+    })
+    // {
       homeConfigurations = {
-        "liyua@liberty" = mkHomeConfig pkgs-x86 ./liyua/liberty.nix;
-        "liyua@linode" = mkHomeConfig pkgs-x86 ./liyua/linode.nix;
-        "liyua@resolute" = mkHomeConfig pkgs-x86 ./liyua/resolute.nix;
-        "liyua@t480" = mkHomeConfig pkgs-x86 ./liyua/t480.nix;
-        "liyua@rpi5-1" = mkHomeConfig pkgs-amd64 ./liyua/rpi5.nix;
-        "liyua@rpi5-2" = mkHomeConfig pkgs-amd64 ./liyua/rpi5.nix;
+        "liyua@liberty" = mkHomeConfig "x86" ./liyua/liberty.nix;
+        "liyua@linode" = mkHomeConfig "x86" ./liyua/linode.nix;
+        "liyua@resolute" = mkHomeConfig "x86" ./liyua/resolute.nix;
+        "liyua@t480" = mkHomeConfig "x86" ./liyua/t480.nix;
+        "liyua@rpi5-1" = mkHomeConfig "pi " ./liyua/rpi5.nix;
+        "liyua@rpi5-2" = mkHomeConfig "pi " ./liyua/rpi5.nix;
       };
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
     };
 }
