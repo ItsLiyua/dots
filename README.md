@@ -106,7 +106,8 @@ separate directory for each host. I just use a single file per host.
 - [ ] rpi5-2: Paperless NGX
 - [x] rpi5-1: NFS for music and such
 - [ ] common: auto symlink `~/nix` to `/etc/nixos`
-- [ ] liyua.moe: configure traefik subdomains in the files of the services they represent using custom module
+- [ ] liyua.moe: configure traefik subdomains in the files of the services they
+      represent using custom module
 - [ ] rpi5-2: cache service for binaries
 - [ ] rpi5-1: move NFS to rpi5-2
 
@@ -116,3 +117,4 @@ separate directory for each host. I just use a single file per host.
 - [ ] liyua@common: Fix firefox theme
 - [x] liyua@resolute: Migrate to niri
 - [ ] liyua@resolute: Remove NetworkManager dependency from steam package
+- [ ] liyua@common: tmux
