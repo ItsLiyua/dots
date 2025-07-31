@@ -11,19 +11,26 @@
   outputs =
     {
       self,
+      config,
       nixpkgs,
       flake-utils,
       nvf,
       ...
     }:
-    flake-utils.lib.eachDefaultSystem (s: {
-      packages.default =
-        (nvf.lib.neovimConfiguration {
-          pkgs = nixpkgs.legacyPackages.${s};
-          modules = [
+    flake-utils.lib.eachDefaultSystem (
+      s:
+      let
+        lib = nixpkgs.lib;
+      in
+      {
+        packages.default =
+          (nvf.lib.neovimConfiguration {
+            pkgs = nixpkgs.legacyPackages.${s};
+            modules = [
 
-          ];
-        }).neovim;
-      overlays.default = final: prev: { liyua.nvim = self.packages.${s}.default; };
-    });
+            ];
+          }).neovim;
+        overlays.default = final: prev: { liyua.nvim = self.packages.${s}.default; };
+      }
+    );
 }
