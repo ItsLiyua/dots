@@ -111,8 +111,6 @@
         nixcord.homeModules.nixcord
         sops-nix.homeManagerModules.sops
         niri.homeModules.niri
-
-        ./modules
       ];
       inputOverlays =
         with inputs;
@@ -132,7 +130,7 @@
           modules = inputConfigs ++ [
             { nixpkgs.overlays = inputOverlays.${arch} ++ [ self.overlays.default ]; }
             ./hosts/common
-            ./modules
+            ./modules/system
             ./hosts/shared.nix
             cfg
           ];
@@ -145,6 +143,7 @@
           pkgs = nixpkgs.legacyPackages.${type};
           modules = inputConfigsHome ++ [
             ./liyua/common
+        ./modules/user
             cfg
           ];
         };
@@ -159,12 +158,12 @@
         linode = mkSysConfig nixpkgs "x86_64-linux" ./hosts/linode;
       };
       homeConfigurations = {
-        "liyua@liberty" = mkHomeConfig "x86" ./liyua/liberty.nix;
-        "liyua@linode" = mkHomeConfig "x86" ./liyua/linode.nix;
-        "liyua@resolute" = mkHomeConfig "x86" ./liyua/resolute.nix;
-        "liyua@t480" = mkHomeConfig "x86" ./liyua/t480.nix;
-        "liyua@rpi5-1" = mkHomeConfig "pi " ./liyua/rpi5.nix;
-        "liyua@rpi5-2" = mkHomeConfig "pi " ./liyua/rpi5.nix;
+        "liyua@liberty" = mkHomeConfig "x86_64-linux" ./liyua/liberty.nix;
+        "liyua@linode" = mkHomeConfig "x86_64-linux" ./liyua/linode.nix;
+        "liyua@resolute" = mkHomeConfig "x86_64-linux" ./liyua/resolute.nix;
+        "liyua@t480" = mkHomeConfig "x86_64-linux" ./liyua/t480.nix;
+        "liyua@rpi5-1" = mkHomeConfig "aarch64-linux" ./liyua/rpi5.nix;
+        "liyua@rpi5-2" = mkHomeConfig "aarch64-linux" ./liyua/rpi5.nix;
       };
       overlays = import ./overlays { inherit (nixpkgs) lib; };
       formatter = forAllSystems (s: nixpkgs.legacyPackages.${s}.nixfmt-tree);
