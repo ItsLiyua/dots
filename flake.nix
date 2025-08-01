@@ -81,73 +81,71 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nixos-raspberrypi,
-      home-manager,
-      ...
-    }@inputs:
-    let
-      forAllSystems = nixpkgs.lib.genAttrs [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
-      extraOverlays = with inputs; [
-        niri.overlays.niri
-      ];
-      inputConfigs = with inputs; [
-        { nixpkgs.overlays = extraOverlays; }
-        disko.nixosModules.disko
-        sops-nix.nixosModules.sops
-        nix-minecraft.nixosModules.minecraft-servers
-        arasaka-greeter.nixosModules.default
-      ];
-      inputConfigsHome = with inputs; [
-        hyprland.homeManagerModules.default
-        nur.modules.homeManager.default
-        stylix.homeModules.stylix
-        nixcord.homeModules.nixcord
-        sops-nix.homeManagerModules.sops
-        niri.homeModules.niri
-      ];
-      inputOverlays =
-        with inputs;
-        forAllSystems (s: [
-          nix-minecraft.overlay
-          plymouth-arasaka.overlays.${s}.default
-          local-desktop-shell.overlays.${s}.default
-          local-nvim.overlays.${s}.default
-        ]);
-      mkSysConfig =
-        mainRepo: arch: cfg:
-        let
-          lib = mainRepo.lib.extend (self: super: { liyua = import ./lib { inherit (nixpkgs) lib; }; });
-        in
-        lib.nixosSystem {
-          specialArgs = inputs;
-          modules = inputConfigs ++ [
-            { nixpkgs.overlays = inputOverlays.${arch} ++ [ self.overlays.default ]; }
-            ./hosts/common
-            ./modules/system
-            ./hosts/shared.nix
-            cfg
-          ];
-        };
+  outputs = {
+    self,
+    nixpkgs,
+    nixos-raspberrypi,
+    home-manager,
+    flake-utils,
+    ...
+  } @ inputs: let
+    lib = nixpkgs.lib.extend (self: super: {liyua = import ./lib {inherit (nixpkgs) lib;};});
 
-      mkHomeConfig =
-        type: cfg:
-        home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = inputs;
-          pkgs = nixpkgs.legacyPackages.${type};
-          modules = inputConfigsHome ++ [
-            ./liyua/common
-        ./modules/user
-            cfg
+    systemModules = with inputs; [
+      disko.nixosModules.disko
+      sops-nix.nixosModules.sops
+      nix-minecraft.nixosModules.minecraft-servers
+      arasaka-greeter.nixosModules.default
+    ];
+    homeModules = with inputs; [
+      hyprland.homeManagerModules.default
+      nur.modules.homeManager.default
+      stylix.homeModules.stylix
+      nixcord.homeModules.nixcord
+      sops-nix.homeManagerModules.sops
+      niri.homeModules.niri
+    ];
+    overlays = system:
+      with inputs; [
+        niri.overlays.niri
+        nix-minecraft.overlay
+        plymouth-arasaka.overlays.${system}.default
+        local-desktop-shell.overlays.${system}.default
+        local-nvim.overlays.${system}.default
+      ];
+
+    mkSysConfig = mainRepo: architecture: entry:
+      lib.nixosSystem {
+        specialArgs = inputs;
+        modules =
+          systemModules
+          ++ [
+            (import ./modules/system)
+            (
+              {pkgs, ...}: {
+                nixpkgs.overlays = overlays pkgs.system;
+              }
+            )
+            entry
           ];
-        };
-    in
+      };
+    mkHomeConfig = mainRepo: architecture: entry:
+      home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = inputs;
+        pkgs = mainRepo.legacyPackages.${architecture};
+        modules =
+          homeModules
+          ++ [
+            (import ./modules/user)
+            (
+              {pkgs, ...}: {
+                nixpkgs.overlays = overlays pkgs.system;
+              }
+            )
+            entry
+          ];
+      };
+  in
     {
       nixosConfigurations = {
         liberty = mkSysConfig nixpkgs "x86_64-linux" ./hosts/liberty;
@@ -158,14 +156,16 @@
         linode = mkSysConfig nixpkgs "x86_64-linux" ./hosts/linode;
       };
       homeConfigurations = {
-        "liyua@liberty" = mkHomeConfig "x86_64-linux" ./liyua/liberty.nix;
-        "liyua@linode" = mkHomeConfig "x86_64-linux" ./liyua/linode.nix;
-        "liyua@resolute" = mkHomeConfig "x86_64-linux" ./liyua/resolute.nix;
-        "liyua@t480" = mkHomeConfig "x86_64-linux" ./liyua/t480.nix;
-        "liyua@rpi5-1" = mkHomeConfig "aarch64-linux" ./liyua/rpi5.nix;
-        "liyua@rpi5-2" = mkHomeConfig "aarch64-linux" ./liyua/rpi5.nix;
+        "liyua@liberty" = mkHomeConfig nixpkgs "x86_64-linux" ./liyua/liberty.nix;
+        "liyua@linode" = mkHomeConfig nixpkgs "x86_64-linux" ./liyua/linode.nix;
+        "liyua@resolute" = mkHomeConfig nixpkgs "x86_64-linux" ./liyua/resolute.nix;
+        "liyua@t480" = mkHomeConfig nixpkgs "x86_64-linux" ./liyua/t480.nix;
+        "liyua@rpi5-1" = mkHomeConfig nixos-raspberrypi "aarch64-linux" ./liyua/rpi5.nix;
+        "liyua@rpi5-2" = mkHomeConfig nixos-raspberrypi "aarch64-linux" ./liyua/rpi5.nix;
       };
-      overlays = import ./overlays { inherit (nixpkgs) lib; };
-      formatter = forAllSystems (s: nixpkgs.legacyPackages.${s}.nixfmt-tree);
-    };
+      overlays = import ./overlays {inherit (nixpkgs) lib;};
+    }
+    // flake-utils.lib.eachDefaultSystem (s: {
+      formatter = nixpkgs.legacyPackages.${s}.nixfmt-tree;
+    });
 }

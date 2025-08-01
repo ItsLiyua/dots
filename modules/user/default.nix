@@ -1,1 +1,1 @@
-{imports=[./liyua];}
+{ imports = [ ./liyua ]; }
