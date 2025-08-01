@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   sops = {
     defaultSymlinkPath = "${config.xdg.configHome}/sops-nix/secrets";
     defaultSopsFile = ../../../secrets/liyua.yaml;

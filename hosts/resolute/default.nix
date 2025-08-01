@@ -1,4 +1,5 @@
-{self, ...}: {
+{ self, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     ./modules/disko.nix

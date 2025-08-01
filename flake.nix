@@ -81,67 +81,67 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixos-raspberrypi,
-    home-manager,
-    flake-utils,
-    ...
-  } @ inputs: let
-    lib = nixpkgs.lib.extend (_: __: {liyua = import ./lib {inherit (nixpkgs) lib;};});
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixos-raspberrypi,
+      home-manager,
+      flake-utils,
+      ...
+    }@inputs:
+    let
+      lib = nixpkgs.lib.extend (_: __: { liyua = import ./lib { inherit (nixpkgs) lib; }; });
 
-    systemModules = with inputs; [
-      disko.nixosModules.disko
-      sops-nix.nixosModules.sops
-      nix-minecraft.nixosModules.minecraft-servers
-      arasaka-greeter.nixosModules.default
-    ];
-    homeModules = with inputs; [
-      hyprland.homeManagerModules.default
-      nur.modules.homeManager.default
-      stylix.homeModules.stylix
-      nixcord.homeModules.nixcord
-      sops-nix.homeManagerModules.sops
-      niri.homeModules.niri
-    ];
-    overlays = system:
-      with inputs; [
-        niri.overlays.niri
-        nix-minecraft.overlay
-        plymouth-arasaka.overlays.${system}.default
-        local-desktop-shell.overlays.${system}.default
-        local-nvim.overlays.${system}.default
-        (import ./overlays {inherit lib;})
+      systemModules = with inputs; [
+        disko.nixosModules.disko
+        sops-nix.nixosModules.sops
+        nix-minecraft.nixosModules.minecraft-servers
+        arasaka-greeter.nixosModules.default
       ];
+      homeModules = with inputs; [
+        hyprland.homeManagerModules.default
+        nur.modules.homeManager.default
+        stylix.homeModules.stylix
+        nixcord.homeModules.nixcord
+        sops-nix.homeManagerModules.sops
+        niri.homeModules.niri
+      ];
+      overlays =
+        system: with inputs; [
+          niri.overlays.niri
+          nix-minecraft.overlay
+          plymouth-arasaka.overlays.${system}.default
+          local-desktop-shell.overlays.${system}.default
+          local-nvim.overlays.${system}.default
+          (import ./overlays { inherit lib; })
+        ];
 
-    mkSysConfig = mainRepo: architecture: entry:
-      mainRepo.lib.nixosSystem {
-        specialArgs = inputs;
-        modules =
-          systemModules
-          ++ [
+      mkSysConfig =
+        mainRepo: architecture: entry:
+        mainRepo.lib.nixosSystem {
+          specialArgs = inputs;
+          modules = systemModules ++ [
             ./modules/system
-            {nixpkgs.overlays = overlays architecture;}
+            { nixpkgs.overlays = overlays architecture; }
             ./hosts/common
             ./hosts/shared.nix
             entry
           ];
-      };
-    mkHomeConfig = mainRepo: architecture: entry:
-      home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = inputs;
-        pkgs = mainRepo.legacyPackages.${architecture};
-        modules =
-          homeModules
-          ++ [
+        };
+      mkHomeConfig =
+        mainRepo: architecture: entry:
+        home-manager.lib.homeManagerConfiguration {
+          extraSpecialArgs = inputs;
+          pkgs = mainRepo.legacyPackages.${architecture};
+          modules = homeModules ++ [
             ./modules/user
-            {nixpkgs.overlays = overlays architecture;}
+            { nixpkgs.overlays = overlays architecture; }
             ./liyua/common
             entry
           ];
-      };
-  in
+        };
+    in
     {
       nixosConfigurations = {
         liberty = mkSysConfig nixpkgs "x86_64-linux" ./hosts/liberty;
@@ -159,7 +159,7 @@
         "liyua@rpi5-1" = mkHomeConfig nixos-raspberrypi "aarch64-linux" ./liyua/rpi5.nix;
         "liyua@rpi5-2" = mkHomeConfig nixos-raspberrypi "aarch64-linux" ./liyua/rpi5.nix;
       };
-      overlays = import ./overlays {inherit (nixpkgs) lib;};
+      overlays = import ./overlays { inherit (nixpkgs) lib; };
     }
     // flake-utils.lib.eachDefaultSystem (s: {
       formatter = nixpkgs.legacyPackages.${s}.nixfmt-tree;

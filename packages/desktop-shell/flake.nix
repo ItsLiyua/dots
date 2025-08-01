@@ -58,7 +58,7 @@
             runHook postInstall
           '';
         };
-        overlays.default = final: prev: { liyua.${pname}= self.packages.${system}.default; };
+        overlays.default = final: prev: { liyua.${pname} = self.packages.${system}.default; };
         devShells.default = pkgs.mkShell {
           buildInputs = [
             (ags.packages.${system}.default.override {

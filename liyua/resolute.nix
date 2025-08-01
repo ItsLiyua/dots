@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   liyua = {
     apps = {
       discord.enable = true;
@@ -61,5 +62,5 @@
     remoteAccess.enable = true;
   };
 
-  home.packages = [pkgs.gamescope];
+  home.packages = [ pkgs.gamescope ];
 }
