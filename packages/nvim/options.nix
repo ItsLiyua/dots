@@ -42,5 +42,6 @@
         virtual_lines = true;
       };
     };
+    spellcheck.enable = true;
   };
 }

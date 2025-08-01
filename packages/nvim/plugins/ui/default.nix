@@ -1,1 +1,25 @@
-{ imports = [ ./filetree.nix ]; }
+{
+  imports = [
+    ./binds.nix
+    ./borders.nix
+    ./colors.nix
+    ./context.nix
+    ./cursorline.nix
+    ./dashboard.nix
+    ./devicons.nix
+    ./diffs.nix
+    ./filetree.nix
+    ./highlight-undo.nix
+    ./icon-picker.nix
+    ./indent-blankline.nix
+    ./notifs.nix
+    ./projects.nix
+    ./scrollbar.nix
+    ./smooth-scroll.nix
+    ./statusline.nix
+    ./tabline.nix
+    ./telescope.nix
+    ./theme.nix
+    ./todo.nix
+  ];
+}
