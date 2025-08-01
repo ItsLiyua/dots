@@ -1,4 +1,4 @@
-{ self, ... }:
+{ lib, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -48,6 +48,8 @@
     "steam"
     "steam-unwrapped"
   ];
+
+  nixpkgs.overlays = [ (lib.liyua.relativeToRoot ./overlays/resolute) ];
 
   networking.hostName = "resolute";
   console.keyMap = "us";
