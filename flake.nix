@@ -89,7 +89,7 @@
     flake-utils,
     ...
   } @ inputs: let
-    lib = nixpkgs.lib.extend (self: super: {liyua = import ./lib {inherit (nixpkgs) lib;};});
+    lib = nixpkgs.lib.extend (_: __: {liyua = import ./lib {inherit (nixpkgs) lib;};});
 
     systemModules = with inputs; [
       disko.nixosModules.disko
@@ -115,17 +115,15 @@
       ];
 
     mkSysConfig = mainRepo: architecture: entry:
-      lib.nixosSystem {
+      mainRepo.lib.nixosSystem {
         specialArgs = inputs;
         modules =
           systemModules
           ++ [
             (import ./modules/system)
-            (
-              {pkgs, ...}: {
-                nixpkgs.overlays = overlays pkgs.system;
-              }
-            )
+            {nixpkgs.overlays = overlays architecture;}
+            ./hosts/common
+            ./hosts/shared.nix
             entry
           ];
       };
@@ -137,11 +135,8 @@
           homeModules
           ++ [
             (import ./modules/user)
-            (
-              {pkgs, ...}: {
-                nixpkgs.overlays = overlays pkgs.system;
-              }
-            )
+            {nixpkgs.overlays = overlays architecture;}
+            ./liyua/common
             entry
           ];
       };
