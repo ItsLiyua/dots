@@ -120,7 +120,7 @@
         modules =
           systemModules
           ++ [
-            (import ./modules/system)
+            ./modules/system
             {nixpkgs.overlays = overlays architecture;}
             ./hosts/common
             ./hosts/shared.nix
@@ -134,7 +134,7 @@
         modules =
           homeModules
           ++ [
-            (import ./modules/user)
+            ./modules/user
             {nixpkgs.overlays = overlays architecture;}
             ./liyua/common
             entry
