@@ -1,5 +1,4 @@
-{ self, ... }:
-{
+{self, ...}: {
   imports = [
     ./hardware-configuration.nix
     ./modules/disko.nix
@@ -38,8 +37,6 @@
     nfs.enable = true;
     goxlr.enable = true;
   };
-
-  nixpkgs.overlays = [ self.overlays.extended ];
 
   programs.steam = {
     enable = true;
