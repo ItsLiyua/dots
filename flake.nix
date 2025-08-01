@@ -95,7 +95,6 @@
         "aarch64-linux"
       ];
       extraOverlays = with inputs; [
-        liyua.overlays.default
         niri.overlays.niri
       ];
       inputConfigs = with inputs; [
