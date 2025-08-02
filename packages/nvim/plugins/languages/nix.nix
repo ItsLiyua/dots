@@ -1,6 +1,7 @@
 {
   vim.languages.nix = {
     enable = true;
+    extraDiagnostics.enable = false;
     format = {
       enable = true;
       type = "nixfmt";
