@@ -114,7 +114,7 @@
           plymouth-arasaka.overlays.${system}.default
           local-desktop-shell.overlays.${system}.default
           local-nvim.overlays.${system}.default
-          (import ./overlays/common { inherit lib; })
+          (import ./overlays { inherit lib; })
         ];
 
       mkSysConfig =

@@ -3,7 +3,7 @@
   liyua = {
     apps = {
       discord.enable = true;
-      firefox.enable = true;
+      # firefox.enable = true;
       foot.enable = true;
       thunar.enable = true;
       steam.enable = true;
