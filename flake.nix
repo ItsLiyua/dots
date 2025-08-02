@@ -120,7 +120,9 @@
       mkSysConfig =
         mainRepo: architecture: entry:
         mainRepo.lib.nixosSystem {
-          specialArgs = inputs;
+          specialArgs = inputs // {
+            inherit lib;
+          };
           modules = systemModules ++ [
             ./modules/system
             { nixpkgs.overlays = overlays architecture; }
@@ -132,7 +134,9 @@
       mkHomeConfig =
         mainRepo: architecture: entry:
         home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = inputs;
+          extraSpecialArgs = inputs // {
+            lib = lib.extend (_: _: home-manager.lib);
+          };
           pkgs = mainRepo.legacyPackages.${architecture};
           modules = homeModules ++ [
             ./modules/user
