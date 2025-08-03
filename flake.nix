@@ -39,7 +39,10 @@
     };
     stylix = {
       url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nur.follows = "nur";
+      };
     };
     nix-wallpaper = {
       url = "github:lunik1/nix-wallpaper";
