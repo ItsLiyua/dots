@@ -33,16 +33,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix = {
       url = "github:nix-community/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nur.follows = "nur";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-wallpaper = {
       url = "github:lunik1/nix-wallpaper";
@@ -104,7 +97,6 @@
       ];
       homeModules = with inputs; [
         hyprland.homeManagerModules.default
-        nur.modules.homeManager.default
         stylix.homeModules.stylix
         nixcord.homeModules.nixcord
         sops-nix.homeManagerModules.sops
