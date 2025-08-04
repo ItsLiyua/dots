@@ -20,14 +20,13 @@ lib.mkIf config.liyua.apps.firefox.enable {
         force = true;
         packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
-          duckduckgo-privacy-essentials
           bitwarden
           enhancer-for-youtube
           return-youtube-dislikes
-          istilldontcareaboutcookies
           sponsorblock
           clearurls
           new-tab-override
+          simplelogin
         ];
         settings = {
           "newtaboverride@agenedia.com" = {
