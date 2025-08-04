@@ -87,7 +87,7 @@
       ...
     }@inputs:
     let
-      lib = nixpkgs.lib.extend (_: __: { liyua = import ./lib { inherit (nixpkgs) lib; }; });
+      lib = nixpkgs.lib.extend (_: _: { liyua = import ./lib { inherit (nixpkgs) lib; }; });
 
       systemModules = with inputs; [
         disko.nixosModules.disko
@@ -116,7 +116,7 @@
         mainRepo: architecture: entry:
         mainRepo.lib.nixosSystem {
           specialArgs = inputs // {
-            inherit lib;
+            # lib = lib.extend (_: _: mainRepo.lib);
           };
           modules = systemModules ++ [
             ./modules/system

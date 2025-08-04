@@ -2,7 +2,8 @@
 {
   environment.systemPackages = [ pkgs.sops ];
   sops = {
-    defaultSopsFile = lib.liyua.relativeToRoot "./secrets/system.yaml";
+    # defaultSopsFile = lib.liyua.relativeToRoot "./secrets/system.yaml";
+    defaultSopsFile = ../../../../secrets/system.yaml;
     validateSopsFiles = true;
 
     age = {
