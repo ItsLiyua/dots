@@ -19,7 +19,6 @@ lib.mkIf config.liyua.apps.firefox.enable {
       extensions = {
         force = true;
         packages = with pkgs.nur.repos.rycee.firefox-addons; [
-          ublock-origin
           bitwarden
           enhancer-for-youtube
           return-youtube-dislikes
@@ -97,6 +96,19 @@ lib.mkIf config.liyua.apps.firefox.enable {
       DisplayBookmarksToolbar = "always";
       OfferToSaveLogins = false;
       PasswordManagerEnabled = false;
+      ExtensionSettings =
+        let
+          latestExtensionSourceURL =
+            name: "https://addons.mozilla.org/firefox/downloads/latest/${name}/latest.xpi";
+        in
+        {
+          "uBlock0@raymondhill.net" = {
+            default_area = "menupanel";
+            install_url = latestExtensionSourceURL "ublock-origin";
+            installation_mode = "force_installed";
+            private_browsing = true;
+          };
+        };
     };
   };
 }

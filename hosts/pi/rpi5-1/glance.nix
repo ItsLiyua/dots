@@ -200,12 +200,8 @@
                       same-tab = true;
                       links = [
                         {
-                          title = "My Flake [user]";
-                          url = "https://github.com/ItsLiyua/dots/tree/user";
-                        }
-                        {
-                          title = "My Flake [system]";
-                          url = "https://github.com/ItsLiyua/dots/tree/system";
+                          title = "My Flake";
+                          url = "https://github.com/ItsLiyua/dots";
                         }
                         {
                           title = "nixpkgs";
