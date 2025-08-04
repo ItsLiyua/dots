@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  nix-userstyles,
   ...
 }:
 lib.mkIf config.liyua.apps.firefox.enable {
@@ -18,15 +17,6 @@ lib.mkIf config.liyua.apps.firefox.enable {
       isDefault = true;
       extensions = {
         force = true;
-        packages = with pkgs.nur.repos.rycee.firefox-addons; [
-          bitwarden
-          enhancer-for-youtube
-          return-youtube-dislikes
-          sponsorblock
-          clearurls
-          new-tab-override
-          simplelogin
-        ];
         settings = {
           "newtaboverride@agenedia.com" = {
             force = true;
@@ -107,6 +97,39 @@ lib.mkIf config.liyua.apps.firefox.enable {
             install_url = latestExtensionSourceURL "ublock-origin";
             installation_mode = "force_installed";
             private_browsing = true;
+          };
+          "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+            default_area = "menupanel";
+            install_url = latestExtensionSourceURL "bitwarden-password-manager";
+            installation_mode = "force_installed";
+            private_browsing = true;
+          };
+          "{74145f27-f039-47ce-a470-a662b129930a}" = {
+            install_url = latestExtensionSourceURL "clearurls";
+            installation_mode = "force_installed";
+            private_browsing = true;
+          };
+          "addon@simplelogin.xpi" = {
+            default_area = "menupanel";
+            install_url = latestExtensionSourceURL "simplelogin";
+            installation_mode = "force_installed";
+            private_browsing = true;
+          };
+          "sponsorBlocker@ajay.app" = {
+            default_area = "menupanel";
+            install_url = latestExtensionSourceURL "sponsorblock";
+            installation_mode = "force_installed";
+            private_browsing = false;
+          };
+          "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = {
+            install_url = latestExtensionSourceURL "return-youtube-dislikes";
+            installation_mode = "force_installed";
+            private_browsing = false;
+          };
+          "enhancerforyoutube@maximerf.addons.mozilla.org" = {
+            install_url = latestExtensionSourceURL "enhancer-for-youtube";
+            installation_mode = "force_installed";
+            private_browsing = false;
           };
         };
     };
