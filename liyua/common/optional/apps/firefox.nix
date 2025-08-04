@@ -109,7 +109,7 @@ lib.mkIf config.liyua.apps.firefox.enable {
             installation_mode = "force_installed";
             private_browsing = true;
           };
-          "addon@simplelogin.xpi" = {
+          "addon@simplelogin" = {
             default_area = "menupanel";
             install_url = latestExtensionSourceURL "simplelogin";
             installation_mode = "force_installed";
