@@ -51,6 +51,4 @@
 
   networking.hostName = "resolute";
   console.keyMap = "us";
-
-  system.stateVersion = "25.11"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES
 }

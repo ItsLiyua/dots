@@ -17,6 +17,4 @@
   };
 
   console.keyMap = "us";
-
-  system.stateVersion = "25.11";
 }
