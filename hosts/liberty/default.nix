@@ -45,5 +45,5 @@
   networking.hostName = "liberty";
   console.keyMap = "de";
 
-  system.stateVersion = "24.11"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES!
+  system.stateVersion = "25.11"; # DO NOT CHANGE UNDER ANY CIRCUMSTANCES!
 }
