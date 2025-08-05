@@ -18,13 +18,27 @@
           ping-passthrough = "ALL";
           servers = {
             smp = "10.15.0.2:25565";
+            e9e = "10.15.0.2:25565";
             try = [ "smp" ];
           };
-          forced-hosts.smp = [ "smp" ];
+          forced-hosts = {
+            smp = [ "smp" ];
+            e9e = [ "e9e" ];
+          };
           player-info-forwarding-mode = "modern";
           forwarding-secret-file = config.sops.secrets.velocity.path;
         };
         "plugins/bStats/config.txt".value = [ "enabled=false" ];
+      };
+      symlinks = {
+        plugins = pkgs.linkFarmFromDrvs "mods" (
+          builtins.attrValues {
+            Ambassador = pkgs.fetchurl {
+              url = "https://cdn.modrinth.com/data/cOj6YqJM/versions/YeQbhgna/Ambassador-Velocity-1.4.5-all.jar";
+              sha512 = "";
+            };
+          }
+        );
       };
     };
   };
