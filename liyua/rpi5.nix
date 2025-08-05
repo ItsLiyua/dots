@@ -1,7 +1,3 @@
 {
-  config.liyua.cli.nvim = {
-    lsp = true;
-    sharedClipboard = false;
-    theme = false;
-  };
+  config.liyua.cli.nvim.enable = true;
 }

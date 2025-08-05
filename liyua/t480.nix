@@ -38,12 +38,7 @@
     };
     cli = {
       cava.enable = true;
-      nvim = {
-        lsp = true;
-        sharedClipboard = true;
-        theme = true;
-        extraLanguages = true;
-      };
+      nvim.enable = true;
       tokei.enable = true;
     };
     clipboard.enable = true;

@@ -50,12 +50,7 @@
     cli = {
       cava.enable = true;
       tokei.enable = true;
-      nvim = {
-        lsp = true;
-        sharedClipboard = true;
-        theme = true;
-        extraLanguages = true;
-      };
+      nvim.enable = true;
     };
     clipboard.enable = true;
     xdg.enable = true;
