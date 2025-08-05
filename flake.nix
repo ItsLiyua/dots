@@ -87,7 +87,7 @@
       ...
     }@inputs:
     let
-      lib = nixpkgs.lib.extend (_: _: { liyua = import ./lib { inherit (nixpkgs) lib; }; });
+      # lib = nixpkgs.lib.extend (_: _: { liyua = import ./lib { inherit (nixpkgs) lib; }; });
 
       systemModules = with inputs; [
         disko.nixosModules.disko
@@ -109,18 +109,26 @@
           plymouth-arasaka.overlays.${system}.default
           local-desktop-shell.overlays.${system}.default
           local-nvim.overlays.${system}.default
-          (import ./overlays/common { inherit lib; })
+          (import ./overlays/common { inherit (nixpkgs) lib; })
         ];
 
       fetchExtraOverlays =
         arch: overlayPath:
-        if overlayPath != null then [ (import overlayPath { inherit lib arch; }) ] else [ ];
+        if overlayPath != null then
+          [
+            (import overlayPath {
+              inherit arch;
+              inherit (nixpkgs) lib;
+            })
+          ]
+        else
+          [ ];
 
       mkSysConfig =
         mainRepo: architecture: entry: extraOverlays:
         mainRepo.lib.nixosSystem {
           specialArgs = inputs // {
-            inherit lib;
+            # inherit lib;
           };
           modules = systemModules ++ [
             ./modules/system
@@ -134,7 +142,7 @@
         mainRepo: architecture: entry: extraOverlays:
         home-manager.lib.homeManagerConfiguration {
           extraSpecialArgs = inputs // {
-            lib = lib.extend (_: _: home-manager.lib);
+            # lib = lib.extend (_: _: home-manager.lib);
           };
           pkgs = mainRepo.legacyPackages.${architecture};
           modules = homeModules ++ [
