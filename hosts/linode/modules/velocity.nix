@@ -30,10 +30,10 @@
         };
         "plugins/bStats/config.txt".value = [ "enabled=false" ];
         "plugins/Ambassador.jar" = pkgs.fetchurl {
-        url = "https://cdn.modrinth.com/data/cOj6YqJM/versions/YeQbhgna/Ambassador-Velocity-1.4.5-all.jar";
-        sha256="sha256-fFemScOUhnLL7zWjuqj3OwRqxQnqj/pu4wCIkNNvLBc=";
+          url = "https://cdn.modrinth.com/data/cOj6YqJM/versions/YeQbhgna/Ambassador-Velocity-1.4.5-all.jar";
+          sha256 = "sha256-fFemScOUhnLL7zWjuqj3OwRqxQnqj/pu4wCIkNNvLBc=";
         };
       };
-  };
+    };
   };
 }
