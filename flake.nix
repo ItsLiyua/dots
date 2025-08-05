@@ -109,25 +109,29 @@
           plymouth-arasaka.overlays.${system}.default
           local-desktop-shell.overlays.${system}.default
           local-nvim.overlays.${system}.default
-          (import ./overlays { inherit lib; })
+          (import ./overlays/common { inherit lib; })
         ];
 
+      fetchExtraOverlays =
+        arch: overlayPath:
+        if overlayPath != null then [ (import overlayPath { inherit lib arch; }) ] else [ ];
+
       mkSysConfig =
-        mainRepo: architecture: entry:
+        mainRepo: architecture: entry: extraOverlays:
         mainRepo.lib.nixosSystem {
           specialArgs = inputs // {
-            # lib = lib.extend (_: _: mainRepo.lib);
+            inherit lib;
           };
           modules = systemModules ++ [
             ./modules/system
-            { nixpkgs.overlays = overlays architecture; }
+            { nixpkgs.overlays = (overlays architecture) ++ (fetchExtraOverlays architecture extraOverlays); }
             ./hosts/common
             ./hosts/shared.nix
             entry
           ];
         };
       mkHomeConfig =
-        mainRepo: architecture: entry:
+        mainRepo: architecture: entry: extraOverlays:
         home-manager.lib.homeManagerConfiguration {
           extraSpecialArgs = inputs // {
             lib = lib.extend (_: _: home-manager.lib);
@@ -135,7 +139,7 @@
           pkgs = mainRepo.legacyPackages.${architecture};
           modules = homeModules ++ [
             ./modules/user
-            { nixpkgs.overlays = overlays architecture; }
+            { nixpkgs.overlays = (overlays architecture) ++ (fetchExtraOverlays architecture extraOverlays); }
             ./liyua/common
             entry
           ];
@@ -143,20 +147,20 @@
     in
     {
       nixosConfigurations = {
-        liberty = mkSysConfig nixpkgs "x86_64-linux" ./hosts/liberty;
-        resolute = mkSysConfig nixpkgs "x86_64-linux" ./hosts/resolute;
-        t480 = mkSysConfig nixpkgs "x86_64-linux" ./hosts/t480;
-        rpi5-1 = mkSysConfig nixos-raspberrypi "aarch64-linux" ./hosts/pi/rpi5-1;
-        rpi5-2 = mkSysConfig nixos-raspberrypi "aarch64-linux" ./hosts/pi/rpi5-2;
-        linode = mkSysConfig nixpkgs "x86_64-linux" ./hosts/linode;
+        liberty = mkSysConfig nixpkgs "x86_64-linux" ./hosts/liberty null;
+        resolute = mkSysConfig nixpkgs "x86_64-linux" ./hosts/resolute ./overlays/resolute;
+        t480 = mkSysConfig nixpkgs "x86_64-linux" ./hosts/t480 null;
+        rpi5-1 = mkSysConfig nixos-raspberrypi "aarch64-linux" ./hosts/pi/rpi5-1 null;
+        rpi5-2 = mkSysConfig nixos-raspberrypi "aarch64-linux" ./hosts/pi/rpi5-2 null;
+        linode = mkSysConfig nixpkgs "x86_64-linux" ./hosts/linode null;
       };
       homeConfigurations = {
-        "liyua@liberty" = mkHomeConfig nixpkgs "x86_64-linux" ./liyua/liberty.nix;
-        "liyua@linode" = mkHomeConfig nixpkgs "x86_64-linux" ./liyua/linode.nix;
-        "liyua@resolute" = mkHomeConfig nixpkgs "x86_64-linux" ./liyua/resolute.nix;
-        "liyua@t480" = mkHomeConfig nixpkgs "x86_64-linux" ./liyua/t480.nix;
-        "liyua@rpi5-1" = mkHomeConfig nixos-raspberrypi "aarch64-linux" ./liyua/rpi5.nix;
-        "liyua@rpi5-2" = mkHomeConfig nixos-raspberrypi "aarch64-linux" ./liyua/rpi5.nix;
+        "liyua@liberty" = mkHomeConfig nixpkgs "x86_64-linux" ./liyua/liberty.nix null;
+        "liyua@linode" = mkHomeConfig nixpkgs "x86_64-linux" ./liyua/linode.nix null;
+        "liyua@resolute" = mkHomeConfig nixpkgs "x86_64-linux" ./liyua/resolute.nix ./overlays/resolute;
+        "liyua@t480" = mkHomeConfig nixpkgs "x86_64-linux" ./liyua/t480.nix null;
+        "liyua@rpi5-1" = mkHomeConfig nixos-raspberrypi "aarch64-linux" ./liyua/rpi5.nix null;
+        "liyua@rpi5-2" = mkHomeConfig nixos-raspberrypi "aarch64-linux" ./liyua/rpi5.nix null;
       };
       overlays = import ./overlays { inherit (nixpkgs) lib; };
     }
