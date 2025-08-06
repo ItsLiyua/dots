@@ -25,7 +25,7 @@
         gcam = "git commit -am";
         gp = "git push";
         gu = "git pull";
-        ls = "eza";
+        ls = "eza --group-directories-first";
         ll = "ls -l";
         la = "ls -la";
         cat = "bat";
