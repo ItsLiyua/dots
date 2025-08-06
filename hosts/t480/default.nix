@@ -25,7 +25,7 @@
       timeout = 0;
       logLevel = 0;
       memtest86.enable = true;
-      # plymouth.enable = true;
+      plymouth.enable = true;
     };
     logind = {
       enable = true;
