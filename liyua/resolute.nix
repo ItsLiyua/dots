@@ -54,7 +54,6 @@
     };
     clipboard.enable = true;
     xdg.enable = true;
-    remoteAccess.enable = true;
   };
 
   home.packages = [ pkgs.gamescope ];

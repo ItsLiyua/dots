@@ -133,7 +133,6 @@
     };
     clipboard.enable = lib.mkEnableOption "Clipboard";
     xdg.enable = lib.mkEnableOption "XDG";
-    remoteAccess.enable = lib.mkEnableOption "SSH access for other devices";
     mpd.enable = lib.mkEnableOption "Music Player Daemon";
   };
 }
