@@ -22,7 +22,13 @@
           content = {
             type = "luks";
             name = "root";
-            settings.allowDiscards = true;
+            settings = {
+              allowDiscards = true;
+              crypttabExtraOpts = [
+                "fido2-device=auto"
+                "token-timeout=10"
+              ];
+            };
             passwordFile = config.sops.secrets."disks/root/password".path;
             content = {
               type = "filesystem";
