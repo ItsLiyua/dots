@@ -47,16 +47,8 @@
     btop.gpuType = "intel";
     localsend.enable = true;
     nfs.enable = true;
+    yubikey.enable = true;
   };
-  # services.greetd = {
-  #   enable = true;
-  #   settings = {
-  #     default_session = {
-  #       command = ''${arasaka-greeter.packages.x86_64-linux.default}/bin/launch-arasaka-greeter'';
-  #       user = "greeter";
-  #     };
-  #   };
-  # };
 
   services.arasaka-greeter = {
     enable = true;

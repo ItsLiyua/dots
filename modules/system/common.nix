@@ -31,5 +31,6 @@
     };
     nfs.enable = lib.mkEnableOption "Mount NFS drive";
     goxlr.enable = lib.mkEnableOption "GoXLR utility";
+    yubikey.enable = lib.mkEnableOption "YubiKey support";
   };
 }

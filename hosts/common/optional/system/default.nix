@@ -17,5 +17,6 @@
     ./unfree-whitelist.nix
     ./upower.nix
     ./wireguard.nix
+    ./yubikey.nix
   ];
 }
