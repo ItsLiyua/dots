@@ -48,8 +48,10 @@
 
   sops.secrets = {
     # Used for SSH and GPG
-    "liyua/yubikey/nfc/ssh/private".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
-    "liyua/yubikey/nfc/ssh/public".path = "${config.home.homeDirectory}/.ssh/id_yubikey.pub";
+    # "liyua/yubikey/nfc/ssh/private".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
+    # "liyua/yubikey/nfc/ssh/public".path = "${config.home.homeDirectory}/.ssh/id_yubikey.pub";
+    "liyua/yubikey/nano/ssh/private".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
+    "liyua/yubikey/nano/ssh/public".path = "${config.home.homeDirectory}/.ssh/id_yubikey.pub";
   };
 
   programs.btop.settings.selected_battery = "BAT1"; # Use external battery for t480
