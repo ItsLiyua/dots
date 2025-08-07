@@ -176,5 +176,25 @@
     }
     // flake-utils.lib.eachDefaultSystem (s: {
       formatter = nixpkgs.legacyPackages.${s}.nixfmt-tree;
+      packages = {
+        nvim = inputs.local-nvim.packages.${s}.default;
+        desktop-shell = inputs.local-desktop-shell.packages.${s}.default;
+      };
+      devShells.default =
+        let
+          pkgs = nixpkgs.legacyPackages.${s};
+        in
+        pkgs.mkShell {
+          packages = [
+            self.packages.${s}.nvim
+            pkgs.sops
+            pkgs.ssh-to-age
+            pkgs.just # TODO: Create a justfile for easier usage
+            pkgs.nh
+          ];
+          shellHook = ''
+            echo Hello World!
+          '';
+        };
     });
 }
