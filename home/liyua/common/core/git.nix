@@ -3,7 +3,7 @@
   programs.git = {
     enable = true;
     userName = "Liyua";
-    userEmail = "liyua@duck.com";
+    userEmail = "liyua@liyua.moe";
     lfs.enable = true;
     extraConfig = {
       init.defaultBranch = "master";
