@@ -8,9 +8,6 @@
       init.defaultBranch = "master";
       push.autoSetupRemote = true;
       pull.rebase = false;
-      commit.gpgsign = true;
-      tag.gpgsign = true;
-      user.signingkey = "AFF37010586DE14D";
     };
   };
 }

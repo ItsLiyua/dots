@@ -30,10 +30,6 @@
       layout = "eu";
       bar.enable = true;
       wm.niri.enable = true;
-      # wm.hyprland = {
-      #   enable = true;
-      #   xwayland.enable = true;
-      # };
       wallpaper = {
         enable = true;
         type = "nix";
@@ -54,6 +50,10 @@
     };
     clipboard.enable = true;
     xdg.enable = true;
+  };
+
+  programs.git.extraConfig = {
+
   };
 
   home.packages = [ pkgs.gamescope ];
