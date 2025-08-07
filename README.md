@@ -113,7 +113,6 @@ separate directory for each host. I just use a single file per host.
 
 - [ ] liyua@common: Split up niri config into multiple files
 - [ ] liyua@common: Remove as many GNOME dependencies from niri as possible
-- [ ] liyua@common: MPD type music player for music from NFS
 - [ ] liyua@common: Fix firefox theme
 - [x] liyua@resolute: Migrate to niri
 - [ ] liyua@resolute: Remove NetworkManager dependency from steam package

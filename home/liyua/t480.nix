@@ -43,7 +43,6 @@
     };
     clipboard.enable = true;
     xdg.enable = true;
-    mpd.enable = true;
   };
 
   sops.secrets = {

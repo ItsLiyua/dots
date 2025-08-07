@@ -133,6 +133,5 @@
     };
     clipboard.enable = lib.mkEnableOption "Clipboard";
     xdg.enable = lib.mkEnableOption "XDG";
-    mpd.enable = lib.mkEnableOption "Music Player Daemon";
   };
 }
