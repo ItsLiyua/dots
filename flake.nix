@@ -61,6 +61,10 @@
       url = "github:knoopx/nix-userstyles";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     local-desktop-shell = {
       url = "path:packages/desktop-shell";
       inputs = {
@@ -174,27 +178,38 @@
       };
       overlays = import ./overlays { inherit (nixpkgs) lib; };
     }
-    // flake-utils.lib.eachDefaultSystem (s: {
-      formatter = nixpkgs.legacyPackages.${s}.nixfmt-tree;
-      packages = {
-        nvim = inputs.local-nvim.packages.${s}.default;
-        desktop-shell = inputs.local-desktop-shell.packages.${s}.default;
-      };
-      devShells.default =
+    // flake-utils.lib.eachDefaultSystem (
+      s:
+      (
         let
           pkgs = nixpkgs.legacyPackages.${s};
         in
-        pkgs.mkShell {
-          packages = [
-            self.packages.${s}.nvim
-            pkgs.sops
-            pkgs.ssh-to-age
-            pkgs.just # TODO: Create a justfile for easier usage
-            pkgs.nh
-          ];
-          shellHook = ''
-            echo Hello World!
-          '';
-        };
-    });
+        {
+          formatter = nixpkgs.legacyPackages.${s}.nixfmt-tree;
+          packages = {
+            nvim = import ./packages/nvim/package.nix {
+              inherit (inputs) nvf;
+              inherit pkgs;
+            };
+            desktop-shell = inputs.local-desktop-shell.packages.${s}.default;
+          };
+          devShells.default =
+            let
+              pkgs = nixpkgs.legacyPackages.${s};
+            in
+            pkgs.mkShell {
+              packages = [
+                self.packages.${s}.nvim
+                pkgs.sops
+                pkgs.ssh-to-age
+                pkgs.just # TODO: Create a justfile for easier usage
+                pkgs.nh
+              ];
+              shellHook = ''
+                echo Hello World!
+              '';
+            };
+        }
+      )
+    );
 }
