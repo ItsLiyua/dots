@@ -179,9 +179,7 @@
               inherit (inputs) nvf;
               inherit pkgs;
             };
-            desktop-shell = pkgs.callPackage ./packages/desktop-shell/package.nix {
-              inherit (inputs) flake-utils ags;
-            };
+            desktop-shell = pkgs.callPackage ./packages/desktop-shell/package.nix { inherit (inputs) ags; };
           };
           devShells = {
             default = pkgs.mkShell {

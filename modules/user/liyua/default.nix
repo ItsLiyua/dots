@@ -125,6 +125,7 @@
       lockscreen.enable = lib.mkEnableOption "Lockscreen";
       screenshot.enable = lib.mkEnableOption "Screenshot utility";
       theming.enable = lib.mkEnableOption "Desktop theming";
+      ags.enable = lib.mkEnableOption "Desktop Shell";
     };
     cli = {
       cava.enable = lib.mkEnableOption "Cava";

@@ -35,6 +35,7 @@
       lockscreen.enable = true;
       screenshot.enable = true;
       theming.enable = true;
+      ags.enable = true;
     };
     cli = {
       cava.enable = true;
