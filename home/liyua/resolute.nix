@@ -52,7 +52,11 @@
     xdg.enable = true;
   };
 
-  sops.secrets."liyua/yubikey/nano/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey"; # Used for SSH and GPG
+  sops.secrets = {
+    # Used for SSH and GPG
+    "liyua/yubikey/nano/ssh/private".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
+    "liyua/yubikey/nano/ssh/public".path = "${config.home.homeDirectory}/.ssh/id_yubikey.pub";
+  };
 
   programs.git.extraConfig = {
 

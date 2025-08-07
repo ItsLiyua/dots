@@ -46,7 +46,11 @@
     mpd.enable = true;
   };
 
-  sops.secrets."liyua/yubikey/nfc/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey"; # Used for SSH and GPG
+  sops.secrets = {
+    # Used for SSH and GPG
+    "liyua/yubikey/nfc/ssh/private".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
+    "liyua/yubikey/nfc/ssh/public".path = "${config.home.homeDirectory}/.ssh/id_yubikey.pub";
+  };
 
   programs.btop.settings.selected_battery = "BAT1"; # Use external battery for t480
   home.packages = with pkgs; [
