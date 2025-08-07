@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   liyua = {
     apps = {
@@ -51,6 +51,8 @@
     clipboard.enable = true;
     xdg.enable = true;
   };
+
+  sops.secrets."liyua/yubikey/nano/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey"; # Used for SSH and GPG
 
   programs.git.extraConfig = {
 

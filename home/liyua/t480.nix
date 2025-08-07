@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   liyua = {
     apps = {
@@ -45,6 +45,8 @@
     xdg.enable = true;
     mpd.enable = true;
   };
+
+  sops.secrets."liyua/yubikey/nfc/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey"; # Used for SSH and GPG
 
   programs.btop.settings.selected_battery = "BAT1"; # Use external battery for t480
   home.packages = with pkgs; [

@@ -1,28 +1,16 @@
 { config, lib, ... }:
-let
-  dir = "${config.home.homeDirectory}/.ssh";
-in
 {
-  sops.secrets = {
-    # "liyua/git/public".path = "${dir}/id_git.pub";
-    # "liyua/git/private".path = "${dir}/id_git";
-    "liyua/yubikey/nfc/ssh".path = "${dir}/id_nfc";
-    "liyua/yubikey/nano/ssh".path = "${dir}/id_nano";
-  };
-  programs.ssh =
-    let
-      mkCfgStdKey = hostname: {
-        inherit hostname;
-        user = "liyua";
-        identityFile = [
-          config.sops.secrets."liyua/yubikey/nfc/ssh".path
-          config.sops.secrets."liyua/yubikey/nano/ssh".path
-        ];
-      };
-    in
-    {
-      enable = true;
-      matchBlocks =
+  programs.ssh = {
+    enable = true;
+    matchBlocks =
+      let
+        identityFile = "${config.home.homeDirectory}/.ssh/id_yubikey"; # TODO: Do not hardcode this path. Declare var to be used in device specific home configurations so that it only needs to be changed in one place
+        mkCfgStdKey = hostname: {
+          inherit hostname identityFile;
+          user = config.home.username;
+        };
+      in
+      (
         lib.genAttrs [
           "liberty"
           "resolute"
@@ -35,19 +23,14 @@ in
           "github.com" = {
             hostname = "github.com";
             user = "git";
-            identityFile = [
-              config.sops.secrets."liyua/yubikey/nfc/ssh".path
-              config.sops.secrets."liyua/yubikey/nano/ssh".path
-            ];
+            inherit identityFile;
           };
           "gitlab.com" = {
             hostname = "gitlab.com";
             user = "git";
-            identityFile = [
-              config.sops.secrets."liyua/yubikey/nfc/ssh".path
-              config.sops.secrets."liyua/yubikey/nano/ssh".path
-            ];
+            inherit identityFile;
           };
-        };
-    };
+        }
+      );
+  };
 }
