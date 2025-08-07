@@ -13,7 +13,7 @@
       tag.gpgsign = true;
       gpg.format = "ssh";
       gpg.ssh.allowedsignersfile = "${config.home.homeDirectory}/.ssh/allowed_signers";
-      user.signingkey = "${config.home.homeDirectory}/.ssh/id_yubikey";
+      user.signingkey = "${config.home.homeDirectory}/.ssh/id_yubikey.pub";
     };
   };
   home.file.".ssh/allowed_signers".text = ''
