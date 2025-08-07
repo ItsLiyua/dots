@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.gnupg.agent = {
-    enable = true;
+    enable = false;
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-curses;
   };
