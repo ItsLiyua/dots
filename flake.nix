@@ -72,13 +72,6 @@
         flake-utils.follows = "flake-utils";
       };
     };
-    local-nvim = {
-      url = "path:packages/nvim";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
   };
 
   outputs =
@@ -112,7 +105,6 @@
           nix-minecraft.overlay
           plymouth-arasaka.overlays.${system}.default
           local-desktop-shell.overlays.${system}.default
-          local-nvim.overlays.${system}.default
           (import ./overlays/common { inherit (nixpkgs) lib; })
         ];
 
