@@ -4,8 +4,8 @@ let
 in
 {
   sops.secrets = {
-    "liyua/git/public".path = "${dir}/id_git.pub";
-    "liyua/git/private".path = "${dir}/id_git";
+    # "liyua/git/public".path = "${dir}/id_git.pub";
+    # "liyua/git/private".path = "${dir}/id_git";
     "liyua/yubikey/nfc/ssh".path = "${dir}/id_nfc";
     "liyua/yubikey/nano/ssh".path = "${dir}/id_nano";
   };
@@ -35,12 +35,18 @@ in
           "github.com" = {
             hostname = "github.com";
             user = "git";
-            identityFile = "~/.ssh/id_git";
+            identityFile = [
+              config.sops.secrets."liyua/yubikey/nfc/ssh".path
+              config.sops.secrets."liyua/yubikey/nano/ssh".path
+            ];
           };
           "gitlab.com" = {
             hostname = "gitlab.com";
             user = "git";
-            identityFile = "~/.ssh/id_git";
+            identityFile = [
+              config.sops.secrets."liyua/yubikey/nfc/ssh".path
+              config.sops.secrets."liyua/yubikey/nano/ssh".path
+            ];
           };
         };
     };
