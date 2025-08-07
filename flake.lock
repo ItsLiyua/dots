@@ -5,16 +5,15 @@
         "astal": "astal",
         "gnim": "gnim",
         "nixpkgs": [
-          "arasaka-greeter",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1753974398,
-        "narHash": "sha256-BcqTJiLyP2OYhZB4UI3+Vn43x5ZfGxUJcyO6k1NzLew=",
+        "lastModified": 1754487835,
+        "narHash": "sha256-GRCkm7a1odlN3hHR1iBIxwmBPWAw1CDOnOdpmZGSKkQ=",
         "owner": "aylur",
         "repo": "ags",
-        "rev": "4b208a05dfdfc549f736f8b61df43ea8b734787a",
+        "rev": "8e91fcd52b807f576a794ccc9533bdf720ef5af7",
         "type": "github"
       },
       "original": {
@@ -28,7 +27,7 @@
         "astal": "astal_2",
         "gnim": "gnim_2",
         "nixpkgs": [
-          "local-desktop-shell",
+          "arasaka-greeter",
           "nixpkgs"
         ]
       },
@@ -81,7 +80,7 @@
     },
     "arasaka-greeter": {
       "inputs": {
-        "ags": "ags",
+        "ags": "ags_2",
         "flake-utils": "flake-utils",
         "nixpkgs": [
           "nixpkgs"
@@ -120,7 +119,6 @@
     "astal": {
       "inputs": {
         "nixpkgs": [
-          "arasaka-greeter",
           "ags",
           "nixpkgs"
         ]
@@ -142,7 +140,7 @@
     "astal_2": {
       "inputs": {
         "nixpkgs": [
-          "local-desktop-shell",
+          "arasaka-greeter",
           "ags",
           "nixpkgs"
         ]
@@ -946,26 +944,6 @@
         "type": "github"
       }
     },
-    "local-desktop-shell": {
-      "inputs": {
-        "ags": "ags_2",
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "path": "packages/desktop-shell",
-        "type": "path"
-      },
-      "original": {
-        "path": "packages/desktop-shell",
-        "type": "path"
-      },
-      "parent": []
-    },
     "mnw": {
       "locked": {
         "lastModified": 1748710831,
@@ -1415,13 +1393,13 @@
     },
     "root": {
       "inputs": {
+        "ags": "ags",
         "arasaka-greeter": "arasaka-greeter",
         "disko": "disko",
         "flake-utils": "flake-utils_2",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprsplit": "hyprsplit",
-        "local-desktop-shell": "local-desktop-shell",
         "nil_ls": "nil_ls",
         "niri": "niri",
         "nix-minecraft": "nix-minecraft",

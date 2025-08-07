@@ -65,12 +65,9 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    local-desktop-shell = {
-      url = "path:packages/desktop-shell";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
+    ags = {
+      url = "github:aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -104,7 +101,6 @@
           niri.overlays.niri
           nix-minecraft.overlay
           plymouth-arasaka.overlays.${system}.default
-          local-desktop-shell.overlays.${system}.default
           (import ./overlays/common { inherit (nixpkgs) lib; })
         ];
 
@@ -183,13 +179,12 @@
               inherit (inputs) nvf;
               inherit pkgs;
             };
-            desktop-shell = inputs.local-desktop-shell.packages.${s}.default;
+            desktop-shell = pkgs.callPackage ./packages/desktop-shell/package.nix {
+              inherit (inputs) flake-utils ags;
+            };
           };
-          devShells.default =
-            let
-              pkgs = nixpkgs.legacyPackages.${s};
-            in
-            pkgs.mkShell {
+          devShells = {
+            default = pkgs.mkShell {
               packages = [
                 self.packages.${s}.nvim
                 pkgs.sops
@@ -201,6 +196,14 @@
                 echo Hello World!
               '';
             };
+            ags = pkgs.mkShell {
+              buildInputs = [
+                (inputs.ags.packages.${s}.default.override {
+                  inherit (self.packages.${s}.desktop-shell) extraPackages;
+                })
+              ];
+            };
+          };
         }
       )
     );
