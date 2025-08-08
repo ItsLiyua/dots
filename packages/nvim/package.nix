@@ -2,7 +2,8 @@
 (nvf.lib.neovimConfiguration {
   inherit pkgs;
   modules = [
-    ./options.nix
     ./plugins
+    ./binds.nix
+    ./options.nix
   ];
 }).neovim
