@@ -22,10 +22,10 @@
       multicursors.enable = true;
       smart-splits.enable = true;
       undotree.enable = true;
-      motion = {
-        hop.enable = true;
-        leap.enable = true;
-      };
+      # motion = {
+      #   hop.enable = true;
+      #   leap.enable = true;
+      # };
     };
     terminal.toggleterm = {
       enable = true;
