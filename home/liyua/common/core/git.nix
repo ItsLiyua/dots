@@ -18,6 +18,7 @@
   };
   home.file.".ssh/allowed_signers".text = ''
     liyua@nano sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIN0+B3yM7FqDHXq/F99ZAvnM3Vap1u9+g59NXfDk34lQAAAABHNzaDo= liyua@nano
-    liyua@nfc sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAICdngkr57QIPqK6Lm4235y61BUG9jjU1fJioVZRWb2zIAAAABHNzaDo= liyua@nfc
+    liyua@nfc sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIL7rfMuc1NerL/NTnkABcwIuZNSlUz9AnowvIUDT6LN4AAAABHNzaDo= liyua@nfc
+
   '';
 }
