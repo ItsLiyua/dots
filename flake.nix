@@ -5,10 +5,6 @@
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     flake-utils.url = "github:numtide/flake-utils";
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,10 +40,6 @@
     nixcord = {
       url = "github:kaylorben/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprsplit = {
-      url = "github:shezdy/hyprsplit";
-      inputs.hyprland.follows = "hyprland";
     };
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -90,7 +82,6 @@
         arasaka-greeter.nixosModules.default
       ];
       homeModules = with inputs; [
-        hyprland.homeManagerModules.default
         stylix.homeModules.stylix
         nixcord.homeModules.nixcord
         sops-nix.homeManagerModules.sops

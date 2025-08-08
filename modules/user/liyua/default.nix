@@ -44,15 +44,7 @@
         type = lib.types.str;
         default = "us";
       };
-      wm = {
-        hyprland = {
-          enable = lib.mkEnableOption "Hyprland Tiling WM";
-          xwayland.enable = lib.mkEnableOption "Native XWayland support";
-        };
-        niri = {
-          enable = lib.mkEnableOption "Niri Scrollable WM";
-        };
-      };
+      wm.niri.enable = lib.mkEnableOption "Niri Scrollable WM";
       bar.enable = lib.mkEnableOption "Bar";
       wallpaper = {
         enable = lib.mkEnableOption "Custom Wallpaper";

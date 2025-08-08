@@ -16,13 +16,7 @@
       };
       layout = "de";
       bar.enable = true;
-      wm = {
-        hyprland = {
-          # enable = true;
-          xwayland.enable = true;
-        };
-        niri.enable = true;
-      };
+      wm.niri.enable = true;
       wallpaper = {
         enable = true;
         type = "nix";
