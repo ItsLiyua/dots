@@ -10,7 +10,7 @@ lib.mkIf config.liyua.desktop.ags.enable {
     Unit = {
       Description = "Liyua's Custom Desktop Shell utilizing AGS";
       PartOf = [ "graphical-sesion.target" ];
-      After = [ "graphical-sesion-pre.target" ];
+      After = [ "graphical-sesion.target" ];
     };
 
     Service = {
