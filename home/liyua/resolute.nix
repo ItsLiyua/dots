@@ -7,7 +7,7 @@
       foot.enable = true;
       nautilus.enable = true;
       prismlauncher.enable = true;
-      steam.enable = false;
+      steam.enable = true;
       zathura.enable = true;
     };
     desktop = {

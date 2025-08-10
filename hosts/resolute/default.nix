@@ -39,16 +39,6 @@
     goxlr.enable = true;
   };
 
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-    protontricks.enable = true;
-  };
-  liyua.allowedUnfree = [
-    "steam"
-    "steam-unwrapped"
-  ];
-
   networking.hostName = "resolute";
   console.keyMap = "us";
 }
