@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -6,6 +5,10 @@
     ./modules/firewall.nix
   ];
   liyua = {
+    unfree = {
+      enable = true;
+      whitelist = [ ];
+    };
     ui = {
       dconf.enable = true;
       greeter = {

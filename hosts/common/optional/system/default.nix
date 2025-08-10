@@ -14,7 +14,6 @@
     ./nfs.nix
     ./swapescape.nix
     ./tlp.nix
-    ./unfree-whitelist.nix
     ./upower.nix
     ./wireguard.nix
     ./yubikey.nix

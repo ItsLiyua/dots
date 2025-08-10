@@ -1,13 +1,8 @@
 { config, pkgs, ... }:
 {
-  # stylix = {
-  #   enable = true;
-  #   autoEnable = false;
-  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-  # };
   liyua = {
+    unfree.enable = false;
     apps = {
-      discord.enable = true;
       firefox.enable = true;
       foot.enable = true;
       nautilus.enable = true;

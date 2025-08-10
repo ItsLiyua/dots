@@ -8,12 +8,6 @@
     audio.enable = lib.mkEnableOption "PipeWire";
     libinput.enable = lib.mkEnableOption "LibInput";
     swapescape.enable = lib.mkEnableOption "Esc-Capslock swap";
-    allowedUnfree = lib.mkOption {
-      default = [ ];
-      example = [ "steam" ];
-      description = "Specify allowed unfree packages";
-      type = with lib.types; listOf (uniq str);
-    };
     firmwareUpdater.enable = lib.mkEnableOption "Firmware updater tool";
     powerManagement.enable = lib.mkEnableOption "Power Management via TLP";
     localsend.enable = lib.mkEnableOption "Localsend";
