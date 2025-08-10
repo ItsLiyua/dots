@@ -16,6 +16,7 @@
         b = "btop";
         c = "clear";
         f = "fastfetch";
+        j = "just";
         v = "nvim";
         cd = "z";
         ga = "git add -A";
