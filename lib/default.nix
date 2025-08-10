@@ -4,17 +4,11 @@ rec {
 
   mkSysConfig =
     mainRepo: inputs: extraModules: entry:
-    let
-      myLib =
-        lib
-        // mainRepo.lib
-        // {
+    mainRepo.lib.nixosSystem {
+      specialArgs = inputs // {
+        lib = mainRepo.lib // {
           liyua = import ./. { inherit lib; };
         };
-    in
-    myLib.nixosSystem {
-      specialArgs = inputs // {
-        lib = myLib;
       };
       modules = [
         (relativeToRoot "modules/system")
