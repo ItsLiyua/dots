@@ -130,8 +130,8 @@
           };
           pkgs = mainRepo.legacyPackages.${architecture};
           modules = homeModules ++ [
-            ./modules/user
             { nixpkgs.overlays = (overlays architecture) ++ (fetchExtraOverlays architecture extraOverlays); }
+            ./modules/user
             ./home/liyua/common
             entry
           ];

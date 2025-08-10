@@ -6,10 +6,15 @@ update-rebuild:
   just update
   just rebuild
 
+pre-build:
+  git add *.nix
+
 system:
+  just pre-build
   nh os switch
 
 home:
+  just pre-build
   nh home switch
 
 update:
