@@ -12,7 +12,7 @@ rec {
       ]
       ++ extraModules;
       specialArgs = inputs // {
-        lib = lib // {
+        lib = mainRepo.lib // {
           liyua = import ./. { inherit lib; };
         };
       };
