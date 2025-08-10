@@ -49,16 +49,16 @@
       url = "github:oxalica/nil/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-userstyles = {
-      url = "github:knoopx/nix-userstyles";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags = {
       url = "github:aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-userstyles = {
+      url = "github:knoopx/nix-userstyles";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
