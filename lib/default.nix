@@ -8,7 +8,7 @@ rec {
       specialArgs = inputs // {
         lib =
           lib
-          // mainRepo.lib
+          # // mainRepo.lib
           // {
             liyua = import ./. { inherit lib; };
           };
