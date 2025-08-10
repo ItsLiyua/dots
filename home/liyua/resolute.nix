@@ -1,6 +1,14 @@
 { config, pkgs, ... }:
 {
   liyua = {
+    unfree = {
+      enable = true;
+      whitelist = [
+        "steam"
+        "steam-unwrapped"
+        "discord"
+      ];
+    };
     apps = {
       discord.enable = true;
       firefox.enable = true;
