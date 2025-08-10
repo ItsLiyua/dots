@@ -90,6 +90,21 @@ lib.mkIf config.liyua.apps.firefox.enable {
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = [ "!np" ];
           };
+          "MyNixOS" = {
+            urls = [
+              {
+                template = "https://mynixos.com/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = [ "!mno" ];
+          };
         };
       };
       settings = {
