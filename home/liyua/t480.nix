@@ -6,7 +6,6 @@
       firefox.enable = true;
       foot.enable = true;
       nautilus.enable = true;
-      steam.enable = true;
       zathura.enable = true;
     };
     desktop = {
