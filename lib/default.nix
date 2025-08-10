@@ -15,7 +15,8 @@ rec {
         lib = {
           liyua = import ./. { inherit lib; };
         }
-        // lib;
+        // lib
+        // mainRepo.lib;
       };
     };
 }
