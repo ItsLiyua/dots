@@ -5,9 +5,9 @@ rec {
   mkSysConfig =
     mainRepo: inputs: extraModules: entry:
     let
-      myLib = lib.extend (
-        _: _: mainRepo.lib.extend (_: _: { liyua = import ./. { inherit (mainRepo) lib; }; })
-      );
+      myLib = lib.recursiveUpdate lib mainRepo.lib // {
+        liyua = import ./. { inherit lib; };
+      };
     in
     myLib.nixosSystem {
       specialArgs = inputs // {
