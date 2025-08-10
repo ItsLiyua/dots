@@ -5,6 +5,12 @@ rec {
   mkSysConfig =
     mainRepo: inputs: extraModules: entry:
     mainRepo.lib.nixosSystem {
+      modules = [
+        (relativeToRoot "modules/system")
+        (relativeToRoot "hosts/common")
+        entry
+      ]
+      ++ extraModules;
       specialArgs = inputs // {
         lib =
           lib
@@ -13,11 +19,5 @@ rec {
           }
           // mainRepo.lib;
       };
-      modules = [
-        (relativeToRoot "modules/system")
-        (relativeToRoot "hosts/common")
-        entry
-      ]
-      ++ extraModules;
     };
 }
