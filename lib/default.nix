@@ -1,16 +1,14 @@
-{ parentLib, ... }:
+{ lib, ... }:
 rec {
-  relativeToRoot = parentLib.path.append ../.;
+  relativeToRoot = lib.path.append ../.;
 
   mkSysConfig =
     mainRepo: inputs: extraModules: entry:
     let
-      lib = mainRepo.lib.extend (
-        _: _: parentLib // mainRepo.lib // { liyua = import ./. { inherit (mainRepo) lib; }; }
-      );
+      myLib = mainRepo.lib.extend (_: _: { liyua = import ./. { inherit (mainRepo) lib; }; });
     in
-    lib.nixosSystem {
-      specialArgs = lib.recursiveUpdate inputs { inherit lib; };
+    myLib.nixosSystem {
+      specialArgs = myLib.recursiveUpdate inputs { lib = myLib; };
       modules = [
         (relativeToRoot "modules/system")
         (relativeToRoot "hosts/common")

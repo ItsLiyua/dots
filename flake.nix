@@ -74,13 +74,13 @@
       ...
     }@inputs:
     let
-      lib = nixpkgs.lib.extend (_: _: { liyua = import ./lib { parentLib = nixpkgs.lib; }; });
+      myLib = import ./lib { inherit (nixpkgs) lib; };
 
       overlays = {
         nixpkgs.overlays = with inputs; [
           niri.overlays.niri
           nix-minecraft.overlay
-          (import ./overlays/common { inherit lib; })
+          (import ./overlays/common { inherit (nixpkgs) lib; })
         ];
       };
 
@@ -114,10 +114,10 @@
           ];
         };
 
-      mkSpecialSysConfig = lib.liyua.mkSysConfig nixpkgs inputs systemModules;
+      mkSpecialSysConfig = myLib.mkSysConfig nixpkgs inputs systemModules;
     in
     {
-      nixosConfigurations = with lib.liyua; {
+      nixosConfigurations = with myLib; {
         liberty = mkSpecialSysConfig ./hosts/liberty;
         resolute = mkSpecialSysConfig ./hosts/resolute; # TODO: Add back the alsa-ucm-conf overlay that's specific to this device
         t480 = mkSpecialSysConfig ./hosts/t480;
