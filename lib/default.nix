@@ -6,9 +6,12 @@ rec {
     mainRepo: inputs: extraModules: entry:
     mainRepo.lib.nixosSystem {
       specialArgs = inputs // {
-        lib = mainRepo.lib // {
-          liyua = import ./. { inherit lib; };
-        };
+        lib =
+          lib
+          // mainRepo.lib
+          // {
+            liyua = import ./. { inherit lib; };
+          };
       };
       modules = [
         (relativeToRoot "modules/system")
