@@ -8,10 +8,10 @@ rec {
       specialArgs = inputs // {
         lib =
           lib
-          # // mainRepo.lib
           // {
             liyua = import ./. { inherit lib; };
-          };
+          }
+          // mainRepo.lib;
       };
       modules = [
         (relativeToRoot "modules/system")
