@@ -5,8 +5,9 @@
       discord.enable = true;
       firefox.enable = true;
       foot.enable = true;
-      thunar.enable = true;
+      nautilus.enable = true;
       steam.enable = true;
+      zathura.enable = true;
     };
     desktop = {
       displays.eDP-1 = {

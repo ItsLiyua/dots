@@ -17,8 +17,8 @@
     autopairs.nvim-autopairs.enable = true;
     autocomplete.blink-cmp.enable = true;
     snippets.luasnip.enable = true;
+    mini.surround.enable = true;
     utility = {
-      surround.enable = true;
       multicursors.enable = true;
       smart-splits.enable = true;
       undotree.enable = true;

@@ -6,6 +6,6 @@
     ./nautilus.nix
     ./prismlauncher.nix
     ./steam.nix
-    ./thunar.nix
+    ./zathura.nix
   ];
 }
