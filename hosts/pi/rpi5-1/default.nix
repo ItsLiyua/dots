@@ -3,6 +3,7 @@
     ./shared
     ../common
     ./glance.nix
+    ./immich.nix
     ./jellyfin.nix
     ./nfs.nix
     ./radicale.nix
