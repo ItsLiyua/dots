@@ -5,12 +5,9 @@ rec {
   mkSysConfig =
     mainRepo: inputs: extraModules: entry:
     let
-      myLib =
-        lib
-        // mainRepo.lib
-        // {
-          liyua = import ./. { inherit lib; };
-        };
+      myLib = mainRepo.lib // {
+        liyua = import ./. { inherit lib; };
+      };
     in
     myLib.nixosSystem {
       specialArgs = inputs // {
