@@ -22,6 +22,13 @@
       silent = true;
       desc = "Cycle to previous buffer";
     }
+    {
+      key = "<leader>e";
+      mode = [ "n" ];
+      action = "<cmd>bd<CR>";
+      silent = true;
+      desc = "Close buffer";
+    }
   ]
   ++ (
     lib.range 1 10

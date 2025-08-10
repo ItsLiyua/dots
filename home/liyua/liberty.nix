@@ -5,7 +5,7 @@
       firefox.enable = true;
       foot.enable = true;
       nautilus.enable = true;
-      prismlauncher.enable = true;
+      zathura.enable = true;
     };
     desktop = {
       displays.eDP-1 = {
