@@ -966,17 +966,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1752867494,
-        "narHash": "sha256-NVK14cWpK4k8pWNtAg4KIAMwk62n4KdczstFEgkVr2A=",
+        "lastModified": 1754826853,
+        "narHash": "sha256-rE1Y2rNXtLyvr/LYtFzvy6gU7MZAnhpHg3y0/qI4bOU=",
         "owner": "ItsLiyua",
         "repo": "arasaka-plymouth",
-        "rev": "7de208e0c487085ba6a7167c98575f2e8f698661",
-        "type": "gitlab"
+        "rev": "89626d0c0dbf2fa63f7cff4022c6a5b16216543b",
+        "type": "github"
       },
       "original": {
         "owner": "ItsLiyua",
         "repo": "arasaka-plymouth",
-        "type": "gitlab"
+        "type": "github"
       }
     },
     "pre-commit-hooks": {

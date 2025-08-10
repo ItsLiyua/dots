@@ -18,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     plymouth-arasaka = {
-      url = "gitlab:ItsLiyua/arasaka-plymouth";
+      url = "github:ItsLiyua/arasaka-plymouth";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     arasaka-greeter = {
@@ -74,54 +74,32 @@
       ...
     }@inputs:
     let
-      # lib = nixpkgs.lib.extend (_: _: { liyua = import ./lib { inherit (nixpkgs) lib; }; });
+      lib = nixpkgs.lib.extend (_: _: { liyua = import ./lib { inherit (nixpkgs) lib; }; });
+
+      overlays = {
+        nixpkgs.overlays = with inputs; [
+          niri.overlays.niri
+          nix-minecraft.overlay
+          (import ./overlays/common { inherit lib; })
+        ];
+      };
 
       systemModules = with inputs; [
+        overlays
         disko.nixosModules.disko
         sops-nix.nixosModules.sops
         nix-minecraft.nixosModules.minecraft-servers
         arasaka-greeter.nixosModules.default
       ];
+
       homeModules = with inputs; [
+        overlays
+        sops-nix.homeManagerModules.sops
         stylix.homeModules.stylix
         nixcord.homeModules.nixcord
-        sops-nix.homeManagerModules.sops
         niri.homeModules.niri
       ];
-      overlays =
-        system: with inputs; [
-          niri.overlays.niri
-          nix-minecraft.overlay
-          plymouth-arasaka.overlays.${system}.default
-          (import ./overlays/common { inherit (nixpkgs) lib; })
-        ];
 
-      fetchExtraOverlays =
-        arch: overlayPath:
-        if overlayPath != null then
-          [
-            (import overlayPath {
-              inherit arch;
-              inherit (nixpkgs) lib;
-            })
-          ]
-        else
-          [ ];
-
-      mkSysConfig =
-        mainRepo: architecture: entry: extraOverlays:
-        mainRepo.lib.nixosSystem {
-          specialArgs = inputs // {
-            # inherit lib;
-          };
-          modules = systemModules ++ [
-            ./modules/system
-            { nixpkgs.overlays = (overlays architecture) ++ (fetchExtraOverlays architecture extraOverlays); }
-            ./hosts/common
-            ./hosts/shared.nix
-            entry
-          ];
-        };
       mkHomeConfig =
         mainRepo: architecture: entry: extraOverlays:
         home-manager.lib.homeManagerConfiguration {
@@ -130,21 +108,22 @@
           };
           pkgs = mainRepo.legacyPackages.${architecture};
           modules = homeModules ++ [
-            { nixpkgs.overlays = (overlays architecture) ++ (fetchExtraOverlays architecture extraOverlays); }
             ./modules/user
             ./home/liyua/common
             entry
           ];
         };
+
+      mkSpecialSysConfig = lib.liyua.mkSysConfig nixpkgs inputs systemModules;
     in
     {
-      nixosConfigurations = {
-        liberty = mkSysConfig nixpkgs "x86_64-linux" ./hosts/liberty null;
-        resolute = mkSysConfig nixpkgs "x86_64-linux" ./hosts/resolute ./overlays/resolute;
-        t480 = mkSysConfig nixpkgs "x86_64-linux" ./hosts/t480 null;
-        rpi5-1 = mkSysConfig nixos-raspberrypi "aarch64-linux" ./hosts/pi/rpi5-1 null;
-        rpi5-2 = mkSysConfig nixos-raspberrypi "aarch64-linux" ./hosts/pi/rpi5-2 null;
-        linode = mkSysConfig nixpkgs "x86_64-linux" ./hosts/linode null;
+      nixosConfigurations = with lib.liyua; {
+        liberty = mkSpecialSysConfig ./hosts/liberty;
+        resolute = mkSpecialSysConfig ./hosts/resolute; # TODO: Add back the alsa-ucm-conf overlay that's specific to this device
+        t480 = mkSpecialSysConfig ./hosts/t480;
+        rpi5-1 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-1;
+        rpi5-2 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-2;
+        linode = mkSpecialSysConfig ./hosts/linode;
       };
       homeConfigurations = {
         "liyua@liberty" = mkHomeConfig nixpkgs "x86_64-linux" ./home/liyua/liberty.nix null;

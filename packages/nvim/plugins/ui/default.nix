@@ -3,7 +3,6 @@
     ./binds.nix
     ./borders.nix
     ./colors.nix
-    ./context.nix
     ./cursorline.nix
     ./dashboard.nix
     ./devicons.nix
