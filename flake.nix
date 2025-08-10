@@ -74,7 +74,7 @@
       ...
     }@inputs:
     let
-      lib = nixpkgs.lib.extend (_: _: { liyua = import ./lib { inherit (nixpkgs) lib; }; });
+      lib = nixpkgs.lib.extend (_: _: { liyua = import ./lib { parentLib = nixpkgs.lib; }; });
 
       overlays = {
         nixpkgs.overlays = with inputs; [
