@@ -2,7 +2,7 @@
 let
   overlayFiles = [
     ./alsa-ucm-conf.nix
-    ./nautilus.nix
+    # ./nautilus.nix
     ./xdg-desktop-portal-gtk.nix
   ];
   overlays = overlayFiles |> map (f: import f inputs);
