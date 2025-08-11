@@ -40,6 +40,7 @@
     localsend.enable = true;
     nfs.enable = true;
     goxlr.enable = true;
+    yubikey.enable = true;
   };
 
   networking.hostName = "resolute";
