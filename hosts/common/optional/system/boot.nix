@@ -6,7 +6,7 @@
   ...
 }:
 {
-  config.boot =
+  boot =
     with config.liyua.bootloader;
     lib.mkIf enable {
       loader = {
