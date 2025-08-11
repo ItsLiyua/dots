@@ -5,10 +5,7 @@
   ...
 }:
 lib.mkIf config.liyua.yubikey.enable {
-  environment.systemPackages = with pkgs; [
-    yubioath-flutter
-    yubikey-manager
-  ];
+  environment.systemPackages = with pkgs; [ yubikey-manager ];
 
   services = {
     pcscd.enable = true;
