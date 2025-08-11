@@ -1,3 +1,4 @@
+{ ... }:
 final: prev: {
   xdg-desktop-portal-gtk = prev.xdg-desktop-portal-gtk.overrideAttrs (old: {
     buildInputs =
