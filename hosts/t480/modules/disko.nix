@@ -18,7 +18,7 @@
           };
         };
         root = {
-          size = "100%";
+          end = "-24G";
           content = {
             type = "luks";
             name = "root";
@@ -36,6 +36,14 @@
               mountpoint = "/";
               mountOptions = [ "noatime" ];
             };
+          };
+        };
+        swap = {
+          size = "100%";
+          content = {
+            type = "swap";
+            discardPolicy = "both";
+            resumeDevice = true;
           };
         };
       };
