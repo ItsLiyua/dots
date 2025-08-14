@@ -1,6 +1,5 @@
 { config, ... }:
 {
-  sops.secrets."disks/root/password" = { };
   disko.devices.disk.main = {
     device = "/dev/nvme0n1";
     type = "disk";
@@ -18,32 +17,42 @@
           };
         };
         root = {
-          end = "-24G";
+          size = "100%";
           content = {
             type = "luks";
             name = "root";
-            settings = {
-              allowDiscards = true;
-              crypttabExtraOpts = [
-                "fido2-device=auto"
-                "token-timeout=10"
-              ];
-            };
-            passwordFile = config.sops.secrets."disks/root/password".path;
+            settings.allowDiscards = true;
             content = {
-              type = "filesystem";
-              format = "ext4";
-              mountpoint = "/";
-              mountOptions = [ "noatime" ];
+              type = "btrfs";
+              extraArgs = [ "-f" ];
+              subvolumes = {
+                "/root" = {
+                  mountpoint = "/";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
+                "/nix" = {
+                  mountpoint = "/nix";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
+                "/home" = {
+                  mountpoint = "/home";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
+                "/swap" = {
+                  mountpoint = "/.swapvol";
+                  swap.swapfile.size = "32G";
+                };
+              };
             };
-          };
-        };
-        swap = {
-          size = "100%";
-          content = {
-            type = "swap";
-            discardPolicy = "both";
-            resumeDevice = true;
           };
         };
       };
