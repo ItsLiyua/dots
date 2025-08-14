@@ -17,6 +17,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    git
     wget
     sops
     ssh-to-age
@@ -29,6 +30,15 @@
   };
 
   networking.firewall.enable = false;
+
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+      "pipe-operators"
+    ];
+    warn-dirty = false;
+  };
 
   system.stateVersion = "25.11";
 }
