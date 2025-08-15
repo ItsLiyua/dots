@@ -121,7 +121,7 @@
         "liyua@resolute" = mkDefaultHomeConfig ./home/liyua/resolute.nix;
         "liyua@t480" = mkDefaultHomeConfig ./home/liyua/t480.nix;
         "liyua@rpi5-1" = myLib.mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix;
-        "liyua@rpi5-2" = mkDefaultHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix;
+        "liyua@rpi5-2" = myLib.mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix;
       };
       overlays = import ./overlays { inherit (nixpkgs) lib; };
     }
