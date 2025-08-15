@@ -5,18 +5,27 @@ rec {
   mkSysConfig =
     mainRepo: inputs: extraModules: entry:
     mainRepo.lib.nixosSystem {
-      modules = [
+      specialArgs = inputs // {
+        myLib = import ./. { inherit lib; };
+      };
+      modules = extraModules ++ [
         (relativeToRoot "modules/system")
         (relativeToRoot "hosts/common")
         entry
-      ]
-      ++ extraModules;
-      specialArgs = inputs // {
-        lib = {
-          liyua = import ./. { inherit lib; };
-        }
-        // lib
-        // mainRepo.lib;
-      };
+      ];
     };
+  mkHomeConfig =
+    pkgs: inputs: extraModules: entry:
+    inputs.home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      extraSpecialArgs = inputs // {
+        myLib = import ./. { inherit lib; };
+      };
+      modules = extraModules ++ [
+        (relativeToRoot "modules/user")
+        (relativeToRoot "home/liyua/common")
+        entry
+      ];
+    };
+
 }

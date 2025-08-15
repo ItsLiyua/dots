@@ -100,40 +100,28 @@
         niri.homeModules.niri
       ];
 
-      mkHomeConfig =
-        mainRepo: architecture: entry: extraOverlays:
-        home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = inputs // {
-            # lib = lib.extend (_: _: home-manager.lib);
-          };
-          pkgs = mainRepo.legacyPackages.${architecture};
-          modules = homeModules ++ [
-            ./modules/user
-            ./home/liyua/common
-            entry
-          ];
-        };
+      x86_64 = nixpkgs.legacyPackages.x86_64-linux;
+      aarch64 = nixpkgs.legacyPackages.aarch64-linux;
 
-      mkSpecialSysConfig = myLib.mkSysConfig nixpkgs inputs systemModules;
+      mkDefaultSysConfig = myLib.mkSysConfig nixpkgs inputs systemModules;
+      mkDefaultHomeConfig = myLib.mkHomeConfig x86_64 inputs homeModules;
     in
     {
       nixosConfigurations = with myLib; {
-        liberty = mkSpecialSysConfig ./hosts/liberty;
-        resolute = mkSpecialSysConfig ./hosts/resolute; # TODO: Add back the alsa-ucm-conf overlay that's specific to this device
-        t480 = mkSpecialSysConfig ./hosts/t480;
+        liberty = mkDefaultSysConfig ./hosts/liberty;
+        resolute = mkDefaultSysConfig ./hosts/resolute;
+        t480 = mkDefaultSysConfig ./hosts/t480;
         rpi5-1 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-1;
         rpi5-2 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-2;
-        linode = mkSpecialSysConfig ./hosts/linode;
+        linode = mkDefaultSysConfig ./hosts/linode;
       };
       homeConfigurations = {
-        "liyua@liberty" = mkHomeConfig nixpkgs "x86_64-linux" ./home/liyua/liberty.nix null;
-        "liyua@linode" = mkHomeConfig nixpkgs "x86_64-linux" ./home/liyua/linode.nix null;
-        "liyua@resolute" =
-          mkHomeConfig nixpkgs "x86_64-linux" ./home/liyua/resolute.nix
-            ./overlays/resolute;
-        "liyua@t480" = mkHomeConfig nixpkgs "x86_64-linux" ./home/liyua/t480.nix null;
-        "liyua@rpi5-1" = mkHomeConfig nixos-raspberrypi "aarch64-linux" ./home/liyua/rpi5.nix null;
-        "liyua@rpi5-2" = mkHomeConfig nixos-raspberrypi "aarch64-linux" ./home/liyua/rpi5.nix null;
+        "liyua@liberty" = mkDefaultHomeConfig ./home/liyua/liberty.nix;
+        "liyua@linode" = mkDefaultHomeConfig ./home/liyua/linode.nix;
+        "liyua@resolute" = mkDefaultHomeConfig ./home/liyua/resolute.nix;
+        "liyua@t480" = mkDefaultHomeConfig ./home/liyua/t480.nix;
+        "liyua@rpi5-1" = myLib.mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix;
+        "liyua@rpi5-2" = mkDefaultHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix;
       };
       overlays = import ./overlays { inherit (nixpkgs) lib; };
     }
@@ -158,7 +146,7 @@
                 self.packages.${s}.nvim
                 pkgs.sops
                 pkgs.ssh-to-age
-                pkgs.just # TODO: Create a justfile for easier usage
+                pkgs.just
                 pkgs.nh
               ];
               shellHook = ''

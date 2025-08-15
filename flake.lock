@@ -876,22 +876,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-staging": {
-      "locked": {
-        "lastModified": 1755217136,
-        "narHash": "sha256-Y7DnNNQLKLdQwIwAEyGQPPcqDDLiCZcuJnQ9f/mWigM=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "664c1d7072fbafa4c806ac6b22f9a6eee221cfcf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "staging",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1755027561,
@@ -1017,7 +1001,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixos-raspberrypi": "nixos-raspberrypi",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-staging": "nixpkgs-staging",
         "nvf": "nvf",
         "plymouth-arasaka": "plymouth-arasaka",
         "sops-nix": "sops-nix",
