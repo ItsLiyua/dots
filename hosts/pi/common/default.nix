@@ -4,7 +4,6 @@
 }:
 {
   imports = with nixos-raspberrypi.nixosModules; [
-    bootloader
     raspberry-pi-5.base
     raspberry-pi-5.display-vc4
     raspberry-pi-5.bluetooth
