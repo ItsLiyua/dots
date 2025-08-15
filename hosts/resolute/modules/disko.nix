@@ -29,13 +29,7 @@
                 type = "luks";
                 name = "root";
                 passwordFile = config.sops.secrets."disks/root/password".path;
-                settings = {
-                  allowDiscards = true;
-                  crypttabExtraOpts = [
-                    "fido2-device=auto"
-                    "token-timeout=10"
-                  ];
-                };
+                settings.allowDiscards = true;
                 content = {
                   type = "btrfs";
                   extraArgs = [ "-f" ];
