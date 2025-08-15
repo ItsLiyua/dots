@@ -1,10 +1,4 @@
-{ config, ... }:
 {
-  sops.secrets = {
-    "disks/root/password" = { };
-    "disks/home/keyfile" = { };
-    "disks/home/password" = { };
-  };
   disko.devices = {
     disk = {
       main = {
@@ -28,7 +22,6 @@
               content = {
                 type = "luks";
                 name = "root";
-                passwordFile = config.sops.secrets."disks/root/password".path;
                 settings = {
                   allowDiscards = true;
                   crypttabExtraOpts = [
@@ -79,8 +72,6 @@
                 name = "home";
                 settings.allowDiscards = true;
                 initrdUnlock = false;
-                keyFile = config.sops.secrets."disks/home".path;
-                passwordFile = config.sops.secrepts."disks/home/password".path;
                 content = {
                   type = "btrfs";
                   extraArgs = [ "-f" ];
@@ -101,9 +92,4 @@
       };
     };
   };
-  environment.etc.crypttab.text = ''
-    home PARTUUID=${config.disko.devices.disk.home.content.partitions.luks.uuid} ${
-      config.sops.secrets."disks/home/keyfile".path
-    }
-  '';
 }

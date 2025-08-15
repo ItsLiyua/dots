@@ -1,6 +1,4 @@
-{ config, ... }:
 {
-  sops.secrets."disks/root/password" = { };
   disko.devices.disk.main = {
     type = "disk";
     device = "/dev/nvme0n1";
@@ -23,7 +21,6 @@
             type = "luks";
             name = "root";
             settings.allowDiscards = true;
-            passwordFile = config.sops.secrets."disks/root/password".path;
             content = {
               type = "btrfs";
               extraArgs = [ "-f" ];
