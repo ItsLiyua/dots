@@ -141,25 +141,8 @@
             desktop-shell = pkgs.callPackage ./packages/desktop-shell/package.nix { inherit (inputs) ags; };
           };
           devShells = {
-            default = pkgs.mkShell {
-              packages = [
-                self.packages.${s}.nvim
-                pkgs.sops
-                pkgs.ssh-to-age
-                pkgs.just
-                pkgs.nh
-              ];
-              shellHook = ''
-                echo Hello World!
-              '';
-            };
-            ags = pkgs.mkShell {
-              buildInputs = [
-                (inputs.ags.packages.${s}.default.override {
-                  inherit (self.packages.${s}.desktop-shell) extraPackages;
-                })
-              ];
-            };
+            default = import ./shell.nix { inherit self pkgs; };
+            ags = import ./packages/desktop-shell/shell.nix { inherit self pkgs inputs; };
           };
         }
       )
