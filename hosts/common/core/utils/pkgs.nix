@@ -7,5 +7,6 @@
     wget
     unzip
     killall
+    home-manager
   ];
 }
