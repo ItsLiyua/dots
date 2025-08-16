@@ -13,6 +13,11 @@
 
 set -euo pipefail
 
+if [ -z ${LIYUA_FLAKE_SHELL+x} ]; then
+  echo "Please run this from the default flake shell to ensure the availability of all required tools!"
+  exit 1
+fi
+
 temp=$(mktemp -d)
 
 function cleanup() {
@@ -23,7 +28,7 @@ trap cleanup exit
 
 target_hostname=""
 target_destination=""
-target_user=""
+target_user="$(whoami)"
 ssh_port=22
 ssh_key=""
 luks_password="password"
@@ -32,3 +37,41 @@ git_root=$(git rev-parse --show-toplevel)
 function help_quit() {
   echo "Help goes here!" # TODO: Add some help stuff
 }
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+  -n)
+    shift
+    target_hostname=$1
+    ;;
+  -d)
+    shift
+    target_destination=$1
+    ;;
+  -u)
+    shift
+    target_user=$1
+    ;;
+  -k)
+    shift
+    ssh_key=$1
+    ;;
+  -p)
+    shift
+    ssh_port=$1
+    ;;
+  --debug)
+    set -x
+    ;;
+  -h | --help) help_quit ;;
+  *) help_quit ;;
+  esac
+  shift
+done
+
+if [ -z "$target_hostname" ] || [ -z "$target_destination" ] || [ -z "$ssh_key" ]; then
+  echo "Please provide -n, -d and -k"
+  help_quit
+fi
+
+ssh_cmd="ssh -i $ssh_key -p $ssh_port -t $target_user@$target_destination"

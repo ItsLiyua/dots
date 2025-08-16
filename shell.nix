@@ -3,11 +3,13 @@ pkgs.mkShell {
   packages = with pkgs; [
     self.packages.${pkgs.system}.nvim
     sops
+    age
     ssh-to-age
     just
     nh
   ];
   shellHook = ''
+    export LIYUA_FLAKE_SHELL=1
     echo Hello World!
   '';
 }
