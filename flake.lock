@@ -625,11 +625,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1755104498,
-        "narHash": "sha256-kMosXLeEB43OtUKvhvzikKfFLpv7H7JzObCQO0j4X34=",
+        "lastModified": 1755298974,
+        "narHash": "sha256-o4VlsXougS17PX18a9ROIo8STXwrlmRQyRvTY5U5Mlk=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "22a24ab05a9f4b3a94fba0aa0d8d850e6269241a",
+        "rev": "083135e6d0c3d7af636c34602b85cc429aacf93c",
         "type": "github"
       },
       "original": {
