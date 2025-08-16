@@ -75,3 +75,12 @@ if [ -z "$target_hostname" ] || [ -z "$target_destination" ] || [ -z "$ssh_key" 
 fi
 
 ssh_cmd="ssh -i $ssh_key -p $ssh_port -t $target_user@$target_destination"
+
+function generate_age_key() {
+  age-keygen -o "$temp/private.key"
+  age-keygen -y -o "$temp/public.key" "$temp/private.key"
+}
+
+generate_age_key
+
+sleep 60
