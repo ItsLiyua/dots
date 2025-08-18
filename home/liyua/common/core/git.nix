@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, myLib, ... }:
 {
   programs.git = {
     enable = true;
@@ -17,8 +17,8 @@
     };
   };
   home.file.".ssh/allowed_signers".text = ''
-    liyua@nano sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIM6+1cR0P5EjO26/+LzJODBxOJzR9I3m0tNM6c5J/OYVAAAABHNzaDo= liyua@nano
-    liyua@nfc sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIL7rfMuc1NerL/NTnkABcwIuZNSlUz9AnowvIUDT6LN4AAAABHNzaDo= liyua@nfc
+    ${builtins.readFile (myLib.relativeToRoot "keys/id_nfc.pub")}
+    ${builtins.readFile (myLib.relativeToRoot "keys/id_nano.pub")}
     liyua@nano.old sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIN0+B3yM7FqDHXq/F99ZAvnM3Vap1u9+g59NXfDk34lQAAAABHNzaDo= liyua@nano
     liyua@nfc.old sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAICdngkr57QIPqK6Lm4235y61BUG9jjU1fJioVZRWb2zIAAAABHNzaDo= liyua@nfc
   '';
