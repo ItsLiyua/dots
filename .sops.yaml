@@ -9,7 +9,8 @@ keys:
   - users:
     - &liyua age1x0tt0aw933scsms872xynu2henqa5rll4m6pajxj6f6m2242mp6sl3jer9
 creation_rules:
-  - path_regex: secrets/system.yaml$
+  - &system
+    path_regex: secrets/system.yaml$
     key_groups:
       - age:
         - *liyua
@@ -19,7 +20,8 @@ creation_rules:
         - *rpi5-1
         - *rpi5-2
         - *linode
-  - path_regex: secrets/liyua.yaml$
+  - &user
+    path_regex: secrets/liyua.yaml$
     key_groups:
       - age:
         - *liyua

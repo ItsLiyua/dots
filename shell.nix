@@ -7,6 +7,7 @@ pkgs.mkShell {
     ssh-to-age
     just
     nh
+    yq
   ];
   shellHook = ''
     export LIYUA_FLAKE_SHELL=1

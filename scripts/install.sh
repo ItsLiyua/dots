@@ -33,6 +33,7 @@ ssh_port=22
 ssh_key=""
 luks_password="password"
 git_root=$(git rev-parse --show-toplevel)
+sops_file="$git_root/.sops.yaml"
 
 function help_quit() {
   echo "Help goes here!" # TODO: Add some help stuff
@@ -81,6 +82,27 @@ function generate_age_key() {
   age-keygen -y -o "$temp/public.key" "$temp/private.key"
 }
 
-generate_age_key
+function add_age_key() {
+  field="$1"
+  keyname="$2"
+  key="$3"
 
-sleep 60
+  if [[ -n $(ya ".keys.${field}[] | select(anchor == \"$keyname\")" "$sops_file") ]]; then
+    echo "Updating key"
+    yq -i "(.keys.${field}[] | select(anchor == \"$keyname\")) = \"$key\"" "$sops_file"
+  else
+    echo "Adding new key"
+    yq -i ".keys.$field += [\"$key\"] | .keys.${field}[-1] anchor = \"$keyname\"" "$sops_file"
+  fi
+}
+
+function update_creation_rules() {
+  host_keys="$(yq "(.keys[] | select(.hosts | type == \"array\")).hosts[]" "$sops_file")"
+  host_anchors=""
+  echo "$host_keys" | while read -r key; do
+    host_anchors=${host_anchors+"$(yq "(.keys[] | select(.hosts | type == \"array\")).hosts[] | select(value == $key)")\n"}
+    echo "$key"
+  done
+  echo "$host_anchors"
+}
+update_creation_rules
