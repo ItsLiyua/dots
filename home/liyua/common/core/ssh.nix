@@ -28,15 +28,4 @@
         }
       );
   };
-
-  home.file =
-    builtins.readDir (myLib.relativeToRoot "keys")
-    |> lib.mapAttrsToList lib.nameValuePair
-    |> builtins.filter (e: e.value == "regular")
-    |> map (e: e.name)
-    |> map (n: myLib.relativeToRoot "keys/${n}" |> toString)
-    |> map (f: {
-      ".ssh/${f |> builtins.split "/" |> lib.last}".source = f;
-    })
-    |> lib.mergeAttrsList;
 }
