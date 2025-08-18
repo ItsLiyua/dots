@@ -1,19 +1,34 @@
 { config, myLib, ... }:
 {
-  programs.git = {
-    enable = true;
-    userName = "Liyua";
-    userEmail = "liyua@liyua.moe";
-    lfs.enable = true;
-    extraConfig = {
-      init.defaultBranch = "master";
-      push.autoSetupRemote = true;
-      pull.rebase = false;
-      commit.gpgsign = true;
-      tag.gpgsign = true;
-      gpg.format = "ssh";
-      gpg.ssh.allowedsignersfile = "${config.home.homeDirectory}/.ssh/allowed_signers";
-      user.signingkey = "${config.home.homeDirectory}/.ssh/id_yubikey";
+  sops.secrets."liyua/git" = { };
+  programs = {
+    git = {
+      enable = true;
+      userName = "Liyua";
+      userEmail = "liyua@liyua.moe";
+      lfs.enable = true;
+      extraConfig = {
+        init.defaultBranch = "master";
+        push.autoSetupRemote = true;
+        pull.rebase = false;
+        commit.gpgsign = true;
+        tag.gpgsign = true;
+        gpg.format = "ssh";
+        gpg.ssh.allowedsignersfile = "${config.home.homeDirectory}/.ssh/allowed_signers";
+        user.signingkey = "${config.home.homeDirectory}/.ssh/id_yubikey";
+      };
+    };
+    ssh.matchBlocks = {
+      "github.com" = {
+        user = "git";
+        hostname = "github.com";
+        identityFile = config.sops.secrets."liyua/git".path;
+      };
+      "gitlab.com" = {
+        user = "git";
+        hostname = "gitlab.com";
+        identityFile = config.sops.secrets."liyua/git".path;
+      };
     };
   };
   home.file.".ssh/allowed_signers".text = ''
