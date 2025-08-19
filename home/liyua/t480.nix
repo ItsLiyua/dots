@@ -43,8 +43,5 @@
   sops.secrets."liyua/yubikey/nfc/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
 
   programs.btop.settings.selected_battery = "BAT1"; # Use external battery for t480
-  home.packages = with pkgs; [
-    libreoffice
-    gimp
-  ];
+  home.packages = with pkgs; [ rpi-imager ];
 }
