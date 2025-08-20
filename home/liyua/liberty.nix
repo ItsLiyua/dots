@@ -1,7 +1,8 @@
+{ config, ... }:
 {
-  config.liyua = {
+  liyua = {
     apps = {
-      discord.enable = true;
+      # discord.enable = true;
       firefox.enable = true;
       foot.enable = true;
       nautilus.enable = true;
@@ -36,6 +37,7 @@
     };
     clipboard.enable = true;
     xdg.enable = true;
-    steam.enable = false;
   };
+
+  sops.secrets."liyua/yubikey/nfc-c/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
 }

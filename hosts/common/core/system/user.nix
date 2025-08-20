@@ -23,6 +23,7 @@
         openssh.authorizedKeys.keyFiles = with myLib; [
           (relativeToRoot "keys/id_liyua.pub")
           (relativeToRoot "keys/id_nfc.pub")
+          (relativeToRoot "keys/id_nfc-c.pub")
           (relativeToRoot "keys/id_nano.pub")
         ];
       };
