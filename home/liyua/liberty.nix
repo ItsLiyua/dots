@@ -1,8 +1,12 @@
 { config, ... }:
 {
   liyua = {
+    unfree = {
+      enable = true;
+      whitelist = [ "discord" ];
+    };
     apps = {
-      # discord.enable = true;
+      discord.enable = true;
       firefox.enable = true;
       foot.enable = true;
       nautilus.enable = true;
