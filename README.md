@@ -1,5 +1,7 @@
 # Liyuas Nix Flake
 
+### This branch is not active anymore. All configuration for both system and user is done in the system branch now
+
 <!--toc:start-->
 
 - [Liyuas Nix Flake](#liyuas-nix-flake)
