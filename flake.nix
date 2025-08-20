@@ -24,6 +24,7 @@
     arasaka-greeter = {
       url = "github:ItsLiyua/arasaka-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.ags.follows = "ags";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
