@@ -30,6 +30,15 @@
         identityFile = config.sops.secrets."liyua/git".path;
       };
     };
+    zsh.shellAliases = {
+      ga = "git add -A";
+      gs = "git status";
+      gc = "git commit";
+      gca = "git commit -a";
+      gcam = "git commit -am";
+      gp = "git push";
+      gu = "git pull";
+    };
   };
   home.file.".ssh/allowed_signers".text = ''
     ${builtins.readFile (myLib.relativeToRoot "keys/id_nfc.pub")}

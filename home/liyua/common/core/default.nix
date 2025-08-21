@@ -1,12 +1,10 @@
 {
   imports = [
-    ./btop.nix
-    ./fastfetch.nix
+    ./utils
     ./git.nix
     ./sops.nix
     ./ssh.nix
     ./theme.nix
     ./user.nix
-    ./zsh.nix
   ];
 }
