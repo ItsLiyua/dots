@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   vim = {
     lsp = {
@@ -25,6 +26,12 @@
     terminal.toggleterm = {
       enable = true;
       lazygit.enable = true;
+    };
+    treesitter = {
+      enable = true;
+      autotagHtml = true;
+      fold = true;
+      grammars = [ pkgs.vimPlugins.nvim-treesitter-parsers.just ];
     };
   };
 }
