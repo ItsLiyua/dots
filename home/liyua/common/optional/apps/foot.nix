@@ -1,7 +1,7 @@
 { config, lib, ... }:
-{
+lib.mkIf config.liyua.apps.foot.enable {
   stylix.targets.foot.enable = true;
-  programs.foot = lib.mkIf config.liyua.apps.foot.enable {
+  programs.foot = {
     enable = true;
     settings = {
       main.pad = "10x10";
