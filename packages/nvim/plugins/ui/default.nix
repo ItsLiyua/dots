@@ -8,6 +8,7 @@
     ./devicons.nix
     ./diffs.nix
     ./filetree.nix
+    ./gitsigns.nix
     ./highlight-undo.nix
     ./icon-picker.nix
     ./indent-blankline.nix
