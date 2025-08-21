@@ -62,5 +62,8 @@
 
   sops.secrets."liyua/yubikey/nano/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
 
-  home.packages = [ pkgs.gamescope ];
+  home.packages = [
+    pkgs.gamescope
+    pkgs.vlc
+  ];
 }
