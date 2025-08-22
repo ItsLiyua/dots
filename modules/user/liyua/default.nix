@@ -119,11 +119,6 @@
       theming.enable = lib.mkEnableOption "Desktop theming";
       ags.enable = lib.mkEnableOption "Desktop Shell";
     };
-    cli = {
-      cava.enable = lib.mkEnableOption "Cava";
-      tokei.enable = lib.mkEnableOption "Tokei";
-      nvim.enable = lib.mkEnableOption "Custom NVIM configuration";
-    };
     clipboard.enable = lib.mkEnableOption "Clipboard";
     xdg.enable = lib.mkEnableOption "XDG";
   };

@@ -6,5 +6,6 @@
     ./theme.nix
     ./tokei.nix
     ./xdg.nix
+    ./yubikey.nix
   ];
 }

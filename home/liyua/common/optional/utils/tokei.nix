@@ -5,5 +5,6 @@
   ...
 }:
 {
-  config = lib.mkIf config.liyua.cli.tokei.enable { home.packages = [ pkgs.tokei ]; };
+  options.liyua.programs.tokei.enable = lib.mkEnableOption "Tokei utility";
+  config.home.packages = if config.liyua.programs.tokei.enable then [ pkgs.tokei ] else [ ];
 }
