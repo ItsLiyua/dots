@@ -51,22 +51,22 @@
       screenshot.enable = true;
       theming.enable = true;
     };
-    cli = {
-      cava.enable = true;
-      tokei.enable = true;
-      nvim.enable = true;
-    };
     clipboard.enable = true;
     xdg.enable = true;
 
-    programs.btop = {
-      enable = true;
-      whitelistedDrives = [
-        "/"
-        "/boot"
-        "/home"
-        "/mnt/nfs"
-      ];
+    programs = {
+      btop = {
+        enable = true;
+        whitelistedDrives = [
+          "/"
+          "/boot"
+          "/home"
+          "/mnt/nfs"
+        ];
+      };
+      cava.enable = true;
+      tokei.enable = true;
+      nvim.enable = true;
     };
   };
 

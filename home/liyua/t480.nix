@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   liyua = {
-    unfree.enable = false;
     apps = {
       firefox.enable = true;
       foot.enable = true;
@@ -54,5 +53,7 @@
   };
 
   programs.btop.settings.selected_battery = "BAT1"; # Use external battery for t480
-  home.packages = with pkgs; [ rpi-imager ];
+  home.packages = with pkgs; [
+    rpi-imager
+  ];
 }
