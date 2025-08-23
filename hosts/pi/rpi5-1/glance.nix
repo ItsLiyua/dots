@@ -1,7 +1,10 @@
 {
-  users.users.glance = {
-    isSystemUser = true;
-    group = "glance";
+  users = {
+    groups.glance = { };
+    users.glance = {
+      isSystemUser = true;
+      group = "glance";
+    };
   };
   services.glance = {
     enable = true;
