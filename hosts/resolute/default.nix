@@ -5,10 +5,6 @@
     ./modules/firewall.nix
   ];
   liyua = {
-    unfree = {
-      enable = true;
-      whitelist = [ ];
-    };
     ui = {
       dconf.enable = true;
       greeter = {
