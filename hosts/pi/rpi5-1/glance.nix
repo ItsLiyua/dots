@@ -1,4 +1,5 @@
 {
+  users.users.glance.group = "glance";
   services.glance = {
     enable = true;
     openFirewall = true;
