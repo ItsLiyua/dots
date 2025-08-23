@@ -1,5 +1,8 @@
 {
-  users.users.glance.group = "glance";
+  users.users.glance = {
+    isSystemUser = true;
+    group = "glance";
+  };
   services.glance = {
     enable = true;
     openFirewall = true;
