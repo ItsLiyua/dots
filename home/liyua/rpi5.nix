@@ -4,12 +4,7 @@
     nvim.enable = true;
     btop = {
       enable = true;
-      whitelistedDrives = [
-        "/"
-        "/boot"
-        "/home"
-        "/mnt/nfs"
-      ];
+      whitelistedDrives = [ "/" ];
     };
   };
   home.stateVersion = lib.mkForce "25.05";
