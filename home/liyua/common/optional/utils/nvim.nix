@@ -5,6 +5,8 @@
   pkgs,
   ...
 }:
-lib.mkIf config.liyua.cli.nvim.enable {
-  home.packages = [ self.packages.${pkgs.system}.nvim ];
+{
+  options.liyua.programs.nvim.enable = lib.mkEnableOption "Liyua's nvim configuration";
+  config.home.packages =
+    if config.liyua.programs.nvim.enable then [ self.packages.${pkgs.system}.nvim ] else [ ];
 }

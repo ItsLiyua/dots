@@ -51,19 +51,26 @@
       screenshot.enable = true;
       theming.enable = true;
     };
-    cli = {
+    clipboard.enable = true;
+    xdg.enable = true;
+
+    programs = {
+      btop = {
+        enable = true;
+        whitelistedDrives = [
+          "/"
+          "/boot"
+          "/home"
+          "/mnt/nfs"
+        ];
+      };
       cava.enable = true;
       tokei.enable = true;
       nvim.enable = true;
     };
-    clipboard.enable = true;
-    xdg.enable = true;
   };
 
   sops.secrets."liyua/yubikey/nano/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
 
-  home.packages = [
-    pkgs.gamescope
-    pkgs.vlc
-  ];
+  home.packages = [ pkgs.gamescope ];
 }

@@ -1,7 +1,6 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   liyua = {
-    unfree.enable = false;
     apps = {
       firefox.enable = true;
       foot.enable = true;
@@ -31,17 +30,30 @@
       theming.enable = true;
       ags.enable = true;
     };
-    cli = {
-      cava.enable = true;
-      nvim.enable = true;
-      tokei.enable = true;
-    };
     clipboard.enable = true;
     xdg.enable = true;
+
+    programs = {
+      btop = {
+        enable = true;
+        whitelistedDrives = [
+          "/"
+          "/boot"
+          "/mnt/nfs"
+        ];
+      };
+      nvim.enable = true;
+      tokei.enable = true;
+      cava.enable = true;
+    };
+    yubikey = {
+      enable = true;
+      usedKey = "nfc";
+    };
   };
 
-  sops.secrets."liyua/yubikey/nfc/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
-
   programs.btop.settings.selected_battery = "BAT1"; # Use external battery for t480
-  home.packages = with pkgs; [ rpi-imager ];
+  home.packages = with pkgs; [
+    rpi-imager
+  ];
 }
