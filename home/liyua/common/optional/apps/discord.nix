@@ -1,5 +1,6 @@
 { config, lib, ... }:
 {
+  options.liyua.apps.discord.enable = lib.mkEnableOption "Discord via Nixcord";
   config = lib.mkIf config.liyua.apps.discord.enable {
     stylix.targets.nixcord.enable = true;
     programs.nixcord = {

@@ -1,15 +1,6 @@
 { lib, ... }:
 {
   options.liyua = {
-    apps = {
-      discord.enable = lib.mkEnableOption "Discord via Nixcord";
-      firefox.enable = lib.mkEnableOption "Firefox";
-      foot.enable = lib.mkEnableOption "Foot Terminal";
-      nautilus.enable = lib.mkEnableOption "Nautilus File Manager";
-      prismlauncher.enable = lib.mkEnableOption "PrismLauncher for Minecraft";
-      steam.enable = lib.mkEnableOption "Steam Game Store";
-      zathura.enable = lib.mkEnableOption "Zathura PDF viewer";
-    };
     desktop = {
       displays = lib.mkOption {
         type =

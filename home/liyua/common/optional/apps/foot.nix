@@ -1,13 +1,16 @@
 { config, lib, ... }:
-lib.mkIf config.liyua.apps.foot.enable {
-  stylix.targets.foot.enable = true;
-  programs.foot = {
-    enable = true;
-    settings = {
-      main.pad = "10x10";
-      scrollback.lines = 10000;
-      mouse.hide-when-typing = true;
-      scrollback.indicator-position = "none";
+{
+  options.liyua.apps.foot.enable = lib.mkEnableOption "Foot Terminal";
+  config = lib.mkIf config.liyua.apps.foot.enable {
+    stylix.targets.foot.enable = true;
+    programs.foot = {
+      enable = true;
+      settings = {
+        main.pad = "10x10";
+        scrollback.lines = 10000;
+        mouse.hide-when-typing = true;
+        scrollback.indicator-position = "none";
+      };
     };
   };
 }
