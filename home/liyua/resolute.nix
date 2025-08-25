@@ -36,7 +36,6 @@
         };
       };
       layout = "eu";
-      bar.enable = true;
       wm.niri.enable = true;
       wallpaper = {
         enable = true;

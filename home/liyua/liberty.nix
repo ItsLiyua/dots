@@ -20,7 +20,6 @@
         scale = 1.6;
       };
       layout = "de";
-      bar.enable = true;
       wm.niri.enable = true;
       wallpaper = {
         enable = true;

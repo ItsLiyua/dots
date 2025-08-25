@@ -14,7 +14,6 @@
         refreshRate = 60.0;
       };
       layout = "eu";
-      bar.enable = true;
       wm.niri.enable = true;
       wallpaper = {
         enable = true;
@@ -28,7 +27,7 @@
       lockscreen.enable = true;
       screenshot.enable = true;
       theming.enable = true;
-      ags.enable = true;
+      ags.enable = false;
     };
     clipboard.enable = true;
     xdg.enable = true;
