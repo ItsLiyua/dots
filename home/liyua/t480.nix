@@ -1,10 +1,6 @@
 { pkgs, ... }:
 {
   liyua = {
-    unfree = {
-      enable = true;
-      whitelist = [ "makemkv" ];
-    };
     apps = {
       firefox.enable = true;
       foot.enable = true;
@@ -57,8 +53,5 @@
   };
 
   programs.btop.settings.selected_battery = "BAT1"; # Use external battery for t480
-  home.packages = with pkgs; [
-    rpi-imager
-    makemkv
-  ];
+  home.packages = with pkgs; [ rpi-imager ];
 }
