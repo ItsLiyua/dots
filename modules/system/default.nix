@@ -1,6 +1,6 @@
 {
   imports = [
-    ../shared
+    ../common
     ./network
     ./boot.nix
     ./common.nix
