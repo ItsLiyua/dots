@@ -1,6 +1,7 @@
 {
   imports = [
     ../shared
+    ./common
     ./liyua
   ];
 }
