@@ -2,7 +2,7 @@
   imports = [
     ./languages
     ./ui
-    ./editor.nix
+    ./editor
     ./misc.nix
   ];
 }

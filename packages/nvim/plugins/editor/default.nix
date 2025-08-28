@@ -1,22 +1,17 @@
-{ pkgs, ... }:
 {
-  vim = {
-    lsp = {
-      enable = true;
-      formatOnSave = true;
-      trouble.enable = true;
-    };
-    debugger.nvim-dap = {
-      enable = true;
-      ui.enable = true;
-    };
+  imports = [
+    ./blink.nix
+    ./dap.nix
+    ./lsp.nix
+    ./treesitter.nix
+  ];
+  config.vim = {
     languages = {
       enableFormat = true;
       enableTreesitter = true;
       enableExtraDiagnostics = true;
     };
     autopairs.nvim-autopairs.enable = true;
-    autocomplete.blink-cmp.enable = true;
     snippets.luasnip.enable = true;
     mini.surround.enable = true;
     utility = {
@@ -26,12 +21,6 @@
     terminal.toggleterm = {
       enable = true;
       lazygit.enable = true;
-    };
-    treesitter = {
-      enable = true;
-      autotagHtml = true;
-      fold = true;
-      grammars = [ pkgs.vimPlugins.nvim-treesitter-parsers.just ];
     };
   };
 }
