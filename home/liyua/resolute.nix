@@ -7,12 +7,14 @@
         "steam"
         "steam-unwrapped"
         "discord"
+        "makemkv"
       ];
     };
     apps = {
       discord.enable = true;
       firefox.enable = true;
       foot.enable = true;
+      makemkv.enable = true;
       nautilus.enable = true;
       prismlauncher.enable = true;
       steam.enable = true;
