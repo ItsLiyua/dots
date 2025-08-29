@@ -11,6 +11,7 @@
       makemkv
       handbrake
       vlc
+      mkvtoolnix
     ];
   };
 }
