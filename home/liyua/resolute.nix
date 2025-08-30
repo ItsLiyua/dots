@@ -73,5 +73,9 @@
 
   sops.secrets."liyua/yubikey/nano/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
 
-  home.packages = [ pkgs.gamescope ];
+  nixpkgs.config.permittedInsecurePackages = [ "qtwebengine-5.15.19" ];
+  home.packages = with pkgs; [
+    gamescope
+    jellyfin-media-player
+  ];
 }
