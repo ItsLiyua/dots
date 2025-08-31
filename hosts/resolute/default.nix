@@ -35,7 +35,7 @@
     btop.gpuType = "amd";
     localsend.enable = true;
     nfs.enable = true;
-    goxlr.enable = true;
+    goxlr.enable = false;
     yubikey.enable = true;
   };
 

@@ -10,11 +10,6 @@
       scrollDocsDown = null;
       scrollDocsUp = null;
     };
-    sourcePlugins = {
-      emoji.enable = true;
-      ripgrep.enable = true;
-      spell.enable = true;
-    };
     setupOpts = {
       keymap = {
         preset = "none";
