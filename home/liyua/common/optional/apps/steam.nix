@@ -8,7 +8,10 @@
   options.liyua.apps.steam.enable = lib.mkEnableOption "Steam Game Store";
   config = lib.mkIf config.liyua.apps.steam.enable {
     home = {
-      packages = [ pkgs.steam ];
+      packages = with pkgs; [
+        steam
+        gamescope
+      ];
       file.".local/share/Steam/steam_dev.cfg" = {
         text = ''
           @nClientDownloadEnableHTTP2PlatformLinux 0

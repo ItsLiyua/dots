@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
   liyua = {
     unfree = {
@@ -13,7 +13,8 @@
     apps = {
       discord.enable = true;
       firefox.enable = true;
-      foot.enable = true;
+      jellyfin-media-player.enable = true;
+      kitty.enable = true;
       makemkv.enable = true;
       nautilus.enable = true;
       prismlauncher.enable = true;
@@ -72,10 +73,4 @@
   };
 
   sops.secrets."liyua/yubikey/nano/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
-
-  nixpkgs.config.permittedInsecurePackages = [ "qtwebengine-5.15.19" ];
-  home.packages = with pkgs; [
-    gamescope
-    jellyfin-media-player
-  ];
 }
