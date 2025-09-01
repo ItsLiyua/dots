@@ -10,9 +10,8 @@
     ui = {
       dconf.enable = true;
       greeter = {
-        enable = false;
+        enable = true;
         launchCommand = "niri-session";
-        text = "Property of the Arasaka Corporation";
       };
       wayland.enable = true;
     };
@@ -51,7 +50,7 @@
   };
 
   services.arasaka-greeter = {
-    enable = true;
+    enable = false;
     settings = {
       user = "greeter";
       defaultProperties = {
