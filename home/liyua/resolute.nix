@@ -14,7 +14,6 @@
       discord.enable = true;
       firefox.enable = true;
       jellyfin-media-player.enable = true;
-      kitty.enable = true;
       makemkv.enable = true;
       nautilus.enable = true;
       prismlauncher.enable = true;

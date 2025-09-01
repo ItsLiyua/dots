@@ -4,7 +4,6 @@
     ./firefox.nix
     ./foot.nix
     ./jellyfin.nix
-    ./kitty.nix
     ./makemkv.nix
     ./nautilus.nix
     ./prismlauncher.nix
