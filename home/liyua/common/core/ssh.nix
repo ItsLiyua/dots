@@ -1,12 +1,12 @@
 {
   config,
   lib,
-  myLib,
   ...
 }:
 {
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks =
       let
         identityFile = "${config.home.homeDirectory}/.ssh/id_yubikey"; # TODO: Do not hardcode this path. Declare var to be used in device specific home configurations so that it only needs to be changed in one place

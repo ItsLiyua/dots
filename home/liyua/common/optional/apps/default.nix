@@ -3,6 +3,7 @@
     ./discord.nix
     ./firefox.nix
     ./foot.nix
+    ./kitty.nix
     ./makemkv.nix
     ./nautilus.nix
     ./prismlauncher.nix

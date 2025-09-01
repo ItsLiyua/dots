@@ -27,7 +27,7 @@ lib.mkIf config.liyua.desktop.wm.niri.enable {
         "Mod+Q".action = close-window;
         "Mod+M".action = quit { skip-confirmation = false; };
 
-        "Mod+T".action = spawn "foot";
+        "Mod+T".action = spawn "kitty";
         "Mod+F".action = spawn "firefox";
         "Mod+E".action = spawn "nautilus";
         "Mod+A".action = spawn [

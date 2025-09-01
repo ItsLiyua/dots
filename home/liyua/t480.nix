@@ -3,7 +3,7 @@
   liyua = {
     apps = {
       firefox.enable = true;
-      foot.enable = true;
+      kitty.enable = true;
       nautilus.enable = true;
       zathura.enable = true;
     };
