@@ -142,15 +142,19 @@ lib.mkIf config.liyua.desktop.wm.niri.enable {
         enable = true;
         path = "${pkgs.xwayland-satellite-unstable}/bin/xwayland-satellite";
       };
-      layout.focus-ring = {
-        width = 1;
-        active.gradient = {
-          from = config.lib.stylix.colors.withHashtag.base0B;
-          to = config.lib.stylix.colors.withHashtag.base0D;
-          angle = 45;
-          relative-to = "workspace-view";
+      layout = {
+        focus-ring.enable = false;
+        border = {
+          enable = true;
+          width = 1;
+          active.gradient = {
+            from = config.lib.stylix.colors.withHashtag.base0B;
+            to = config.lib.stylix.colors.withHashtag.base0D;
+            angle = 45;
+            relative-to = "workspace-view";
+          };
+          inactive.color = config.lib.stylix.colors.withHashtag.base03;
         };
-        inactive.color = config.lib.stylix.colors.withHashtag.base03;
       };
       workspaces =
         {
@@ -161,9 +165,7 @@ lib.mkIf config.liyua.desktop.wm.niri.enable {
           { display, index }:
           {
             name = "${display}-${index}";
-            value = {
-              open-on-output = display;
-            };
+            value.open-on-output = display;
           }
         )
         |> builtins.listToAttrs;
