@@ -45,7 +45,6 @@
     powerManagement.enable = true;
     btop.gpuType = "intel";
     localsend.enable = true;
-    nfs.enable = true;
     yubikey.enable = true;
   };
 

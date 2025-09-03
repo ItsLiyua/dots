@@ -34,9 +34,16 @@
     };
     btop.gpuType = "amd";
     localsend.enable = true;
-    nfs.enable = true;
     goxlr.enable = false;
     yubikey.enable = true;
+    nfs = {
+      enable = true;
+      drives = {
+        music.enable = true;
+        movies.enable = true;
+        anime.enable = true;
+      };
+    };
   };
 
   networking.hostName = "resolute";
