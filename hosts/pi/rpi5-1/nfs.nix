@@ -3,7 +3,6 @@ let
   enable = true;
 in
 lib.mkIf enable {
-  liyua.nfs.enable = true;
   networking.firewall.allowedTCPPorts = [ 2049 ];
   services.nfs.server = {
     enable = true;
