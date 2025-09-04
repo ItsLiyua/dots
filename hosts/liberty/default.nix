@@ -41,6 +41,14 @@
     powerManagement.enable = true;
     btop.gpuType = "amd";
     yubikey.enable = true;
+    nfs = {
+      enable = true;
+      drives = {
+        music.enable = true;
+        movies.enable = true;
+        anime.enable = true;
+      };
+    };
   };
 
   networking.hostName = "liberty";
