@@ -45,6 +45,7 @@
         whitelistedDrives = [
           "/"
           "/boot"
+          "/mnt/nfs/music"
         ];
       };
       nvim.enable = true;
