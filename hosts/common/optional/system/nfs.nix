@@ -28,10 +28,10 @@
             mountOpts // { device = "rpi5-1.local:/export/anime"; }
           );
           "/mnt/nfs/movies" = lib.mkIf cfg.drives.movies.enable (
-            mountOpts // { device = "rpi5-1.local:/export/anime"; }
+            mountOpts // { device = "rpi5-1.local:/export/movies"; }
           );
           "/mnt/nfs/music" = lib.mkIf cfg.drives.music.enable (
-            mountOpts // { device = "rpi5-1.local:/export/anime"; }
+            mountOpts // { device = "rpi5-1.local:/export/music"; }
           );
         };
     };
