@@ -40,6 +40,7 @@
     };
     powerManagement.enable = true;
     btop.gpuType = "amd";
+    yubikey.enable = true;
   };
 
   networking.hostName = "liberty";

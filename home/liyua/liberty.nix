@@ -33,13 +33,18 @@
       screenshot.enable = true;
       theming.enable = true;
     };
-    cli = {
-      cava.enable = true;
-      nvim.enable = true;
-      tokei.enable = true;
-    };
     clipboard.enable = true;
     xdg.enable = true;
+    programs = {
+      btop = {
+        enable = true;
+        whitelistedDrives = [
+          "/"
+          "/boot"
+        ];
+      };
+      nvim.enable = true;
+    };
   };
 
   sops.secrets."liyua/yubikey/nfc-c/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
