@@ -3,12 +3,16 @@
   liyua = {
     unfree = {
       enable = true;
-      whitelist = [ "discord" ];
+      whitelist = [
+        "discord"
+        "makemkv"
+      ];
     };
     apps = {
       discord.enable = true;
       firefox.enable = true;
       foot.enable = true;
+      makemkv.enable = true;
       nautilus.enable = true;
       zathura.enable = true;
     };
