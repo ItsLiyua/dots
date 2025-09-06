@@ -12,7 +12,7 @@
         launchCommand = "niri-session";
       };
       gaming.gamepadSupport = true;
-      overclocking.gpu.lact.enable = true;
+      overclocking.gpu.lact.enable = false;
       wayland.enable = true;
     };
     audio.enable = true;
