@@ -146,7 +146,7 @@ lib.mkIf config.liyua.desktop.wm.niri.enable {
         focus-ring.enable = false;
         border = {
           enable = true;
-          width = 1;
+          width = 2;
           active.gradient = {
             from = config.lib.stylix.colors.withHashtag.base0B;
             to = config.lib.stylix.colors.withHashtag.base0D;
