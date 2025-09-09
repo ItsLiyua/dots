@@ -1,7 +1,6 @@
 { lib, ... }:
 {
   options.liyua.ui = {
-    dconf.enable = lib.mkEnableOption "dconf (used for some UI apps)";
     gaming = {
       gamepadSupport = lib.mkOption {
         type = lib.types.bool;

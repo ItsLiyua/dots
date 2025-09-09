@@ -1,4 +1,4 @@
 { pkgs, ... }:
 {
-  programs.zsh.shellAliases.df = "${pkgs.pydf}/bin/df";
+  programs.zsh.shellAliases.df = "${pkgs.pydf}/bin/pydf";
 }

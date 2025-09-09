@@ -8,7 +8,6 @@
 
   liyua = {
     ui = {
-      dconf.enable = true;
       greeter = {
         enable = true;
         launchCommand = "niri-session";

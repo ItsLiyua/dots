@@ -8,6 +8,10 @@ lib.mkIf config.liyua.desktop.theming.enable {
 
   gtk.enable = true;
   qt.enable = true;
+  dconf = {
+    enable = true;
+    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+  };
   stylix = {
     cursor = {
       package = pkgs.bibata-cursors;
