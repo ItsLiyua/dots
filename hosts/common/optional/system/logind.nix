@@ -25,7 +25,7 @@
       powerKey = cfg.powerKeyMode;
       powerKeyLongPress = "poweroff";
     }
-    // lib.mkIf cfg.sleepOnLidSwitch {
+    // lib.mkIf (cfg.enable && cfg.sleepOnLidSwitch) {
       settings.Login.HandleLidSwitch = "suspend";
       settings.Login.HandleLidSwitchExternalPower = "lock";
     };
