@@ -17,16 +17,18 @@
       description = "Whether to sleep when the lid is closed (only affects laptops)";
     };
   };
-  config.services.logind =
+  config =
     let
       cfg = config.liyua.logind;
     in
     lib.mkIf cfg.enable {
-      powerKey = cfg.powerKeyMode;
-      powerKeyLongPress = "poweroff";
-    }
-    // lib.mkIf (cfg.enable && cfg.sleepOnLidSwitch) {
-      settings.Login.HandleLidSwitch = "suspend";
-      settings.Login.HandleLidSwitchExternalPower = "lock";
+      services.logind = {
+        powerKey = cfg.powerKeyMode;
+        powerKeyLongPress = "poweroff";
+      }
+      // lib.mkIf cfg.sleepOnLidSwitch {
+        settings.Login.HandleLidSwitch = "suspend";
+        settings.Login.HandleLidSwitchExternalPower = "lock";
+      };
     };
 }
