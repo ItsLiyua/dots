@@ -3,7 +3,7 @@
     enable = true;
     format = {
       enable = true;
-      type = "black-and-isort";
+      type = "ruff";
     };
     lsp.enable = true;
     treesitter.enable = true;
