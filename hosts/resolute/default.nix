@@ -45,6 +45,8 @@
     };
   };
 
+  boot.kernelModules = [ "sg" ];
+
   networking.hostName = "resolute";
   console.keyMap = "us";
 }
