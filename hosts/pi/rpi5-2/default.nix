@@ -2,6 +2,7 @@
   imports = [
     ./shared
     ../common
+    ./minecraft.nix
   ];
 
   config = {
