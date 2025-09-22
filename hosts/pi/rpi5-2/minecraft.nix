@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  liyua.unfree = {
+    enable = true;
+    whitelist = [ "minecraft-server" ];
+  };
   services.minecraft-servers = {
     enable = true;
     eula = true;
