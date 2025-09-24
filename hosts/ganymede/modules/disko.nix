@@ -66,6 +66,7 @@
       type = "zpool";
       mode = "";
       mountpoint = "/export";
+      options.mountpoint = "legacy";
     };
   };
 }
