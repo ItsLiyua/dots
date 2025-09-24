@@ -27,6 +27,9 @@
     };
   };
 
-  networking.hostName = "ganymede";
+  networking = {
+    hostName = "ganymede";
+    hostId = "07487d09";
+  };
   console.keyMap = "us";
 }
