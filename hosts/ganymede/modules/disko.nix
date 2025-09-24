@@ -56,20 +56,15 @@
             size = "100%";
             content = {
               type = "zfs";
-              pool = "shared";
-
+              pool = "zroot";
             };
           };
         };
       };
     };
-    zpool.shared = {
+    zpool.zroot = {
       type = "zpool";
-      mode = "single";
-      rootFsOptions = {
-        compression = "zstd";
-        "com.sun:auto-snapshot" = "false";
-      };
+      mode = "";
       datasets.export = {
         type = "zfs_fs";
         mountpoint = "/export";

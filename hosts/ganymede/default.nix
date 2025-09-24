@@ -17,14 +17,6 @@
         self = "ganymede"; # See modules/network/wireguard.nix
       };
     };
-    nfs = {
-      enable = true;
-      drives = {
-        music.enable = true;
-        movies.enable = true;
-        anime.enable = true;
-      };
-    };
   };
 
   networking = {
