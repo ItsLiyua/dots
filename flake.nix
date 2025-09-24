@@ -109,12 +109,13 @@
     in
     {
       nixosConfigurations = with myLib; {
-        liberty = mkDefaultSysConfig ./hosts/liberty;
-        resolute = mkDefaultSysConfig ./hosts/resolute;
-        t480 = mkDefaultSysConfig ./hosts/t480;
-        rpi5-1 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-1;
-        rpi5-2 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-2;
-        linode = mkDefaultSysConfig ./hosts/linode;
+        liberty = mkDefaultSysConfig ./hosts/liberty; # Razorback
+        resolute = mkDefaultSysConfig ./hosts/resolute; # Donnager
+        t480 = mkDefaultSysConfig ./hosts/t480; # Rocinante
+        rpi5-1 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-1; # Phobos
+        rpi5-2 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-2; # Deimos
+        linode = mkDefaultSysConfig ./hosts/linode; # Medina
+        ganymede = mkDefaultSysConfig ./hosts/ganymede;
       };
       homeConfigurations = {
         "liyua@liberty" = mkDefaultHomeConfig ./home/liyua/liberty.nix;
@@ -123,6 +124,7 @@
         "liyua@t480" = mkDefaultHomeConfig ./home/liyua/t480.nix;
         "liyua@rpi5-1" = myLib.mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix;
         "liyua@rpi5-2" = myLib.mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix;
+        "liyua@ganymede" = mkDefaultHomeConfig ./home/liyua/ganymede.nix;
       };
       overlays = import ./overlays { inherit (nixpkgs) lib; };
     }
