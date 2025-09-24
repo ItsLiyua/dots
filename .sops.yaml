@@ -6,7 +6,7 @@ keys:
     - &rpi5-1 age1lkvaqekxfqzg9m354nwr0dprgfwm6l858y4ux0hd3pru3wrj33hq5gq2hw
     - &rpi5-2 age16ysmvc64mv9zwxjy976cdgq54j8ujrj47gds4rksmjy25r573c4sey5jh3
     - &linode age1zya84hkcxynmr7rc9k8umyngnclwr73xed8xp2l7ljjmvql4yuyqgue9ar
-    - &ganymede age1pkj8jy4u6ztwc7g276w6h3jygp4s70muryw2pm4xvyw46k6g6y4srw3rq4
+    - &ganymede age15g4wvczmefaejpr4xjtvtnty42g5qggjrpdtemh7mnspuvxz53usenlym0
   - users:
     - &liyua age1x0tt0aw933scsms872xynu2henqa5rll4m6pajxj6f6m2242mp6sl3jer9
 creation_rules:
