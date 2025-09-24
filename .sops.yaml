@@ -9,7 +9,7 @@ keys:
     - &ganymede age15g4wvczmefaejpr4xjtvtnty42g5qggjrpdtemh7mnspuvxz53usenlym0
   - users:
     - &liyua-master age1x0tt0aw933scsms872xynu2henqa5rll4m6pajxj6f6m2242mp6sl3jer9
-    - &liyua-ganymede age1z6x88hac0ykqw5xkvxn5zm7p86ylwp5cc6xukzdl89a0w66qgg8qxhk95g
+    - &liyua-ganymede age19jfpmmmqpzd3tvqyqh94tdszhqegram6q2hrefd46p89hjxvhp0qydzs7n
 creation_rules:
   - &system
     path_regex: secrets/system.yaml$
