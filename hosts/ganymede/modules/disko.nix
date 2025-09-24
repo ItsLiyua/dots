@@ -65,7 +65,12 @@
     zpool.zroot = {
       type = "zpool";
       mode = "";
-      mountpoint = "/export";
+      rootFsOptions.mountpoint = "none";
+      datasets.export = {
+        type = "zfs_fs";
+        options.mountpoint = "legacy";
+        mountpoint = "/export";
+      };
     };
   };
 }
