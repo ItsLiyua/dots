@@ -65,7 +65,7 @@
     };
     zpool.shared = {
       type = "zpool";
-      mode = "mirror";
+      mode = "single";
       rootFsOptions = {
         compression = "zstd";
         "com.sun:auto-snapshot" = "false";
