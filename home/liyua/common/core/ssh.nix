@@ -22,6 +22,7 @@
           "rpi5-1"
           "rpi5-2"
           "t480"
+          "ganymede"
         ] (hostname: mkCfgStdKey "${hostname}.local")
         // {
           linode = mkCfgStdKey "liyua.moe";
