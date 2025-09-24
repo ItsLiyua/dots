@@ -5,5 +5,6 @@
     ./pi/shared
     ./resolute/shared
     ./t480/shared
+    ./ganymede/shared
   ];
 }
