@@ -69,7 +69,7 @@
         type = "zfs_fs";
         options = {
           mountpoint = "/export";
-          canmount = "on";
+          options.mountpoint = "legacy";
         };
       };
     };
