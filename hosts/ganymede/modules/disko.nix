@@ -1,13 +1,7 @@
-{ config, ... }:
 {
-  sops.secrets = {
-    "disks/root/password" = { };
-    "disks/home/keyfile" = { };
-    "disks/home/password" = { };
-  };
   disko.devices = {
     disk = {
-      main = {
+      root = {
         type = "disk";
         device = "/dev/nvme0n1";
         content = {
@@ -23,81 +17,61 @@
                 mountOptions = [ "umask=0077" ];
               };
             };
-            luks = {
+            root = {
+              type = "btrfs";
               size = "100%";
-              content = {
-                type = "luks";
-                name = "root";
-                passwordFile = config.sops.secrets."disks/root/password".path;
-                settings.allowDiscards = true;
-                content = {
-                  type = "btrfs";
-                  extraArgs = [ "-f" ];
-                  subvolumes = {
-                    "/root" = {
-                      mountpoint = "/";
-                      mountOptions = [
-                        "compress=zstd"
-                        "noatime"
-                      ];
-                    };
-                    "/nix" = {
-                      mountpoint = "/nix";
-                      mountOptions = [
-                        "compress=zstd"
-                        "noatime"
-                      ];
-                    };
-                    "/swap" = {
-                      mountpoint = "/.swapvol";
-                      swap.swapfile.size = "8G";
-                    };
-                  };
+              extraArgs = [ "-f" ];
+              subvolumes = {
+                "/root" = {
+                  mountpoint = "/";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
+                "/nix" = {
+                  mountpoint = "/nix";
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
+                };
+                "/swap" = {
+                  mountpoint = "/.swapvol";
+                  swap.swapfile.size = "32G";
                 };
               };
             };
           };
         };
       };
-      home = {
+      disk1 = {
         type = "disk";
-        device = "/dev/nvme1n1";
+        device = "/dev/sda";
         content = {
           type = "gpt";
-          partitions = {
-            luks = {
-              size = "100%";
-              uuid = "7e8518a0-be2d-48b9-81c9-fcc30bfd99b3";
-              content = {
-                type = "luks";
-                name = "home";
-                settings.allowDiscards = true;
-                initrdUnlock = false;
-                keyFile = config.sops.secrets."disks/home".path;
-                passwordFile = config.sops.secrepts."disks/home/password".path;
-                content = {
-                  type = "btrfs";
-                  extraArgs = [ "-f" ];
-                  subvolumes = {
-                    "/home" = {
-                      mountpoint = "/home";
-                      mountOptions = [
-                        "compress=zstd"
-                        "noatime"
-                      ];
-                    };
-                  };
-                };
-              };
+          partitions.zfs = {
+            size = "100%";
+            content = {
+              type = "zfs";
+              pool = "shared";
+
             };
           };
         };
       };
     };
+    zpool.shared = {
+      type = "zpool";
+      mode = "mirror";
+      rootFsOptions = {
+        compression = "zstd";
+        "com.sun:auto-snapshot" = "false";
+      };
+      datasets.export = {
+        type = "zfs_fs";
+        mountpoint = "/export";
+      };
+    };
   };
-  environment.etc.crypttab.text = ''
-    home PARTUUID=${config.disko.devices.disk.home.content.partitions.luks.uuid} ${
-      config.sops.secrets."disks/home/keyfile".path
-    }
-  '';
 }
