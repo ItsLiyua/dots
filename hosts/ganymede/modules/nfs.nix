@@ -9,7 +9,7 @@ lib.mkIf enable {
       isSystemUser = true;
       createHome = false;
       group = "nfsanon";
-      uid = "10069";
+      uid = 10069;
     };
     groups.nfsanon = {
       name = "nfsanon";
