@@ -62,7 +62,7 @@
           "/"
           "/boot"
           "/home"
-          "/mnt/nfs/music"
+          "/mnt/nfs/shared"
         ];
       };
       cava.enable = true;
