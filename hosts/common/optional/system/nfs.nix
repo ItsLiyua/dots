@@ -6,6 +6,7 @@
       music.enable = lib.mkEnableOption "Music Share";
       anime.enable = lib.mkEnableOption "Anime Share";
       movies.enable = lib.mkEnableOption "Movie Share";
+      shared.enable = lib.mkEnableOption "General Purpose Share";
     };
   };
   config =
@@ -35,6 +36,9 @@
           );
           "/mnt/nfs/music" = lib.mkIf cfg.drives.music.enable (
             mountOpts // { device = "ganymede.local:/export/music"; }
+          );
+          "/mnt/nfs/shared" = lib.mkIf cfg.drives.music.enable (
+            mountOpts // { device = "ganymede.local:/export/shared"; }
           );
         };
     };

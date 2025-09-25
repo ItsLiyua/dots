@@ -41,6 +41,7 @@
         music.enable = true;
         movies.enable = true;
         anime.enable = true;
+        shared.enable = true;
       };
     };
   };

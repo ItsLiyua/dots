@@ -47,11 +47,7 @@
     yubikey.enable = true;
     nfs = {
       enable = true;
-      drives = {
-        music.enable = true;
-        movies.enable = true;
-        anime.enable = true;
-      };
+      drives.shared.enable = true;
     };
   };
 
