@@ -9,9 +9,11 @@ lib.mkIf enable {
       isSystemUser = true;
       createHome = false;
       group = "nfsanon";
+      uid = 10069;
     };
     groups.nfsanon = {
       name = "nfsanon";
+      gid = 10069;
     };
   };
   services.nfs.server =
