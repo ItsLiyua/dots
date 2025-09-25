@@ -6,7 +6,17 @@
       music.enable = lib.mkEnableOption "Music Share";
       anime.enable = lib.mkEnableOption "Anime Share";
       movies.enable = lib.mkEnableOption "Movie Share";
-      shared.enable = lib.mkEnableOption "General Purpose Share";
+      shared = {
+        enable = lib.mkEnableOption "General Purpose Share";
+        mode = lib.mkOption {
+          type = lib.types.enum [
+            "vpn"
+            "direct"
+          ];
+          default = "vpn";
+          description = "Whether the share should be mounted through the VPN (would be accessible from outside the LAN) or directly (probably higher transfer speeds)";
+        };
+      };
     };
   };
   config =

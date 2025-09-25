@@ -26,7 +26,7 @@ lib.mkIf enable {
         /export/music   10.100.0.0/24(${options})
         /export/movies  10.100.0.0/24(${options}) 
         /export/anime   10.100.0.0/24(${options})
-        /export/shared   10.100.0.0/24(${options})
+        /export/shared   10.100.0.0/24(${options}) 10.15.0.0/24(${options})
       '';
     };
 }

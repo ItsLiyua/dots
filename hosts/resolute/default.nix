@@ -41,7 +41,10 @@
         music.enable = true;
         movies.enable = true;
         anime.enable = true;
-        shared.enable = true;
+        shared = {
+          enable = true;
+          mode = "direct"; # Resolute is stationary in my lan. No need for VPN usage
+        };
       };
     };
   };
