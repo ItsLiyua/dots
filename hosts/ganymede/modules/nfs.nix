@@ -13,12 +13,12 @@ lib.mkIf enable {
     };
     groups.nfsanon = {
       name = "nfsanon";
-      gid = "10069";
+      gid = 10069;
     };
   };
   services.nfs.server =
     let
-      options = "rw,wdelay,nohide,no_subtree_check,all_squash,anongid=${config.users.groups.nfsanon.gid},anonuid=${config.users.users.nfsanon.uid}";
+      options = "rw,wdelay,nohide,no_subtree_check,all_squash,anongid=${toString config.users.groups.nfsanon.gid},anonuid=${toString config.users.users.nfsanon.uid}";
     in
     {
       enable = true;
