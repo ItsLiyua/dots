@@ -45,6 +45,14 @@
     btop.gpuType = "intel";
     localsend.enable = true;
     yubikey.enable = true;
+    nfs = {
+      enable = true;
+      drives = {
+        music.enable = true;
+        movies.enable = true;
+        anime.enable = true;
+      };
+    };
   };
 
   services.arasaka-greeter = {
