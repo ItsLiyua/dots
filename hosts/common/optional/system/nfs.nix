@@ -53,7 +53,7 @@
               device = "${
                 if cfg.drives.shared.mode == "direct" then
                   "ganymede.local"
-                else if config.drives.shared.mode == "vpn" then
+                else if cfg.drives.shared.mode == "vpn" then
                   config.liyua.network.wireguard.devices.ganymede.assignedIP
                 else
                   throw "Invalid nfs mode"
