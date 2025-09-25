@@ -37,7 +37,7 @@
         whitelistedDrives = [
           "/"
           "/boot"
-          "/mnt/nfs"
+          "/mnt/nfs/shared"
         ];
       };
       nvim.enable = true;
