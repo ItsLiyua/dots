@@ -5,7 +5,7 @@
       whitelistedDrives = [
         "/"
         "/boot"
-        "/mnt/nfs"
+        "/export"
       ];
     };
     nvim.enable = true;
