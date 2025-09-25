@@ -13,7 +13,7 @@
       cfg = config.liyua.nfs;
     in
     lib.mkIf cfg.enable {
-      boot.supportedFileSystems = [ "nfs" ];
+      boot.supportedFilesystems = [ "nfs" ];
       fileSystems =
         let
           mountOpts = {
