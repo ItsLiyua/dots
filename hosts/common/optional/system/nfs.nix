@@ -19,19 +19,21 @@
             fsType = "nfs";
             options = [
               "nfsvers=4.2"
-              "nofail"
+              "x-systemd.automount"
+              "noauto"
+              "x-systemd.idle-timeout=600"
             ];
           };
         in
         {
           "/mnt/nfs/anime" = lib.mkIf cfg.drives.anime.enable (
-            mountOpts // { device = "rpi5-1.local:/export/anime"; }
+            mountOpts // { device = "ganymede.local:/export/anime"; }
           );
           "/mnt/nfs/movies" = lib.mkIf cfg.drives.movies.enable (
-            mountOpts // { device = "rpi5-1.local:/export/movies"; }
+            mountOpts // { device = "ganymede.local:/export/movies"; }
           );
           "/mnt/nfs/music" = lib.mkIf cfg.drives.music.enable (
-            mountOpts // { device = "rpi5-1.local:/export/music"; }
+            mountOpts // { device = "ganymede.local:/export/music"; }
           );
         };
     };
