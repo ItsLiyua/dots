@@ -47,8 +47,18 @@
           "/mnt/nfs/music" = lib.mkIf cfg.drives.music.enable (
             mountOpts // { device = "ganymede.local:/export/music"; }
           );
-          "/mnt/nfs/shared" = lib.mkIf cfg.drives.music.enable (
-            mountOpts // { device = "ganymede.local:/export/shared"; }
+          "/mnt/nfs/shared" = lib.mkIf cfg.drives.shared.enable (
+            mountOpts
+            // {
+              device = "${
+                if cfg.drives.shared.mode == "direct" then
+                  "ganymede.local"
+                else if config.drives.shared.mode == "vpn" then
+                  config.liyua.network.wireguard.devices.ganymede.assignedIP
+                else
+                  throw "Invalid nfs mode"
+              }:/export/shared";
+            }
           );
         };
     };
