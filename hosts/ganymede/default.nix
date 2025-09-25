@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/disko.nix
+    ./modules/nfs.nix
   ];
   liyua = {
     bootloader = {
