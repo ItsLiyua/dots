@@ -64,10 +64,16 @@
     };
     zpool.zroot = {
       type = "zpool";
-      mode = "";
-      datasets.export = {
-        type = "zfs_fs";
-        mountpoint = "/export";
+      datasets = {
+        root = {
+          type = "zfs_fs";
+          options.mountpoint = "none";
+        };
+        "root/export" = {
+          type = "zfs_fs";
+          options.mountpoint = "legacy";
+          mountpoint = "/export";
+        };
       };
     };
   };
