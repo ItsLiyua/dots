@@ -6,7 +6,7 @@ lib.mkIf enable {
   networking.firewall.allowedTCPPorts = [ 2049 ];
   users = {
     users.nfsanon = {
-      isNormalUser = false;
+      isSystemUser = true;
       createHome = false;
       group = "nfsanon";
     };
