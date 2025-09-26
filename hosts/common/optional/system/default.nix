@@ -5,6 +5,7 @@
     ./batmon.nix
     ./bluetooth.nix
     ./boot.nix
+    ./eduroam.nix
     ./fwupd.nix
     ./goxlr.nix
     ./graphics.nix
