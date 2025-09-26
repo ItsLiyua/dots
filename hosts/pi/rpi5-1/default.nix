@@ -19,7 +19,6 @@
         music.enable = true;
       };
     };
-    ssh.enableRootAccess = true;
   };
   networking.hostName = "rpi5-1";
 }

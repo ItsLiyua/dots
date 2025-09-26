@@ -19,6 +19,7 @@
         self = "ganymede"; # See modules/network/wireguard.nix
       };
     };
+    ssh.enableRootAccess = true;
   };
 
   networking = {
