@@ -49,6 +49,7 @@
       enable = true;
       drives.shared.enable = true;
     };
+    eduroam.enable = true;
   };
 
   services.arasaka-greeter = {
