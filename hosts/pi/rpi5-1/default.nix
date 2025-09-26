@@ -3,7 +3,6 @@
     ./shared
     ../common
     ./glance.nix
-    ./jellyfin.nix
     ./radicale.nix
     ./vaultwarden.nix
   ];

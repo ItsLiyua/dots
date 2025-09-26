@@ -64,12 +64,17 @@
             entrypoints = "websecure";
           };
         };
-        services = {
-          vaultwarden.loadBalancer.servers = [ { url = "http://10.15.0.3:8222"; } ];
-          radicale.loadBalancer.servers = [ { url = "http://10.15.0.3:5232"; } ];
-          glance.loadBalancer.servers = [ { url = "http://10.15.0.3:7575"; } ];
-          jellyfin.loadBalancer.servers = [ { url = "http://10.15.0.3:8096"; } ];
-        };
+        services =
+          let
+            rpi51Ip = config.liyua.wireguard.devices.rpi5-1.assignedIP;
+            ganymedeIp = config.liyua.wireguard.devices.ganymede.assignedIP;
+          in
+          {
+            vaultwarden.loadBalancer.servers = [ { url = "http://${rpi51Ip}:8222"; } ];
+            radicale.loadBalancer.servers = [ { url = "http://${rpi51Ip}:5232"; } ];
+            glance.loadBalancer.servers = [ { url = "http://${rpi51Ip}:7575"; } ];
+            jellyfin.loadBalancer.servers = [ { url = "http://${ganymedeIp}:8096"; } ];
+          };
         middlewares.auth.basicAuth.usersFile = config.sops.secrets."traefik/dashboard".path;
       };
     };
