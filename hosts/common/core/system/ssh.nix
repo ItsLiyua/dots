@@ -22,7 +22,7 @@
           AllowUsers = null;
           UseDns = true;
           X11Forwarding = false;
-          PermitRootLogin = "no";
+          PermitRootLogin = "prohibit-password";
         };
       };
       users.users.root.openssh.authorizedKeys.keyFiles = lib.mkIf config.liyua.ssh.enableRootAccess (
