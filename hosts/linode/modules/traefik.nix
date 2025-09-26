@@ -66,8 +66,8 @@
         };
         services =
           let
-            rpi51Ip = config.liyua.wireguard.devices.rpi5-1.assignedIP;
-            ganymedeIp = config.liyua.wireguard.devices.ganymede.assignedIP;
+            rpi51Ip = config.liyua.network.wireguard.devices.rpi5-1.assignedIP;
+            ganymedeIp = config.liyua.network.wireguard.devices.ganymede.assignedIP;
           in
           {
             vaultwarden.loadBalancer.servers = [ { url = "http://${rpi51Ip}:8222"; } ];
