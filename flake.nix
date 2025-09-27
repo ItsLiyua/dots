@@ -110,7 +110,7 @@
     {
       nixosConfigurations = with myLib; {
         liberty = mkDefaultSysConfig ./hosts/liberty; # Razorback
-        resolute = mkDefaultSysConfig ./hosts/resolute; # Donnager
+        donnager = mkDefaultSysConfig ./hosts/donnager;
         t480 = mkDefaultSysConfig ./hosts/t480; # Rocinante
         rpi5-1 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-1; # Phobos
         rpi5-2 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-2; # Deimos
@@ -120,7 +120,7 @@
       homeConfigurations = {
         "liyua@liberty" = mkDefaultHomeConfig ./home/liyua/liberty.nix;
         "liyua@linode" = mkDefaultHomeConfig ./home/liyua/linode.nix;
-        "liyua@resolute" = mkDefaultHomeConfig ./home/liyua/resolute.nix;
+        "liyua@donnager" = mkDefaultHomeConfig ./home/liyua/donnager.nix;
         "liyua@t480" = mkDefaultHomeConfig ./home/liyua/t480.nix;
         "liyua@rpi5-1" = myLib.mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix;
         "liyua@rpi5-2" = myLib.mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix;

@@ -18,7 +18,7 @@
       (
         lib.genAttrs [
           "liberty"
-          "resolute"
+          "donnager"
           "rpi5-1"
           "rpi5-2"
           "t480"

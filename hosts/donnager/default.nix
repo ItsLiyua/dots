@@ -28,7 +28,7 @@
       hostnameAdvertisement.enable = true;
       wireguard = {
         enable = true;
-        self = "resolute"; # See modules/network/wireguard.nix
+        self = "donnager"; # See modules/network/wireguard.nix
       };
     };
     btop.gpuType = "amd";
@@ -43,7 +43,7 @@
         anime.enable = true;
         shared = {
           enable = true;
-          mode = "direct"; # Resolute is stationary in my lan. No need for VPN usage
+          mode = "direct"; # Donnager is stationary in my lan. No need for VPN usage
         };
       };
     };
@@ -51,6 +51,6 @@
 
   boot.kernelModules = [ "sg" ];
 
-  networking.hostName = "resolute";
+  networking.hostName = "donnager";
   console.keyMap = "us";
 }
