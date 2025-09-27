@@ -17,7 +17,7 @@ creation_rules:
       - age:
         - *liyua-master
         - *liberty
-        - *donnmager
+        - *donnager
         - *t480
         - *rpi5-1
         - *rpi5-2
