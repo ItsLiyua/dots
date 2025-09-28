@@ -8,14 +8,18 @@ keys:
     - &linode age1zya84hkcxynmr7rc9k8umyngnclwr73xed8xp2l7ljjmvql4yuyqgue9ar
     - &ganymede age15g4wvczmefaejpr4xjtvtnty42g5qggjrpdtemh7mnspuvxz53usenlym0
   - users:
-    - &liyua-master age1x0tt0aw933scsms872xynu2henqa5rll4m6pajxj6f6m2242mp6sl3jer9
+    - &liyua-master age17e0h9k2t2a5lqa5j25rdyeghdf4785dqtk5qapaaza3cyu2z7e8s4vae4f
+    - &liyua-master-old age1x0tt0aw933scsms872xynu2henqa5rll4m6pajxj6f6m2242mp6sl3jer9
     - &liyua-ganymede age19jfpmmmqpzd3tvqyqh94tdszhqegram6q2hrefd46p89hjxvhp0qydzs7n
+    - &liyua-donnager age138wl3053lzgw67fnfjwcvvv25f4fs6f9t86x2wqa3r6x9232z9mqcs5jrc
 creation_rules:
-  - &system
-    path_regex: secrets/system.yaml$
+  - &common-system
+    path_regex: "secrets/hosts/common.yaml$"
     key_groups:
       - age:
         - *liyua-master
+        - *liyua-master-old
+        - *liyua-donnager
         - *liberty
         - *donnager
         - *t480
@@ -23,12 +27,23 @@ creation_rules:
         - *rpi5-2
         - *linode
         - *ganymede
-  - &user
-    path_regex: secrets/liyua.yaml$
+
+  - &donnager-system
+    path_regex: "secrets/hosts/donnager.yaml$"
     key_groups:
       - age:
         - *liyua-master
+        - *liyua-donnager
+        - *donnager
+
+  - &liyua
+    path_regex: "secrets/users/liyua.yaml$"
+    key_groups:
+      - age:
+        - *liyua-master
+        - *liyua-master-old
         - *liyua-ganymede
+        - *liyua-donnager
 stores:
   yaml:
     indent: 2

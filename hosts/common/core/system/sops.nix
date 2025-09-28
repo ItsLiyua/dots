@@ -1,8 +1,11 @@
 { myLib, pkgs, ... }:
 {
-  environment.systemPackages = [ pkgs.sops ];
+  environment.systemPackages = with pkgs; [
+    sops
+    age
+  ];
   sops = {
-    defaultSopsFile = myLib.relativeToRoot "secrets/system.yaml";
+    defaultSopsFile = myLib.relativeToRoot "secrets/hosts/common.yaml";
     validateSopsFiles = true;
 
     age = {

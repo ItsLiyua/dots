@@ -75,7 +75,52 @@
       ...
     }@inputs:
     let
-      myLib = import ./lib { inherit (nixpkgs) lib; };
+
+      mkSysConfig =
+        mainRepo: inputs: extraModules: entry: hostName:
+        mainRepo.lib.nixosSystem (
+          let
+            myLib = import ./lib {
+              inherit (nixpkgs) lib;
+              liyua.spec.hostName = hostName;
+            };
+          in
+          {
+            specialArgs = inputs // {
+              inherit myLib;
+            };
+            modules = extraModules ++ [
+              (myLib.relativeToRoot "modules/system")
+              (myLib.relativeToRoot "hosts/common")
+              entry
+            ];
+          }
+        );
+
+      mkHomeConfig =
+        pkgs: inputs: extraModules: entry: userName: hostName:
+        inputs.home-manager.lib.homeManagerConfiguration (
+          let
+            myLib = import ./lib {
+              inherit (nixpkgs) lib;
+              liyua.spec = {
+                hostName = hostName;
+                user.name = userName;
+              };
+            };
+          in
+          {
+            inherit pkgs;
+            extraSpecialArgs = inputs // {
+              inherit myLib;
+            };
+            modules = extraModules ++ [
+              (myLib.relativeToRoot "modules/user")
+              (myLib.relativeToRoot "home/liyua/common")
+              entry
+            ];
+          }
+        );
 
       overlays = {
         nixpkgs.overlays = with inputs; [
@@ -104,27 +149,27 @@
       x86_64 = nixpkgs.legacyPackages.x86_64-linux;
       aarch64 = nixpkgs.legacyPackages.aarch64-linux;
 
-      mkDefaultSysConfig = myLib.mkSysConfig nixpkgs inputs systemModules;
-      mkDefaultHomeConfig = myLib.mkHomeConfig x86_64 inputs homeModules;
+      mkDefaultSysConfig = mkSysConfig nixpkgs inputs systemModules;
+      mkDefaultHomeConfig = mkHomeConfig x86_64 inputs homeModules;
     in
     {
-      nixosConfigurations = with myLib; {
-        liberty = mkDefaultSysConfig ./hosts/liberty; # Razorback
-        donnager = mkDefaultSysConfig ./hosts/donnager;
-        t480 = mkDefaultSysConfig ./hosts/t480; # Rocinante
-        rpi5-1 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-1; # Phobos
-        rpi5-2 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-2; # Deimos
-        linode = mkDefaultSysConfig ./hosts/linode; # Medina
-        ganymede = mkDefaultSysConfig ./hosts/ganymede;
+      nixosConfigurations = {
+        liberty = mkDefaultSysConfig ./hosts/liberty "liberty"; # Razorback
+        donnager = mkDefaultSysConfig ./hosts/donnager "donnager";
+        t480 = mkDefaultSysConfig ./hosts/t480 "t480"; # Rocinante
+        rpi5-1 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-1 "rpi5-1"; # Eros
+        rpi5-2 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-2 "rpi5-2"; # Ceres
+        linode = mkDefaultSysConfig ./hosts/linode "linode"; # Medina
+        ganymede = mkDefaultSysConfig ./hosts/ganymede "ganymede";
       };
       homeConfigurations = {
-        "liyua@liberty" = mkDefaultHomeConfig ./home/liyua/liberty.nix;
-        "liyua@linode" = mkDefaultHomeConfig ./home/liyua/linode.nix;
-        "liyua@donnager" = mkDefaultHomeConfig ./home/liyua/donnager.nix;
-        "liyua@t480" = mkDefaultHomeConfig ./home/liyua/t480.nix;
-        "liyua@rpi5-1" = myLib.mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix;
-        "liyua@rpi5-2" = myLib.mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix;
-        "liyua@ganymede" = mkDefaultHomeConfig ./home/liyua/ganymede.nix;
+        "liyua@liberty" = mkDefaultHomeConfig ./home/liyua/liberty.nix "liyua" "liberty";
+        "liyua@linode" = mkDefaultHomeConfig ./home/liyua/linode.nix "liyua" "linode";
+        "liyua@donnager" = mkDefaultHomeConfig ./home/liyua/donnager.nix "liyua" "donnager";
+        "liyua@t480" = mkDefaultHomeConfig ./home/liyua/t480.nix "liyua" "t480";
+        "liyua@rpi5-1" = mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix "liyua" "rpi5-1";
+        "liyua@rpi5-2" = mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix "liyua" "rpi5-2";
+        "liyua@ganymede" = mkDefaultHomeConfig ./home/liyua/ganymede.nix "liyua" "ganymede";
       };
       overlays = import ./overlays { inherit (nixpkgs) lib; };
     }

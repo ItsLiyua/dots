@@ -1,9 +1,9 @@
-{ config, ... }:
+{ config, myLib, ... }:
 {
   sops.secrets = {
-    "disks/root/password" = { };
-    "disks/home/keyfile" = { };
-    "disks/home/password" = { };
+    "disks/root/password".sopsFile = myLib.sopsFileSystem;
+    "disks/home/keyfile".sopsFile = myLib.sopsFileSystem;
+    "disks/home/password".sopsFile = myLib.sopsFileSystem;
   };
   disko.devices = {
     disk = {
