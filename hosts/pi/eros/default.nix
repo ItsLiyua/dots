@@ -9,7 +9,7 @@
   liyua = {
     network.wireguard = {
       enable = true;
-      self = "rpi5-1"; # See modules/network/wireguard.nix
+      self = "eros"; # See modules/network/wireguard.nix
     };
     nfs = {
       enable = true;
@@ -20,5 +20,5 @@
       };
     };
   };
-  networking.hostName = "rpi5-1";
+  networking.hostName = "eros";
 }
