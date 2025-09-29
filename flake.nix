@@ -156,7 +156,7 @@
       nixosConfigurations = {
         liberty = mkDefaultSysConfig ./hosts/liberty "liberty"; # Razorback
         donnager = mkDefaultSysConfig ./hosts/donnager "donnager";
-        t480 = mkDefaultSysConfig ./hosts/t480 "t480"; # Rocinante
+        rocinante = mkDefaultSysConfig ./hosts/rocinante "rocinante";
         rpi5-1 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-1 "rpi5-1"; # Eros
         rpi5-2 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-2 "rpi5-2"; # Ceres
         linode = mkDefaultSysConfig ./hosts/linode "linode"; # Medina
@@ -166,7 +166,7 @@
         "liyua@liberty" = mkDefaultHomeConfig ./home/liyua/liberty.nix "liyua" "liberty";
         "liyua@linode" = mkDefaultHomeConfig ./home/liyua/linode.nix "liyua" "linode";
         "liyua@donnager" = mkDefaultHomeConfig ./home/liyua/donnager.nix "liyua" "donnager";
-        "liyua@t480" = mkDefaultHomeConfig ./home/liyua/t480.nix "liyua" "t480";
+        "liyua@rocinante" = mkDefaultHomeConfig ./home/liyua/rocinante.nix "liyua" "rocinante";
         "liyua@rpi5-1" = mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix "liyua" "rpi5-1";
         "liyua@rpi5-2" = mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix "liyua" "rpi5-2";
         "liyua@ganymede" = mkDefaultHomeConfig ./home/liyua/ganymede.nix "liyua" "ganymede";

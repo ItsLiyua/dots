@@ -1,10 +1,10 @@
 {
   imports = [
-    ./liberty/shared
-    ./linode/shared
+    ./razorback/shared
+    ./medina/shared
     ./pi/shared
     ./donnager/shared
-    ./t480/shared
+    ./rocinante/shared
     ./ganymede/shared
   ];
 }
