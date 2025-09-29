@@ -6,7 +6,7 @@
       type = "gpt";
       partitions = {
         ESP = {
-          size = "256M";
+          size = "512M";
           type = "EF00";
           content = {
             type = "filesystem";
