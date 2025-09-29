@@ -154,16 +154,16 @@
     in
     {
       nixosConfigurations = {
-        liberty = mkDefaultSysConfig ./hosts/liberty "liberty"; # Razorback
+        razorback = mkDefaultSysConfig ./hosts/razorback "razorback";
         donnager = mkDefaultSysConfig ./hosts/donnager "donnager";
         rocinante = mkDefaultSysConfig ./hosts/rocinante "rocinante";
         eros = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/eros "eros";
         ceres = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/ceres "ceres";
-        medina = mkDefaultSysConfig ./hosts/medina "medina"; # Medina
+        medina = mkDefaultSysConfig ./hosts/medina "medina";
         ganymede = mkDefaultSysConfig ./hosts/ganymede "ganymede";
       };
       homeConfigurations = {
-        "liyua@liberty" = mkDefaultHomeConfig ./home/liyua/liberty.nix "liyua" "liberty";
+        "liyua@razorback" = mkDefaultHomeConfig ./home/liyua/razorback.nix "liyua" "razorback";
         "liyua@medina" = mkDefaultHomeConfig ./home/liyua/medina.nix "liyua" "medina";
         "liyua@donnager" = mkDefaultHomeConfig ./home/liyua/donnager.nix "liyua" "donnager";
         "liyua@rocinante" = mkDefaultHomeConfig ./home/liyua/rocinante.nix "liyua" "rocinante";

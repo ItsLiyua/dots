@@ -34,7 +34,7 @@
       hostnameAdvertisement.enable = true;
       wireguard = {
         enable = true;
-        self = "liberty"; # See modules/network/wireguard.nix
+        self = "razorback"; # See modules/network/wireguard.nix
       };
     };
     powerManagement.enable = true;
@@ -50,6 +50,6 @@
     };
   };
 
-  networking.hostName = "liberty";
+  networking.hostName = "razorback";
   console.keyMap = "de";
 }
