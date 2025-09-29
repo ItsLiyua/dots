@@ -13,10 +13,10 @@
     bootloader.enable = false;
     network.wireguard = {
       enable = true;
-      self = "linode"; # See modules/network/wireguard.nix
+      self = "medina"; # See modules/network/wireguard.nix
     };
   };
 
-  networking.hostName = "linode";
+  networking.hostName = "medina";
   console.keyMap = "us";
 }

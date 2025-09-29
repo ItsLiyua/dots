@@ -25,7 +25,7 @@
           "ganymede"
         ] (hostname: mkCfgStdKey "${hostname}.local")
         // {
-          linode = mkCfgStdKey "liyua.moe";
+          medina = mkCfgStdKey "liyua.moe";
         }
       );
   };

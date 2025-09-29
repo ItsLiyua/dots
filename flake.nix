@@ -159,12 +159,12 @@
         rocinante = mkDefaultSysConfig ./hosts/rocinante "rocinante";
         eros = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/eros "eros";
         ceres = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/ceres "ceres";
-        linode = mkDefaultSysConfig ./hosts/linode "linode"; # Medina
+        medina = mkDefaultSysConfig ./hosts/medina "medina"; # Medina
         ganymede = mkDefaultSysConfig ./hosts/ganymede "ganymede";
       };
       homeConfigurations = {
         "liyua@liberty" = mkDefaultHomeConfig ./home/liyua/liberty.nix "liyua" "liberty";
-        "liyua@linode" = mkDefaultHomeConfig ./home/liyua/linode.nix "liyua" "linode";
+        "liyua@medina" = mkDefaultHomeConfig ./home/liyua/medina.nix "liyua" "medina";
         "liyua@donnager" = mkDefaultHomeConfig ./home/liyua/donnager.nix "liyua" "donnager";
         "liyua@rocinante" = mkDefaultHomeConfig ./home/liyua/rocinante.nix "liyua" "rocinante";
         "liyua@eros" = mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix "liyua" "eros";
