@@ -1,6 +1,6 @@
 keys:
   - hosts:
-    - &liberty age14q30ynrxljm276k52yzud3ppk6awh8h30k5etrlccn9mux95e43ss39rfe
+    - &razorback age14q30ynrxljm276k52yzud3ppk6awh8h30k5etrlccn9mux95e43ss39rfe
     - &donnager age1kcydglemswdtsk5j92gm9dtwdql33e68z3krzy0cvth6a0rpue6se2qvuf
     - &rocinante age1n67a6mxvmtk89jgs3lutm4nyjyautwsf7v2ssu0s2pzxle2dgvlsyhxnez
     - &eros age1lkvaqekxfqzg9m354nwr0dprgfwm6l858y4ux0hd3pru3wrj33hq5gq2hw
@@ -29,7 +29,7 @@ creation_rules:
         - *liyua-medina
         - *liyua-ceres
         - *liyua-eros
-        - *liberty
+        - *razorback
         - *donnager
         - *rocinante
         - *eros
@@ -83,7 +83,7 @@ creation_rules:
       - age:
         - *liyua-master
         - *liyua-rocinante
-        - *ceres
+        - *rocinante
 
   - &razorback-system
     path_regex: "secrets/hosts/razorback.yaml$"
@@ -91,7 +91,7 @@ creation_rules:
       - age:
         - *liyua-master
         - *liyua-razorback
-        - *ceres
+        - *razorback
 
   - &liyua
     path_regex: "secrets/users/liyua.yaml$"
