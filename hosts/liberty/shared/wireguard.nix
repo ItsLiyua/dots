@@ -1,12 +1,7 @@
 {
-  config,
-  ...
-}:
-{
-  sops.secrets."wireguard/liberty".owner = "systemd-network";
+  sops.secrets."wireguard".owner = "systemd-network";
   liyua.network.wireguard.devices.liberty = {
     assignedIP = "10.15.0.5";
-    privateKeyFile = config.sops.secrets."wireguard/liberty".path;
     publicKey = "eKDEMU79zTEKrRn/no7/9McLCK0MG+eibZ8NioYmEis=";
   };
 }

@@ -12,6 +12,11 @@ keys:
     - &liyua-master-old age1x0tt0aw933scsms872xynu2henqa5rll4m6pajxj6f6m2242mp6sl3jer9
     - &liyua-ganymede age19jfpmmmqpzd3tvqyqh94tdszhqegram6q2hrefd46p89hjxvhp0qydzs7n
     - &liyua-donnager age138wl3053lzgw67fnfjwcvvv25f4fs6f9t86x2wqa3r6x9232z9mqcs5jrc
+    - &liyua-medina age1ga0q7d4ckq67jvnh7dtd4ylaqrl2rjawx6fv763tt6ddy8ql2fuqrr9mav
+    - &liyua-ceres age10jt8rlkys0m8fr059lv2gm5yta9ke0nync5jj6208apgrzxzpusq2ju0ap
+    - &liyua-eros age1tx4zq6ayne94792cqkeza6uplwrzp8vx0jwpmm79mzu3yz3gfc9s24hv8x
+    - &liyua-rocinante age1q47tspnw76thwj8sajsvdw5y5hzveef205akhx0rfdkzckzlmspqzqtm9a
+    - &liyua-razorback age1sdgm4vf0s2mrxtepr72sewqhzw6mz0qe2tj5u27tnt9wvmyqgfps597x79
 creation_rules:
   - &common-system
     path_regex: "secrets/hosts/common.yaml$"
@@ -19,7 +24,13 @@ creation_rules:
       - age:
         - *liyua-master
         - *liyua-master-old
+        - *liyua-ganymede
         - *liyua-donnager
+        - *liyua-rocinante
+        - *liyua-razorback
+        - *liyua-medina
+        - *liyua-ceres
+        - *liyua-eros
         - *liberty
         - *donnager
         - *t480
@@ -43,7 +54,47 @@ creation_rules:
         - *liyua-master
         - *liyua-ganymede
         - *ganymede
-  - 
+  
+  - &medina-system
+    path_regex: "secrets/hosts/medina.yaml$"
+    key_groups:
+      - age:
+        - *liyua-master
+        - *liyua-medina
+        - *linode
+
+  - &eros-system
+    path_regex: "secrets/hosts/eros.yaml$"
+    key_groups:
+      - age:
+        - *liyua-master
+        - *liyua-eros
+        - *rpi5-1
+
+  - &ceres-system
+    path_regex: "secrets/hosts/ceres.yaml$"
+    key_groups:
+      - age:
+        - *liyua-master
+        - *liyua-ceres
+        - *rpi5-2
+
+  - &rocinante-system
+    path_regex: "secrets/hosts/rocinante.yaml$"
+    key_groups:
+      - age:
+        - *liyua-master
+        - *liyua-rocinante
+        - *rpi5-2
+
+  - &razorback-system
+    path_regex: "secrets/hosts/razorback.yaml$"
+    key_groups:
+      - age:
+        - *liyua-master
+        - *liyua-razorback
+        - *rpi5-2
+
   - &liyua
     path_regex: "secrets/users/liyua.yaml$"
     key_groups:
@@ -52,6 +103,11 @@ creation_rules:
         - *liyua-master-old
         - *liyua-ganymede
         - *liyua-donnager
+        - *liyua-rocinante
+        - *liyua-razorback
+        - *liyua-medina
+        - *liyua-ceres
+        - *liyua-eros
 stores:
   yaml:
     indent: 2

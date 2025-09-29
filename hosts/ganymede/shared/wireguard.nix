@@ -1,12 +1,6 @@
-{ config, myLib, ... }:
 {
-  sops.secrets."wireguard-ganymede" = {
-    owner = "systemd-network";
-    sopsFile = myLib.sopsFileSystem;
-  };
   liyua.network.wireguard.devices.ganymede = {
     assignedIP = "10.15.0.7";
-    privateKeyFile = config.sops.secrets."wireguard-ganymede".path;
-    publicKey = "jQZ3FMy96W4Dw7TgglANFlsTNm12qLXDzqnXuMUIQxg=";
+    publicKey = "Ssgyb/lCFbBICXOUtToGk5SSyKfxqVFIDyqW5QY1pzU=";
   };
 }

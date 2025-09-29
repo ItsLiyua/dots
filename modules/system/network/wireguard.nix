@@ -26,6 +26,10 @@
       default = 24;
       example = 8;
     };
+    privateKeyFile = lib.mkOption {
+      type = lib.types.str;
+      description = "The path to the file containing this devices private key. This file has to be in the same location for all hosts but the contents may differ (obviously).";
+    };
     devices = lib.mkOption {
       type = lib.types.attrsOf (
         lib.types.submodule {
@@ -34,10 +38,6 @@
             assignedIP = lib.mkOption {
               type = lib.types.str;
               description = "The IP of this device";
-            };
-            privateKeyFile = lib.mkOption {
-              type = lib.types.str;
-              description = "The path to the file containing this devices private key.";
             };
             publicKey = lib.mkOption {
               type = lib.types.str;

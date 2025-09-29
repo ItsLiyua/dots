@@ -19,7 +19,7 @@ lib.mkIf enable {
         MTUBytes = "1300";
       };
       wireguardConfig = {
-        PrivateKeyFile = devices.${self}.privateKeyFile;
+        PrivateKeyFile = privateKeyFile;
         ListenPort = port;
         RouteTable = "main";
       };
