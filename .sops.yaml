@@ -8,8 +8,7 @@ keys:
     - &medina age1zya84hkcxynmr7rc9k8umyngnclwr73xed8xp2l7ljjmvql4yuyqgue9ar
     - &ganymede age15g4wvczmefaejpr4xjtvtnty42g5qggjrpdtemh7mnspuvxz53usenlym0
   - users:
-    - &liyua-master age17e0h9k2t2a5lqa5j25rdyeghdf4785dqtk5qapaaza3cyu2z7e8s4vae4f
-    - &liyua-master-old age1x0tt0aw933scsms872xynu2henqa5rll4m6pajxj6f6m2242mp6sl3jer9
+    - &liyua-master age138wl3053lzgw67fnfjwcvvv25f4fs6f9t86x2wqa3r6x9232z9mqcs5jrc
     - &liyua-ganymede age19jfpmmmqpzd3tvqyqh94tdszhqegram6q2hrefd46p89hjxvhp0qydzs7n
     - &liyua-donnager age138wl3053lzgw67fnfjwcvvv25f4fs6f9t86x2wqa3r6x9232z9mqcs5jrc
     - &liyua-medina age1ga0q7d4ckq67jvnh7dtd4ylaqrl2rjawx6fv763tt6ddy8ql2fuqrr9mav
@@ -23,7 +22,6 @@ creation_rules:
     key_groups:
       - age:
         - *liyua-master
-        - *liyua-master-old
         - *liyua-ganymede
         - *liyua-donnager
         - *liyua-rocinante
@@ -100,7 +98,6 @@ creation_rules:
     key_groups:
       - age:
         - *liyua-master
-        - *liyua-master-old
         - *liyua-ganymede
         - *liyua-donnager
         - *liyua-rocinante
