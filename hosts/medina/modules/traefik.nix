@@ -66,7 +66,7 @@
         };
         services =
           let
-            rpi51Ip = config.liyua.network.wireguard.devices.rpi5-1.assignedIP;
+            rpi51Ip = config.liyua.network.wireguard.devices.eros.assignedIP;
             ganymedeIp = config.liyua.network.wireguard.devices.ganymede.assignedIP;
           in
           {

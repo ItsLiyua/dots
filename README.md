@@ -28,7 +28,7 @@ installer. For the system configuration I recommend `~/nix` with a symlink to
 > [!NOTE]
 > For a raspberry pi it is recommended to check out
 > [nvmd/nixos-raspberrypi](https://github.com/nvmd/nixos-raspberrypi). Examples
-> can be found in the configurations for `rpi5-1` and `rpi5-2`.
+> can be found in the configurations for `eros` and `ceres`.
 
 Then you'll have to create a new system configuration with a unique hostname in
 the `flake.nix` file. The recommended structure is to place the new
@@ -104,7 +104,7 @@ separate directory for each host. I just use a single file per host.
 - [ ] resolute: Add OpenRGB
 - [ ] rpi5-2: Add actual for budgeting
 - [ ] rpi5-2: Paperless NGX
-- [x] rpi5-1: NFS for music and such
+- [x] eros: NFS for music and such
 - [ ] common: auto symlink `~/nix` to `/etc/nixos`
 - [ ] liyua.moe: configure traefik subdomains in the files of the services they
       represent using custom module

@@ -157,8 +157,8 @@
         liberty = mkDefaultSysConfig ./hosts/liberty "liberty"; # Razorback
         donnager = mkDefaultSysConfig ./hosts/donnager "donnager";
         rocinante = mkDefaultSysConfig ./hosts/rocinante "rocinante";
-        rpi5-1 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-1 "rpi5-1"; # Eros
-        rpi5-2 = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/rpi5-2 "rpi5-2"; # Ceres
+        eros = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/eros "eros";
+        ceres = mkSysConfig nixos-raspberrypi inputs systemModules ./hosts/pi/ceres "ceres";
         linode = mkDefaultSysConfig ./hosts/linode "linode"; # Medina
         ganymede = mkDefaultSysConfig ./hosts/ganymede "ganymede";
       };
@@ -167,8 +167,8 @@
         "liyua@linode" = mkDefaultHomeConfig ./home/liyua/linode.nix "liyua" "linode";
         "liyua@donnager" = mkDefaultHomeConfig ./home/liyua/donnager.nix "liyua" "donnager";
         "liyua@rocinante" = mkDefaultHomeConfig ./home/liyua/rocinante.nix "liyua" "rocinante";
-        "liyua@rpi5-1" = mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix "liyua" "rpi5-1";
-        "liyua@rpi5-2" = mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix "liyua" "rpi5-2";
+        "liyua@eros" = mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix "liyua" "eros";
+        "liyua@ceres" = mkHomeConfig aarch64 inputs homeModules ./home/liyua/rpi5.nix "liyua" "ceres";
         "liyua@ganymede" = mkDefaultHomeConfig ./home/liyua/ganymede.nix "liyua" "ganymede";
       };
       overlays = import ./overlays { inherit (nixpkgs) lib; };
