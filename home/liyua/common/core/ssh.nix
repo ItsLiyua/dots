@@ -17,11 +17,11 @@
       in
       (
         lib.genAttrs [
-          "liberty"
+          "razorback"
           "donnager"
-          "rpi5-1"
-          "rpi5-2"
-          "t480"
+          "eros"
+          "ceres"
+          "rocinante"
           "ganymede"
         ] (hostname: mkCfgStdKey "${hostname}.local")
         // {
