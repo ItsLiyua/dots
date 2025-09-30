@@ -1,4 +1,3 @@
-{ config, ... }:
 {
   liyua = {
     unfree = {
@@ -50,7 +49,9 @@
       };
       nvim.enable = true;
     };
+    yubikey = {
+      enable = true;
+      usedKey = "nfc-c";
+    };
   };
-
-  sops.secrets."liyua/yubikey/nfc-c/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
 }

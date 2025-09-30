@@ -69,7 +69,9 @@
       tokei.enable = true;
       nvim.enable = true;
     };
+    yubikey = {
+      enable = true;
+      usedKey = "nano";
+    };
   };
-
-  sops.secrets."liyua/yubikey/nano/ssh".path = "${config.home.homeDirectory}/.ssh/id_yubikey";
 }
