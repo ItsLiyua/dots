@@ -61,12 +61,12 @@
     };
   };
   home.file.".ssh/allowed_signers".text = ''
-    ${builtins.readFile (myLib.relativeToRoot "keys/id_nfc.pub")}
-    ${builtins.readFile (myLib.relativeToRoot "keys/id_nfc-c.pub")}
-    ${builtins.readFile (myLib.relativeToRoot "keys/id_nano.pub")}
-    ${builtins.readFile (myLib.relativeToRoot "keys/id_uni_nfc.pub")}
-    ${builtins.readFile (myLib.relativeToRoot "keys/id_uni_nfc-c.pub")}
-    ${builtins.readFile (myLib.relativeToRoot "keys/id_uni_nano.pub")}
+    liyua@nfc ${builtins.readFile (myLib.relativeToRoot "keys/id_nfc.pub")}
+    liyua@nfc-c ${builtins.readFile (myLib.relativeToRoot "keys/id_nfc-c.pub")}
+    liyua@nano ${builtins.readFile (myLib.relativeToRoot "keys/id_nano.pub")}
+    uni@nfc ${builtins.readFile (myLib.relativeToRoot "keys/id_uni_nfc.pub")}
+    uni@nfc-c ${builtins.readFile (myLib.relativeToRoot "keys/id_uni_nfc-c.pub")}
+    uni@nano ${builtins.readFile (myLib.relativeToRoot "keys/id_uni_nano.pub")}
     liyua@nano.old sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIN0+B3yM7FqDHXq/F99ZAvnM3Vap1u9+g59NXfDk34lQAAAABHNzaDo= liyua@nano
     liyua@nfc.old sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAICdngkr57QIPqK6Lm4235y61BUG9jjU1fJioVZRWb2zIAAAABHNzaDo= liyua@nfc
   '';
