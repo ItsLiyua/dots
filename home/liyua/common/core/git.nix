@@ -1,6 +1,9 @@
 { config, myLib, ... }:
 {
-  sops.secrets."liyua/git" = { };
+  sops.secrets = {
+    "liyua/git" = { };
+    "liyua/uni-gitconfig" = { };
+  };
   programs = {
     git = {
       enable = true;
@@ -17,6 +20,12 @@
         gpg.ssh.allowedsignersfile = "${config.home.homeDirectory}/.ssh/allowed_signers";
         user.signingkey = "${config.home.homeDirectory}/.ssh/id_yubikey";
       };
+      includes = [
+        {
+          condition = "gitdir:~/Documents/Uni/";
+          path = config.sops.secrets."liyua/uni-gitconfig".path;
+        }
+      ];
     };
     ssh.matchBlocks = {
       "github.com" = {
