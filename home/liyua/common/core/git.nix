@@ -23,8 +23,11 @@
       includes = [
         {
           condition = "gitdir:~/Documents/Uni/";
-          contents.user.signingkey = "${config.home.homeDirectory}/.ssh/id_uni_yubikey";
           path = config.sops.secrets."liyua/uni-gitconfig".path;
+        }
+        {
+          condition = "gitdir:~/Documents/Uni/";
+          contents.user.signingkey = "${config.home.homeDirectory}/.ssh/id_uni_yubikey";
         }
       ];
     };
