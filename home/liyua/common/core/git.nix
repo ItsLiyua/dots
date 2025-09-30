@@ -27,16 +27,26 @@
         }
       ];
     };
-    ssh.matchBlocks = {
-      "github.com" = {
-        user = "git";
-        hostname = "github.com";
-        identityFile = config.sops.secrets."liyua/git".path;
-      };
-      "gitlab.com" = {
-        user = "git";
-        hostname = "gitlab.com";
-        identityFile = config.sops.secrets."liyua/git".path;
+    ssh = rec {
+      matchBlocks = {
+        "github.com" = {
+          user = "git";
+          hostname = "github.com";
+          identityFile = config.sops.secrets."liyua/git".path;
+        };
+        gh = matchBlocks."github.com";
+        "gitlab.com" = {
+          user = "git";
+          hostname = "gitlab.com";
+          identityFile = config.sops.secrets."liyua/git".path;
+        };
+        gl = matchBlocks."gitlab.com";
+        "gitlab.lrz.de" = {
+          user = "git";
+          hostname = "gitlab.lrz.de";
+          identityFile = config.sops.secrets."liyua/git".path;
+        };
+        lrz = matchBlocks."gitlab.lrz.de";
       };
     };
     zsh.shellAliases = {
