@@ -1,6 +1,5 @@
 { lib, ... }:
 {
-  imports = [ ./wireguard.nix ];
   options.liyua.network = {
     wireless.enable = lib.mkEnableOption "Add wireless networking support";
     usePredictableInterfaceNames = lib.mkOption {
