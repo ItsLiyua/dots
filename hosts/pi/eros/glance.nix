@@ -119,12 +119,12 @@
                         }
                         {
                           title = "Traefik";
-                          url = "https://${config.liyua.network.wireguard.devices.medina.assignedIp}:80";
+                          url = "https://${config.liyua.network.wireguard.devices.medina.assignedIP}:80";
                           icon = "di:traefik-proxy";
                         }
                         {
                           title = "Velocity";
-                          url = "https://${config.liyua.network.wireguard.devices.medina.assignedIp}:25565";
+                          url = "https://${config.liyua.network.wireguard.devices.medina.assignedIP}:25565";
                           icon = "di:minecraft";
                         }
                       ];
