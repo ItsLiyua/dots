@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   users = {
     groups.glance = { };
@@ -105,7 +106,6 @@
                           title = "Radicale";
                           url = "https://calendar.liyua.moe";
                           icon = "di:radicale";
-                          # alt-status-codes = [ 302 ];
                         }
                         {
                           title = "Vaultwarden";
@@ -116,6 +116,16 @@
                           title = "Jellyfin";
                           url = "https://jelly.liyua.moe";
                           icon = "di:jellyfin";
+                        }
+                        {
+                          title = "Traefik";
+                          url = "https://${config.liyua.network.wireguard.devices.medina.assignedIp}:80";
+                          icon = "di:traefik-proxy";
+                        }
+                        {
+                          title = "Velocity";
+                          url = "https://${config.liyua.network.wireguard.devices.medina.assignedIp}:25565";
+                          icon = "di:minecraft";
                         }
                       ];
                     }
