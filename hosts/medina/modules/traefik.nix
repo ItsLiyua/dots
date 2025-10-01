@@ -1,6 +1,9 @@
-{ config, ... }:
+{ config, myLib, ... }:
 {
-  sops.secrets."traefik/dashboard".owner = "traefik";
+  sops.secrets.traefik = {
+    owner = "traefik";
+    sopsFile = myLib.sopsFileSystem;
+  };
   networking.firewall.allowedTCPPorts = [
     80
     443
@@ -75,7 +78,7 @@
             glance.loadBalancer.servers = [ { url = "http://${rpi51Ip}:7575"; } ];
             jellyfin.loadBalancer.servers = [ { url = "http://${ganymedeIp}:8096"; } ];
           };
-        middlewares.auth.basicAuth.usersFile = config.sops.secrets."traefik/dashboard".path;
+        middlewares.auth.basicAuth.usersFile = config.sops.secrets.traefik.path;
       };
     };
   };
