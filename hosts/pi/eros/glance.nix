@@ -1,4 +1,3 @@
-{ config, ... }:
 {
   users = {
     groups.glance = { };
@@ -116,16 +115,6 @@
                           title = "Jellyfin";
                           url = "https://jelly.liyua.moe";
                           icon = "di:jellyfin";
-                        }
-                        {
-                          title = "Traefik";
-                          url = "https://${config.liyua.network.wireguard.devices.medina.assignedIP}:80";
-                          icon = "di:traefik-proxy";
-                        }
-                        {
-                          title = "Velocity";
-                          url = "https://${config.liyua.network.wireguard.devices.medina.assignedIP}:25565";
-                          icon = "di:minecraft";
                         }
                       ];
                     }
