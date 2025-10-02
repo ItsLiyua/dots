@@ -6,7 +6,6 @@ pre-build:
   git add **/*.nix
   git add **/*.tsx
   git add **/*.yaml
-  git add **/*.yml
   git add **/*.pub
 
 system:
