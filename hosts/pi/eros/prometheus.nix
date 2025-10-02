@@ -2,7 +2,6 @@
   services.prometheus = {
     enable = true;
     port = 9090;
-    openFirewall = true;
     globalConfig.scrape_interval = "30s";
     scrapeConfigs = [
       {
