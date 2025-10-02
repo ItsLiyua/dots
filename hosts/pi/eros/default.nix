@@ -3,6 +3,7 @@
     ./shared
     ../common
     ./glance.nix
+    ./grafana.nix
     ./prometheus.nix
     ./radicale.nix
     ./vaultwarden.nix
