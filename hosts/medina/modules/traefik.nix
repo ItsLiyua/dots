@@ -66,17 +66,24 @@
             tls.certResolver = "myresolver";
             entrypoints = "websecure";
           };
+          grafana = {
+            rule = "Host(`mon.liyua.moe`)";
+            service = "grafana";
+            tls.certResolver = "myresolver";
+            entrypoints = "websecure";
+          };
         };
         services =
           let
-            rpi51Ip = config.liyua.network.wireguard.devices.eros.assignedIP;
-            ganymedeIp = config.liyua.network.wireguard.devices.ganymede.assignedIP;
+            erosIP = config.liyua.network.wireguard.devices.eros.assignedIP;
+            ganymedeIP = config.liyua.network.wireguard.devices.ganymede.assignedIP;
           in
           {
-            vaultwarden.loadBalancer.servers = [ { url = "http://${rpi51Ip}:8222"; } ];
-            radicale.loadBalancer.servers = [ { url = "http://${rpi51Ip}:5232"; } ];
-            glance.loadBalancer.servers = [ { url = "http://${rpi51Ip}:7575"; } ];
-            jellyfin.loadBalancer.servers = [ { url = "http://${ganymedeIp}:8096"; } ];
+            vaultwarden.loadBalancer.servers = [ { url = "http://${erosIP}:8222"; } ];
+            radicale.loadBalancer.servers = [ { url = "http://${erosIP}:5232"; } ];
+            glance.loadBalancer.servers = [ { url = "http://${erosIP}:7575"; } ];
+            jellyfin.loadBalancer.servers = [ { url = "http://${ganymedeIP}:8096"; } ];
+            grafana.loadBalancer.servers = [ { url = "http://${erosIP}:3000"; } ];
           };
         middlewares.auth.basicAuth.usersFile = config.sops.secrets.traefik.path;
       };

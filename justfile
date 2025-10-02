@@ -3,10 +3,11 @@ rebuild:
   just home
 
 pre-build:
-  git add *.nix
-  git add *.pub
-  git add *.tsx
-  git add *.scss
+  git add **/*.nix
+  git add **/*.tsx
+  git add **/*.yaml
+  git add **/*.yml
+  git add **/*.pub
 
 system:
   just pre-build
