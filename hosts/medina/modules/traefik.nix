@@ -66,12 +66,12 @@
             tls.certResolver = "myresolver";
             entrypoints = "websecure";
           };
-          grafana = {
-            rule = "Host(`mon.liyua.moe`)";
-            service = "grafana";
-            tls.certResolver = "myresolver";
-            entrypoints = "websecure";
-          };
+          # grafana = {
+          #   rule = "Host(`mon.liyua.moe`)";
+          #   service = "grafana";
+          #   tls.certResolver = "myresolver";
+          #   entrypoints = "websecure";
+          # };
         };
         services =
           let
