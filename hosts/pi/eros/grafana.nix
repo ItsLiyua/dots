@@ -8,5 +8,12 @@
         http_port = 3000;
       };
     };
+    provision.datasources.settings.datasources = [
+      {
+        url = "localhost:9090";
+        name = "Prometheus";
+        type = "prometheus";
+      }
+    ];
   };
 }
