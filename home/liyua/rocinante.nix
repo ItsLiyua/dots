@@ -14,11 +14,6 @@
       };
       layout = "eu";
       wm.niri.enable = true;
-      wallpaper = {
-        enable = true;
-        type = "nix";
-        nix.theme = "rainbow";
-      };
       idle = {
         enable = true;
         suspend = true;
@@ -48,6 +43,7 @@
       enable = true;
       usedKey = "nfc";
     };
+    theme.arasaka.enable = true;
   };
 
   programs.btop.settings.selected_battery = "BAT1"; # Use external battery for t480
