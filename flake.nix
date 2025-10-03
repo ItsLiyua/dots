@@ -75,7 +75,6 @@
       ...
     }@inputs:
     let
-
       mkSysConfig =
         mainRepo: inputs: extraModules: entry: hostName:
         mainRepo.lib.nixosSystem (
@@ -181,11 +180,13 @@
         in
         {
           formatter = nixpkgs.legacyPackages.${s}.nixfmt-tree;
-          packages = {
-            nvim = import ./packages/nvim/package.nix {
-              inherit (inputs) nvf;
-              inherit pkgs;
-            };
+          packages = rec {
+            nvimBuilder =
+              (import ./packages/nvim {
+                inherit (inputs) nvf;
+                inherit pkgs;
+              }).buildPackage;
+            nvim = nvimBuilder { };
             desktop-shell = pkgs.callPackage ./packages/desktop-shell/package.nix { inherit (inputs) ags; };
           };
           devShells = {

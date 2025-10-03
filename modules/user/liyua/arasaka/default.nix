@@ -12,12 +12,15 @@
       wall = myLib.relativeToRoot "assets/wallpaper/arasaka.jpg" |> toString;
     in
     (lib.mkForce {
-      liyua.desktop.wallpaper = {
-        enable = true;
-        type = "path";
-        path.eDP-1 = builtins.path {
-          path = wall;
-          name = "arasaka-wallpaper";
+      liyua = {
+        programs.nvim.base16 = config.stylix.base16Scheme;
+        desktop.wallpaper = {
+          enable = true;
+          type = "path";
+          path.eDP-1 = builtins.path {
+            path = wall;
+            name = "arasaka-wallpaper";
+          };
         };
       };
       stylix = {

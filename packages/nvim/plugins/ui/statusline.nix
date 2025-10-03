@@ -1,6 +1,3 @@
 {
-  vim.statusline.lualine = {
-    enable = true;
-    theme = "catppuccin";
-  };
+  vim.statusline.lualine.enable = true;
 }
