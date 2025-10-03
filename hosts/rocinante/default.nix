@@ -7,7 +7,15 @@
   ];
 
   liyua = {
+    unfree = {
+      enable = true;
+      whitelist = [
+        "steam"
+        "steam-unwrapped"
+      ];
+    };
     ui = {
+      gaming.gamepadSupport = true;
       greeter = {
         enable = true;
         launchCommand = "niri-session";
@@ -61,6 +69,11 @@
         command = "niri-session";
       };
     };
+  };
+
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
   };
 
   networking.hostName = "rocinante";

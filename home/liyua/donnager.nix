@@ -1,4 +1,3 @@
-{ config, ... }:
 {
   liyua = {
     unfree = {
