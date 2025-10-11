@@ -2,7 +2,7 @@
 {
   sops.secrets = {
     "liyua/git" = { };
-    "liyua/uni-gitconfig" = { };
+    "liyua/uni/gitconfig" = { };
   };
   programs = {
     git = {
@@ -23,7 +23,7 @@
       includes = [
         {
           condition = "gitdir:~/Documents/Uni/";
-          path = config.sops.secrets."liyua/uni-gitconfig".path;
+          path = config.sops.secrets."liyua/uni/gitconfig".path;
         }
         {
           condition = "gitdir:~/Documents/Uni/";

@@ -4,6 +4,7 @@
   ...
 }:
 {
+  sops.secrets."liyua/uni/sshconfig" = { };
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
@@ -28,5 +29,6 @@
           medina = mkCfgStdKey "liyua.moe";
         }
       );
+    includes = [ config.sops.secrets."liyua/uni/sshconfig".path ];
   };
 }

@@ -25,6 +25,9 @@
           PermitRootLogin = "prohibit-password";
         };
       };
+
+      programs.ssh.startAgent = true;
+
       users.users.root.openssh.authorizedKeys.keyFiles = lib.mkIf config.liyua.ssh.enableRootAccess (
         lib.warn "ENABLED SSH ROOT ACCESS. DISABLE AS SOON AS POSSIBLE" (
           with myLib;
