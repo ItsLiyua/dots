@@ -46,6 +46,5 @@
     theme.arasaka.enable = true;
   };
 
-  programs.btop.settings.selected_battery = "BAT1"; # Use external battery for t480
   home.packages = with pkgs; [ rpi-imager ];
 }
