@@ -70,7 +70,7 @@
         fonts = {
           monospace = {
             package = pkgs.nerd-fonts.jetbrains-mono;
-            name = "JetBrains Mono Nerd Font";
+            name = "JetBrainsMono Nerd Font Mono";
           };
           serif = config.stylix.fonts.monospace;
           sansSerif = config.stylix.fonts.monospace;
