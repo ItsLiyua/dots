@@ -1,10 +1,20 @@
 { pkgs, ... }:
 {
   liyua = {
+    unfree = {
+      enable = true;
+      whitelist = [
+        "steam"
+        "steam-unwrapped"
+        "discord"
+      ];
+    };
     apps = {
       firefox.enable = true;
       nautilus.enable = true;
       zathura.enable = true;
+      discord.enable = true;
+      steam.enable = true;
     };
     desktop = {
       displays.eDP-1 = {
