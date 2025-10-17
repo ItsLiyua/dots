@@ -51,6 +51,12 @@
           identityFile = config.sops.secrets."liyua/git".path;
         };
         lrz = matchBlocks."gitlab.lrz.de";
+        "artemis.tum.de" = {
+          user = "git";
+          hostname = "artemis.tum.de";
+          identityFile = config.sops.secrets."liyua/git".path;
+          port = 7921;
+        };
       };
     };
     zsh.shellAliases = {
