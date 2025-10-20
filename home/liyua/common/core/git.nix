@@ -7,10 +7,10 @@
   programs = {
     git = {
       enable = true;
-      userName = "Liyua";
-      userEmail = "liyua@liyua.moe";
       lfs.enable = true;
-      extraConfig = {
+      settings = {
+        user.name = "Liyua";
+        user.email = "liyua@liyua.moe";
         init.defaultBranch = "master";
         push.autoSetupRemote = true;
         pull.rebase = false;

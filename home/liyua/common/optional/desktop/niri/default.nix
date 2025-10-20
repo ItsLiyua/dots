@@ -77,8 +77,8 @@ lib.mkIf config.liyua.desktop.wm.niri.enable {
         "Mod+Shift+9".action.move-column-to-workspace = 9;
         "Mod+Shift+0".action.move-column-to-workspace = 10;
 
-        "Print".action = screenshot;
-        "Mod+P".action = screenshot;
+        # "Print".action = screenshot;
+        # "Mod+P".action = screenshot;
         "Mod+Space".action = toggle-overview;
 
         # XF86WakeUp.action = null;
