@@ -18,15 +18,15 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
     >
       <centerbox cssName="centerbox" orientation={Gtk.Orientation.VERTICAL}>
         <box $type="start" orientation={Gtk.Orientation.VERTICAL}>
-          <label label="launch" />
+          {/* <label label="launch" /> */}
           <Workspace gdkMonitor={gdkmonitor} />
         </box>
         <box $type="center" orientation={Gtk.Orientation.VERTICAL}></box>
         <box $type="end" orientation={Gtk.Orientation.VERTICAL}>
-          <label label="wifi" />
-          <label label="bt" />
-          <label label="vol" />
-          <label label="bat" />
+          {/* <label label="wifi" /> */}
+          {/* <label label="bt" /> */}
+          {/* <label label="vol" /> */}
+          {/* <label label="bat" /> */}
           <Clock />
         </box>
       </centerbox>
