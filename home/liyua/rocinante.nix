@@ -7,12 +7,10 @@
         "steam"
         "steam-unwrapped"
         "discord"
-        "makemkv"
       ];
     };
     apps = {
       firefox.enable = true;
-      makemkv.enable = true;
       nautilus.enable = true;
       zathura.enable = true;
       discord.enable = true;
@@ -57,6 +55,4 @@
     };
     theme.arasaka.enable = true;
   };
-
-  home.packages = with pkgs; [ rpi-imager ];
 }
