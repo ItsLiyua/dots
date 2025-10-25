@@ -48,7 +48,10 @@
     yubikey.enable = true;
     nfs = {
       enable = true;
-      drives.shared.enable = true;
+      drives.shared = {
+        enable = true;
+        mode = "direct";
+      };
     };
     eduroam.enable = true;
   };
