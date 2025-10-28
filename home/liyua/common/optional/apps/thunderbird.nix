@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 {
@@ -11,22 +10,7 @@
       enable = true;
       profiles.default = {
         isDefault = true;
-        name = "default";
       };
     };
-    # accounts = {
-    #   calendar = {
-    #     accounts = {
-    #       general = {
-    #         name = "General";
-    #         remote = {
-    #           type = "caldav";
-    # url =  TODO: Figure out whether this allows read access to my calendar without password
-    #             passwordCommand = ''cat "${config.sops.secrets."liyua/calendar".path}"'';
-    #           };
-    #         };
-    #       };
-    #     };
-    #   };
   };
 }
