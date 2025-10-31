@@ -57,7 +57,8 @@
     };
     ags = {
       url = "github:aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
+      # TODO: Allow following again, as soon as AGS updates to the latest nixpkgs
     };
     nix-userstyles = {
       url = "github:knoopx/nix-userstyles";

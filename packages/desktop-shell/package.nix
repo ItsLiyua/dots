@@ -4,7 +4,7 @@
   system,
   libadwaita,
   libsoup_3,
-  wrapGAppsHook,
+  wrapGAppsHook3,
   gobject-introspection,
   gjs,
 }:
@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
   ];
 
   nativeBuildInputs = [
-    wrapGAppsHook
+    wrapGAppsHook3
     gobject-introspection
     ags.packages.${system}.default
   ];
