@@ -31,7 +31,7 @@
       lockscreen.enable = true;
       screenshot.enable = true;
       theming.enable = true;
-      ags.enable = true;
+      ags.enable = false;
     };
     clipboard.enable = true;
     xdg.enable = true;

@@ -31,7 +31,7 @@
             command = ''${pkgs.tuigreet}/bin/tuigreet -tr --asterisks --asterisks-char "*" ${
               if cfg.text != null then ''-g "${cfg.text}"'' else ""
             } --user-menu --window-padding 2 --theme "text=white;container=black;border=red;greet=white;prompt=red;input=white;action=white" --cmd "${cfg.launchCommand}"'';
-            # command = ''${arasaka-greeter.packages.${pkgs.system}.default}/bin/launch-arasaka-greeter'';
+            # command = ''${arasaka-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/launch-arasaka-greeter'';
             user = "greeter";
           };
         };

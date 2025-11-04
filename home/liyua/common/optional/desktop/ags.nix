@@ -14,7 +14,7 @@ lib.mkIf config.liyua.desktop.ags.enable {
     };
 
     Service = {
-      ExecStart = "${self.packages.${pkgs.system}.desktop-shell}/bin/desktop-shell";
+      ExecStart = "${self.packages.${pkgs.stdenv.hostPlatform.system}.desktop-shell}/bin/desktop-shell";
       Restart = "on-failure";
       KillMode = "mixed";
     };

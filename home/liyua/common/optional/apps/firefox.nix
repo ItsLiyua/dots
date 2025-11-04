@@ -32,7 +32,7 @@
           };
         };
         userContent = ''
-          ${builtins.readFile "${nix-userstyles.packages.${pkgs.system}.mkUserStyles
+          ${builtins.readFile "${nix-userstyles.packages.${pkgs.stdenv.hostPlatform.system}.mkUserStyles
             (
               config.lib.stylix.colors
               |> lib.getAttrs (

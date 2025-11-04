@@ -53,7 +53,7 @@
             })
             |> map (d: {
               inherit (d) name;
-              img = nix-wallpaper.packages.${pkgs.system}.default.override (
+              img = nix-wallpaper.packages.${pkgs.stdenv.hostPlatform.system}.default.override (
                 { inherit (d.value) width height; } // colors
               );
             })
