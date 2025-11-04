@@ -10,6 +10,7 @@
       scrollDocsDown = null;
       scrollDocsUp = null;
     };
+    # sourcePlugins.spell.enable = true;
     setupOpts = {
       keymap = {
         preset = "none";
