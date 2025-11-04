@@ -61,7 +61,7 @@
       plymouth = lib.mkIf plymouth.enable {
         enable = true;
         theme = "arasaka";
-        themePackages = [ plymouth-arasaka.packages.${pkgs.system}.default ];
+        themePackages = [ plymouth-arasaka.packages.${pkgs.stdenv.hostPlatform.system}.default ];
       };
       consoleLogLevel = logLevel;
       initrd.systemd.enable = true;

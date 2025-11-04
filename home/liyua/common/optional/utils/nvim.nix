@@ -45,7 +45,9 @@
   };
   config.home = lib.mkIf config.liyua.programs.nvim.enable {
     packages = [
-      (self.packages.${pkgs.system}.nvimBuilder { inherit (config.liyua.programs.nvim) base16; })
+      (self.packages.${pkgs.stdenv.hostPlatform.system}.nvimBuilder {
+        inherit (config.liyua.programs.nvim) base16;
+      })
     ];
   };
 }

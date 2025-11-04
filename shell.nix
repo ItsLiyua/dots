@@ -1,7 +1,7 @@
 { self, pkgs }:
 pkgs.mkShell {
   packages = with pkgs; [
-    self.packages.${pkgs.system}.nvim
+    self.packages.${pkgs.stdenv.hostPlatform.system}.nvim
     sops
     age
     ssh-to-age
