@@ -53,6 +53,6 @@
       enable = true;
       usedKey = "nfc";
     };
-    theme.arasaka.enable = true;
+    # theme.arasaka.enable = true;
   };
 }

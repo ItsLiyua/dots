@@ -3,7 +3,6 @@
   vim = {
     languages.java.enable = true;
     formatter.conform-nvim = {
-      enable = true;
       setupOpts = {
         formatters.google-java-format.command = "${pkgs.google-java-format}/bin/google-java-format";
         formatters_by_ft.java = [ "google-java-format" ];
