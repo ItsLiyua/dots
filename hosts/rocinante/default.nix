@@ -67,6 +67,8 @@
     };
   };
 
+  programs.nix-ld.enable = true;
+
   networking.hostName = "rocinante";
   console.keyMap = "us";
 }
