@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   liyua = {
     unfree = {
@@ -59,4 +60,6 @@
     };
     # theme.arasaka.enable = true;
   };
+
+  home.packages = with pkgs; [ mattermost-desktop ];
 }
