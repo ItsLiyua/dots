@@ -28,6 +28,7 @@
       wallpaper = {
         enable = true;
         type = "nix";
+        nix.theme = "rainbow";
       };
       idle = {
         enable = true;
