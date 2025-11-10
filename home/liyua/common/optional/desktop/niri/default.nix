@@ -123,7 +123,7 @@ lib.mkIf config.liyua.desktop.wm.niri.enable {
               inherit (pair.value) width height;
               refresh = pair.value.refreshRate;
             };
-            inherit (pair.value) scale;
+            inherit (pair.value) scale focus;
             position = pair.value.pos;
           };
         })

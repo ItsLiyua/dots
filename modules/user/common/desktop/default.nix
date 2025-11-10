@@ -27,6 +27,11 @@
                 default = 0;
               };
             };
+            focus = lib.mkOption {
+              type = bool;
+              default = false;
+              description = "Whether to focus this display on startup";
+            };
           };
         }));
       default = { };

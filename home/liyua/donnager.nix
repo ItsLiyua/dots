@@ -1,4 +1,3 @@
-{ config, ... }:
 {
   liyua = {
     unfree = {
@@ -26,6 +25,7 @@
           width = 3440;
           height = 1440;
           refreshRate = 144.0;
+          focus = true;
         };
         HDMI-A-1 = {
           width = 1920;
