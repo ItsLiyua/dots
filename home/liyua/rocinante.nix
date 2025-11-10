@@ -24,6 +24,10 @@
       };
       layout = "eu";
       wm.niri.enable = true;
+      wallpaper = {
+        enable = true;
+        type = "nix";
+      };
       idle = {
         enable = true;
         suspend = true;
