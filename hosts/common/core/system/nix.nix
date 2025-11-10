@@ -17,11 +17,6 @@
     extraOptions = ''
       !include ${config.sops.secrets."nix/github".path}
     '';
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
   };
   system.stateVersion = "25.11";
 }
