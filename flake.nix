@@ -33,17 +33,27 @@
       ...
     }@inputs:
     {
-      nixosConfigurations.rocinante = nixpkgs.lib.nixosSystem {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        specialArgs = inputs // {
-          myLib = import ./lib { inherit (nixpkgs) lib; };
+      nixosConfigurations =
+        let
+          flakeModules = with inputs; [
+            disko.nixosModules.disko
+            sops-nix.nixosModules.sops
+          ];
+        in
+        {
+          rocinante = nixpkgs.lib.nixosSystem {
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            specialArgs = inputs // {
+              myLib = import ./lib { inherit (nixpkgs) lib; };
+            };
+            modules = [
+              ./hosts/common/core
+              ./hosts/common/optional
+              ./hosts/rocinante
+            ]
+            ++ flakeModules;
+          };
         };
-        modules = [
-          ./hosts/common/core
-          ./hosts/common/optional
-          ./hosts/rocinante
-        ];
-      };
       homeConfigurations."liyua@rocinante" = { };
     };
 }
