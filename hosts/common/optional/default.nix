@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./gui
-    ./system
-  ];
-}
+{ }

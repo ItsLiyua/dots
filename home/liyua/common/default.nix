@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./core
-    ./optional
-  ];
-}
+{ }
