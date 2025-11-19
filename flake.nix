@@ -34,7 +34,10 @@
     }@inputs:
     {
       nixosConfigurations.rocinante = nixpkgs.lib.nixosSystem {
-        specialArgs = inputs;
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        specialArgs = inputs // {
+          myLib = import ./lib { inherit (nixpkgs) lib; };
+        };
         modules = [
           ./hosts/common/core
           ./hosts/common/optional
