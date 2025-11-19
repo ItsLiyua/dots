@@ -1,1 +1,7 @@
-{ imports = [ ./nh.nix ]; }
+{
+  imports = [
+    ./git.nix
+    ./nh.nix
+    ./vim.nix
+  ];
+}

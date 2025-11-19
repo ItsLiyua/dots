@@ -37,7 +37,7 @@
         let
           flakeModules = with inputs; [
             disko.nixosModules.disko
-            sops-nix.nixosModules.sops
+            # sops-nix.nixosModules.sops
           ];
         in
         {
