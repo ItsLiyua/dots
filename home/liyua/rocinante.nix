@@ -14,8 +14,8 @@
       nautilus.enable = true;
       zathura.enable = true;
       discord.enable = true;
-      steam.enable = true;
-      thunderbird.enable = true;
+      # steam.enable = true;
+      # thunderbird.enable = true;
     };
     desktop = {
       displays.eDP-1 = {
