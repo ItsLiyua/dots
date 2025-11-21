@@ -21,7 +21,7 @@
           betterUploadButton.enable = true;
           biggerStreamPreview.enable = true;
           callTimer.enable = true;
-          clearURLs.enable = true;
+          clearUrLs.enable = true;
           copyEmojiMarkdown.enable = true;
           copyFileContents.enable = true;
           disableCallIdle.enable = true;
@@ -50,11 +50,11 @@
           previewMessage.enable = true;
           quickReply.enable = true;
           readAllNotificationsButton.enable = true;
-          replaceGoogleSearch = {
-            enable = true;
-            customEngineName = "DuckDuckGo";
-            customEngineURL = "https://duckduckgo.com";
-          };
+          # replaceGoogleSearch = {
+          #   enable = true;
+          #   customEngineName = "DuckDuckGo";
+          #   customEngineURL = "https://duckduckgo.com";
+          # };
           replyTimestamp.enable = true;
           revealAllSpoilers.enable = true;
           reverseImageSearch.enable = true;
@@ -66,10 +66,10 @@
             useDevIcon = "COLOR";
           };
           showHiddenChannels.enable = true;
-          showMeYourName = {
-            enable = true;
-            mode = "nick-user";
-          };
+          # showMeYourName = {
+          #   enable = true;
+          #   mode = "nick-user";
+          # };
           showTimeoutDuration.enable = true;
           silentMessageToggle.enable = true;
           spotifyCrack.enable = true;
