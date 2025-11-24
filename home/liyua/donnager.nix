@@ -32,7 +32,7 @@
           height = 1080;
           refreshRate = 60.0;
           pos = {
-            x = 1920;
+            x = -3440;
             y = 0;
           };
         };
