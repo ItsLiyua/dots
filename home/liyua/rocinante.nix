@@ -7,6 +7,7 @@
         "steam"
         "steam-unwrapped"
         "discord"
+        "makemkv"
       ];
     };
     apps = {
@@ -14,6 +15,7 @@
       nautilus.enable = true;
       zathura.enable = true;
       discord.enable = true;
+      makemkv.enable = true;
       # steam.enable = true;
       # thunderbird.enable = true;
     };
@@ -62,5 +64,5 @@
     # theme.arasaka.enable = true;
   };
 
-  home.packages = with pkgs; [ mattermost-desktop ];
+  home.packages = [ pkgs.mattermost-desktop ];
 }
