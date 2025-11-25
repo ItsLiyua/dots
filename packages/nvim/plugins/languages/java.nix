@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
 {
   vim = {
     languages.java = {
@@ -8,11 +12,9 @@
           lombok = "${pkgs.lombok}/share/java/lombok.jar";
         in
         [
-          (lib.getExe pkgs.jdt-language-server)
-          "-data"
-          "~/.cache/jdtls/workspace"
-          "--jvm-arg=-javaagent:${lombok}"
-          "--jvm-arg:-Xbootclasspath/a:${lombok}"
+          (lib.getExe pkgs.bash)
+          "-c"
+          "${lib.getExe pkgs.jdt-language-server} -data $HOME/.cache/jdtls/workspace --jvm-arg=-javaagent:${lombok} --jvm-arg:-Xbootclasspath/a:${lombok}"
         ];
     };
     formatter.conform-nvim = {
