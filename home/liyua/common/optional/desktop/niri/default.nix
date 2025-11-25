@@ -124,6 +124,7 @@ lib.mkIf config.liyua.desktop.wm.niri.enable {
               refresh = pair.value.refreshRate;
             };
             inherit (pair.value) scale;
+            focus-at-startup = pair.value.focus;
             position = pair.value.pos;
           };
         })
