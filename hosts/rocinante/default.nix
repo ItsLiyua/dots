@@ -50,7 +50,7 @@
       enable = true;
       drives.shared = {
         enable = true;
-        mode = "direct";
+        mode = "vpn";
       };
     };
     eduroam.enable = true;
