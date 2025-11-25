@@ -1,9 +1,19 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   vim = {
     languages.java = {
       enable = true;
-      # lsp.package = pkgs.jdt-language-server.override { jdk = pkgs.jdk17; };
+      lsp.package =
+        let
+          lombok = "${pkgs.lombok}/share/java/lombok.jar";
+        in
+        [
+          (lib.getExe pkgs.jdt-language-server)
+          "-data"
+          "~/.cache/jdtls/workspace"
+          "--jvm-arg=-javaagent:${lombok}"
+          "--jvm-arg:-Xbootclasspath/a:${lombok}"
+        ];
     };
     formatter.conform-nvim = {
       setupOpts = {

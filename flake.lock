@@ -886,15 +886,15 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1764006175,
-        "narHash": "sha256-1fhBT1A0sBYNrsCVOxvQ2z7u5S/YsZjttDKJYXNIZHY=",
-        "owner": "ItsLiyua",
+        "lastModified": 1762622004,
+        "narHash": "sha256-NpzzgaoMK8aRHnndHWbYNKLcZN0r1y6icCoJvGoBsoE=",
+        "owner": "notashelf",
         "repo": "nvf",
-        "rev": "e0d3a35ad2fe5c1a6326828c35d6bf0e887d6e89",
+        "rev": "09470524a214ed26633ddc2b6ec0c9bf31a8b909",
         "type": "github"
       },
       "original": {
-        "owner": "ItsLiyua",
+        "owner": "notashelf",
         "repo": "nvf",
         "type": "github"
       }

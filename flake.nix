@@ -51,12 +51,8 @@
       url = "github:oxalica/nil/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nvf = {
-    #   url = "github:notashelf/nvf";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     nvf = {
-      url = "github:ItsLiyua/nvf";
+      url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags = {
