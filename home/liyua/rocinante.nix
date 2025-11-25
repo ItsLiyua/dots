@@ -1,10 +1,23 @@
 { pkgs, ... }:
 {
   liyua = {
+    unfree = {
+      enable = true;
+      whitelist = [
+        "steam"
+        "steam-unwrapped"
+        "discord"
+        "makemkv"
+      ];
+    };
     apps = {
       firefox.enable = true;
       nautilus.enable = true;
       zathura.enable = true;
+      # discord.enable = true;
+      # makemkv.enable = true;
+      # steam.enable = true;
+      # thunderbird.enable = true;
     };
     desktop = {
       displays.eDP-1 = {
@@ -48,8 +61,8 @@
       enable = true;
       usedKey = "nfc";
     };
+    # theme.arasaka.enable = true;
   };
 
-  programs.btop.settings.selected_battery = "BAT1"; # Use external battery for t480
-  home.packages = with pkgs; [ rpi-imager ];
+  home.packages = [ pkgs.mattermost-desktop ];
 }

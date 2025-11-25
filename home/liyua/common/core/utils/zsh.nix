@@ -18,6 +18,7 @@
         v = "nvim";
         ll = "ls -l";
         la = "ls -la";
+        nfu = "nix flake update";
       };
     };
   };

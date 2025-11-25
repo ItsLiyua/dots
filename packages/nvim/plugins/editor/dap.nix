@@ -1,6 +1,6 @@
 {
   vim.debugger.nvim-dap = {
-    enable = true;
+    enable = false;
     ui.enable = true;
   };
 }

@@ -2,15 +2,15 @@
 {
   sops.secrets = {
     "liyua/git" = { };
-    "liyua/uni-gitconfig" = { };
+    "liyua/uni/gitconfig" = { };
   };
   programs = {
     git = {
       enable = true;
-      userName = "Liyua";
-      userEmail = "liyua@liyua.moe";
       lfs.enable = true;
-      extraConfig = {
+      settings = {
+        user.name = "Liyua";
+        user.email = "liyua@liyua.moe";
         init.defaultBranch = "master";
         push.autoSetupRemote = true;
         pull.rebase = false;
@@ -23,7 +23,7 @@
       includes = [
         {
           condition = "gitdir:~/Documents/Uni/";
-          path = config.sops.secrets."liyua/uni-gitconfig".path;
+          path = config.sops.secrets."liyua/uni/gitconfig".path;
         }
         {
           condition = "gitdir:~/Documents/Uni/";
@@ -51,6 +51,12 @@
           identityFile = config.sops.secrets."liyua/git".path;
         };
         lrz = matchBlocks."gitlab.lrz.de";
+        "artemis.tum.de" = {
+          user = "git";
+          hostname = "artemis.tum.de";
+          identityFile = config.sops.secrets."liyua/git".path;
+          port = 7921;
+        };
       };
     };
     zsh.shellAliases = {

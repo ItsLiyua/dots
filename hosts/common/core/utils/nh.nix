@@ -4,7 +4,7 @@
     enable = true;
     flake = "/etc/nixos";
     clean = {
-      enable = false;
+      enable = true;
       extraArgs = "--keep-since 4d --keep 5";
     };
   };

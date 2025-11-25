@@ -8,6 +8,7 @@
 
   liyua = {
     ui = {
+      gaming.gamepadSupport = true;
       greeter = {
         enable = true;
         launchCommand = "niri-session";
@@ -20,10 +21,10 @@
     bootloader = {
       enable = true;
       mode = "systemd-boot";
-      timeout = 0;
-      logLevel = 0;
+      timeout = 3;
+      logLevel = 3;
       memtest86.enable = true;
-      plymouth.enable = true;
+      # plymouth.enable = true;
     };
     logind = {
       enable = true;
@@ -47,7 +48,10 @@
     yubikey.enable = true;
     nfs = {
       enable = true;
-      drives.shared.enable = true;
+      drives.shared = {
+        enable = true;
+        mode = "direct";
+      };
     };
     eduroam.enable = true;
   };
@@ -62,6 +66,8 @@
       };
     };
   };
+
+  programs.nix-ld.enable = true;
 
   networking.hostName = "rocinante";
   console.keyMap = "us";

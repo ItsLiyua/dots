@@ -8,6 +8,7 @@
     ./nautilus.nix
     ./prismlauncher.nix
     ./steam.nix
+    ./thunderbird.nix
     ./zathura.nix
   ];
 }

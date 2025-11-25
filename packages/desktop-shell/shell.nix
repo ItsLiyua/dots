@@ -5,8 +5,8 @@
 }:
 pkgs.mkShell {
   buildInputs = [
-    (inputs.ags.packages.${pkgs.system}.default.override {
-      inherit (self.packages.${pkgs.system}.desktop-shell) extraPackages;
+    (inputs.ags.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+      inherit (self.packages.${pkgs.stdenv.hostPlatform.system}.desktop-shell) extraPackages;
     })
   ];
 }

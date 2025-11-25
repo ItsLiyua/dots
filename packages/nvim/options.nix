@@ -42,6 +42,12 @@
         virtual_lines = true;
       };
     };
-    spellcheck.enable = true;
+    spellcheck = {
+      enable = true;
+      languages = [
+        "en"
+        "de"
+      ];
+    };
   };
 }

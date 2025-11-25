@@ -57,7 +57,8 @@
     };
     ags = {
       url = "github:aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
+      # TODO: Allow following again, as soon as AGS updates to the latest nixpkgs
     };
     nix-userstyles = {
       url = "github:knoopx/nix-userstyles";
@@ -75,7 +76,6 @@
       ...
     }@inputs:
     let
-
       mkSysConfig =
         mainRepo: inputs: extraModules: entry: hostName:
         mainRepo.lib.nixosSystem (
@@ -181,11 +181,13 @@
         in
         {
           formatter = nixpkgs.legacyPackages.${s}.nixfmt-tree;
-          packages = {
-            nvim = import ./packages/nvim/package.nix {
-              inherit (inputs) nvf;
-              inherit pkgs;
-            };
+          packages = rec {
+            nvimBuilder =
+              (import ./packages/nvim {
+                inherit (inputs) nvf;
+                inherit pkgs;
+              }).buildPackage;
+            nvim = nvimBuilder { };
             desktop-shell = pkgs.callPackage ./packages/desktop-shell/package.nix { inherit (inputs) ags; };
           };
           devShells = {
