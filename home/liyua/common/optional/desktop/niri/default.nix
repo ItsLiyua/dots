@@ -68,14 +68,38 @@ lib.mkIf config.liyua.desktop.wm.niri.enable {
           2
           { focus = false; }
         ];
-        "Mod+Shift+3".action.move-column-to-workspace = 3;
-        "Mod+Shift+4".action.move-column-to-workspace = 4;
-        "Mod+Shift+5".action.move-column-to-workspace = 5;
-        "Mod+Shift+6".action.move-column-to-workspace = 6;
-        "Mod+Shift+7".action.move-column-to-workspace = 7;
-        "Mod+Shift+8".action.move-column-to-workspace = 8;
-        "Mod+Shift+9".action.move-column-to-workspace = 9;
-        "Mod+Shift+0".action.move-column-to-workspace = 10;
+        "Mod+Shift+3".action.move-column-to-workspace = [
+          3
+          { focus = false; }
+        ];
+        "Mod+Shift+4".action.move-column-to-workspace = [
+          4
+          { focus = false; }
+        ];
+        "Mod+Shift+5".action.move-column-to-workspace = [
+          5
+          { focus = false; }
+        ];
+        "Mod+Shift+6".action.move-column-to-workspace = [
+          6
+          { focus = false; }
+        ];
+        "Mod+Shift+7".action.move-column-to-workspace = [
+          7
+          { focus = false; }
+        ];
+        "Mod+Shift+8".action.move-column-to-workspace = [
+          8
+          { focus = false; }
+        ];
+        "Mod+Shift+9".action.move-column-to-workspace = [
+          9
+          { focus = false; }
+        ];
+        "Mod+Shift+0".action.move-column-to-workspace = [
+          10
+          { focus = false; }
+        ];
 
         "Print".action.screenshot = [ ];
         "Mod+P".action.screenshot = [ ];
