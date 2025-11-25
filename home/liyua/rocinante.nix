@@ -14,7 +14,7 @@
       firefox.enable = true;
       nautilus.enable = true;
       zathura.enable = true;
-      # discord.enable = true;
+      discord.enable = true;
       # makemkv.enable = true;
       # steam.enable = true;
       # thunderbird.enable = true;
