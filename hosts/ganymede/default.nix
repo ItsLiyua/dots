@@ -4,6 +4,7 @@
     ./modules/disko.nix
     ./modules/jellyfin.nix
     ./modules/nfs.nix
+    ./modules/gitea.nix
   ];
   liyua = {
     bootloader = {

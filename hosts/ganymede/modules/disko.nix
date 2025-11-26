@@ -74,6 +74,11 @@
           options.mountpoint = "legacy";
           mountpoint = "/export";
         };
+        "root/internal" = {
+          type = "zfs_fs";
+          options.mountpoint = "legacy";
+          mountpoint = "/mnt/internal";
+        };
       };
     };
   };
