@@ -15,6 +15,7 @@
       nautilus.enable = true;
       zathura.enable = true;
       discord.enable = true;
+      prismlauncher.enable = true;
       # makemkv.enable = true;
       # steam.enable = true;
       # thunderbird.enable = true;
