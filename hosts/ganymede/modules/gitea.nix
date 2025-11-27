@@ -1,4 +1,8 @@
 {
+  networking.firewall.allowedTCPPorts = [
+    3000
+    2222
+  ];
   services.gitea = {
     enable = true;
     stateDir = "/export/shared/internal/gitea";
@@ -6,7 +10,7 @@
     settings = {
       server = {
         SSH_PORT = 2222;
-        DOMAIN = "10.15.0.7";
+        DOMAIN = "";
       };
       # service.DISABLE_REGISTRATION = true;
     };
