@@ -8,7 +8,7 @@
     2222
   ];
   services.gitea = {
-    enable = true;
+    enable = false;
     stateDir = "/export/shared/internal/gitea";
     lfs.enable = true;
     settings = {
