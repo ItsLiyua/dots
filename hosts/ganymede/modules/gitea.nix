@@ -6,7 +6,7 @@
     settings = {
       server = {
         SSH_PORT = 2222;
-        DOMAIN = "";
+        DOMAIN = "10.15.0.7";
       };
       # service.DISABLE_REGISTRATION = true;
     };
