@@ -1,6 +1,8 @@
 {
   services.gitea = {
-    # enable = true;
-    # stateDir = ""; # create zfs subvol for internel stuff
+    enable = true;
+    stateDir = "/export/shared/internal/gitea";
+    lfs.enable = true;
+    settings.server.SSH_PORT = 2222;
   };
 }
