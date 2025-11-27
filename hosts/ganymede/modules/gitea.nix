@@ -11,6 +11,10 @@
     enable = true;
     stateDir = "/export/shared/internal/gitea";
     lfs.enable = true;
+    database = {
+      createDatabase = true;
+      type = "sqlite3";
+    };
     settings = {
       server = {
         SSH_PORT = 2222;
