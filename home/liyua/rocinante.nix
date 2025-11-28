@@ -60,7 +60,7 @@
     };
     yubikey = {
       enable = true;
-      usedKey = "nfc";
+      usedKey = "nfc-c";
     };
     # theme.arasaka.enable = true;
   };
