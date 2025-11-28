@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ myLib, pkgs, ... }:
 {
   liyua = {
     unfree = {
@@ -60,10 +60,13 @@
     };
     yubikey = {
       enable = true;
-      usedKey = "nfc-c";
+      usedKey = "nfc";
     };
     # theme.arasaka.enable = true;
   };
 
-  home.packages = [ pkgs.mattermost-desktop ];
+  # home.packages = [
+  #   pkgs.mattermost-desktop
+  #   (pkgs.callPackage (myLib.relativeToRoot "packages/glance-agent/package.nix") { })
+  # ];
 }
